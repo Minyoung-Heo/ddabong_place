@@ -109,6 +109,10 @@
 	margin-top: 100px;
 }
 
+.BZ {
+	margin-top: 70px;
+}
+
 @font-face {
 	font-family: 'TmoneyRoundWindExtraBold';
 	src:
@@ -121,6 +125,8 @@
 * {
 	font-family: 'TmoneyRoundWindExtraBold', sans-serif;
 }
+
+
 </style>
 <meta charset="UTF-8">
 <title><t:insertAttribute name="title" /></title>

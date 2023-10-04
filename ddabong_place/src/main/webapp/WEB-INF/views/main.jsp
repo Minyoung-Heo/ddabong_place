@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="BZ">
+		<a  href="selectLogin">형진 로그인 선택창</a>
+	</div>
 
 </body>
 </html>

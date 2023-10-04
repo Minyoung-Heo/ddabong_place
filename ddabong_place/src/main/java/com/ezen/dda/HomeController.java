@@ -9,9 +9,15 @@ public class HomeController {
 	public String main() {
 		return "main";
 	}
-	
+
 	@RequestMapping(value = "/main")
 	public String main1() {
 		return "main";
 	}
+
+	@RequestMapping(value = "/selectLogin")
+	public String selectLogin() {
+		return "selectLogin";
+	}
+
 }
