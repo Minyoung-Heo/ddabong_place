@@ -17,8 +17,9 @@ public class RankController {
 	@Autowired
 	SqlSession sqlSession;
 	
-	@RequestMapping(value = "/") // 이달의 따봉
+	@RequestMapping(value = "/") 
 	public String monthDDA(HttpServletRequest request, Model model) {
+		// 이달의 따봉 기능
 		RankService rankService = sqlSession.getMapper(RankService.class);
 		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
 		String month; // 문자 월
@@ -38,11 +39,12 @@ public class RankController {
 		}
 		RankDTO rankDTO = new RankDTO();
 		rankDTO.setMonth(month); // 이번달 저장
-		ArrayList<RankDTO> rankList = rankService.monthDDA(rankDTO); // 
-		
-		
+		ArrayList<RankDTO> rankList = rankService.monthDDA(rankDTO);
 		model.addAttribute("rankList", rankList);
 		
+		// 따봉 어워드
+		ArrayList<RankDTO> awardList = rankService.awardDDA();
+		model.addAttribute("awardList", awardList);
 		return "main";
 	}
 }
