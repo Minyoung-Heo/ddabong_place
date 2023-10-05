@@ -13,7 +13,7 @@
 </head>
 
 <header>
-	<a href="main"><img class="header2" src="/dda/image/따봉로고.png" width="450px"></a>
+	<a href="main"><img class="header2" src="/dda/image/DDAlogo.png" width="450px"></a>
 <div class="login">
 	<a href="">회원가입</a> <a href="">로그인</a>
 </div>
