@@ -17,5 +17,12 @@
       <put-attribute name="body"
          value="/WEB-INF/views/main.jsp" />
    </definition>
+   
+   <definition name="storeinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storeinput.jsp" />
+   </definition>
+   
 
 </tiles-definitions>
