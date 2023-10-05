@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.rank.RankService">
+
+	<!-- 이달의 따봉왕 1~3위 출력 -->
+	<select id="monthDDA" resultType="com.ezen.dda.rank.RankDTO"
+		parameterType="com.ezen.dda.rank.RankDTO">
+		<![CDATA[
+		SELECT store_id, ${month}, image
+		FROM (
+		SELECT s.store_id, s.${month}, r.image
+		FROM ddabong s
+		JOIN registration r ON s.store_id = r.store_id
+		ORDER BY s.${month} DESC
+		)
+		WHERE ROWNUM <= 3
+		 ]]>
+	</select>
+
+</mapper>

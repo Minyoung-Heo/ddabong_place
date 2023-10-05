@@ -59,10 +59,6 @@
 	margin: 0;
 }
 
-#container {
-	border: 1px slid #bcbcbc;
-}
-
 #header {
 	text-align: center;
 	width: 100%;
@@ -78,7 +74,7 @@
 	text-align: center;
 	padding: 30px;
 	height: auto;
-	min-height: 100%;
+	min-height: 300%;
 	padding-bottom: 260px;
 	margin-top: 50px;
 }
@@ -126,7 +122,6 @@
 <title><t:insertAttribute name="title" /></title>
 </head>
 <body>
-	<div id="container">
 		<div id="top">
 			<t:insertAttribute name="top" />
 		</div>
@@ -136,6 +131,5 @@
 		<div id="footer">
 			<t:insertAttribute name="footer" />
 		</div>
-	</div>
 </body>
 </html>

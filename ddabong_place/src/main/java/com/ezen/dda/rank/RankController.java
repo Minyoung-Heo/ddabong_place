@@ -1,0 +1,48 @@
+package com.ezen.dda.rank;
+
+import java.io.Console;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class RankController {
+	@Autowired
+	SqlSession sqlSession;
+	
+	@RequestMapping(value = "/") // 이달의 따봉
+	public String monthDDA(HttpServletRequest request, Model model) {
+		RankService rankService = sqlSession.getMapper(RankService.class);
+		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
+		String month; // 문자 월
+		switch(mon) { // 숫자 월을 문자 월로 변환
+		case 1: month = "jan"; break;
+		case 2: month = "feb"; break;
+		case 3: month = "mar"; break;
+		case 4: month = "apr"; break;
+		case 5: month = "may"; break;
+		case 6: month = "jun"; break;
+		case 7: month = "jul"; break;
+		case 8: month = "aug"; break;
+		case 9: month = "sep"; break;
+		case 10: month = "oct"; break;
+		case 11: month = "nov"; break;
+		default: month = "dcb";
+		}
+		RankDTO rankDTO = new RankDTO();
+		rankDTO.setMonth(month); // 이번달 저장
+		ArrayList<RankDTO> rankList = rankService.monthDDA(rankDTO); // 
+		
+		
+		model.addAttribute("rankList", rankList);
+		
+		return "main";
+	}
+}
