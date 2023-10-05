@@ -10,9 +10,27 @@ public class PersonalController {
 	@Autowired
 	SqlSession sqlSession;
 
+	//로그인 선택 화면
+	@RequestMapping(value = "/selectLogin")
+	public String selectLogin() {
+		return "selectLogin";
+	}
+	
+	//회원가입 선택 화면
+	@RequestMapping(value = "/selectJoin")
+	public String selectJoin() {
+		return "selectJoin";
+	}
+	
+	//회원용 로그인 화면
 	@RequestMapping(value = "/personalLogin")
-	public String asd2a3() {
+	public String personalLogin() {
 		return "personalLogin";
+	}
+	//회원용 회원가입 화면
+	@RequestMapping(value = "/personalJoin")
+	public String personalJoin() {
+		return "personalJoin";
 	}
 
 }

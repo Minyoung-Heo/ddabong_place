@@ -15,9 +15,6 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping(value = "/selectLogin")
-	public String selectLogin() {
-		return "selectLogin";
-	}
+	
 
 }

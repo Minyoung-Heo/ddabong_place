@@ -6,32 +6,30 @@
 <head>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const personalidInput = document.getElementById("personalid");
-    const personalpwInput = document.getElementById("personalpw");
-    const loginButton = document.getElementById("loginButton");
+    const pi = document.getElementById("personalid");
+    const pw = document.getElementById("personalpw");
+    const btn = document.getElementById("loginButton");
 
-    // 초기에 로그인 버튼을 비활성화합니다
-    loginButton.style.backgroundColor = "#CCCCCC"; // 회색 배경색
-    loginButton.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듭니다
+    // 초기에 로그인 버튼을 비활성화
+    btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
+    btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
     
-    personalidInput.addEventListener("input", toggleLoginButton);
-    personalpwInput.addEventListener("input", toggleLoginButton);
+    pi.addEventListener("input", toggleLoginButton);
+    pw.addEventListener("input", toggleLoginButton);
 
     function toggleLoginButton() {
-        if (personalidInput.value.trim() !== "" && personalpwInput.value.trim() !== "") {
-          loginButton.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
-          loginButton.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
-          loginButton.removeAttribute("disabled");
+        if (pi.value.trim() !== "" && pw.value.trim() !== "") {
+        	btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
+        	btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
+        	btn.removeAttribute("disabled");
         } else {
-          loginButton.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
-          loginButton.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
-          loginButton.setAttribute("disabled", "true");
+        	btn.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
+        	btn.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
+        	btn.setAttribute("disabled", "true");
         }
       }
   });
 </script>
-
-
 
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -184,14 +182,6 @@ body {
 	font-size: 15px;
 }
 
-/* .btn_login {
-	width: 100%;
-	height: 51px;
-	background-color: black;
-	color: #f5f6f7;
-	font-size: 23px;
-	margin-top: 20px;
-} */
 .btn_login {
 	width: 100%;
 	height: 51px;
@@ -213,7 +203,6 @@ p1 {
 	<div class="BZ">
 		<div class="container2">
 			<h1 class="login_title">회원 로그인</h1>
-
 			<form class="login_form" action="personLoginCheck" method="post">
 				<div class="id_area">
 					<span class="id_input"> <input type="text" id="personalid"

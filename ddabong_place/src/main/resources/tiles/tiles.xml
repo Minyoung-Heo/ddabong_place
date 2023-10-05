@@ -18,17 +18,29 @@
          value="/WEB-INF/views/main.jsp" />
    </definition>
    
-<!--    형진-로그인선택창 -->
+<!--    형진-로그인 선택창 -->
    <definition name="selectLogin" extends="baseLayout">
       <put-attribute name="title" value="로그인 선택창" />
       <put-attribute name="body"
          value="/WEB-INF/views/personal/selectLogin.jsp" />
+   </definition>
+<!--    형진-회원가입 선택창 -->
+   <definition name="selectJoin" extends="baseLayout">
+      <put-attribute name="title" value="회원가입 선택창" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/personal/selectJoin.jsp" />
    </definition>
 <!--    형진-개인 회원 로그인 -->
    <definition name="personalLogin" extends="baseLayout">
       <put-attribute name="title" value="개인회원 로그인" />
       <put-attribute name="body"
          value="/WEB-INF/views/personal/personalLogin.jsp" />
+   </definition>
+<!--    형진-개인 회원 회원가입 -->
+   <definition name="personalJoin" extends="baseLayout">
+      <put-attribute name="title" value="개인회원 회원가입" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/personal/personalJoin.jsp" />
    </definition>
    
 </tiles-definitions>

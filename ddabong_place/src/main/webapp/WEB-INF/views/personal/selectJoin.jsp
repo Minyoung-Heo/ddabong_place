@@ -37,24 +37,24 @@ p {
 </head>
 <body>
 	<div class="BZ">
-		<h1>회원 유형을 선택해주세요.</h1>
+		<h1>회원가입 유형을 선택해주세요.</h1>
 		<br> <br> <br>
 
 		<!-- 		사용자 유형 설정 -->
-		<div class="box" onclick="location.href='personalLogin'">
+		<div class="box" onclick="location.href='personalJoin'">
 			<img class="imga" alt="사용자" src="/dda/image/user.png"><br>
-			<p1>회원용 로그인</p1>
+			<p1>회원용 회원가입</p1>
 			<br> <br> <br>
-			<p>일반 회원으로 로그인을 합니다.</p>
+			<p>일반 회원으로 회원가입을 합니다.</p>
 		</div>
 		<!-- 		기업 유형 설정 -->
-		<div class="box2" onclick="location.href='PersonalJoin'">
+		<div class="box2" onclick="location.href='PersonalLogin'">
 			<img class="imga" alt="사용자" src="/dda/image/store.png"><br>
-			<p1>업체용 로그인</p1>
+			<p1>업체용 회원가입</p1>
 			<br> <br> <br>
-			<p>매장 관리자용으로 로그인을 합니다.</p>
+			<p>매장 관리자용으로 회원가입을 합니다.</p>
 		</div>
 	</div>
-	<a onclick="location.href='selectJoin'"><p1>회원이 아니신가요 ? 지금 바로 가입하세요 !</p1></a>
+	<a onclick="location.href='selectLogin'"><p1>이미 계정이 있으신가요 ?</p1></a>
 </body>
 </html>

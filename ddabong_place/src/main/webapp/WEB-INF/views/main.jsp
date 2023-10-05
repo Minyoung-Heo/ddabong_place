@@ -10,6 +10,9 @@
 	<div class="BZ">
 		<a  href="selectLogin">형진 로그인 선택창</a>
 	</div>
+	<div class="BZ">
+		<a  href="selectJoin">형진 회원가입 선택창</a>
+	</div>
 
 </body>
 </html>
