@@ -17,5 +17,18 @@
       <put-attribute name="body"
          value="/WEB-INF/views/main.jsp" />
    </definition>
-
+<!--  검색 -->
+  <definition name="searchList" extends="baseLayout">
+      <put-attribute name="title" value="검색결과창" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/search/searchList.jsp" />
+   </definition>
+<!--  @@검색종료@@ -->
+<!--  고객맞춤카페추천 -->
+  <definition name="quiz" extends="baseLayout">
+      <put-attribute name="title" value="고객맞춤카페추천" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/banner/quiz.jsp" />
+   </definition>
+<!--  @@카페추천종료@@ -->
 </tiles-definitions>
