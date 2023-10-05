@@ -59,6 +59,14 @@
 	margin: 0;
 }
 
+.test{
+	position: fixed;
+	float: left;
+	left: 300px;
+	top: 150px;
+	font-size: 30px;
+}
+
 #container {
 	border: 1px slid #bcbcbc;
 }
@@ -66,16 +74,11 @@
 #header {
 	text-align: center;
 	width: 100%;
-}
-
-#nav {
-	width: 100%;
+	position: fixed;
 }
 
 #body {
-	margin: 0;
-	padding: 0;
-	text-align: center;
+	/* text-align: center; */
 	padding: 30px;
 	height: auto;
 	min-height: 100%;
@@ -121,6 +124,7 @@
 * {
 	font-family: 'TmoneyRoundWindExtraBold', sans-serif;
 }
+
 </style>
 <meta charset="UTF-8">
 <title><t:insertAttribute name="title" /></title>

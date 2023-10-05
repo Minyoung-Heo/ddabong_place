@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<div class="test">
+    <a href="storeinput">테스트 이동</a>
+</div>
+	
 </body>
 </html>
