@@ -1,7 +1,7 @@
 package com.ezen.dda.store;
 
 public class StoreDTO {
-	String store_id, storename, tel, address, intro, image, main_menu, main_image, region_name, feature, dessert;
+	String store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert;
 
 	public StoreDTO() {
 		super();
@@ -47,6 +47,14 @@ public class StoreDTO {
 		this.address = address;
 	}
 
+	
+	public String getLineintro() {
+		return lineintro;
+	}
+
+	public void setLineintro(String lineintro) {
+		this.lineintro = lineintro;
+	}
 
 	public String getIntro() {
 		return intro;

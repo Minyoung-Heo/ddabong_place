@@ -19,10 +19,15 @@
    </definition>
    
    <definition name="storeinput" extends="baseLayout">
-      <put-attribute name="title" value="메인화면" />
+      <put-attribute name="title" value="매장 등록" />
       <put-attribute name="body"
          value="/WEB-INF/views/store/storeinput.jsp" />
    </definition>
    
-
+	<definition name="storeoutput" extends="baseLayout">
+      <put-attribute name="title" value="매장 등록 출력" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storeoutput.jsp" />
+   </definition>
+   
 </tiles-definitions>

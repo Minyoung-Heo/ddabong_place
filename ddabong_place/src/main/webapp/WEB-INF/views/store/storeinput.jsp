@@ -21,7 +21,7 @@ h2 {
     left: 50px;
 }
 
-.store_id, .storename, .tel, .address, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
+.store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
   margin-top: 30px;
   width: 90%;
  
@@ -48,7 +48,7 @@ input {
   font-size: 1.2em;
   letter-spacing: 2px;
   position: relative;
-  left: 130px;
+  left: 100px;
 }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
@@ -57,12 +57,12 @@ input {
   vertical-align: bottom;
 }
 
-.intro textarea {
+.lineintro textarea, .intro textarea {
   border: none;
   outline: none;
 }
 
-.intro textarea::placeholder {
+.lineintro textarea::placeholder, .intro textarea::placeholder {
   text-decoration: underline;
   color: #000000; /* 밑줄 색상 설정, 원하는 색상으로 변경하세요 */
   font-size: 18px;
@@ -223,35 +223,48 @@ function check(){
                 <h4>업체 아이디</h4>
                 <input type="text" name="store_id" placeholder="업체 아이디">
             </div>
+            
             <div class="storename">
                 <h4>매장명</h4>
                 <input type="text" name="storename" placeholder="매장명">
             </div>
+            
             <div class="tel">
               <h4>매장 전화번호</h4>
               <input type="text" name="tel" placeholder="매장 전화번호">
             </div>
+            
             <div class="address">
               <h4>매장 주소</h4>
               <input type="text" name="address" placeholder="매장 주소">
             </div>
-           <div class="intro">
+            
+            <div class="lineintro">
+              <h4>매장 한줄 소개</h4>
+              <textarea rows="4" cols="40" name="lineintro" placeholder="매장 소개를 적어주세요"></textarea>
+          	</div>
+          	
+           	<div class="intro">
               <h4>매장 소개글</h4>
               <textarea rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
-          </div>
-          <div class="mae_image">
+          	</div>
+          	
+          	<div class="mae_image">
             <h4>매장 이미지</h4>
             <input type="file" name="image" id="file">
-          </div>
-          <div class="main_menu">
+          	</div>
+          	
+          	<div class="main_menu">
             <h4>매장 대표 메뉴 이름</h4>
             <input type="text" name="main_menu" placeholder="매장 대표 메뉴 이름">
-          </div>
-          <div class="main_image">
+          	</div>
+          	
+          	<div class="main_image">
             <h4>매장 대표 메뉴 사진</h4>
             <input type="file" name="main_image" id="file">
-          </div>
-          <div class="region_name">
+          	</div>
+          	
+          	<div class="region_name">
             <h4>지역 코드</h4>
             <select name="region_name">
                 <option selected>선택하세요</option>
@@ -263,6 +276,7 @@ function check(){
                 <option value="혜화">혜화</option>
               </select>
           </div>
+          
           <div class="feature">
             <h4>특징</h4>
               <input type="checkbox" name="feature" value="노키즈존">노키즈존
@@ -275,6 +289,7 @@ function check(){
 	          <input type="checkbox" name="feature" value="노트북 사용 O">노트북 사용 O
 	          <input type="checkbox" name="feature" value="노트북 사용 X">노트북 사용 X
           </div>
+          
           <div class="dessert">
             <h4>디저트</h4>
             <input type="checkbox" name="dessert" value="케이크">케이크
@@ -286,6 +301,7 @@ function check(){
             <input type="checkbox" name="dessert" value="쿠키">쿠키
             <input type="checkbox" name="dessert" value="빙수">빙수
           </div>
+          
             <div class="submit">
                 <input type="button" value="입력" onclick="check()">
             </div>
