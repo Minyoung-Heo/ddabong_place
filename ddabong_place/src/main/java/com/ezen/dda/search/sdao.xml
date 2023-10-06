@@ -10,6 +10,6 @@ select * from registration where storename like #{param1}
 	</select>
 	<!-- 지역별 검색 -->
 	<select id="regionsearch" resultType="com.ezen.dda.search.SearchDTO">
-select * from registration where region_code like #{param1}
+select * from registration where region_name like #{param1}
 	</select>
 </mapper>
