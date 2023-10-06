@@ -81,7 +81,7 @@
 	/* text-align: center; */
 	padding: 30px;
 	height: auto;
-	min-height: 100%;
+	min-height: 300%;
 	padding-bottom: 260px;
 	margin-top: 50px;
 }
