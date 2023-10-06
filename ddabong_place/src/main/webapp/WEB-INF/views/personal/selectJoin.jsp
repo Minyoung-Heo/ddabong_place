@@ -48,7 +48,7 @@ p {
 			<p>일반 회원으로 회원가입을 합니다.</p>
 		</div>
 		<!-- 		기업 유형 설정 -->
-		<div class="box2" onclick="location.href='PersonalLogin'">
+		<div class="box2" onclick="location.href='storeJoin'">
 			<img class="imga" alt="사용자" src="/dda/image/store.png"><br>
 			<p1>업체용 회원가입</p1>
 			<br> <br> <br>
