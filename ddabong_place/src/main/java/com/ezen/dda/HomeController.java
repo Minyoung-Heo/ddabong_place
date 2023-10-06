@@ -19,8 +19,4 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping(value = "/body")
-	public String main2() {
-		return "body";
-	}
 }

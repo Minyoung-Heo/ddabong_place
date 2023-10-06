@@ -16,7 +16,7 @@ public class StoreController {
 	
 	@Autowired
 	SqlSession sqlSession;
-	static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image"; //각자의 이미지 폴더 위치 넣기
+	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image"; //각자의 이미지 폴더 위치 넣기
 	
 	//storeinput 입력창
 	@RequestMapping(value = "/storeinput")

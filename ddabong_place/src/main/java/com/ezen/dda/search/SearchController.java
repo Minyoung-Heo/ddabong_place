@@ -24,6 +24,7 @@ public class SearchController {
 		ArrayList<SearchDTO> regionlist=ss.regionsearch(searchValue2);
 		mo.addAttribute("storelist", storelist);
 		mo.addAttribute("regionlist", regionlist);
+		mo.addAttribute("searchValue", searchValue);
 		return "searchList";
 	}
 }

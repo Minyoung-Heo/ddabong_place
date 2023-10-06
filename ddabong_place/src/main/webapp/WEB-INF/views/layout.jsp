@@ -45,7 +45,6 @@
 	border: none;
 	border-radius: 0px;
 }
-
 .in2 {
    width: 250%;
    height: 60px;
@@ -71,14 +70,6 @@
    font-size: 30px;
 }
 
-.test{
-	position: fixed;
-	float: left;
-	left: 300px;
-	top: 150px;
-	font-size: 30px;
-}
-
 #container {
    border: 1px slid #bcbcbc;
 }
@@ -96,18 +87,6 @@
    min-height: 100%;
    padding-bottom: 260px;
    margin-top: 50px;
-	text-align: center;
-	width: 100%;
-	position: fixed;
-}
-
-#body {
-	/* text-align: center; */
-	padding: 30px;
-	height: auto;
-	min-height: 100%;
-	padding-bottom: 260px;
-	margin-top: 50px;
 }
 
 #footer {

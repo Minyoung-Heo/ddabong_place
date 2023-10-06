@@ -33,7 +33,7 @@
 <!--  @@카페추천종료@@ -->
    
    <definition name="storeinput" extends="baseLayout">
-      <put-attribute name="title" value="매장정보입력" />
+      <put-attribute name="title" value="메인화면" />
       <put-attribute name="body"
          value="/WEB-INF/views/store/storeinput.jsp" />
    </definition>
