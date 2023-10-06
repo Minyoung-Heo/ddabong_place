@@ -188,5 +188,7 @@
     <a href="storeinput">테스트 이동</a>
 </div>
 	
+<br><br><br>
+<a href="quiz">카페추천요</a>
 </body>
 </html>
