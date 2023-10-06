@@ -78,7 +78,7 @@
 }
 
 #body {
-	/* text-align: center; */
+	text-align: center;
 	padding: 30px;
 	height: auto;
 	min-height: 300%;
