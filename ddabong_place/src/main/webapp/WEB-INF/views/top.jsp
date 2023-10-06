@@ -15,7 +15,7 @@
 <header>
 	<a href="main"><img class="header2" src="/dda/image/DDAlogo.png" width="450px"></a>
 <div class="login">
-	<a href="">회원가입</a> <a href="">로그인</a>
+	<a href="selectJoin">회원가입</a> <a href="selectLogin">로그인</a>
 </div>
 
 	<div class="search">

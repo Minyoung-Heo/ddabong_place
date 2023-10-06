@@ -77,8 +77,15 @@
 	position: fixed;
 }
 
+#nav {
+	width: 100%;
+}
+
 #body {
-	/* text-align: center; */
+	/* margin: 0;
+	padding: 0;
+	text-align: center; */
+	
 	padding: 30px;
 	height: auto;
 	min-height: 100%;
@@ -112,6 +119,10 @@
 	margin-top: 100px;
 }
 
+.BZ {
+	margin-top: 70px;
+}
+
 @font-face {
 	font-family: 'TmoneyRoundWindExtraBold';
 	src:
@@ -124,6 +135,7 @@
 * {
 	font-family: 'TmoneyRoundWindExtraBold', sans-serif;
 }
+
 
 </style>
 <meta charset="UTF-8">
