@@ -7,7 +7,14 @@ public class RankDTO {
 	String image; // 메인화면에 띄울 이미지
 	String month; // 이번 달
 	int sum; // 1~12월 따봉 수 총합
+	String lineIntro; // 매장 한줄소개글
 	
+	public String getLineIntro() {
+		return lineIntro;
+	}
+	public void setLineIntro(String lineIntro) {
+		this.lineIntro = lineIntro;
+	}
 	public String getStoreName() {
 		return storeName;
 	}

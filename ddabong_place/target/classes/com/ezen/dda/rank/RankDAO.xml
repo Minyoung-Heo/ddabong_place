@@ -36,4 +36,16 @@
 		WHERE ROWNUM <= 3
 				 ]]>
 	</select>
+	
+	<select id="hotRank" resultType="com.ezen.dda.rank.RankDTO">
+			<![CDATA[
+	SELECT * FROM (
+    SELECT a.store_id, b.storename, b.image, b.lineintro
+    FROM reservation a
+    JOIN registration b ON a.store_id = b.store_id
+    GROUP BY a.store_id, b.storename, b.image, b.lineintro
+    ORDER BY COUNT(*) DESC
+	) WHERE ROWNUM <= 20
+				 ]]>
+	</select>
 </mapper>

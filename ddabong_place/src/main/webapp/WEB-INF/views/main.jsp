@@ -18,18 +18,18 @@
 		$('.slide_div').slick({
 			dots : true,
 			autoplay : true,
-			autoplaySpeed : 3000
+			autoplaySpeed : 2000
 		});
 	});
 </script>
 <style type="text/css">
 .slick-prev {
-	left: 500px;
+	left: 750px;
 	z-index: 1;
 }
 
 .slick-next {
-	right: 500px;
+	right: 750px;
 	z-index: 1;
 }
 
@@ -39,40 +39,81 @@
 
 .slide_div_wrap {
 	padding: 15px 0 15px 0;
-	background: #e6e9f6;
 	margin-bottom: 50px;
 	margin-top: 20px;
 }
 
-.image_wrap img {
-	max-width: 80%;
-	height: auto;
-	display: block;
-	margin: auto;
+.award-container {
+	margin-top: 30px;
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
 }
 
-.award_div {
-	overflow: hidden; /* 오버플로우 숨김 */
+.award-img-wrapper {
+	width: 300px;
+	height: 300px;
+	position: relative;
 }
 
-.award_div div {
-	margin-top: 20px;
-	float: left;
-	width: 33.33%; /* 3개의 이미지를 가로로 나란히 정렬 */
-	box-sizing: border-box; /* 패딩, 보더가 너비에 포함되도록 함 */
-	padding: 10px;
+.award-img-wrapper img{
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
-
-.award_div img {
-	max-width: 100%;
-	height: auto;
-	display: block;
-	margin: auto;
-	margin-bottom: 20px;
-}
-
 .medal {
+	margin-top: 20px;
 	width: 3vw;
+}
+
+.flex-container {
+	margin-top: 30px;
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.flex-container-inner {
+	display: flex;
+}
+
+.flex-item {
+	
+}
+
+.flex-item img {
+	max-width: 100%;
+}
+
+.img-wrapper {
+	margin-right: 30px; 
+	width: 120px;
+	height: 120px;
+	position: relative;
+}
+
+.img-wrapper img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.flex-item h3 {
+	margin-top: 30px; 
+}
+
+.intro {
+	text-align: left;
 }
 </style>
 </head>
@@ -92,15 +133,56 @@
 	</div>
 
 	<h1>따봉 어워드</h1>
-	<div class="award_div">
+<div class="award-container">
 		<c:forEach items="${awardList}" var="awardDDA" varStatus="loop">
-			<div>
-				<a href="매장상세페이지로?store_id=${awardDDA.store_id}">
-				<img alt="" src="/dda/image/${awardDDA.image}" width="400px"></a> 
-				<img class="medal" src="/dda/image/${loop.index + 1}위.png" alt="${loop.index + 1}위">
+		<div>
+			<div class="award-img-wrapper">
+				<a href="매장상세페이지로?store_id=${awardDDA.store_id}"> <img alt=""
+					src="/dda/image/${awardDDA.image}"></a>
+					</div> 
+					
+					<img class="medal" src="/dda/image/${loop.index + 1}위.png" alt="${loop.index + 1}위">
 				<h3>${awardDDA.storeName}</h3>
-			</div>
+				</div>
 		</c:forEach>
+		
+</div>
+
+
+	<div class="flex-container">
+
+		<div class="flex-item">
+
+			<h1>예약 <span style="color:#FF4500;">HOT</span>  랭킹</h1>
+			<hr>
+			<c:forEach items="${hotList}" var="rank" varStatus="loop">
+
+				<div class="flex-container-inner">
+
+					<div class="img-wrapper">
+						<a href="매장상세페이지로?store_id=${rank.store_id}"> <img alt=""
+							src="/dda/image/${rank.image}" width="100px"></a>
+					</div>
+
+					<div class="intro">
+						<h3>${loop.index + 1}. ${rank.storeName}</h3>
+						${rank.lineIntro}
+					</div>
+
+				</div>
+				<hr>
+			</c:forEach>
+
+		</div>
+
+
+
+		<div class="flex-item">
+			<h1>Quiz</h1>
+		</div>
+
 	</div>
+
+
 </body>
 </html>

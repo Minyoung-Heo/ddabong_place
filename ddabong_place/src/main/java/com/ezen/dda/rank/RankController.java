@@ -1,6 +1,5 @@
 package com.ezen.dda.rank;
 
-import java.io.Console;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -45,6 +44,10 @@ public class RankController {
 		// 따봉 어워드
 		ArrayList<RankDTO> awardList = rankService.awardDDA();
 		model.addAttribute("awardList", awardList);
+		
+		// 예약 HOT 랭킹
+		ArrayList<RankDTO> hotList = rankService.hotRank();
+		model.addAttribute("hotList", hotList);
 		return "main";
 	}
 }
