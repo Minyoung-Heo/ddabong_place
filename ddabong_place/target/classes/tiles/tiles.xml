@@ -41,13 +41,16 @@
       <put-attribute name="title" value="개인회원 회원가입" />
       <put-attribute name="body"
          value="/WEB-INF/views/personal/personalJoin.jsp" />
+     </definition>
          
+   <!--  매장 등록 입력창  -->
    <definition name="storeinput" extends="baseLayout">
       <put-attribute name="title" value="매장 등록" />
       <put-attribute name="body"
          value="/WEB-INF/views/store/storeinput.jsp" />
    </definition>
    
+   <!--  매장 등록 출력창  -->
 	<definition name="storeoutput" extends="baseLayout">
       <put-attribute name="title" value="매장 등록 출력" />
       <put-attribute name="body"

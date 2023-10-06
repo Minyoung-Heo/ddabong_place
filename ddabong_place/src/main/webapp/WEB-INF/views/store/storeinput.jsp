@@ -10,6 +10,8 @@
 h2 {
   color: #ff8c00;
   font-size: 2em;
+  position: relative;
+  left: -15px;
 }
 
 .wrap{
@@ -18,7 +20,7 @@ h2 {
     justify-content: center;
     display: flex;
     position: relative;
-    left: 50px;
+    left: 30px;
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
@@ -48,7 +50,7 @@ input {
   font-size: 1.2em;
   letter-spacing: 2px;
   position: relative;
-  left: 100px;
+  left: 0px;
 }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {

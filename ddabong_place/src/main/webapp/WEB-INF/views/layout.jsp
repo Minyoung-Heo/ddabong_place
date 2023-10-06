@@ -82,9 +82,9 @@
 }
 
 #body {
-	/* margin: 0;
+	margin: 0;
 	padding: 0;
-	text-align: center; */
+	text-align: center;
 	
 	padding: 30px;
 	height: auto;
