@@ -20,7 +20,7 @@ input[type="checkbox"] + label span{
 }
 input[type="checkbox"]:checked + label span{
   /* 구글에서 가져온 이미지입니다, 원하는 이미지로 변경하면 됩니다. */
-  background:"url(/dda/image/스벅.png)";
+  background:url(/dda/image/스벅.png);
   
   /*   이미지 크기가 체크박스보다 크다면 cover를 적용 */
   /*   background-size:cover; */
