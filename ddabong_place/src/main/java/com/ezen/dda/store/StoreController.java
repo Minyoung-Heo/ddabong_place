@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -81,15 +85,76 @@ public class StoreController {
 		return "storeoutput";
 	}
 
-	// 회원용 로그인 화면
+	// 업체용 로그인 화면
 	@RequestMapping(value = "/storeLogin")
 	public String storeLogin() {
 		return "storeLogin";
 	}
 
-	// 회원용 회원가입 화면
+//  업체용 로그인 확인
+	@RequestMapping(value = "/storelogincheck", method = RequestMethod.POST)
+	public String storelogincheck(HttpServletRequest request) {
+		String id = request.getParameter("storeid");
+		String pw = request.getParameter("storepw");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		StoreDTO dto = ss.storelogincheck(id, pw);
+		if (dto != null) {
+			HttpSession hs = request.getSession();
+			hs.setAttribute("store", dto);
+			hs.setAttribute("storeloginstate", true);
+			hs.setMaxInactiveInterval(3600);
+
+			return "main";
+		} else {
+
+			return "storeloginerr";
+		}
+	}
+
+//  업체 로그아웃
+	@RequestMapping(value = "/storelogout")
+	public String storelogout(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+
+		hs.removeAttribute("store");
+		hs.setAttribute("storeloginstate", false);
+
+		return "redirect:/";
+	}
+
+	// 업체용 회원가입 화면
 	@RequestMapping(value = "/storeJoin")
 	public String storeJoin() {
 		return "storeJoin";
+	}
+
+//  업체 회원가입 전송
+	@RequestMapping(value = "/storesave", method = RequestMethod.POST)
+	public String in2(HttpServletRequest request) {
+		String id = request.getParameter("storeid");
+		String pw = request.getParameter("storepw");
+		String ceo = request.getParameter("storename");
+		String phone = request.getParameter("storephone");
+		String email = request.getParameter("storeemail");
+
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ss.storejoin(id, pw, ceo, phone, email);
+
+		return "main";
+	}
+
+//  아이디 중복확인 체크
+	@ResponseBody
+	@RequestMapping(value = "/storeidcheck")
+	public String out4(String id) {
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		int cnt = ss.storeidcheck(id);
+		String bb = null;
+		if (cnt == 0) {
+			bb = "ok";
+		} else {
+			bb = "";
+		}
+		return bb;
 	}
 }

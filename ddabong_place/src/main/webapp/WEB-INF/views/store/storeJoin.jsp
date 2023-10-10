@@ -54,7 +54,7 @@
 }
 
 .success-message {
-	color: blue;
+	color: #00e600;
 	font-size: 12px;
 	margin-top: 5px;
 }
@@ -83,7 +83,7 @@
 													.ajax({
 														type : "post",
 														async : true,
-														url : "idcheck",
+														url : "storeidcheck",
 														data : {
 															"id" : id
 														},
@@ -194,25 +194,51 @@
 						}
 					}, 1000);
 				});
-		// 이메일 유효성 검사
-		$("#storeemail").on(
+		// 전화번호 유효성 검사
+		$("#storephone").on(
 				'input',
 				function() {
 					clearTimeout(uTimer);
 					uTimer = setTimeout(function() {
-						var name = $("#storeemail").val();
-						var emailErrorMessage = $("#emailErrorMessage");
+						var phone = $("#storephone").val();
+						var phoneErrorMessage = $("#phoneErrorMessage");
 
-						if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/.test(name)) {
-							emailErrorMessage.text("").removeClass(
+						if (/^\d{11}$/.test(phone)) {
+							phoneErrorMessage.text("").removeClass(
 									"success-message");
 						} else {
-							emailErrorMessage.text("✘ 이메일은 영문,숫자,특수문자(@ 또는.)로만 입력 가능합니다.")
+							phoneErrorMessage.text("✘ 전화번호 형식이 올바르지 않습니다.")
 									.removeClass("success-message").css(
 											"color", "red");
 						}
 					}, 1000);
 				});
+		// 이메일 유효성 검사
+		$("#storeemail")
+				.on(
+						'input',
+						function() {
+							clearTimeout(uTimer);
+							uTimer = setTimeout(
+									function() {
+										var name = $("#storeemail").val();
+										var emailErrorMessage = $("#emailErrorMessage");
+
+										if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/
+												.test(name)) {
+											emailErrorMessage.text("")
+													.removeClass(
+															"success-message");
+										} else {
+											emailErrorMessage
+													.text(
+															"✘ 이메일은 영문,숫자,특수문자(@ 또는.)로만 입력 가능합니다.")
+													.removeClass(
+															"success-message")
+													.css("color", "red");
+										}
+									}, 1000);
+						});
 
 	});
 </script>
@@ -223,23 +249,31 @@
 		<div class="container2">
 			<h1 class="login_title">업체 관리자 가입</h1>
 			<form action="storesave" method="post" id="myForm">
-				아이디<input type="text" id="storeid" class="textbox"
-					placeholder="사업자 등록 번호를 입력해주세요." name="storeid" maxlength="20">
+				사업자 등록 번호<input type="text" id="storeid" class="textbox"
+					placeholder="-를 제외한 번호(10자리) 입력해주세요. ex)0123456789 " name="storeid"
+					maxlength="20">
 				<div class="error-message" id="idErrorMessage"></div>
+
 				비밀번호<input type="password" id="storepw" class="textbox"
 					placeholder="비밀번호" name="storepw" maxlength="20"> 비밀번호확인<input
 					type="password" id="storepw_confirm" class="textbox"
-					placeholder="비밀번호 확인" name="storepw" maxlength="20">
+					placeholder="비밀번호 확인" maxlength="20">
 				<div class="error-message" id="passwordErrorMessage"></div>
+
 				대표자명<input type="text" id="storename" class="textbox"
 					placeholder="대표자명" name="storename">
 				<div class="error-message" id="nameErrorMessage"></div>
-					이메일<input type="text"
-					id="storeemail" class="textbox"
+
+				전화번호<input type="text" id="storephone" name="storephone"
+					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
+				<div class="error-message" id="phoneErrorMessage"></div>
+
+
+				이메일<input type="text" id="storeemail" class="textbox"
 					placeholder="이메일 ex)user@ddabongplace.com" name="storeemail">
-						<div class="error-message" id="emailErrorMessage"></div>
-				<button id="loginButton" class="btn_login" type="button"
-					onclick="check()">로그인</button>
+				<div class="error-message" id="emailErrorMessage"></div>
+
+				<button id="loginButton" class="btn_login" type="submit">회원가입</button>
 				<br>
 			</form>
 		</div>

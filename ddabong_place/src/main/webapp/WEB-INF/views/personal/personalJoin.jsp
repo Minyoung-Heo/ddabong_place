@@ -36,6 +36,7 @@
 	padding: 10px 14px 10px 14px;
 	box-sizing: border-box;
 	font-size: 15px;
+	border-radius: 40px;
 }
 
 .btn_login {
@@ -45,6 +46,7 @@
 	color: white;
 	font-size: 23px;
 	margin-top: 20px;
+	border-radius: 40px;
 }
 
 .error-message {
@@ -54,7 +56,7 @@
 }
 
 .success-message {
-	color: blue;
+	color: #00e600;
 	font-size: 12px;
 	margin-top: 5px;
 }
@@ -109,7 +111,7 @@
 															// 오류 발생 시
 															idErrorMessage
 																	.text(
-																			"✘ 관리자에게 문의해주세요.")
+																			"✘ 다시 입력해주세요.")
 																	.removeClass(
 																			"success-message");
 														}
@@ -165,7 +167,7 @@
 							} else {
 								passwordErrorMessage.text("✔ 비밀번호가 일치합니다.")
 										.addClass("success-message").css(
-												"color", "blue");
+												"color", "#00e600");
 							}
 						} else {
 							passwordErrorMessage.text(
@@ -232,6 +234,32 @@
 						}
 					}, 1000);
 				});
+		// 이메일 유효성 검사
+		$("#personalemail")
+				.on(
+						'input',
+						function() {
+							clearTimeout(uTimer);
+							uTimer = setTimeout(
+									function() {
+										var name = $("#personalemail").val();
+										var emailErrorMessage = $("#emailErrorMessage");
+
+										if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/
+												.test(name)) {
+											emailErrorMessage.text("")
+													.removeClass(
+															"success-message");
+										} else {
+											emailErrorMessage
+													.text(
+															"✘ 이메일은 영문,숫자,특수문자(@ 또는.)로만 입력 가능합니다.")
+													.removeClass(
+															"success-message")
+													.css("color", "red");
+										}
+									}, 1000);
+						});
 
 	});
 </script>
@@ -291,7 +319,7 @@
 		var address = addr2 + " " + addr3;
 
 		// address 값을 hidden 필드에 할당
-		$("#address").val(address);
+		$("#personaladdress").val(address);
 	});
 </script>
 </head>
@@ -300,22 +328,34 @@
 		<div class="container2">
 			<h1 class="login_title">회원 가입</h1>
 			<form action="personalsave" method="post" id="myForm">
+				<br>
+				<!-- 			<input type="text" id="personalid"  name="personalid"><br> 
+			<input type="text" name="personalpw" id="personalpw"><br>
+			<input type="text" name="personalname" id="personalname"><br>
+			<input type="text" name="personalnickname"><br>
+			<input type="text" name="personalphone"><br>
+			<input type="text" name="personaladdress"><br>
+			<input type="text" name="personalemail">-->
 				아이디<input type="text" id="personalid" class="textbox"
 					placeholder="아이디" name="personalid" maxlength="20">
 				<div class="error-message" id="idErrorMessage"></div>
+
 				비밀번호<input type="password" id="personalpw" class="textbox"
 					placeholder="비밀번호" name="personalpw" maxlength="20"> 비밀번호확인<input
 					type="password" id="personalpw_confirm" class="textbox"
-					placeholder="비밀번호 확인" name="personalpw" maxlength="20">
+					placeholder="비밀번호 확인" maxlength="20">
 				<div class="error-message" id="passwordErrorMessage"></div>
+
 				이름<input type="text" id="personalname" class="textbox"
 					placeholder="이름" name="personalname">
 				<div class="error-message" id="nameErrorMessage"></div>
+
 				닉네임<input type="text" id="personalnickname" class="textbox"
 					placeholder="닉네임" name="personalnickname">
 				<div class="error-message" id="nicknameErrorMessage"></div>
-				전화번호<input type="text" id="personalphone" class="textbox"
-					placeholder="전화번호 - 사용하지말아주세요. ex)010xxxxxxxx ">
+
+				전화번호<input type="text" id="personalphone" name="personalphone" class="textbox"
+					placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 				주소<br> <input class="textbox"
@@ -329,14 +369,15 @@
 				<input class="textbox" style="background-color: #d9d9d9"
 					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
 					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
-					name="addr3" id="addr3" type="text" />
-<!-- 					도로명 + 상세주소 합쳐진거보내기 위한거 -->
-					<input type="hidden" id="address" name="personaladdress" value="전체주소">
-					이메일<input type="text"
-					id="personalemail" class="textbox"
+					name="addr3" id="addr3" type="text" /> 
+<!-- 					도로명 + 상세주소 합쳐진거보내기 위한거  -->
+					<input
+					type="hidden" id="personaladdress" name="personaladdress" value="전체주소">
+					
+				이메일<input type="text" id="personalemail" class="textbox" name="personalemail"
 					placeholder="이메일 ex)user@ddabongplace.com">
-				<button id="loginButton" class="btn_login" type="button"
-					onclick="check()">로그인</button>
+				<div class="error-message" id="emailErrorMessage"></div>
+				<button id="loginButton" class="btn_login" type="submit">회원가입</button>
 				<br>
 			</form>
 		</div>

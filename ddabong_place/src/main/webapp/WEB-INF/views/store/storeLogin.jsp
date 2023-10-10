@@ -5,30 +5,30 @@
 <html>
 <head>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const pi = document.getElementById("personalid");
-    const pw = document.getElementById("personalpw");
-    const btn = document.getElementById("loginButton");
+	document.addEventListener("DOMContentLoaded", function() {
+		const pi = document.getElementById("storeid");
+		const pw = document.getElementById("storepw");
+		const btn = document.getElementById("loginButton");
 
-    // 초기에 로그인 버튼을 비활성화
-    btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
-    btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
-    
-    pi.addEventListener("input", toggleLoginButton);
-    pw.addEventListener("input", toggleLoginButton);
+		// 초기에 로그인 버튼을 비활성화
+		btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
+		btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
 
-    function toggleLoginButton() {
-        if (pi.value.trim() !== "" && pw.value.trim() !== "") {
-        	btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
-        	btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
-        	btn.removeAttribute("disabled");
-        } else {
-        	btn.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
-        	btn.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
-        	btn.setAttribute("disabled", "true");
-        }
-      }
-  });
+		pi.addEventListener("input", toggleLoginButton);
+		pw.addEventListener("input", toggleLoginButton);
+
+		function toggleLoginButton() {
+			if (pi.value.trim() !== "" && pw.value.trim() !== "") {
+				btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
+				btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
+				btn.removeAttribute("disabled");
+			} else {
+				btn.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
+				btn.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
+				btn.setAttribute("disabled", "true");
+			}
+		}
+	});
 </script>
 
 <style type="text/css">
@@ -203,21 +203,22 @@ p1 {
 	<div class="BZ">
 		<div class="container2">
 			<h1 class="login_title">업체 관리자 로그인</h1>
-			<form class="login_form" action="personLoginCheck" method="post">
+			<form class="login_form" action="storelogincheck" method="post">
 				<div class="id_area">
-					<span class="id_input"> <input type="text" id="personalid"
-						class="id" placeholder="사업자 번호를 입력해주세요." name="personalid"
+					<span class="id_input"> <input type="text" id="storeid"
+						class="id" placeholder="아이디(사업자 번호)를 입력해주세요." name="storeid"
 						maxlength="20">
 					</span>
 				</div>
 				<div class="pswd_area">
 					<span class="pswd_input"> <input type="password"
-						id="personalpw" class="pswd" placeholder="비밀번호를 입력해주세요." name="pw"
-						maxlength="16">
+						id="storepw" class="pswd" placeholder="비밀번호를 입력해주세요."
+						name="storepw" maxlength="16">
 
 					</span>
 				</div>
-				<button id="loginButton" class="btn_login" value="로그인" type="submit" disabled>로그인</button>
+				<button id="loginButton" class="btn_login" value="로그인" type="submit"
+					disabled>로그인</button>
 				<br>
 			</form>
 		</div>
