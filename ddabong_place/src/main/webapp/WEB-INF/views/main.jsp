@@ -115,6 +115,7 @@
 .intro {
 	text-align: left;
 }
+
 </style>
 </head>
 <body>
@@ -179,6 +180,7 @@
 
 		<div class="flex-item">
 			<h1>Quiz</h1>
+			<a href="quiz"><img src="/dda/image/quiz.png" width="560px"></a>
 		</div>
 
 	</div>
