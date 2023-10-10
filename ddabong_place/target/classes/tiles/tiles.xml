@@ -36,6 +36,7 @@
       <put-attribute name="body"
          value="/WEB-INF/views/personal/personalLogin.jsp" />
    </definition>
+   
 <!--    개인 회원 회원가입 -->
    <definition name="personalJoin" extends="baseLayout">
       <put-attribute name="title" value="개인회원 회원가입" />
@@ -43,9 +44,23 @@
          value="/WEB-INF/views/personal/personalJoin.jsp" />
      </definition>
          
-   <!--  매장 등록 입력창  -->
+<!--    업체회원  로그인 -->
+   <definition name="storeLogin" extends="baseLayout">
+      <put-attribute name="title" value="업체회원 로그인" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storeLogin.jsp" />
+   </definition>
+   
+<!--    업체회원 회원가입 -->
+   <definition name="storeJoin" extends="baseLayout">
+      <put-attribute name="title" value="업체회원 회원가입" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storeJoin.jsp" />
+   </definition>
+   
+      <!--  매장 등록 입력창  -->
    <definition name="storeinput" extends="baseLayout">
-      <put-attribute name="title" value="매장 등록" />
+      <put-attribute name="title" value="매장 등록 입력" />
       <put-attribute name="body"
          value="/WEB-INF/views/store/storeinput.jsp" />
    </definition>
@@ -56,17 +71,19 @@
       <put-attribute name="body"
          value="/WEB-INF/views/store/storeoutput.jsp" />
    </definition>
-<!--    업체회원  로그인 -->
-   <definition name="storeLogin" extends="baseLayout">
-      <put-attribute name="title" value="업체회원 로그인" />
+   
+   <!--  매장 등록 수정창  -->
+	<definition name="storemodify" extends="baseLayout">
+      <put-attribute name="title" value="매장 등록 수정" />
       <put-attribute name="body"
-         value="/WEB-INF/views/store/storeLogin.jsp" />
+         value="/WEB-INF/views/store/storemodify.jsp" />
    </definition>
-<!--    업체회원 회원가입 -->
-   <definition name="storeJoin" extends="baseLayout">
-      <put-attribute name="title" value="업체회원 회원가입" />
+   
+   <!--  매장 예약 현황창  -->
+	<definition name="storestatus" extends="baseLayout">
+      <put-attribute name="title" value="매장 예약 캘린더" />
       <put-attribute name="body"
-         value="/WEB-INF/views/store/storeJoin.jsp" />
+         value="/WEB-INF/views/store/storestatus.jsp" />
    </definition>
    
 </tiles-definitions>

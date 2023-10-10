@@ -15,7 +15,8 @@
 	</div>
 
 <div class="test">
-    <a href="storeinput">테스트 이동</a>
+    <a href="storeinput">테스트 이동</a><br>
+   	<a href="storestatus">캘린더 테스트</a>
 </div>
 	
 </body>

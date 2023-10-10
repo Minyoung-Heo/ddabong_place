@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-h2 {
+h1 {
   color: #ff8c00;
   font-size: 2em;
   position: relative;
-  left: -15px;
+  font-size: 50px;
 }
 
 .wrap{
@@ -25,12 +25,11 @@ h2 {
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
   margin-top: 30px;
-  width: 90%;
- 
+  width: 100%;
 }
 
 input {
-  width: 100%;
+  width: 87.5%;
   height: 50px;
   border-radius: 30px;
   margin-top: 10px;
@@ -56,7 +55,7 @@ input {
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
   width: 18px; /* 원하는 너비 값으로 조절하세요 */
   height: 18px; /* 원하는 높이 값으로 조절하세요 */
-  vertical-align: bottom;
+  vertical-align: bottom; /* 체크박스 위치 조정 */
 }
 
 .lineintro textarea, .intro textarea {
@@ -68,11 +67,6 @@ input {
   text-decoration: underline;
   color: #000000; /* 밑줄 색상 설정, 원하는 색상으로 변경하세요 */
   font-size: 18px;
-}
-
-.mae_image, .main_image {
-  position: relative;
-  display: inline-block;
 }
 
 input[type=file]::file-selector-button {
@@ -208,6 +202,44 @@ function check(){
 
     f.submit();
 }
+
+// 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
+document.addEventListener("DOMContentLoaded", function () {
+    // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
+    // 여기에서는 간단히 하드코딩으로 설정
+    var loggedInStoreId = store_id; // 예: 로그인한 사용자의 store_id
+
+    // store_id 입력 필드를 가져옴
+    var storeIdInput = document.querySelector("input[name='store_id']");
+
+    // store_id 입력 필드에 로그인한 사용자의 store_id를 설정
+    storeIdInput.value = loggedInStoreId;
+});
+
+//파일 선택 필드를 가져옴
+var imageInput = document.getElementById("image");
+var mainImageInput = document.getElementById("main_image");
+
+// 파일이 선택되면 발생하는 이벤트 처리
+imageInput.addEventListener("change", function () {
+    var selectedFiles = imageInput.files;
+    // 선택한 파일들을 처리하는 코드를 작성
+    for (var i = 0; i < selectedFiles.length; i++) {
+        var file = selectedFiles[i];
+        // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
+    }
+});
+
+mainImageInput.addEventListener("change", function () {
+    var selectedFiles = mainImageInput.files;
+    // 선택한 파일들을 처리하는 코드를 작성
+    for (var i = 0; i < selectedFiles.length; i++) {
+        var file = selectedFiles[i];
+        // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
+    }
+});
+
+
 </script>
 </head>
 <body>
@@ -220,10 +252,11 @@ function check(){
 <form action="storeinputsave" method="post" enctype="multipart/form-data" name="store">
 <div class="wrap">
         <div class="storeinput">
-            <h2>매장 등록 입력창</h2>
+            <h1>매장 등록 입력창</h1>
+            
             <div class="store_id">
                 <h4>업체 아이디</h4>
-                <input type="text" name="store_id" placeholder="업체 아이디">
+                <input type="text" name="store_id" readonly>
             </div>
             
             <div class="storename">
@@ -247,13 +280,13 @@ function check(){
           	</div>
           	
            	<div class="intro">
-              <h4>매장 소개글</h4>
-              <textarea rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
+            	<h4>매장 소개글</h4>
+            	<textarea rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
           	</div>
           	
           	<div class="mae_image">
-            <h4>매장 이미지</h4>
-            <input type="file" name="image" id="file">
+           		<h4>매장 이미지</h4>
+            	<input type="file" name="image" id="file" accept="image/*" multiple>
           	</div>
           	
           	<div class="main_menu">
@@ -262,8 +295,8 @@ function check(){
           	</div>
           	
           	<div class="main_image">
-            <h4>매장 대표 메뉴 사진</h4>
-            <input type="file" name="main_image" id="file">
+            	<h4>매장 대표 메뉴 사진</h4>
+            	<input type="file" name="main_image" id="file" accept="image/*" multiple>
           	</div>
           	
           	<div class="region_name">
@@ -277,36 +310,36 @@ function check(){
                 <option value="잠실">잠실</option>
                 <option value="혜화">혜화</option>
               </select>
-          </div>
+          	</div>
           
-          <div class="feature">
+          	<div class="feature">
             <h4>특징</h4>
-              <input type="checkbox" name="feature" value="노키즈존">노키즈존
-	          <input type="checkbox" name="feature" value="반려견 동반 입장 O">반려견 동반 입장 O
-	          <input type="checkbox" name="feature" value="반려견 동반 입장 X">반려견 동반 입장 X<br>
-	          <input type="checkbox" name="feature" value="주차장 O">주차장 O
-	          <input type="checkbox" name="feature" value="주차장 X">주차장 X
-	          <input type="checkbox" name="feature" value="루프탑">루프탑<br>
-	          <input type="checkbox" name="feature" value="테라스">테라스
-	          <input type="checkbox" name="feature" value="노트북 사용 O">노트북 사용 O
-	          <input type="checkbox" name="feature" value="노트북 사용 X">노트북 사용 X
-          </div>
+            	<label><input type="checkbox" name="feature" value="노키즈존">노키즈존</label>
+	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 O">반려견 동반 입장 O</label>
+	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 X">반려견 동반 입장 X</label><br>
+	        	<label><input type="checkbox" name="feature" value="주차장 O">주차장 O</label>
+	        	<label><input type="checkbox" name="feature" value="주차장 X">주차장 X</label>
+	        	<label><input type="checkbox" name="feature" value="루프탑">루프탑</label><br>
+	        	<label><input type="checkbox" name="feature" value="테라스">테라스</label>
+	        	<label><input type="checkbox" name="feature" value="노트북 사용 O">노트북 사용 O</label>
+	        	<label><input type="checkbox" name="feature" value="노트북 사용 X">노트북 사용 X</label>
+          	</div>
           
-          <div class="dessert">
+          	<div class="dessert">
             <h4>디저트</h4>
-            <input type="checkbox" name="dessert" value="케이크">케이크
-            <input type="checkbox" name="dessert" value="마들렌">마들렌
-            <input type="checkbox" name="dessert" value="스콘">스콘
-            <input type="checkbox" name="dessert" value="마카롱">마카롱<br>
-            <input type="checkbox" name="dessert" value="크로플">크로플
-            <input type="checkbox" name="dessert" value="휘낭시에">휘낭시에
-            <input type="checkbox" name="dessert" value="쿠키">쿠키
-            <input type="checkbox" name="dessert" value="빙수">빙수
-          </div>
+            	<label><input type="checkbox" name="dessert" value="케이크">케이크</label>
+            	<label><input type="checkbox" name="dessert" value="마들렌">마들렌</label>
+            	<label><input type="checkbox" name="dessert" value="스콘">스콘</label>
+            	<label><input type="checkbox" name="dessert" value="마카롱">마카롱</label><br>
+            	<label><input type="checkbox" name="dessert" value="크로플">크로플</label>
+            	<label><input type="checkbox" name="dessert" value="휘낭시에">휘낭시에</label>
+            	<label><input type="checkbox" name="dessert" value="쿠키">쿠키</label>
+            	<label><input type="checkbox" name="dessert" value="빙수">빙수</label>
+           	</div>
           
-            <div class="submit">
+           	<div class="submit">
                 <input type="button" value="입력" onclick="check()">
-            </div>
+           	</div>
         </div>
     </div>
 </form>

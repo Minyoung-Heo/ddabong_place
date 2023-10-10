@@ -10,9 +10,11 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-h2 {
+h1 {
   color: #ff8c00;
   font-size: 2em;
+  position: relative;
+  font-size: 50px;
 }
 
 .wrap{
@@ -21,13 +23,12 @@ h2 {
     justify-content: center;
     display: flex;
     position: relative;
-    left: 50px;
+    left: 30px;
 }
 
-.store_id, .storename, .tel, .address, .lineintro .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
+.store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
   margin-top: 30px;
-  width: 90%;
- 
+  width: 100%;
 }
 
 input {
@@ -50,46 +51,18 @@ input {
   color: white;
   font-size: 1.2em;
   letter-spacing: 2px;
-  position: relative;
-  left: 100px;
 }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
   width: 18px; /* 원하는 너비 값으로 조절하세요 */
   height: 18px; /* 원하는 높이 값으로 조절하세요 */
-  vertical-align: bottom;
+  vertical-align: bottom; /* 체크박스 위치 조정 */
 }
 
 .lineintro textarea, .intro textarea {
   border: none;
   outline: none;
 }
-
-.lineintro textarea::placeholder, .intro textarea::placeholder {
-  text-decoration: underline;
-  color: #000000; /* 밑줄 색상 설정, 원하는 색상으로 변경하세요 */
-  font-size: 18px;
-}
-
-.mae_image, .main_image {
-  position: relative;
-  display: inline-block;
-}
-
-input[type=file]::file-selector-button {
-  width: 150px;
-  height: 30px;
-  background: #fff;
-  border: 1px solid rgb(77,77,77);
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-  left: -5px;
-}
-input[type=file]::file-selector-button:hover {
-    background: rgb(77,77,77);
-    color: #fff;
-  }
 
 .mae_image input, .main_image input {
   border: none;
@@ -124,9 +97,10 @@ option {
 <br>
 <br>
 
+<form action="storemodifyview" method="post">
 <div class="wrap">
         <div class="storeinput">
-            <h2>매장 등록 입력창</h2>
+            <h1>나의 매장 정보</h1>
             
             <c:forEach items="${list}" var="store">
             
@@ -152,7 +126,7 @@ option {
             
             <div class="lineintro">
               <h4>매장 한줄 소개</h4>
-              <textarea rows="8" cols="40" name="lineintro" readonly >${store.lineintro}</textarea>
+              <textarea rows="8" cols="40" readonly>${store.lineintro}</textarea>
            </div>
            
            <div class="intro">
@@ -162,7 +136,7 @@ option {
           
           <div class="mae_image">
             <h4>매장 이미지</h4>
-            <td><img alt="매장 이미지" src="image/${store.image}" width="400px"></td>
+            <td><img alt="매장 이미지" src="image/${store.image}" width="300px"></td>
           </div>
           
           <div class="main_menu">
@@ -172,7 +146,7 @@ option {
           
           <div class="main_image">
             <h4>매장 대표 메뉴 사진</h4>
-            <input value="${store.main_image}" readonly>
+            <td><img alt="매장 대표 메뉴 사진" src="image/${store.main_image}" width="300px"></td>
           </div>
           
           <div class="region_name">
@@ -191,10 +165,11 @@ option {
           </div>
           
             <div class="submit">
-                <input type="button" value="입력" onclick="check()">
+                <input type="submit" value="수정하기">
             </div>
             </c:forEach>
         </div>
     </div>
+</form>
 </body>
 </html>
