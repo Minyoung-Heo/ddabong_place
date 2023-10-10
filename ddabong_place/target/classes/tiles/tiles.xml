@@ -44,4 +44,10 @@
          value="/WEB-INF/views/store/storeoutput.jsp" />
    </definition>
    
+   	<definition name="qnaForm" extends="baseLayout">
+      <put-attribute name="title" value="QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/qnaForm.jsp" />
+   </definition>
+   
 </tiles-definitions>
