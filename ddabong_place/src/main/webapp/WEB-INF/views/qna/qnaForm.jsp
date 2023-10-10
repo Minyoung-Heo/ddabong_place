@@ -49,19 +49,17 @@
 .qna {
 	margin-top: 20px;
 	text-align: center;
-	font-size: 30px;
+	font-size: 25px;
 	width: 85%;
 }
 
 .q1 {
-	font-size:25px;
 	padding: 15px;
 	border-top: 1px solid #FFBF35;
 	border-bottom: 1px solid #FFBF35;
 }
 
 .q2, .q3, .q4 {
-	font-size:25px;
 	padding: 15px;
 	border-bottom: 1px solid #FFBF35;
 }
@@ -151,9 +149,10 @@ $(document).ready(function() {
 	<div class="div-container">
 		<div class="category">
 		<h1>Q&A</h1>
-			<a href="qnaform">자주하는 질문</a><br> <a href="qnaform">업체 Q&A</a><br>
+			<a href="qnaform" style="color:#ff8c00;">자주하는 질문</a><br>
+			<a href="qnaform">업체 Q&A</a><br>
 			<a href="qnaform">손님 Q&A</a><br>
-			<a href="qnaform">1:1 문의하기</a>
+			<a href="question">1:1 문의하기</a>
 		</div>
 
 		<div class="qna">
@@ -226,14 +225,7 @@ $(document).ready(function() {
 				</div>
 
 			</div>
-			
-			
-			
-			
 		</div>
-
-
-
 
 	</div>
 </body>

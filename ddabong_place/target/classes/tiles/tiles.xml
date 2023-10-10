@@ -50,4 +50,10 @@
          value="/WEB-INF/views/qna/qnaForm.jsp" />
    </definition>
    
+     	<definition name="questionInput" extends="baseLayout">
+      <put-attribute name="title" value="1:1 문의하기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/questionInput.jsp" />
+   </definition>
+   
 </tiles-definitions>

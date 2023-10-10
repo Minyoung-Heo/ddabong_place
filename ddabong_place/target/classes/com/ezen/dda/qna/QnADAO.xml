@@ -3,5 +3,9 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.dda.qna.QnAService">
-
+<insert id="questionInput" parameterType="com.ezen.dda.qna.QnADTO">
+insert into question(question_num, usertype, questiontype, title, writer, id, content, pw, question_date, groups)
+values(question_seq.nextval, #{userType}, #{questionType}, #{title}, #{writer}, #{id}, #{content}, #{pw}, sysdate,
+question_seq.currval)
+</insert>
 </mapper>
