@@ -12,11 +12,6 @@ public class HomeController {
 	}
 	
 
-	@RequestMapping(value = "/main")
-	public String main1() {
-		return "main";
-	}
-
 	
 
 }
