@@ -3,27 +3,46 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-   <definition name="baseLayout"
-      template="/WEB-INF/views/layout.jsp">
-      <put-attribute name="title" value="" />
-      <put-attribute name="top" value="/WEB-INF/views/top.jsp" />
-      <put-attribute name="body" value="" />
-      <put-attribute name="footer"
-         value="/WEB-INF/views/footer.jsp" />
-   </definition>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 헤더 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<definition name="baseLayout"
+		template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="/WEB-INF/views/top.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/footer.jsp" />
+	</definition>
 
-   <definition name="main" extends="baseLayout">
-      <put-attribute name="title" value="메인화면" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/main.jsp" />
-   </definition>
-<!--  검색 -->
-  <definition name="searchList" extends="baseLayout">
-      <put-attribute name="title" value="검색결과창" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/search/searchList.jsp" />
-   </definition>
-<!--  @@검색종료@@ -->
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/main.jsp" />
+	</definition>
+
+	<!-- 로그인 선택창 -->
+	<definition name="selectLogin" extends="baseLayout">
+		<put-attribute name="title" value="로그인 선택창" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/selectLogin.jsp" />
+	</definition>
+
+	<!-- 회원가입 선택창 -->
+	<definition name="selectJoin" extends="baseLayout">
+		<put-attribute name="title" value="회원가입 선택창" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/selectJoin.jsp" />
+	</definition>
+	
+	<!-- 검색 -->
+	<definition name="searchList" extends="baseLayout">
+		<put-attribute name="title" value="검색결과창" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/search/searchList.jsp" />
+	</definition>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 헤더 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	
+	
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <!--  고객맞춤카페추천 -->
   <definition name="quiz" extends="baseLayout">
       <put-attribute name="title" value="고객맞춤카페추천" />
@@ -36,17 +55,67 @@
          value="/WEB-INF/views/quiz/quizresult.jsp" />
    </definition>
 <!--  @@카페추천종료@@ -->
-   
-   <definition name="storeinput" extends="baseLayout">
-      <put-attribute name="title" value="매장 등록" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/store/storeinput.jsp" />
-   </definition>
-   
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+ 
+ 
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- 유저 회원 로그인 -->
+	<definition name="personalLogin" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 로그인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalLogin.jsp" />
+	</definition>
+
+	<!-- 유저 회원 로그인 에러 -->
+	<definition name="personalloginerr" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalloginerr.jsp" />
+	</definition>
+
+	<!-- 유저 회원 회원가입 -->
+	<definition name="personalJoin" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 회원가입" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalJoin.jsp" />
+	</definition>
+
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- 업체 회원 로그인 -->
+	<definition name="storeLogin" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeLogin.jsp" />
+	</definition>
+	<!-- 업체 회원 로그인 에러 -->
+	<definition name="storeloginerr" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeloginerr.jsp" />
+	</definition>
+
+	<!-- 업체 회원 회원가입 -->
+	<definition name="storeJoin" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 회원가입" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeJoin.jsp" />
+	</definition>
+
+	<!-- 업체 매장 등록 -->
+	<definition name="storeinput" extends="baseLayout">
+		<put-attribute name="title" value="매장 등록" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeinput.jsp" />
+	</definition>
+
+	<!-- 업체 매장 출력 -->
 	<definition name="storeoutput" extends="baseLayout">
-      <put-attribute name="title" value="매장 등록 출력" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/store/storeoutput.jsp" />
-   </definition>
-   
+		<put-attribute name="title" value="매장 등록 출력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeoutput.jsp" />
+	</definition>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 </tiles-definitions>

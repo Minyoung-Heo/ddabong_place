@@ -116,6 +116,10 @@
    margin-top: 100px;
 }
 
+.BZ {
+	margin-top: 70px;
+}
+
 @font-face {
    font-family: 'TmoneyRoundWindExtraBold';
    src:
