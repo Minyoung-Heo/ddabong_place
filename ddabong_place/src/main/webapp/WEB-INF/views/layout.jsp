@@ -81,8 +81,15 @@
    position: fixed;
 }
 
+#nav {
+	width: 100%;
+}
+
 #body {
 	text-align: center;
+	margin: 0;
+	padding: 0;
+	
 	padding: 30px;
 	height: auto;
 	min-height: 300%;
