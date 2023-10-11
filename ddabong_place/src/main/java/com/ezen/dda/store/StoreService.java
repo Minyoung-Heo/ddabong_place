@@ -21,4 +21,10 @@ public interface StoreService {
 	// 업체 로그인
 	public StoreDTO storelogincheck(String id, String pw);
 
+	// 아이디 찾기
+	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
+
+	// 비밀번호 찾기
+	public ArrayList<StoreDTO> storepwResult(String ceo, String id);
+
 }

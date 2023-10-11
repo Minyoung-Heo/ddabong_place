@@ -12,6 +12,7 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/footer.jsp" />
 	</definition>
+	
 
 	<definition name="main" extends="baseLayout">
 		<put-attribute name="title" value="메인화면" />
@@ -43,7 +44,7 @@
 	
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-		<!-- 고객맞춤카페추천 -->
+	<!-- 고객맞춤카페추천 -->
 	<definition name="quiz" extends="baseLayout">
 		<put-attribute name="title" value="고객맞춤카페추천" />
 		<put-attribute name="body"
@@ -73,6 +74,48 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalJoin.jsp" />
 	</definition>
+	
+	<!-- 유저 회원 아이디비번찾기 -->
+	<definition name="personalFind" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 아디비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalFind.jsp" />
+	</definition>
+<!-- 	팝업창 관련 -->
+	<definition name="popupLayout"
+		template="/WEB-INF/views/popuplayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="" />
+	</definition>
+	
+	<!-- 유저 회원 아이디찾기 -->
+	<definition name="personalidFind" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 아이디찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalidFind.jsp" />
+	</definition>
+	<!-- 유저 회원 아이디찾기 결과-->
+	<definition name="personalidResult" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 아이디찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalidResult.jsp" />
+	</definition>
+	
+	<!-- 유저 회원 비번찾기 -->
+	<definition name="personalpwFind" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalpwFind.jsp" />
+	</definition>
+	<!-- 유저 회원 비번찾기 결과 -->
+	<definition name="personalpwResult" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 비번찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalpwResult.jsp" />
+	</definition>
 
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
@@ -90,7 +133,47 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
-
+<!-- 유저 회원 아이디비번찾기 -->
+	<definition name="storeFind" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 아디비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeFind.jsp" />
+	</definition>
+<!-- 	팝업창 관련 -->
+	<definition name="popupLayout"
+		template="/WEB-INF/views/popuplayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="" />
+	</definition>
+	
+	<!-- 업체 회원 아이디찾기 -->
+	<definition name="storeidFind" extends="popupLayout">
+		<put-attribute name="title" value="업체 아이디찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeidFind.jsp" />
+	</definition>
+	<!-- 업체 회원 아이디찾기 결과-->
+	<definition name="storeidResult" extends="popupLayout">
+		<put-attribute name="title" value="업체 아이디찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeidResult.jsp" />
+	</definition>
+	
+	<!-- 업체 회원 비번찾기 -->
+	<definition name="storepwFind" extends="popupLayout">
+		<put-attribute name="title" value="업체 비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storepwFind.jsp" />
+	</definition>
+	<!-- 업체 회원 비번찾기 결과 -->
+	<definition name="storepwResult" extends="popupLayout">
+		<put-attribute name="title" value="업체 비번찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storepwResult.jsp" />
+	</definition>
 	<!-- 업체 회원 회원가입 -->
 	<definition name="storeJoin" extends="baseLayout">
 		<put-attribute name="title" value="업체회원 회원가입" />

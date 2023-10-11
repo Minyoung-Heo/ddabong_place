@@ -74,32 +74,13 @@
    border: 1px slid #bcbcbc;
 }
 
-#header {
-   text-align: center;
-   width: 100%;
-   position: fixed;
-}
-
 #body {
 	text-align: center;
-	padding: 30px;
+	padding: 10px;
 	height: auto;
 	min-height: 300%;
-	padding-bottom: 260px;
-	margin-top: 50px;
 }
 
-#footer {
-   height: 260px;
-   width: 100%;
-   position: relative;
-   background-color: #FF8C00;
-   color: white;
-   transform: translatY(-100%);
-   margin: 0;
-   font-weight: lighter;
-   font-size: 11.8px;
-}
 
 .info, .cc {
    float: left;
@@ -111,9 +92,6 @@
    margin-right: 100px;
 }
 
-#img1 {
-   margin-top: 100px;
-}
 
 .BZ {
 	margin-top: 70px;
@@ -137,15 +115,9 @@
 <title><t:insertAttribute name="title" /></title>
 </head>
 <body>
-  <div id="container">
-      <div id="top">
-         <t:insertAttribute name="top" />
-      </div>
+   <div id="container">
       <div id="body">
          <t:insertAttribute name="body" />
-      </div>
-      <div id="footer">
-         <t:insertAttribute name="footer" />
       </div>
    </div>
 </body>

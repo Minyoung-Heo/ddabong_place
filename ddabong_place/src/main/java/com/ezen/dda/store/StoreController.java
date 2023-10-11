@@ -24,7 +24,8 @@ public class StoreController {
 	SqlSession sqlSession;
 	// 각자 이미지 폴더 위치 넣기
 	static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
-
+	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
+	
 	// storeinput 입력창
 	@RequestMapping(value = "/storeinput")
 	public String store1() {
@@ -106,12 +107,14 @@ public class StoreController {
 
 			return "main";
 		} else {
+			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
+			request.setAttribute("alertMessage", alertMessage);
 
 			return "storeloginerr";
 		}
 	}
 
-//  업체 로그아웃
+	// 업체 로그아웃
 	@RequestMapping(value = "/storelogout")
 	public String storelogout(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
@@ -122,13 +125,56 @@ public class StoreController {
 		return "redirect:/";
 	}
 
-	// 업체용 회원가입 화면
+//		비번찾기@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// 업체용 아이디 및 비번찾기 화면
+		@RequestMapping(value = "/storeFind")
+		public String storeFind() {
+			return "storeFind";
+		}
+
+		// 업체용 아이디찾기 화면
+		@RequestMapping(value = "/storeidFind")
+		public String storeidFind() {
+			return "storeidFind";
+		}
+
+		// 업체용 아이디찾기 검색결과
+		@RequestMapping(value = "/storeidResult", method = RequestMethod.POST)
+		public String storeidResult(HttpServletRequest request, Model model) {
+			String ceo = request.getParameter("ceo");
+			String email = request.getParameter("email");
+			StoreService ss = sqlSession.getMapper(StoreService.class);
+			list = ss.storeidResult(ceo, email);
+			model.addAttribute("list", list);
+
+			return "storeidResult";
+		}
+
+		// 업체용 비번찾기 화면
+		@RequestMapping(value = "/storepwFind")
+		public String storepwFind() {
+			return "storepwFind";
+		}
+
+		// 업체용 비번찾기 검색결과
+		@RequestMapping(value = "/storepwResult", method = RequestMethod.POST)
+		public String storepwResult(HttpServletRequest request, Model model) {
+			String ceo = request.getParameter("ceo");
+			String id = request.getParameter("id");
+			StoreService ss = sqlSession.getMapper(StoreService.class);
+			list = ss.storepwResult(ceo, id);
+			model.addAttribute("list", list);
+
+			return "storepwResult";
+		}
+//		비번찾기 끝@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// 업체용 store가입 화면
 	@RequestMapping(value = "/storeJoin")
 	public String storeJoin() {
 		return "storeJoin";
 	}
 
-//  업체 회원가입 전송
+	// 업체 회원가입 전송
 	@RequestMapping(value = "/storesave", method = RequestMethod.POST)
 	public String in2(HttpServletRequest request) {
 		String id = request.getParameter("storeid");

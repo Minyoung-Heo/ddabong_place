@@ -8,13 +8,10 @@
 </head>
 <body>
 <script type="text/javascript">
-var yn = confirm("아이디 또는 비밀번호를 확인해주세요.");
-if(yn == true){
-	window.location='storeLogin';
-	
-}
-else{
-	window.location='main';
+var alertMessage = "${alertMessage}";
+if (alertMessage) {
+	alert(alertMessage);
+	window.location.replace("storeLogin");
 }
 </script>
 </body>

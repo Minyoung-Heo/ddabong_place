@@ -36,6 +36,7 @@
 	padding: 10px 14px 10px 14px;
 	box-sizing: border-box;
 	font-size: 15px;
+	border-radius: 40px;
 }
 
 .btn_login {
@@ -45,6 +46,7 @@
 	color: white;
 	font-size: 23px;
 	margin-top: 20px;
+	border-radius: 40px;
 }
 
 .error-message {
