@@ -53,7 +53,7 @@ public class QnAController {
 		String title = request.getParameter("title"); // 제목
 		String writer = request.getParameter("writer"); // 작성자
 		String id = request.getParameter("id"); // 작성자 아이디
-		String content = request.getParameter("content"); // 문의 내용
+		String content = request.getParameter("content").replace("\n", "<br>"); // 문의 내용
 		int pw = Integer.parseInt(request.getParameter("pw")); // 비밀번호 4자리
 		QnADTO qnaDTO = new QnADTO(userType, questionType, title, writer, id, content, pw);
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
