@@ -178,7 +178,7 @@
 
 
 		<div class="flex-item">
-			<h1>Quiz</h1>
+			<a href="quiz"><h1>Quiz</h1></a>
 		</div>
 
 	</div>
@@ -189,6 +189,6 @@
 </div>
 	
 <br><br><br>
-<a href="quiz">카페추천요</a>
+
 </body>
 </html>

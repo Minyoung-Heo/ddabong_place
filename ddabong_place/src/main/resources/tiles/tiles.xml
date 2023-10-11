@@ -28,7 +28,12 @@
   <definition name="quiz" extends="baseLayout">
       <put-attribute name="title" value="고객맞춤카페추천" />
       <put-attribute name="body"
-         value="/WEB-INF/views/banner/quiz.jsp" />
+         value="/WEB-INF/views/quiz/quiz.jsp" />
+   </definition>
+     <definition name="quizresult" extends="baseLayout">
+      <put-attribute name="title" value="당신의 추천카페" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/quiz/quizresult.jsp" />
    </definition>
 <!--  @@카페추천종료@@ -->
    

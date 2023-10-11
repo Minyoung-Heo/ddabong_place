@@ -57,12 +57,8 @@ margin-top: 50px;
 {
 margin-top: 150px;
 }
-h1 {
-	text-align: center;
-}
-h3{
-text-align: left;
-}
+
+
 table {
 border-style:solid;
 	border-width: 10px;
@@ -81,24 +77,26 @@ border-style:solid;
 	border-color:black;
 	background-color: #FF8C00;
 }
-
+.quiztitle{
+font: bold;
+font-size: 55px;
+margin-top: 2em;
+}
 </style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="quiztitle">당신에게 딱 맞는 카페를 추천드립니다.</div>
 	<br>
 	<br>
-	<h1>"${searchValue }"를 검색하신 결과입니다</h1>
 	<br>
-	<h3>상호명 검색결과</h3> 
-<!-- 	상호명 검색결과 시작 -->
 	<div class="slide_div_wrap">
 		<div class="slide_div">
 			<c:choose>
-				<c:when test="${storelist.size()>=1 }">
-					<c:forEach items="${ storelist}" var="aa">
+				<c:when test="${list.size()>=1 }">
+					<c:forEach items="${ list}" var="aa">
 						<div class="tb">
 							<table border="1" align="center" heigt="500px" width="600px">
 								<tr>
@@ -123,36 +121,6 @@ border-style:solid;
 		</div>
 	</div>
 	<br>
-<!-- 	상호명 검색 결과 끝 , 지역별 검색결과 출력 시작 -->
-	<h3>지역별 검색결과</h3>
-	<div class="slide_div_wrap">
-		<div class="slide_div">
-			<c:choose>
-				<c:when test="${regionlist.size()>=1 }">
-					<c:forEach items="${ regionlist}" var="bb">
-						<div class="tb">
-							<table border="1" align="center" heigt="500px" width="600px">
-								<tr>
-									<td><img src="/dda/image/${ bb.image}" width="300px"
-										height="300px"></td>
-								</tr>
-								<tr>
-									<td>${bb.storename }</td>
-									<td>${bb.region_name }</td>
-									<td>${bb.dessert }</td>
-								</tr>
-							</table>
-						</div>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
 
 
 </body>
