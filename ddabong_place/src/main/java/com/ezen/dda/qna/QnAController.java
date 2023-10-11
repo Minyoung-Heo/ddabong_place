@@ -58,7 +58,11 @@ public class QnAController {
 		QnADTO qnaDTO = new QnADTO(userType, questionType, title, writer, id, content, pw);
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
 		qnaService.questionInput(qnaDTO);
-		return "redirect:/storeqna";
+		if(userType.equals("손님")) {
+			return "redirect:/customerqna";
+		} else {
+			return "redirect:/storeqna";
+		}
 	}
 	
 	// 문의 내용 보기

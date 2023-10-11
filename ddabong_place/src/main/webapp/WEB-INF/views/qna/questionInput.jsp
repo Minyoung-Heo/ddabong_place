@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,12 +121,26 @@ width: 85%;
         </tr>
         <tr><td>제목</td><td><input type="text" name="title"></td></tr>
         <tr><td>작성자</td><td><input type="text" name="writer"></td></tr>
-		
-		<!-- 로그인 상태 가져와서 아이디 가져오기 수정 필요 -->
-        <input type="hidden" name="id" value="qqqq1111">
-        
         <tr><td>문의내용</td><td><textarea cols="25" rows="10" name="content"></textarea></td></tr>
         <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
+        
+		<c:choose>
+			<c:when test="${personalloginstate == true}">
+	        <input type="hidden" name="id" value="${personal.id}">
+			</c:when>
+		
+			<c:when test="${storeloginstate == true}">
+	        <input type="hidden" name="id" value="${store.id}">
+			</c:when>
+			
+			<c:otherwise>
+			<script>
+			alert("로그인 후 이용해주세요.");
+			location.href = "selectLogin";
+			</script>
+			</c:otherwise>
+		</c:choose>
+        
         <tr><td colspan="2"><input type="button" value="입력" onclick="checkPw()"></td></tr>
     </table>
     </form>
