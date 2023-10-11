@@ -1,13 +1,14 @@
 package com.ezen.dda.search;
 
 public class SearchDTO {
-String storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
+String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
 
 public SearchDTO() {}
 
-public SearchDTO(String storename, String tel, String address, String intro, String image, String main_menu,
+public SearchDTO(String store_id,String storename, String tel, String address, String intro, String image, String main_menu,
 		String main_image, String region_name, String feature, String dessert) {
 	super();
+	this.store_id = store_id;
 	this.storename = storename;
 	this.tel = tel;
 	this.address = address;
@@ -18,6 +19,14 @@ public SearchDTO(String storename, String tel, String address, String intro, Str
 	this.region_name = region_name;
 	this.feature = feature;
 	this.dessert = dessert;
+}
+
+public String getStore_id() {
+	return store_id;
+}
+
+public void setStore_id(String store_id) {
+	this.store_id = store_id;
 }
 
 public String getStorename() {
