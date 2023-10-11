@@ -55,12 +55,6 @@
          value="/WEB-INF/views/quiz/quizresult.jsp" />
    </definition>
 <!--  @@카페추천종료@@ -->
-   
-   <definition name="storeinput" extends="baseLayout">
-      <put-attribute name="title" value="매장 등록" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/store/storeinput.jsp" />
-   </definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
  
  
@@ -125,7 +119,6 @@
 	</definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	
-   
    	<definition name="qnaForm" extends="baseLayout">
       <put-attribute name="title" value="QnA" />
       <put-attribute name="body"
