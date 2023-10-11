@@ -104,7 +104,7 @@ public class StoreController {
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
 
-			return "main";
+			return "redirect:/";
 		} else {
 
 			return "storeloginerr";
