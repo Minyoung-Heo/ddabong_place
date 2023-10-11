@@ -1,10 +1,13 @@
 package com.ezen.dda.qna;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,6 +28,23 @@ public class QnAController {
 		return "questionInput";
 	}
 	
+	// 손님 QnA로 가기
+	@RequestMapping(value = "/customerqna")
+	public String gocustomerqna(Model model) {
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.customerQnA();
+		model.addAttribute("list", list);
+		return "customerQnA";
+	}
+	// 업체 QnA로 가기
+	@RequestMapping(value = "/storeqna")
+	public String gostoreqna(Model model) {
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.storeQnA();
+		model.addAttribute("list", list);
+		return "storeQnA";
+	}
+	
 	// 1:1 문의 DB 저장
 	@RequestMapping(value = "/questionInput", method = RequestMethod.POST)
 	public String questioninput(HttpServletRequest request) {
@@ -38,7 +58,17 @@ public class QnAController {
 		QnADTO qnaDTO = new QnADTO(userType, questionType, title, writer, id, content, pw);
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
 		qnaService.questionInput(qnaDTO);
-		return "questionInput";
+		return "redirect:/storeqna";
+	}
+	
+	// 문의 내용 보기
+	@RequestMapping(value = "/qnadetail", method = RequestMethod.GET)
+	public String questiondetail(HttpServletRequest request, Model model) {
+		int question_num = Integer.parseInt(request.getParameter("question_num")); // 문의글 번호
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		QnADTO dto = qnaService.questionDetail(question_num);
+		model.addAttribute("dto", dto);
+		return "questionDetail";
 	}
 	
 }

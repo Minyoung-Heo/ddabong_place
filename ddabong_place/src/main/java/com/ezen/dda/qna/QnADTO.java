@@ -1,18 +1,26 @@
 package com.ezen.dda.qna;
 
 public class QnADTO {
-	int questionNum; // 문의글 번호
-	String userType, questionType, title, writer, id, content;
+	int question_num; // 문의글 번호
+	String userType, questionType, title, writer, id, content, question_date;
 	int pw, groups, step, indent; // 비밀번호 4자리, 답글용 필드 3개
+	
+	public String getQuestion_date() {
+		return question_date;
+	}
+	public void setQuestion_date(String question_date) {
+		this.question_date = question_date;
+	}
 	public String getUserType() {
 		return userType;
 	}
-	public int getQuestionNum() {
-		return questionNum;
+	public int getQuestion_num() {
+		return question_num;
 	}
-	public void setQuestionNum(int questionNum) {
-		this.questionNum = questionNum;
+	public void setQuestion_num(int question_num) {
+		this.question_num = question_num;
 	}
+
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}

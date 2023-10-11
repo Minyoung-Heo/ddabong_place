@@ -56,4 +56,21 @@
          value="/WEB-INF/views/qna/questionInput.jsp" />
    </definition>
    
+   	<definition name="customerQnA" extends="baseLayout">
+      <put-attribute name="title" value="손님 QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/customerQnA.jsp" />
+   </definition>
+   
+   	<definition name="storeQnA" extends="baseLayout">
+      <put-attribute name="title" value="업체 QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/storeQnA.jsp" />
+   </definition>
+   
+      	<definition name="questionDetail" extends="baseLayout">
+      <put-attribute name="title" value="1:1 문의 내역" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/questionDetail.jsp" />
+   </definition>
 </tiles-definitions>

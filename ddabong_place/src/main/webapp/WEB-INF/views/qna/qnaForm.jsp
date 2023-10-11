@@ -150,8 +150,8 @@ $(document).ready(function() {
 		<div class="category">
 		<h1>Q&A</h1>
 			<a href="qnaform" style="color:#ff8c00;">자주하는 질문</a><br>
-			<a href="qnaform">업체 Q&A</a><br>
-			<a href="qnaform">손님 Q&A</a><br>
+			<a href="storeqna">업체 Q&A</a><br>
+			<a href="customerqna">손님 Q&A</a><br>
 			<a href="question">1:1 문의하기</a>
 		</div>
 

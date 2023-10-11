@@ -8,4 +8,16 @@ insert into question(question_num, usertype, questiontype, title, writer, id, co
 values(question_seq.nextval, #{userType}, #{questionType}, #{title}, #{writer}, #{id}, #{content}, #{pw}, sysdate,
 question_seq.currval)
 </insert>
+
+<select id="storeQnA" resultType="com.ezen.dda.qna.QnADTO">
+select * from question where usertype = '업체' order by groups desc, step asc
+</select>
+
+<select id="customerQnA" resultType="com.ezen.dda.qna.QnADTO">
+select * from question where usertype = '손님' order by groups desc, step asc
+</select>
+
+<select id="questionDetail" resultType="com.ezen.dda.qna.QnADTO">
+select * from question where question_num = #{param1}
+</select>
 </mapper>

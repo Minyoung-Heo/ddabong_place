@@ -60,6 +60,21 @@ width: 85%;
             optionsToShow[i].style.display = 'block';
         }
     }
+    
+    // 비밀번호 유효성 검사
+    function checkPw() {
+    	var f = document.q;
+    	var cpw = f.pw.value; // 비밀번호
+    	var vpw = /^[\d]{4}$/; // 숫자 4자리
+    	if(!vpw.test(cpw)){
+    		alert("비밀번호 숫자 4자리를 입력하세요.");
+    		f.pw.select();
+    		return false;
+    	}
+    	if(confirm("글을 등록하시겠습니까?")) {
+ 		   	f.submit();
+    	}
+    }
 </script>
 </head>
 <body>
@@ -68,15 +83,15 @@ width: 85%;
 		<div class="category">
 		<h1>Q&A</h1>
 			<a href="qnaform">자주하는 질문</a><br>
-			<a href="qnaform">업체 Q&A</a><br>
-			<a href="qnaform">손님 Q&A</a><br>
+			<a href="storeqna">업체 Q&A</a><br>
+			<a href="customerqna">손님 Q&A</a><br>
 			<a href="question" style="color:#ff8c00;">1:1 문의하기</a>
 		</div>
 
 		<div class="qna">
 		<h1 style="text-align: left;">1:1 문의하기</h1><br>
 			
-    <form action="questionInput" method="post">
+    <form action="questionInput" method="post" name="q">
     <table class="question" align="center">
         <tr>
             <td>회원 유형</td>
@@ -111,7 +126,7 @@ width: 85%;
         
         <tr><td>문의내용</td><td><textarea cols="25" rows="10" name="content"></textarea></td></tr>
         <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
-        <tr><td colspan="2"><input type="submit" value="입력"></td></tr>
+        <tr><td colspan="2"><input type="button" value="입력" onclick="checkPw()"></td></tr>
     </table>
     </form>
 	</div>
