@@ -78,6 +78,13 @@
 .btn:hover {
     background-color:#ffba66;
 }
+.question .paging:hover {
+    background-color: initial; 
+}
+
+.question .paging td {
+    border-bottom: none;
+}
 </style>
 
 <script type="text/javascript">
@@ -126,6 +133,30 @@
                         <td>${dto.writer}</td><td>${fn:substring(dto.question_date,0,16)}</td>
                     </tr>
                 </c:forEach>
+                
+<tr class="paging">
+   <td colspan="5" style="text-align: center;">
+   
+   <c:if test="${paging.startPage!=1 }">
+      <a href="storeqna?nowPage=${paging.startPage-1 }&cntPerPage=${paging.cntPerPage}">◀</a>
+   </c:if>   
+   
+      <c:forEach begin="${paging.startPage }" end="${paging.endPage}" var="p"> 
+         <c:choose>
+            <c:when test="${p == paging.nowPage }">
+               <b><span style="color:#ff8c00;">${p}</span></b>
+            </c:when>   
+            <c:when test="${p != paging.nowPage }">
+               <a href="storeqna?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a>
+            </c:when>   
+         </c:choose>
+      </c:forEach>
+     
+      <c:if test="${paging.endPage != paging.lastPage}">
+      <a href="storeqna?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}">▶</a>
+   </c:if>
+   </td>
+</tr>
             </table>
             <input class="btn" type="button" value="1:1 문의하러 가기" onclick="location.href='question'">
         </div>

@@ -3,31 +3,84 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.dda.qna.QnAService">
-<insert id="questionInput" parameterType="com.ezen.dda.qna.QnADTO">
-insert into question(question_num, usertype, questiontype, title, writer, id, content, pw, question_date, groups)
-values(question_seq.nextval, #{userType}, #{questionType}, #{title}, #{writer}, #{id}, #{content}, #{pw}, sysdate,
-question_seq.currval)
-</insert>
+	<insert id="questionInput" parameterType="com.ezen.dda.qna.QnADTO">
+		insert into question(question_num, usertype,
+		questiontype, title, writer,
+		id, content, pw, question_date, groups)
+		values(question_seq.nextval, #{userType}, #{questionType}, #{title},
+		#{writer}, #{id}, #{content},
+		#{pw}, sysdate,
+		question_seq.currval)
+	</insert>
 
-<select id="storeQnA" resultType="com.ezen.dda.qna.QnADTO">
-select * from question where usertype = '업체' order by groups desc, step asc
-</select>
+	<select id="questionDetail" resultType="com.ezen.dda.qna.QnADTO">
+		select * from question
+		where question_num = #{param1}
+	</select>
 
-<select id="storeSearch" resultType="com.ezen.dda.qna.QnADTO">
-select * from question where usertype = '업체' and ${param1} like '%' || #{param2} || '%'
-order by groups desc, step asc
-</select>
-
-<select id="customerQnA" resultType="com.ezen.dda.qna.QnADTO">
-select * from question where usertype = '손님' order by groups desc, step asc
-</select>
-
-<select id="customerSearch" resultType="com.ezen.dda.qna.QnADTO">
-select * from question where usertype = '손님' and ${param1} like '%' || #{param2} || '%'
-order by groups desc, step asc
-</select>
-
-<select id="questionDetail" resultType="com.ezen.dda.qna.QnADTO">
-select * from question where question_num = #{param1}
-</select>
+	<!-- 손님용 Q&A 페이징처리 시작-->
+	<select id="cnt_customer" resultType="int">
+		select count(*) from
+		question where usertype='손님'
+	</select>
+	
+	<select id="select_customer" resultType="com.ezen.dda.qna.QnADTO">
+		select * from (
+		select rownum rn, A.* from
+		(select * from
+		question where usertype='손님' order by groups DESC,step asc) A)
+		where rn
+		between #{start} AND #{end}
+	</select>
+	<!-- 손님용 Q&A 페이징처리 끝-->
+	
+	<!-- 손님용 Q&A 검색 페이징처리 시작-->
+	<select id="cnt_customerSearch" resultType="int">
+		select count(*) from question where
+		usertype = '손님' and ${param1} like '%' ||
+		#{param2} || '%' order by groups desc, step asc
+	</select>
+	
+	<select id="select_customerSearch" resultType="com.ezen.dda.qna.QnADTO">
+		select * from (
+		select rownum rn, A.* from
+		(select * from question where
+		usertype = '손님' and ${searchType} like '%' ||
+		#{searchContent} || '%' order by groups desc, step asc) A)
+		where rn between #{start} AND #{end}
+	</select>
+	<!-- 손님용 Q&A 검색 페이징처리 끝-->
+	
+	<!-- 업체용 Q&A 페이징처리 시작-->
+	<select id="cnt_store" resultType="int">
+		select count(*) from question where usertype='업체'
+	</select>
+	
+	<select id="select_store" resultType="com.ezen.dda.qna.QnADTO">
+		select * from (
+		select rownum rn, A.* from
+		(select * from
+		question where usertype='업체' order by groups DESC,step asc) A)
+		where rn
+		between #{start} AND #{end}
+	</select>
+	<!-- 업체용 Q&A 페이징처리 끝-->
+	
+	<!-- 업체용 Q&A 검색 페이징처리 시작-->
+	<select id="cnt_storeSearch" resultType="int">
+		select count(*) from question where
+		usertype = '업체' and ${param1} like '%' ||
+		#{param2} || '%' order by groups desc, step asc
+	</select>
+	
+	<select id="select_storeSearch" resultType="com.ezen.dda.qna.QnADTO" parameterType="com.ezen.dda.qna.PageDTO">
+		select * from (
+		select rownum rn, A.* from
+		(select * from question where
+		usertype = '업체' and ${searchType} like '%' ||
+		#{searchContent} || '%' order by groups desc, step asc) A)
+		where rn between #{start} AND #{end}
+	</select>
+	<!-- 업체용 Q&A 검색 페이징처리 끝-->
+	
 </mapper>
