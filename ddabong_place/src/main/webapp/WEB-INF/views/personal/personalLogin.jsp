@@ -203,7 +203,7 @@ p1 {
 	<div class="BZ">
 		<div class="container2">
 			<h1 class="login_title">회원 로그인</h1>
-			<form class="login_form" action="personLoginCheck" method="post">
+			<form class="login_form" action="personallogincheck" method="post">
 				<div class="id_area">
 					<span class="id_input"> <input type="text" id="personalid"
 						class="id" placeholder="아이디를 입력하세요 !" name="personalid"
@@ -212,7 +212,7 @@ p1 {
 				</div>
 				<div class="pswd_area">
 					<span class="pswd_input"> <input type="password"
-						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="pw"
+						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="personalpw"
 						maxlength="16">
 
 					</span>
