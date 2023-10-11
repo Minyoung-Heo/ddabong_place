@@ -21,7 +21,7 @@
 
 		// storeidFind.jsp 페이지를 팝업으로 엽니다.
 		window.open(storeIdFindURL, 'storeIdFindPopup', popupOptions);
-		
+
 	}
 </script>
 <!-- pw찾기 -->
@@ -45,24 +45,41 @@
 	}
 </script>
 <style type="text/css">
-.btn {
+.btn3 {
 	width: 100%;
 	height: 51px;
 	color: white; /* 글씨색을 #FF8C00으로 변경 */
 	font-size: 19px;
 	margin-top: 20px;
 	border-radius: 40px;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	/* 기본 스타일 */
+	background-color: #ffc680;
+	color: white;
+	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
+	margin-top: 40px;
 }
 
 .btn2 {
 	width: 50%;
 	height: 51px;
-	background-color: #FF8C00; /* 배경색을 하얀색으로 변경 */
 	color: white; /* 글씨색을 #FF8C00으로 변경 */
 	font-size: 14px;
 	margin-top: 170px;
 	width: 50%;
 	border-radius: 40px;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	/* 기본 스타일 */
+	background-color: #ffc680;
+	color: white;
+	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
+	margin-top: 40px;
+}
+
+.btn2:hover, .btn3:hover {
+	/* 호버 시 스타일 */
+	background-color: #ff8c00;
+	color: white;
 }
 
 .container2 {
@@ -77,16 +94,14 @@
 <body>
 	<div class="BZ">
 		<h1 class="login_title">잃어버린 ID와 PW 찾기</h1>
-		
+
 		<div class="container2">
-			<input style="background-color: #ffa333" class="btn"
-				value="이름과 이메일로 아이디 찾기 &#x1F50E;" type="button"
-				onclick="openstoreIdFindPopup()"> <input
-				style="background-color: #cc7000" class="btn"
-				value="이름과 아이디로 비밀번호 찾기 &#x1F50E;" type="button"
-				onclick="openstorePwFindPopup()"> <input class="btn2"
-				value="로그인하기 🔑 " type="button"
-				onclick="location.href='storeLogin'">
+			<input class="btn3" value="이름과 이메일로 아이디 찾기 &#x1F50E;" type="button"
+				onclick="openstoreIdFindPopup()">
+			<input class="btn3" value="이름과 아이디로 비밀번호 찾기 &#x1F50E;" type="button"
+				onclick="openstorePwFindPopup()"> 
+				<input class="btn2"
+				value="로그인하기 🔑 " type="button" onclick="location.href='storeLogin'">
 		</div>
 	</div>
 </body>

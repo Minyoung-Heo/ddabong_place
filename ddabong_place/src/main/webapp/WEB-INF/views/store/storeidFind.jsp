@@ -23,6 +23,17 @@
 	font-size: 23px;
 	margin-top: 40px;
 	border-radius: 40px;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	/* 기본 스타일 */
+	background-color: gray;
+	color: white;
+	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
+	margin-top: 40px;
+}
+.btn_login:hover {
+	/* 호버 시 스타일 */
+	background-color: #ff8c00;
+	color: white;
 }
 </style>
 <meta charset="UTF-8">

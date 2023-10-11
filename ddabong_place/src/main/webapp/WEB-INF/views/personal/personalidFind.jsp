@@ -30,7 +30,6 @@
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
 	margin-top: 40px;
 }
-
 .btn_login:hover {
 	/* 호버 시 스타일 */
 	background-color: #ff8c00;
@@ -41,15 +40,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>비밀번호 찾기</h1>
+<h1>아이디찾기</h1>
 	<br>
-	<form action="storepwResult" method="post">
-		<h4>대표자명을 입력하세요</h4>
-		<input type="text" class="textbox" name="ceo" placeholder="대표자명">
-		<h4>아이디를 입력하세요</h4>
-		<input type="text" class="textbox" name="id" placeholder="아이디">
-		<button class="btn_login" value="비밀번호 찾기 결과" type="submit">비밀번호
-			찾기 결과</button>
+	<form action="personalidResult" method="post">
+		<h4>이름을 입력하세요</h4>
+		<input type="text" class="textbox" name="name" placeholder="이름">
+		<h4>이메일을 입력하세요</h4>
+		<input type="text" class="textbox" name="email"
+			placeholder="ex)user@ddabongplace.com">
+		<button class="btn_login" value="ID 찾기 결과" type="submit"
+			>ID 찾기 결과</button>
 	</form>
 </body>
 </html>

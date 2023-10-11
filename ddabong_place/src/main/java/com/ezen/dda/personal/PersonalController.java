@@ -50,7 +50,7 @@ public class PersonalController {
 	}
 
 	// 회원용 아이디찾기 검색결과
-	@RequestMapping(value = "/peresonalidResult", method = RequestMethod.POST)
+	@RequestMapping(value = "/personalidResult", method = RequestMethod.POST)
 	public String peresonalidResult(HttpServletRequest request, Model model) {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
