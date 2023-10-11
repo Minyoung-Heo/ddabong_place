@@ -36,11 +36,34 @@ public class QnAController {
 		model.addAttribute("list", list);
 		return "customerQnA";
 	}
+	
+	// 손님 QnA 검색
+	@RequestMapping(value = "/customerSearch")
+	public String customerdsearch(HttpServletRequest request, Model model) {
+		String searchType = request.getParameter("searchType");
+		String searchContent = request.getParameter("searchContent");
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.customerSearch(searchType, searchContent);
+		model.addAttribute("list", list);
+		return "customerQnA";
+	}
+	
 	// 업체 QnA로 가기
 	@RequestMapping(value = "/storeqna")
 	public String gostoreqna(Model model) {
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
 		ArrayList<QnADTO> list = qnaService.storeQnA();
+		model.addAttribute("list", list);
+		return "storeQnA";
+	}
+	
+	// 업체 QnA 검색
+	@RequestMapping(value = "/storeSearch")
+	public String storesearch(HttpServletRequest request, Model model) {
+		String searchType = request.getParameter("searchType");
+		String searchContent = request.getParameter("searchContent");
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.storeSearch(searchType, searchContent);
 		model.addAttribute("list", list);
 		return "storeQnA";
 	}
