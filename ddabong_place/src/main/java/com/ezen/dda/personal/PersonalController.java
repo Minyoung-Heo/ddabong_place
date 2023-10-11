@@ -46,7 +46,7 @@ public class PersonalController {
 			hs.setAttribute("personalloginstate", true);
 			hs.setMaxInactiveInterval(3600);
 
-			return "main";
+			return "redirect:/";
 		} else {
 
 			return "personalloginerr";
