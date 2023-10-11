@@ -11,7 +11,7 @@
 <style type="text/css">
 
 h1 {
-  color: #ff8c00;
+  color: black;
   font-size: 2em;
   position: relative;
   font-size: 50px;
@@ -37,7 +37,7 @@ input {
   border-radius: 30px;
   margin-top: 10px;
   padding: 0px 20px;
-  border: 1px solid lightgray; /*인풋 부분 테두리 색*/
+  border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
 }
 

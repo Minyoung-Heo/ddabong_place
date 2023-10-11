@@ -22,5 +22,8 @@
 	update registration set storename=#{storename}, tel=#{tel}, address=#{address}, lineintro=#{lineintro}, intro=#{intro}, image=#{image}, main_menu=#{main_menu}, main_image=#{main_image}, region_name=#{region_name}, feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
 </update>
 
+<select id="storestatus" resultType="com.ezen.dda.calendar.CalendarDTO">
+	select * from reservation
+</select>
 
 </mapper>

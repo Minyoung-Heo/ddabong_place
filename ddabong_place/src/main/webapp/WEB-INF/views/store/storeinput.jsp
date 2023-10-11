@@ -8,7 +8,7 @@
 <style type="text/css">
 
 h1 {
-  color: #ff8c00;
+  color: black;
   font-size: 2em;
   position: relative;
   font-size: 50px;
@@ -34,7 +34,7 @@ input {
   border-radius: 30px;
   margin-top: 10px;
   padding: 0px 20px;
-  border: 1px solid lightgray; /*인풋 부분 테두리 색*/
+  border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
 }
 
@@ -73,14 +73,14 @@ input[type=file]::file-selector-button {
   width: 150px;
   height: 30px;
   background: #fff;
-  border: 1px solid rgb(77,77,77);
+  border: 1px solid #ff8c00;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
   left: -5px;
 }
 input[type=file]::file-selector-button:hover {
-    background: rgb(77,77,77);
+    background: rgb(254,163,72);
     color: #fff;
   }
 
@@ -95,6 +95,7 @@ select {
   padding: 4px;
   font-size: 14px;
   border-radius: 6px;
+  border: 1px solid #ff8c00;
   width: 45%;
   height: 30px;
 }
@@ -115,7 +116,7 @@ function check(){
     var f = document.store;
 
     var cstore_id = f.store_id.value;
-    var vstore_id = /^[a-zA-Z0-9]{4,9}$/;
+    var vstore_id = /^[a-zA-Z0-9]{4,10}$/;
 
     if(cstore_id== "" || cstore_id==" "){
         alert("업체 아이디 공백은 안돼요");
