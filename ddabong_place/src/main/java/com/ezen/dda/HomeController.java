@@ -10,10 +10,4 @@ public class HomeController {
 	public String monthDDA() {
 		return "redirect:/";
 	}
-
-	@RequestMapping(value = "/main")
-	public String main1() {
-		return "main";
-	}
-
 }
