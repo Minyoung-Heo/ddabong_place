@@ -93,14 +93,14 @@
 </head>
 <body>
 	<div class="BZ">
-		<h1 class="login_title">잃어버린 ID와 PW 찾기</h1>
+		<h1 class="login_title">ID 또는 PW 찾기</h1>
 
 		<div class="container2">
-			<input class="btn3" value="이름과 이메일로 아이디 찾기 &#x1F50E;" type="button"
+			<input class="btn3" value="이름과 이메일로 아이디 찾기" type="button"
 				onclick="openPersonalIdFindPopup()"> <input class="btn3"
-				value="이름과 아이디로 비밀번호 찾기 &#x1F50E;" type="button"
+				value="이름과 아이디로 비밀번호 찾기 " type="button"
 				onclick="openPersonalPwFindPopup()"> <input class="btn2"
-				value="로그인하기 🔑 " type="button"
+				value="로그인하기" type="button"
 				onclick="location.href='personalLogin'">
 		</div>
 	</div>
