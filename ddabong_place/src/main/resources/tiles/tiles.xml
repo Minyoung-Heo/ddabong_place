@@ -44,12 +44,19 @@
 	
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	<!-- 고객맞춤카페추천 -->
-	<definition name="quiz" extends="baseLayout">
-		<put-attribute name="title" value="고객맞춤카페추천" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/banner/quiz.jsp" />
-	</definition>
+<!--  고객맞춤카페추천 -->
+  <definition name="quiz" extends="baseLayout">
+      <put-attribute name="title" value="고객맞춤카페추천" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/quiz/quiz.jsp" />
+   </definition>
+     <definition name="quizresult" extends="baseLayout">
+      <put-attribute name="title" value="당신의 추천카페" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/quiz/quizresult.jsp" />
+   </definition>
+<!--  @@카페추천종료@@ -->
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
  
  
@@ -194,5 +201,51 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeoutput.jsp" />
 	</definition>
+	
+	<!--  매장 등록 수정창  -->
+	<definition name="storemodify" extends="baseLayout">
+      <put-attribute name="title" value="매장 등록 수정" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storemodify.jsp" />
+   </definition>
+   
+   <!--  매장 예약 현황창  -->
+	<definition name="storestatus" extends="baseLayout">
+      <put-attribute name="title" value="매장 예약 캘린더" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/store/storestatus.jsp" />
+   </definition>
+	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	
+   	<definition name="qnaForm" extends="baseLayout">
+      <put-attribute name="title" value="QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/qnaForm.jsp" />
+   </definition>
+   
+     	<definition name="questionInput" extends="baseLayout">
+      <put-attribute name="title" value="1:1 문의하기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/questionInput.jsp" />
+   </definition>
+   
+   	<definition name="customerQnA" extends="baseLayout">
+      <put-attribute name="title" value="손님 QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/customerQnA.jsp" />
+   </definition>
+   
+   	<definition name="storeQnA" extends="baseLayout">
+      <put-attribute name="title" value="업체 QnA" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/storeQnA.jsp" />
+   </definition>
+   
+      	<definition name="questionDetail" extends="baseLayout">
+      <put-attribute name="title" value="1:1 문의 내역" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/questionDetail.jsp" />
+   </definition>
+   
 </tiles-definitions>

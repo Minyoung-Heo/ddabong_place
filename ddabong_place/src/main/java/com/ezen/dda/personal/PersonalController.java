@@ -92,7 +92,7 @@ public class PersonalController {
 			hs.setAttribute("personalloginstate", true);
 			hs.setMaxInactiveInterval(3600);
 
-			return "main";
+			return "redirect:/";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
 			request.setAttribute("alertMessage", alertMessage);

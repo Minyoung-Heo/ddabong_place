@@ -60,6 +60,9 @@ margin-top: 150px;
 h1 {
 	text-align: center;
 }
+h3{
+text-align: left;
+}
 table {
 border-style:solid;
 	border-width: 10px;
@@ -104,7 +107,7 @@ border-style:solid;
 								</tr>
 								<tr>
 									<td>${aa.storename }</td>
-									<td>${aa.region_code }</td>
+									<td>${aa.region_name }</td>
 									<td>${aa.dessert }</td>
 								</tr>
 							</table>
@@ -135,7 +138,7 @@ border-style:solid;
 								</tr>
 								<tr>
 									<td>${bb.storename }</td>
-									<td>${bb.region_code }</td>
+									<td>${bb.region_name }</td>
 									<td>${bb.dessert }</td>
 								</tr>
 							</table>

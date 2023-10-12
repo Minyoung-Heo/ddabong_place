@@ -4,16 +4,14 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.dda.store.StoreService">
-
 	<!-- 매장 등록 -->
 	<insert id="storeinput">
-		insert into registration values
-		(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12})
+		insert into registration (store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
+    	values (#{store_id}, #{storename}, #{tel}, #{address}, #{lineintro}, #{intro}, #{image}, #{main_menu}, #{main_image}, #{region_name}, #{feature}, #{dessert})
 	</insert>
 
 	<!-- 매장 출력 -->
-	<select id="storeoutput"
-		resultType="com.ezen.dda.store.StoreDTO">
+	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
 		select * from registration
 	</select>
 
@@ -51,4 +49,19 @@
 		select * from store where ceo =#{param1} and id
 		=#{param2}
 	</select>
+	<!-- 매장 수정 -->
+	<select id="storemodifyview" resultType="com.ezen.dda.store.StoreDTO">
+		select * from registration
+	</select>
+	
+	<!-- 매장 수정 입력 -->
+	<update id="storemodifyfinal">
+		update registration set storename=#{storename}, tel=#{tel}, address=#{address}, lineintro=#{lineintro}, intro=#{intro}, image=#{image}, main_menu=#{main_menu}, main_image=#{main_image}, region_name=#{region_name}, feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
+	</update>
+	
+	<!-- 매장 예약 현황 -->
+	<select id="storestatus" resultType="com.ezen.dda.calendar.CalendarDTO">
+		select * from reservation
+	</select>
+
 </mapper>

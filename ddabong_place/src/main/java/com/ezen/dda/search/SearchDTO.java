@@ -1,13 +1,14 @@
 package com.ezen.dda.search;
 
 public class SearchDTO {
-String storename,tel,address,intro,image,main_menu,main_image,region_code,feature,dessert;
+String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
 
 public SearchDTO() {}
 
-public SearchDTO(String storename, String tel, String address, String intro, String image, String main_menu,
-		String main_image, String region_code, String feature, String dessert) {
+public SearchDTO(String store_id,String storename, String tel, String address, String intro, String image, String main_menu,
+		String main_image, String region_name, String feature, String dessert) {
 	super();
+	this.store_id = store_id;
 	this.storename = storename;
 	this.tel = tel;
 	this.address = address;
@@ -15,9 +16,17 @@ public SearchDTO(String storename, String tel, String address, String intro, Str
 	this.image = image;
 	this.main_menu = main_menu;
 	this.main_image = main_image;
-	this.region_code = region_code;
+	this.region_name = region_name;
 	this.feature = feature;
 	this.dessert = dessert;
+}
+
+public String getStore_id() {
+	return store_id;
+}
+
+public void setStore_id(String store_id) {
+	this.store_id = store_id;
 }
 
 public String getStorename() {
@@ -76,12 +85,12 @@ public void setMain_image(String main_image) {
 	this.main_image = main_image;
 }
 
-public String getRegion_code() {
-	return region_code;
+public String getRegion_name() {
+	return region_name;
 }
 
-public void setRegion_code(String region_code) {
-	this.region_code = region_code;
+public void setRegion_name(String region_name) {
+	this.region_name = region_name;
 }
 
 public String getFeature() {

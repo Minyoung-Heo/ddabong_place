@@ -44,6 +44,14 @@
 #searchbtn {
 	border: none;
 	border-radius: 0px;
+	background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png");
+	background-size:cover;
+	  position: absolute;
+   width: 25px;
+   height:25px;
+   top: 20px;
+   left: 235%;
+   margin: 0;
 }
 .in2 {
    width: 250%;
@@ -54,13 +62,6 @@
    font-size: 14px;
 }
 
-.img2 {
-   position: absolute;
-   width: 17px;
-   top: 20px;
-   left: 235%;
-   margin: 0;
-}
 
 .test{
    position: fixed;
@@ -80,8 +81,15 @@
    position: fixed;
 }
 
+#nav {
+	width: 100%;
+}
+
 #body {
 	text-align: center;
+	margin: 0;
+	padding: 0;
+	
 	padding: 30px;
 	height: auto;
 	min-height: 300%;

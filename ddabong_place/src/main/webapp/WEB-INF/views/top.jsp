@@ -58,15 +58,12 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<form action="search" method="post">
-		<div class="search">
-			<input class="in2" type="text" placeholder="검색어 입력"
-				name="searchValue" id="searchValue">
-			<button id="searchbtn">
-				<img class="img2"
-					src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-			</button>
-		</div>
-	</form>
+	 <form action="search" method="post">
+        <div class="search">
+            <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
+            <button id="searchbtn" >
+        	</button>
+        </div>
+        </form>
 </header>
 </html>

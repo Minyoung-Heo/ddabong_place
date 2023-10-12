@@ -115,6 +115,7 @@
 .intro {
 	text-align: left;
 }
+
 </style>
 </head>
 <body>
@@ -179,16 +180,18 @@
 
 		<div class="flex-item">
 			<h1>Quiz</h1>
+			<a href="quiz"><img src="/dda/image/quiz.png" width="560px"></a>
 		</div>
 
 	</div>
 
 
 <div class="test">
-    <a href="storeinput">테스트 이동</a>
+    <a href="storeinput">테스트 이동</a><br>
+   	<a href="storestatus">캘린더 테스트</a>
 </div>
 	
 <br><br><br>
-<a href="quiz">카페추천요</a>
+
 </body>
 </html>
