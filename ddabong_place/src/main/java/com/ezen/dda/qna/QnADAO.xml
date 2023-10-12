@@ -13,8 +13,18 @@ question_seq.currval)
 select * from question where usertype = '업체' order by groups desc, step asc
 </select>
 
+<select id="storeSearch" resultType="com.ezen.dda.qna.QnADTO">
+select * from question where usertype = '업체' and ${param1} like '%' || #{param2} || '%'
+order by groups desc, step asc
+</select>
+
 <select id="customerQnA" resultType="com.ezen.dda.qna.QnADTO">
 select * from question where usertype = '손님' order by groups desc, step asc
+</select>
+
+<select id="customerSearch" resultType="com.ezen.dda.qna.QnADTO">
+select * from question where usertype = '손님' and ${param1} like '%' || #{param2} || '%'
+order by groups desc, step asc
 </select>
 
 <select id="questionDetail" resultType="com.ezen.dda.qna.QnADTO">

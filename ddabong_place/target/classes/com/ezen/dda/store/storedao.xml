@@ -13,9 +13,7 @@
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
-		SELECT registration.*
-		FROM store
-		JOIN registration ON store.id = registration.store_id
+		select * from registration
 	</select>
 
 	<!-- 업체 가입 -->
@@ -51,6 +49,16 @@
 	<!-- 매장 예약 현황 -->
 	<select id="storestatus" resultType="com.ezen.dda.calendar.CalendarDTO">
 		select * from reservation
+	</select>
+	
+	<!-- 업체 아이디 찾기 -->
+	<select id="storeidResult" resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where ceo =#{param1} and email=#{param2}
+	</select>
+
+	<!-- 업체 비번 찾기 -->
+	<select id="storepwResult" resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where ceo =#{param1} and id=#{param2}
 	</select>
 
 </mapper>

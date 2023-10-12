@@ -120,17 +120,15 @@ width: 85%;
             </td>
         </tr>
         <tr><td>제목</td><td><input type="text" name="title"></td></tr>
-        <tr><td>작성자</td><td><input type="text" name="writer"></td></tr>
-        <tr><td>문의내용</td><td><textarea cols="25" rows="10" name="content"></textarea></td></tr>
-        <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
-        
-		<c:choose>
+        <c:choose>
 			<c:when test="${personalloginstate == true}">
 	        <input type="hidden" name="id" value="${personal.id}">
+	        <tr><td>작성자</td><td><input type="text" name="writer" value="${personal.name}"></td></tr>
 			</c:when>
 		
 			<c:when test="${storeloginstate == true}">
 	        <input type="hidden" name="id" value="${store.id}">
+	        <tr><td>작성자</td><td><input type="text" name="writer" value="${store.ceo}"></td></tr>
 			</c:when>
 			
 			<c:otherwise>
@@ -141,6 +139,8 @@ width: 85%;
 			</c:otherwise>
 		</c:choose>
         
+        <tr><td>문의내용</td><td><textarea cols="25" rows="10" name="content"></textarea></td></tr>
+        <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
         <tr><td colspan="2"><input type="button" value="입력" onclick="checkPw()"></td></tr>
     </table>
     </form>

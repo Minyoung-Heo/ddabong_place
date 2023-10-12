@@ -35,4 +35,10 @@ public interface StoreService {
 			String intro, List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2,
 			String region_name, String feature2, String dessert2);
 
+	// 아이디 찾기
+	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
+
+	// 비밀번호 찾기
+	public ArrayList<StoreDTO> storepwResult(String ceo, String id);
+
 }

@@ -6,20 +6,31 @@
 <mapper namespace="com.ezen.dda.personal.PersonalService">
 	<!-- 유저 회원가입 -->
 	<insert id="personaljoin">
-		insert into customer values
-		(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+		insert into customer values (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
 	</insert>
 
 	<!-- 회원 가입 아이디 중복확인 -->
 	<select id="idcheck" resultType="int">
-		select count(*) from customer
-		where id = #{param1}
+		select count(*) from customer where id = #{param1}
 	</select>
 
 	<!-- 회원 로그인 -->
 	<select id="personallogincheck"
 		resultType="com.ezen.dda.personal.PersonalDTO">
-		select * from customer where id
-		=#{param1} and pw =#{param2}
+		select * from customer where id =#{param1} and pw =#{param2}
+	</select>
+
+	<!-- 회원 아이디 찾기 -->
+	<select id="personalidResult"
+		resultType="com.ezen.dda.personal.PersonalDTO">
+
+		select * from customer where name =#{param1} and email =#{param2}
+	</select>
+	
+	<!-- 회원 비번 찾기 -->
+	<select id="personalpwResult"
+		resultType="com.ezen.dda.personal.PersonalDTO">
+
+		select * from customer where name =#{param1} and id =#{param2}
 	</select>
 </mapper>

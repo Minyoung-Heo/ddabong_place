@@ -106,6 +106,18 @@
         <div class="qna">
             <h1 style="text-align: left;">손님 Q&A</h1><br>
             <table class="question" align="center">
+            <caption>
+            <form action="customerSearch">
+            <select name="searchType">
+            <option value="question_num">문의번호</option>
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
+            </select>
+            <input type="text" name="searchContent">
+            <input type="submit" value="검색">
+            </form>
+            </caption>
+            
                 <tr style="background-color: #ffd199;"><th>문의 번호</th><th>문의 유형</th><th>제목</th><th>작성자</th><th>작성일자</th></tr>
                 <c:forEach items="${list}" var="dto">
                     <tr>

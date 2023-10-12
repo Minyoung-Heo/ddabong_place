@@ -36,11 +36,34 @@ public class QnAController {
 		model.addAttribute("list", list);
 		return "customerQnA";
 	}
+	
+	// 손님 QnA 검색
+	@RequestMapping(value = "/customerSearch")
+	public String customerdsearch(HttpServletRequest request, Model model) {
+		String searchType = request.getParameter("searchType");
+		String searchContent = request.getParameter("searchContent");
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.customerSearch(searchType, searchContent);
+		model.addAttribute("list", list);
+		return "customerQnA";
+	}
+	
 	// 업체 QnA로 가기
 	@RequestMapping(value = "/storeqna")
 	public String gostoreqna(Model model) {
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
 		ArrayList<QnADTO> list = qnaService.storeQnA();
+		model.addAttribute("list", list);
+		return "storeQnA";
+	}
+	
+	// 업체 QnA 검색
+	@RequestMapping(value = "/storeSearch")
+	public String storesearch(HttpServletRequest request, Model model) {
+		String searchType = request.getParameter("searchType");
+		String searchContent = request.getParameter("searchContent");
+		QnAService qnaService = sqlSession.getMapper(QnAService.class);
+		ArrayList<QnADTO> list = qnaService.storeSearch(searchType, searchContent);
 		model.addAttribute("list", list);
 		return "storeQnA";
 	}
@@ -53,7 +76,7 @@ public class QnAController {
 		String title = request.getParameter("title"); // 제목
 		String writer = request.getParameter("writer"); // 작성자
 		String id = request.getParameter("id"); // 작성자 아이디
-		String content = request.getParameter("content"); // 문의 내용
+		String content = request.getParameter("content").replace("\n", "<br>"); // 문의 내용
 		int pw = Integer.parseInt(request.getParameter("pw")); // 비밀번호 4자리
 		QnADTO qnaDTO = new QnADTO(userType, questionType, title, writer, id, content, pw);
 		QnAService qnaService = sqlSession.getMapper(QnAService.class);
