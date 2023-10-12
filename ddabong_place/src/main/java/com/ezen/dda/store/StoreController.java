@@ -1,18 +1,18 @@
 package com.ezen.dda.store;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -226,12 +226,6 @@ public class StoreController {
 		return "storestatus";
 	}
 
-	// 업체용 로그인 화면
-	@RequestMapping(value = "/storeLogin")
-	public String storeLogin() {
-		return "storeLogin";
-	}
-
 //  업체용 로그인 확인
 	@RequestMapping(value = "/storelogincheck", method = RequestMethod.POST)
 	public String storelogincheck(HttpServletRequest request) {
@@ -308,11 +302,6 @@ public class StoreController {
 			return "storepwResult";
 		}
 //		비번찾기 끝@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	// 업체용 store가입 화면
-	@RequestMapping(value = "/storeJoin")
-	public String storeJoin() {
-		return "storeJoin";
-	}
 	
 
 	// 업체 회원가입 전송

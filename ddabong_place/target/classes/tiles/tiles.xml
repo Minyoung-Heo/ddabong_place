@@ -56,6 +56,7 @@
          value="/WEB-INF/views/quiz/quizresult.jsp" />
    </definition>
 <!--  @@카페추천종료@@ -->
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
  
  
@@ -201,7 +202,7 @@
 			value="/WEB-INF/views/store/storeoutput.jsp" />
 	</definition>
 	
-	 <!--  매장 등록 수정창  -->
+	<!--  매장 등록 수정창  -->
 	<definition name="storemodify" extends="baseLayout">
       <put-attribute name="title" value="매장 등록 수정" />
       <put-attribute name="body"
@@ -214,7 +215,7 @@
       <put-attribute name="body"
          value="/WEB-INF/views/store/storestatus.jsp" />
    </definition>
-   
+	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	
    	<definition name="qnaForm" extends="baseLayout">
