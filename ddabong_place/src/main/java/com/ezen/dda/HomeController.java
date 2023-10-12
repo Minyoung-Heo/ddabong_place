@@ -11,9 +11,4 @@ public class HomeController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/main")
-	public String main1() {
-		return "main";
-	}
-
 }

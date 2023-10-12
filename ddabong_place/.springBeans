@@ -8,9 +8,7 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/tiles/tiles.xml</config>
-		<config>src/main/java/com/ezen/dda/rank/RankDAO.xml</config>
 		<config>src/main/java/com/ezen/dda/store/storedao.xml</config>
-		<config>src/main/java/com/ezen/dda/qna/QnADAO.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StoreController {
@@ -26,42 +28,25 @@ public class StoreController {
 	//각자 이미지 폴더 위치 넣기
 	static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	
-	//회원용 로그인 화면
-	@RequestMapping(value = "/storeLogin")
-	public String storeLogin() {
-		return "storeLogin";
-	}
-	//회원용 회원가입 화면
-	@RequestMapping(value = "/storeJoin")
-	public String storeJoin() {
-		return "storeJoin";
-		}
-			
-	//storeinput 입력창
+	//매장 입력창
 	@RequestMapping(value = "/storeinput")
 	public String store1() {
+		
 		return "storeinput";
 	}
 
-	// storeinput 입력창에서 입력 후 db 저장
+	//매장 입력창에서 입력 후 db 저장
 	@RequestMapping(value = "/storeinputsave", method = RequestMethod.POST)
 	public String store2(MultipartHttpServletRequest mul, HttpSession session) {
-		
-		String store_id =(String) session.getAttribute("store_id");
+		String store_id = (String) session.getAttribute("id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
 		String address = mul.getParameter("address");
 		String lineintro = mul.getParameter("lineintro");
 		String intro = mul.getParameter("intro");
-		// 이미지 다중 파일 업로드
-		List<MultipartFile> filelist = mul.getFiles("image");
-		
-		
-//		MultipartFile mf1 = mul.getFile("image");
-//		String imagefile = mf1.getOriginalFilename();
+		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-//		MultipartFile mf2 = mul.getFile("main_image");
-//		String mainimagefile = mf2.getOriginalFilename();
+		List<MultipartFile> filelist2 = mul.getFiles("main_image"); // 이미지 다중 파일 업로드
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -84,13 +69,12 @@ public class StoreController {
 		    }
 		}
 		
-		for (MultipartFile mf1 : filelist) {
-			String originfilename = mf1.getOriginalFilename(); //원본 파일명
-			
-			String safefile = imagepath + System.currentTimeMillis() + originfilename;
+		for (MultipartFile mf1 : filelist1) {
+			String imagefile = mf1.getOriginalFilename(); //원본 파일명
+			//String safefile = imagepath + System.currentTimeMillis() + originfilename;
 			
 			try {
-				mf1.transferTo(new File(safefile));
+				mf1.transferTo(new File(imagepath+"\\"+imagefile));
 			}catch (IllegalStateException e) {
 				// TODO: handle exception
 				e.printStackTrace();
@@ -100,31 +84,28 @@ public class StoreController {
 			}
 		}
 		
-		//mf1.transferTo(new File(imagepath+"\\"+imagefile));
-		//mf2.transferTo(new File(imagepath+"\\"+mainimagefile));
+		for (MultipartFile mf1 : filelist2) {
+			String imagefile = mf1.getOriginalFilename(); //원본 파일명
+			
+			try {
+				mf1.transferTo(new File(imagepath+"\\"+imagefile));
+			}catch (IllegalStateException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storeinput(store_id,storename,tel,address,lineintro,intro,filelist,main_menu,region_name,feature2,dessert2);
+		ss.storeinput(store_id,storename,tel,address,lineintro,intro,filelist1,main_menu,filelist2,region_name,feature2,dessert2);
 		//ss.storeinput(store_id,storename,tel,address,lineintro,intro,/*imagefile*/,main_menu,mainimagefile,region_name,feature2,dessert2);
 		
-		
-		/*
-		 * // "image" 및 "main_image" 필드에 대한 여러 이미지 처리 
-		 * List<MultipartFile> imageFiles = mul.getFiles("image");
-		 * List<MultipartFile> mainImageFiles = mul.getFiles("main_image");
-		 * 
-		 * // 각 이미지 파일을 별도로 처리 
-		 * for (MultipartFile imageFile : imageFiles) { 
-		 * String imageFileName = imageFile.getOriginalFilename(); // 필요한 대로 이미지를 저장하거나 처리합니다.
-		 * }
-		 * 
-		 * for (MultipartFile mainImageFile : mainImageFiles) { 
-		 * String mainImageFileName = mainImageFile.getOriginalFilename(); // 필요한 대로 대표 메뉴 이미지를 저장하거나 처리합니다. }
-		 */
-	    
 		return "redirect:main";
 	}
 
-	// storeoutput 출력창
+	//매장 출력창
 	@RequestMapping(value = "/storeoutput")
 	public String store3(Model md) {
 		StoreService ss = sqlSession.getMapper(StoreService.class);
@@ -134,7 +115,7 @@ public class StoreController {
 		return "storeoutput";
 	}
 	
-	//storemodifyview 수정창
+	//매장 수정창
 	@RequestMapping(value = "/storemodifyview")
 	public String store4(Model md) {
 		StoreService ss = sqlSession.getMapper(StoreService.class);
@@ -144,6 +125,7 @@ public class StoreController {
 		return "storemodify";
 	}
 	
+	//매장 수정창에서 수정 후 db 등록
 	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
 	public String store5(MultipartHttpServletRequest mul, HttpSession session) {
 		String store_id =(String) session.getAttribute("store_id");
@@ -152,11 +134,9 @@ public class StoreController {
 		String address = mul.getParameter("address");
 		String lineintro = mul.getParameter("lineintro");
 		String intro = mul.getParameter("intro");
-		//이미지 다중 파일 업로드
-		List<MultipartFile> filelist1 = mul.getFiles("image");
+		List<MultipartFile> filelist1 = mul.getFiles("image"); //이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		//이미지 다중 파일 업로드
-		List<MultipartFile> filelist2 = mul.getFiles("main_image");
+		List<MultipartFile> filelist2 = mul.getFiles("main_image"); //이미지 다중 파일 업로드
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -243,7 +223,10 @@ public class StoreController {
 			hs.setAttribute("store", dto);
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
-
+			
+			 HttpSession session = request.getSession();
+			 session.setAttribute("store_id", dto.getStore_id());
+			    
 			return "redirect:/";
 		} else {
 

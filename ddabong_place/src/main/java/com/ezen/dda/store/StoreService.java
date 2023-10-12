@@ -12,8 +12,8 @@ public interface StoreService {
 //			String intro, String imagefile, String main_menu, String mainimagefile, String region_name, String feature2,
 //			String dessert2);
 	public void storeinput(String store_id, String storename, String tel, String address, String lineintro,
-			String intro, List<MultipartFile> filelist, String main_menu, String region_name, String feature2,
-			String dessert2);
+			String intro, List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2,
+			String region_name, String feature2, String dessert2);
 
 	// 매장 출력
 	public ArrayList<StoreDTO> storeoutput();

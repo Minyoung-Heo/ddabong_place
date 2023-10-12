@@ -118,7 +118,7 @@
 			value="/WEB-INF/views/store/storeoutput.jsp" />
 	</definition>
 	
-	 <!--  매장 등록 수정창  -->
+	<!--  매장 등록 수정창  -->
 	<definition name="storemodify" extends="baseLayout">
       <put-attribute name="title" value="매장 등록 수정" />
       <put-attribute name="body"
@@ -131,7 +131,7 @@
       <put-attribute name="body"
          value="/WEB-INF/views/store/storestatus.jsp" />
    </definition>
-   
+	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	
    	<definition name="qnaForm" extends="baseLayout">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +116,7 @@ option {
 function check(){
     var f = document.store;
 
-    var cstore_id = f.store_id.value;
+    /* var cstore_id = f.store_id.value;
     var vstore_id = /^[a-zA-Z0-9]{4,10}$/;
 
     if(cstore_id== "" || cstore_id==" "){
@@ -127,7 +128,7 @@ function check(){
         alert("업체 아이디는 숫자나 영어를 입력해주세요");
 		f.store_id.select();
 		return false;
-    }
+    } */
 
     var cstorename = f.storename.value;
     var vstorename = /^[a-zA-Z가-힣0-9\s]{1,9}$/;
@@ -204,18 +205,18 @@ function check(){
     f.submit();
 }
 
-// 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
+/* // 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
 document.addEventListener("DOMContentLoaded", function () {
     // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
     // 여기에서는 간단히 하드코딩으로 설정
     var loggedInStoreId = store_id; // 예: 로그인한 사용자의 store_id
 
     // store_id 입력 필드를 가져옴
-    var storeIdInput = document.querySelector("input[name='store_id']");
+    var storeIdInput =  document.getElementById("store_id");
 
     // store_id 입력 필드에 로그인한 사용자의 store_id를 설정
     storeIdInput.value = loggedInStoreId;
-});
+}); */
 
 //파일 선택 필드를 가져옴
 var imageInput = document.getElementById("image");
@@ -257,7 +258,18 @@ mainImageInput.addEventListener("change", function () {
             
             <div class="store_id">
                 <h4>업체 아이디</h4>
-                <input type="text" name="store_id" readonly>
+                <c:choose>
+                <c:when test="${storeloginstate == true}">
+	        	<input type="text" name="store_id" value="${store.store_id}" readonly>
+				</c:when>
+				
+				<c:otherwise>
+				<script>
+				alert("등록된 아이디가 없습니다.");
+				location.href = "storeLogin";
+				</script>
+				</c:otherwise>
+				</c:choose>
             </div>
             
             <div class="storename">
@@ -287,7 +299,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" name="image" id="file" accept="image/*" multiple>
+            	<input type="file" name="image" id="file" multiple>
           	</div>
           	
           	<div class="main_menu">
@@ -297,7 +309,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="main_image">
             	<h4>매장 대표 메뉴 사진</h4>
-            	<input type="file" name="main_image" id="file" accept="image/*" multiple>
+            	<input type="file" name="main_image" id="file" multiple>
           	</div>
           	
           	<div class="region_name">
