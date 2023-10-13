@@ -225,7 +225,6 @@ p1 {
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='storeFind'"><p1>아이디 또는 비밀번호를 잃어
-		버리셨나요 ?</p1></a>
+	<a onclick="location.href='storeFind'"><p1>아이디 또는 비밀번호를 잃어버리셨나요 ?</p1></a>
 </body>
 </html>

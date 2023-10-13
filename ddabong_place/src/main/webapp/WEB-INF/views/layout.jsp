@@ -44,7 +44,9 @@
 #searchbtn {
 	border: none;
 	border-radius: 0px;
+	background-image: url("/dda/image/search.png"); 
  	background-size:cover;
+ 	background-color:white;
 	  position: absolute;
    width: 25px;
    height:25px;
@@ -88,7 +90,6 @@
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	
 	padding: 30px;
 	height: auto;
 	min-height: 300%;
