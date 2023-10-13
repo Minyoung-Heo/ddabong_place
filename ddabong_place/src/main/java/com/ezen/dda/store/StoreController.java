@@ -1,6 +1,8 @@
 package com.ezen.dda.store;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class StoreController {
@@ -37,8 +39,8 @@ public class StoreController {
 
 	//매장 입력창에서 입력 후 db 저장
 	@RequestMapping(value = "/storeinputsave", method = RequestMethod.POST)
-	public String store2(MultipartHttpServletRequest mul, HttpSession session) {
-		String store_id = (String) session.getAttribute("id");
+	public String store2(MultipartHttpServletRequest mul) {
+		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
 		String address = mul.getParameter("address");
@@ -51,6 +53,8 @@ public class StoreController {
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
 		
+		//System.out.println(image);
+		//System.out.println(main_image);
 		
 		//특징과 디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
 		String feature2 = "";
@@ -69,9 +73,25 @@ public class StoreController {
 		    }
 		}
 		
+//		//파일 업로드
+//		int size1 = image.size();
+//		for(int i=0; i<size1; i++) {
+//			MultipartFile mf1 = image.get(i);
+//			String imagefile = mf1.getOriginalFilename();
+//			
+//			File file = new File(imagepath + "\\" +imagefile);
+//			
+//			try {
+//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+//				bos.write(image.get(i).getBytes());
+//				bos.close();
+//			}catch (Exception e) {
+//				// TODO: handle exception
+//			}
+//		}
+		
 		for (MultipartFile mf1 : filelist1) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			//String safefile = imagepath + System.currentTimeMillis() + originfilename;
 			
 			try {
 				mf1.transferTo(new File(imagepath+"\\"+imagefile));
@@ -84,6 +104,23 @@ public class StoreController {
 			}
 		}
 		
+//		//파일 업로드
+//		int size2 = main_image.size();
+//		for (int i = 0; i < size2; i++) {
+//			MultipartFile mf2 = main_image.get(i);
+//			String main_imagefile = mf2.getOriginalFilename();
+//
+//			File file = new File(imagepath + "\\" + main_imagefile);
+//
+//			try {
+//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+//				bos.write(main_image.get(i).getBytes());
+//				bos.close();
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//			}
+//		}
+
 		for (MultipartFile mf1 : filelist2) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
 			
@@ -97,10 +134,10 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
+				
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, lineintro, intro, main_menu, main_menu, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storeinput(store_id,storename,tel,address,lineintro,intro,filelist1,main_menu,filelist2,region_name,feature2,dessert2);
-		//ss.storeinput(store_id,storename,tel,address,lineintro,intro,/*imagefile*/,main_menu,mainimagefile,region_name,feature2,dessert2);
+		ss.storeinput(storeDTO);
 		
 		return "redirect:main";
 	}
@@ -127,8 +164,8 @@ public class StoreController {
 	
 	//매장 수정창에서 수정 후 db 등록
 	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
-	public String store5(MultipartHttpServletRequest mul, HttpSession session) {
-		String store_id =(String) session.getAttribute("store_id");
+	public String store5(MultipartHttpServletRequest mul) {
+		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
 		String address = mul.getParameter("address");
@@ -204,7 +241,21 @@ public class StoreController {
 			
 		return "storestatus";
 	}
+	
+	//업체용 회원가입
+	@RequestMapping(value = "/storeJoin")
+	public String storeJoin() {
+				
+		return "storeJoin";
+	}
 
+	//업체용 로그인
+	@RequestMapping(value = "/storeLogin")
+	public String storeLogin() {
+			
+		return "storeLogin";
+	}
+	
 //  업체용 로그인 확인
 	@RequestMapping(value = "/storelogincheck", method = RequestMethod.POST)
 	public String storelogincheck(HttpServletRequest request) {
