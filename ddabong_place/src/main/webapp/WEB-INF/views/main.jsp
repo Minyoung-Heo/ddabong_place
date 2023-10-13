@@ -23,6 +23,9 @@
 	});
 </script>
 <style type="text/css">
+h1{
+margin: 30px;
+}
 .slick-prev {
 	left: 750px;
 	z-index: 1;
@@ -115,10 +118,45 @@
 .intro {
 	text-align: left;
 }
-
+.regionIcon {
+display: flex;
+width: 100%;
+justify-content: center;
+}
+.regionIcon img{
+margin-left: 40px;
+}
+.dessertIcon img {
+margin:20px;
+}
 </style>
 </head>
 <body>
+<br><br><br>
+<h1>디저트별 카페 추천</h1>
+<div class="dessertIcon">
+<a href=""><img src="/dda/image/케이크.png" width="140px"></a>
+<a href=""><img src="/dda/image/마카롱.png" width="140px"></a>
+<a href=""><img src="/dda/image/푸딩.png" width="140px"></a>
+<a href=""><img src="/dda/image/크로플.png" width="140px"></a>
+</div>
+<div class="dessertIcon">
+<a href=""><img src="/dda/image/스콘.png" width="140px"></a>
+<a href=""><img src="/dda/image/마들렌.png" width="140px"></a>
+<a href=""><img src="/dda/image/쿠키.png" width="140px"></a>
+<a href=""><img src="/dda/image/빙수.png" width="140px"></a>
+</div>
+
+<h1>어디로 갈까요?</h1>
+<div class="regionIcon">
+<a href=""><img src="/dda/image/강남아이콘.png" width="100px"></a>
+<a href=""><img src="/dda/image/성수아이콘.png" width="100px"></a>
+<a href=""><img src="/dda/image/연남아이콘.png" width="100px"></a>
+<a href=""><img src="/dda/image/을지로아이콘.png" width="100px"></a>
+<a href=""><img src="/dda/image/잠실아이콘.png" width="100px"></a>
+<a href=""><img src="/dda/image/혜화아이콘.png" width="100px"></a>
+</div>
+
 	<h1>이달의 따봉왕</h1>
 	<div class="slide_div_wrap">
 		<div class="slide_div">
