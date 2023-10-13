@@ -11,7 +11,8 @@
 		var alertMessage = "${alertMessage}";
 		if (alertMessage) {
 			alert(alertMessage);
-			window.location.replace("personalLogin");
+			console.log("이전페이지로 고고싱");
+			window.history.back();
 		}
 	</script>
 </body>

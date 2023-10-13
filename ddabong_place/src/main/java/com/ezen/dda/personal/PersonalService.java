@@ -13,6 +13,11 @@ public interface PersonalService {
 //	로그인
 	public PersonalDTO personallogincheck(String id, String pw);
 
+//	마이페이지 들어가기 전 비밀번호 인증
+	public PersonalDTO personalpwchecking(String id, String pw);
+//	탈퇴전 비밀번호 인증
+	public PersonalDTO personalleavechecking(String id, String pw);
+
 //	아이디 찾기
 	public ArrayList<PersonalDTO> personalidResult(String name, String email);
 

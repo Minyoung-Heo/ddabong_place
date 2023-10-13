@@ -84,8 +84,8 @@ height: auto;
 			</table>
 		</div>
 	</div>
-	<button class="btn" onclick="location.href='myinfoModify'">회원
-		수정</button>
-	<button class="btn" id="goodbyeButton" onclick="location.href='personaldelete?id=${personal.id}'">회원 탈퇴</button>
+	<button class="btn" onclick="location.href='myinfoModify'">회원 수정</button>
+	<button class="btn" onclick="location.href='personalleave'">회원 탈퇴</button>
+<%-- 	<button class="btn" id="goodbyeButton" onclick="location.href='personaldelete?id=${personal.id}'">회원 탈퇴</button> --%>
 </body>
 </html>
