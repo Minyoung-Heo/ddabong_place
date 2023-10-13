@@ -54,10 +54,8 @@
 					});
 				}
 			}]
-		});
-				
+		});		
 		calendar.render();
-
 	}
 
 	</script>

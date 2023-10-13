@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@ h1 {
 }
 
 input {
-  width: 87.5%;
+  width: 70%;
   height: 50px;
   border-radius: 30px;
   margin-top: 10px;
@@ -80,13 +81,15 @@ input[type=file]::file-selector-button {
   left: -5px;
 }
 input[type=file]::file-selector-button:hover {
-    background: rgb(254,163,72);
-    color: #fff;
+  background: rgb(254,163,72);
+  color: #fff;
   }
 
 .mae_image input, .main_image input {
   border: none;
   outline: none;
+  position: relative;
+  left: 73px;
 }
 
 select {
@@ -107,27 +110,82 @@ option {
   background: #ffffff;
 }
 
+.textbox {
+	width: 70%;
+	height: 51px;
+	border: 1px solid #FF8C00;
+	margin: 5px;
+	padding: 10px 14px 10px 14px;
+	box-sizing: border-box;
+	font-size: 15px;
+	border-radius: 40px;
+}
+
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- 주소 api -->
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	function execPostCode() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+				// 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+				var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+				// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+				// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+				if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+					extraRoadAddr += data.bname;
+				}
+				// 건물명이 있고, 공동주택일 경우 추가한다.
+				if (data.buildingName !== '' && data.apartment === 'Y') {
+					extraRoadAddr += (extraRoadAddr !== '' ? ', '
+							+ data.buildingName : data.buildingName);
+				}
+				// 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+				if (extraRoadAddr !== '') {
+					extraRoadAddr = ' (' + extraRoadAddr + ')';
+				}
+				// 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+				if (fullRoadAddr !== '') {
+					fullRoadAddr += extraRoadAddr;
+				}
+
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				console.log(data.zonecode);
+				console.log(fullRoadAddr);
+
+				$("[name=addr1]").val(data.zonecode);
+				$("[name=addr2]").val(fullRoadAddr);
+
+				/* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
+				document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
+				document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
+			}
+		}).open();
+	}
+
+	// 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
+	$("#addr2, #addr3").on('input', function() {
+		var addr2 = $("#addr2").val();
+		var addr3 = $("#addr3").val();
+		var address = addr2 + " " + addr3;
+
+		// address 값을 hidden 필드에 할당
+		$("#personaladdress").val(address);
+	});
+</script>
 
 <script>
 function check(){
     var f = document.store;
-
-    var cstore_id = f.store_id.value;
-    var vstore_id = /^[a-zA-Z0-9]{4,10}$/;
-
-    if(cstore_id== "" || cstore_id==" "){
-        alert("업체 아이디 공백은 안돼요");
-        f.store_id.select();
-        return false;
-    }
-    if(!vstore_id.test(cstore_id)){
-        alert("업체 아이디는 숫자나 영어를 입력해주세요");
-		f.store_id.select();
-		return false;
-    }
 
     var cstorename = f.storename.value;
     var vstorename = /^[a-zA-Z가-힣0-9\s]{1,9}$/;
@@ -204,14 +262,14 @@ function check(){
     f.submit();
 }
 
-// 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
+/* // 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
 document.addEventListener("DOMContentLoaded", function () {
     // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
     // 여기에서는 간단히 하드코딩으로 설정
     var loggedInStoreId = store_id; // 예: 로그인한 사용자의 store_id
 
     // store_id 입력 필드를 가져옴
-    var storeIdInput = document.querySelector("input[name='store_id']");
+    var storeIdInput =  document.getElementById("store_id");
 
     // store_id 입력 필드에 로그인한 사용자의 store_id를 설정
     storeIdInput.value = loggedInStoreId;
@@ -239,7 +297,7 @@ mainImageInput.addEventListener("change", function () {
         // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
     }
 });
-
+*/
 
 </script>
 </head>
@@ -257,7 +315,18 @@ mainImageInput.addEventListener("change", function () {
             
             <div class="store_id">
                 <h4>업체 아이디</h4>
-                <input type="text" name="store_id" readonly>
+                <c:choose>
+                <c:when test="${storeloginstate == true}">
+	        	<input type="text" name="store_id" value="${store.id}" readonly>
+				</c:when>
+				
+				<c:otherwise>
+				<script>
+				alert("등록된 아이디가 없습니다.");
+				location.href = "storeLogin";
+				</script>
+				</c:otherwise>
+				</c:choose>
             </div>
             
             <div class="storename">
@@ -273,6 +342,19 @@ mainImageInput.addEventListener("change", function () {
             <div class="address">
               <h4>매장 주소</h4>
               <input type="text" name="address" placeholder="매장 주소">
+            	<!-- <input class="textbox"
+					style="width: 20%; height: 50%; background-color: #d9d9d9; display: inline;"
+					placeholder="우편번호" name="addr1" id="addr1" type="text"
+					readonly="readonly">
+				<button type="button" class="btn btn-default" onclick="execPostCode();">
+					<i class="fa fa-search"></i> 우편번호 찾기
+				</button><br>
+				<input class="textbox" style="background-color: #d9d9d9"
+					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
+					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
+					name="addr3" id="addr3" type="text" /> 
+					도로명 + 상세주소 합쳐진거보내기 위한거 
+					<input type="hidden" id="personaladdress" name="address" value="전체주소"> -->
             </div>
             
             <div class="lineintro">
@@ -287,7 +369,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" name="image" id="file" accept="image/*" multiple>
+            	<input type="file" name="image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="main_menu">
@@ -297,7 +379,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="main_image">
             	<h4>매장 대표 메뉴 사진</h4>
-            	<input type="file" name="main_image" id="file" accept="image/*" multiple>
+            	<input type="file" name="main_image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="region_name">
@@ -333,7 +415,7 @@ mainImageInput.addEventListener("change", function () {
             	<label><input type="checkbox" name="dessert" value="스콘">스콘</label>
             	<label><input type="checkbox" name="dessert" value="마카롱">마카롱</label><br>
             	<label><input type="checkbox" name="dessert" value="크로플">크로플</label>
-            	<label><input type="checkbox" name="dessert" value="휘낭시에">휘낭시에</label>
+            	<label><input type="checkbox" name="dessert" value="푸딩">푸딩</label>
             	<label><input type="checkbox" name="dessert" value="쿠키">쿠키</label>
             	<label><input type="checkbox" name="dessert" value="빙수">빙수</label>
            	</div>

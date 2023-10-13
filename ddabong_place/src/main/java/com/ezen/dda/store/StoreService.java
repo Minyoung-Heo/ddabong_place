@@ -8,12 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface StoreService {
 
 	// 매장 등록
-	//public void storeinput(String store_id, String storename, String tel, String address, String lineintro,
-//			String intro, String imagefile, String main_menu, String mainimagefile, String region_name, String feature2,
-//			String dessert2);
-	public void storeinput(String store_id, String storename, String tel, String address, String lineintro,
-			String intro, List<MultipartFile> filelist, String main_menu, String region_name, String feature2,
-			String dessert2);
+	public void storeinput(StoreDTO storeDTO);
 
 	// 매장 출력
 	public ArrayList<StoreDTO> storeoutput();
@@ -40,5 +35,10 @@ public interface StoreService {
 
 	// 비밀번호 찾기
 	public ArrayList<StoreDTO> storepwResult(String ceo, String id);
+
+	public void storeinput(String storename, String tel, String address, String lineintro, String intro,
+			List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2, String region_name,
+			String feature2, String dessert2);
+
 
 }
