@@ -179,6 +179,7 @@ body {
 	margin: 5px;
 	padding: 10px 14px 10px 14px;
 	box-sizing: border-box;
+	border-radius: 40px;
 	font-size: 15px;
 }
 
@@ -189,6 +190,7 @@ body {
 	color: white; /* 글씨색을 #FF8C00으로 변경 */
 	font-size: 23px;
 	margin-top: 20px;
+	border-radius: 40px;
 }
 
 p1 {
@@ -223,7 +225,6 @@ p1 {
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='idpwFind'"><p1>아이디 및 비밀번호가 기억이 나질
-		않으시다면 저를 클릭해주세요 !</p1></a>
+	<a onclick="location.href='storeFind'"><p1>아이디 또는 비밀번호를 잃어버리셨나요 ?</p1></a>
 </body>
 </html>

@@ -13,6 +13,7 @@
 			value="/WEB-INF/views/footer.jsp" />
 	</definition>
 
+
 	<definition name="main" extends="baseLayout">
 		<put-attribute name="title" value="메인화면" />
 		<put-attribute name="body"
@@ -32,7 +33,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/selectJoin.jsp" />
 	</definition>
-	
+
 	<!-- 검색 -->
 	<definition name="searchList" extends="baseLayout">
 		<put-attribute name="title" value="검색결과창" />
@@ -40,21 +41,21 @@
 			value="/WEB-INF/views/search/searchList.jsp" />
 	</definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 헤더 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	
-	
+
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<!--  고객맞춤카페추천 -->
-  <definition name="quiz" extends="baseLayout">
-      <put-attribute name="title" value="고객맞춤카페추천" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/quiz/quiz.jsp" />
-   </definition>
-     <definition name="quizresult" extends="baseLayout">
-      <put-attribute name="title" value="당신의 추천카페" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/quiz/quizresult.jsp" />
-   </definition>
-<!--  @@카페추천종료@@ -->
+	<!-- 고객맞춤카페추천 -->
+	<definition name="quiz" extends="baseLayout">
+		<put-attribute name="title" value="고객맞춤카페추천" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/quiz/quiz.jsp" />
+	</definition>
+	<definition name="quizresult" extends="baseLayout">
+		<put-attribute name="title" value="당신의 추천카페" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/quiz/quizresult.jsp" />
+	</definition>
+	<!-- @@카페추천종료@@ -->
 
 <!-- 회원용 매장 상세출력 -->
   <definition name="personaldetail" extends="baseLayout">
@@ -63,14 +64,28 @@
          value="/WEB-INF/views/personalfunction/personaldetail.jsp" />
    </definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
- 
- 
+
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- 유저 회원 로그인 -->
 	<definition name="personalLogin" extends="baseLayout">
 		<put-attribute name="title" value="개인회원 로그인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalLogin.jsp" />
+	</definition>
+
+	<!-- 유저 회원 마이페이지 -->
+	<definition name="myinfo" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 마이페이지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/myinfo.jsp" />
+	</definition>
+
+	<!-- 유저 회원 마이페이지 수정 -->
+	<definition name="myinfoModify" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 마이페이지 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/myinfoModify.jsp" />
 	</definition>
 
 	<!-- 유저 회원 로그인 에러 -->
@@ -89,6 +104,64 @@
 	
 	
 
+	<!-- 유저 회원 아이디비번찾기 -->
+	<definition name="personalFind" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 아디비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalFind.jsp" />
+	</definition>
+	<!-- 팝업창 관련 -->
+	<definition name="popupLayout"
+		template="/WEB-INF/views/popuplayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	<!-- 유저 회원 마이페이지 비번 확인 -->
+	<definition name="personalpwcheck" extends="baseLayout">
+		<put-attribute name="title" value="마이페이지 비번 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalpwcheck.jsp" />
+	</definition>
+	<!-- 유저 회원 탈퇴하기전 비번 확인 -->
+	<definition name="personalleave" extends="baseLayout">
+		<put-attribute name="title" value="회원탈퇴 비밀번호 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalleave.jsp" />
+	</definition>
+	<!-- 유저 회원 탈퇴하기전 마지막 비번 확인 -->
+	<definition name="confirmLeave" extends="baseLayout">
+		<put-attribute name="title" value="회원탈퇴 비밀번호 마지막 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/confirmLeave.jsp" />
+	</definition>
+	<!-- 유저 회원 아이디찾기 -->
+	<definition name="personalidFind" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 아이디찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalidFind.jsp" />
+	</definition>
+	<!-- 유저 회원 아이디찾기 결과 -->
+	<definition name="personalidResult" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 아이디찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalidResult.jsp" />
+	</definition>
+
+	<!-- 유저 회원 비번찾기 -->
+	<definition name="personalpwFind" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalpwFind.jsp" />
+	</definition>
+	<!-- 유저 회원 비번찾기 결과 -->
+	<definition name="personalpwResult" extends="popupLayout">
+		<put-attribute name="title" value="개인회원 비번찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/personalpwResult.jsp" />
+	</definition>
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
@@ -105,7 +178,46 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
+	<!-- 유저 회원 아이디비번찾기 -->
+	<definition name="storeFind" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 아디비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeFind.jsp" />
+	</definition>
+	<!-- 팝업창 관련 -->
+	<definition name="popupLayout"
+		template="/WEB-INF/views/popuplayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
 
+	<!-- 업체 회원 아이디찾기 -->
+	<definition name="storeidFind" extends="popupLayout">
+		<put-attribute name="title" value="업체 아이디찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeidFind.jsp" />
+	</definition>
+	<!-- 업체 회원 아이디찾기 결과 -->
+	<definition name="storeidResult" extends="popupLayout">
+		<put-attribute name="title" value="업체 아이디찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeidResult.jsp" />
+	</definition>
+
+	<!-- 업체 회원 비번찾기 -->
+	<definition name="storepwFind" extends="popupLayout">
+		<put-attribute name="title" value="업체 비번찾기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storepwFind.jsp" />
+	</definition>
+	<!-- 업체 회원 비번찾기 결과 -->
+	<definition name="storepwResult" extends="popupLayout">
+		<put-attribute name="title" value="업체 비번찾기 결과" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storepwResult.jsp" />
+	</definition>
 	<!-- 업체 회원 회원가입 -->
 	<definition name="storeJoin" extends="baseLayout">
 		<put-attribute name="title" value="업체회원 회원가입" />
@@ -126,36 +238,64 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeoutput.jsp" />
 	</definition>
+
+	<!-- 매장 등록 수정창 -->
+	<definition name="storemodify" extends="baseLayout">
+		<put-attribute name="title" value="매장 등록 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storemodify.jsp" />
+	</definition>
+
+	<!-- 매장 예약 현황창 -->
+	<definition name="storestatus" extends="baseLayout">
+		<put-attribute name="title" value="매장 예약 캘린더" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storestatus.jsp" />
+	</definition>
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	
-   	<definition name="qnaForm" extends="baseLayout">
-      <put-attribute name="title" value="QnA" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/qna/qnaForm.jsp" />
-   </definition>
-   
-     	<definition name="questionInput" extends="baseLayout">
-      <put-attribute name="title" value="1:1 문의하기" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/qna/questionInput.jsp" />
-   </definition>
-   
-   	<definition name="customerQnA" extends="baseLayout">
-      <put-attribute name="title" value="손님 QnA" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/qna/customerQnA.jsp" />
-   </definition>
-   
-   	<definition name="storeQnA" extends="baseLayout">
-      <put-attribute name="title" value="업체 QnA" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/qna/storeQnA.jsp" />
-   </definition>
-   
-      	<definition name="questionDetail" extends="baseLayout">
-      <put-attribute name="title" value="1:1 문의 내역" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/qna/questionDetail.jsp" />
-   </definition>
-   
+
+	<definition name="qnaForm" extends="baseLayout">
+		<put-attribute name="title" value="QnA" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/qnaForm.jsp" />
+	</definition>
+
+	<definition name="questionInput" extends="baseLayout">
+		<put-attribute name="title" value="1:1 문의하기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/questionInput.jsp" />
+	</definition>
+
+	<definition name="customerQnA" extends="baseLayout">
+		<put-attribute name="title" value="손님 QnA" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/customerQnA.jsp" />
+	</definition>
+
+	<definition name="storeQnA" extends="baseLayout">
+		<put-attribute name="title" value="업체 QnA" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/storeQnA.jsp" />
+	</definition>
+
+	<definition name="questionDetail" extends="baseLayout">
+		<put-attribute name="title" value="1:1 문의 내역" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/questionDetail.jsp" />
+	</definition>
+
+	<definition name="replyMain" extends="baseLayout">
+		<put-attribute name="title" value="QnA 답변하기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/replyMain.jsp" />
+	</definition>
+
+	<definition name="replyInput" extends="baseLayout">
+		<put-attribute name="title" value="QnA 답변하기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/replyInput.jsp" />
+	</definition>
+
+
 </tiles-definitions>

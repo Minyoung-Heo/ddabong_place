@@ -44,13 +44,14 @@
 #searchbtn {
 	border: none;
 	border-radius: 0px;
-	background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png");
-	background-size:cover;
+	background-image: url("/dda/image/search.png"); 
+ 	background-size:cover;
+ 	background-color:white;
 	  position: absolute;
    width: 25px;
    height:25px;
-   top: 20px;
-   left: 235%;
+   top: 19px;
+   left: 233%;
    margin: 0;
 }
 .in2 {
@@ -81,8 +82,14 @@
    position: fixed;
 }
 
+#nav {
+	width: 100%;
+}
+
 #body {
 	text-align: center;
+	margin: 0;
+	padding: 0;
 	padding: 30px;
 	height: auto;
 	min-height: 300%;
@@ -138,7 +145,7 @@
 <title><t:insertAttribute name="title" /></title>
 </head>
 <body>
-   <div id="container">
+  <div id="container">
       <div id="top">
          <t:insertAttribute name="top" />
       </div>

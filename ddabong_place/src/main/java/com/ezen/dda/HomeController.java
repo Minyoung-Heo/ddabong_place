@@ -10,8 +10,7 @@ public class HomeController {
 	public String monthDDA() {
 		return "redirect:/";
 	}
-	
 
-	
+
 
 }

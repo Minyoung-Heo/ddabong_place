@@ -312,15 +312,6 @@
 		}).open();
 	}
 
-	// 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
-	$("#addr2, #addr3").on('input', function() {
-		var addr2 = $("#addr2").val();
-		var addr3 = $("#addr3").val();
-		var address = addr2 + " " + addr3;
-
-		// address 값을 hidden 필드에 할당
-		$("#personaladdress").val(address);
-	});
 </script>
 </head>
 <body>
@@ -329,13 +320,6 @@
 			<h1 class="login_title">회원 가입</h1>
 			<form action="personalsave" method="post" id="myForm">
 				<br>
-				<!-- 			<input type="text" id="personalid"  name="personalid"><br> 
-			<input type="text" name="personalpw" id="personalpw"><br>
-			<input type="text" name="personalname" id="personalname"><br>
-			<input type="text" name="personalnickname"><br>
-			<input type="text" name="personalphone"><br>
-			<input type="text" name="personaladdress"><br>
-			<input type="text" name="personalemail">-->
 				아이디<input type="text" id="personalid" class="textbox"
 					placeholder="아이디" name="personalid" maxlength="20">
 				<div class="error-message" id="idErrorMessage"></div>
@@ -370,9 +354,6 @@
 					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
 					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
 					name="addr3" id="addr3" type="text" /> 
-<!-- 					도로명 + 상세주소 합쳐진거보내기 위한거  -->
-					<input
-					type="hidden" id="personaladdress" name="personaladdress" value="전체주소">
 					
 				이메일<input type="text" id="personalemail" class="textbox" name="personalemail"
 					placeholder="이메일 ex)user@ddabongplace.com">

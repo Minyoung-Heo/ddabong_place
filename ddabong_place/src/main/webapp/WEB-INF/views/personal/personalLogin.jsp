@@ -5,30 +5,30 @@
 <html>
 <head>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const pi = document.getElementById("personalid");
-    const pw = document.getElementById("personalpw");
-    const btn = document.getElementById("loginButton");
+	document.addEventListener("DOMContentLoaded", function() {
+		const pi = document.getElementById("personalid");
+		const pw = document.getElementById("personalpw");
+		const btn = document.getElementById("loginButton");
 
-    // 초기에 로그인 버튼을 비활성화
-    btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
-    btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
-    
-    pi.addEventListener("input", toggleLoginButton);
-    pw.addEventListener("input", toggleLoginButton);
+		// 초기에 로그인 버튼을 비활성화
+		btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
+		btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
 
-    function toggleLoginButton() {
-        if (pi.value.trim() !== "" && pw.value.trim() !== "") {
-        	btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
-        	btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
-        	btn.removeAttribute("disabled");
-        } else {
-        	btn.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
-        	btn.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
-        	btn.setAttribute("disabled", "true");
-        }
-      }
-  });
+		pi.addEventListener("input", toggleLoginButton);
+		pw.addEventListener("input", toggleLoginButton);
+
+		function toggleLoginButton() {
+			if (pi.value.trim() !== "" && pw.value.trim() !== "") {
+				btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
+				btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
+				btn.removeAttribute("disabled");
+			} else {
+				btn.style.backgroundColor = "#CCCCCC"; // 입력이 없을 때 회색으로 유지
+				btn.style.cursor = "not-allowed"; // 커서를 클릭 불가능한 상태로 유지
+				btn.setAttribute("disabled", "true");
+			}
+		}
+	});
 </script>
 
 <style type="text/css">
@@ -180,6 +180,7 @@ body {
 	padding: 10px 14px 10px 14px;
 	box-sizing: border-box;
 	font-size: 15px;
+	border-radius: 40px;
 }
 
 .btn_login {
@@ -189,6 +190,7 @@ body {
 	color: white; /* 글씨색을 #FF8C00으로 변경 */
 	font-size: 23px;
 	margin-top: 20px;
+	border-radius: 40px;
 }
 
 p1 {
@@ -212,17 +214,17 @@ p1 {
 				</div>
 				<div class="pswd_area">
 					<span class="pswd_input"> <input type="password"
-						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="personalpw"
-						maxlength="16">
+						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !"
+						name="personalpw" maxlength="16">
 
 					</span>
 				</div>
-				<button id="loginButton" class="btn_login" value="로그인" type="submit" disabled>로그인</button>
+				<button id="loginButton" class="btn_login" value="로그인" type="submit"
+					disabled>로그인</button>
 				<br>
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='idpwFind'"><p1>아이디 및 비밀번호가 기억이 나질
-		않으시다면 저를 클릭해주세요 !</p1></a>
+	<a onclick="location.href='personalFind'"><p1>아이디 또는 비밀번호를 잃어버리셨나요 ?</p1></a>
 </body>
 </html>

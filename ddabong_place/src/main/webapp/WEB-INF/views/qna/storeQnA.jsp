@@ -78,6 +78,13 @@
 .btn:hover {
     background-color:#ffba66;
 }
+.question .paging:hover {
+    background-color: initial; 
+}
+
+.question .paging td {
+    border-bottom: none;
+}
 </style>
 
 <script type="text/javascript">
@@ -100,20 +107,62 @@
             <a href="qnaform">자주하는 질문</a><br>
             <a href="storeqna" style="color:#ff8c00;">업체 Q&A</a><br>
             <a href="customerqna">손님 Q&A</a><br>
-            <a href="question">1:1 문의하기</a>
+            <a href="question">1:1 문의하기</a><br>
+			<c:if test="${personal.id == 'admin'}">
+			<a href="reply">Q&A 답변하기</a></c:if>
         </div>
 
         <div class="qna">
             <h1 style="text-align: left;">업체 Q&A</h1><br>
             <table class="question" align="center">
+            <caption>
+            <form action="storeSearch">
+            <select name="searchType">
+            <option value="groups">문의번호</option>
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
+            </select>
+            <input type="text" name="searchContent">
+            <input type="submit" value="검색">
+            </form>
+            </caption>
+            
                 <tr style="background-color: #ffd199;"><th>문의 번호</th><th>문의 유형</th><th>제목</th><th>작성자</th><th>작성일자</th></tr>
                 <c:forEach items="${list}" var="dto">
                     <tr>
                         <td>${dto.question_num}</td><td>${dto.questionType}</td>
-                        <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">${dto.title}</a></td>
+                        <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">
+                        <c:forEach begin="1" end="${dto.indent}" step="1">
+                        <img src="/dda/image/re.png" width="15px">
+                        </c:forEach>
+                        ${dto.title}</a></td>
                         <td>${dto.writer}</td><td>${fn:substring(dto.question_date,0,16)}</td>
                     </tr>
                 </c:forEach>
+                
+<tr class="paging">
+   <td colspan="5" style="text-align: center;">
+   
+   <c:if test="${paging.startPage!=1 }">
+      <a href="storeqna?nowPage=${paging.startPage-1 }&cntPerPage=${paging.cntPerPage}">◀</a>
+   </c:if>   
+   
+      <c:forEach begin="${paging.startPage }" end="${paging.endPage}" var="p"> 
+         <c:choose>
+            <c:when test="${p == paging.nowPage }">
+               <b><span style="color:#ff8c00;">${p}</span></b>
+            </c:when>   
+            <c:when test="${p != paging.nowPage }">
+               <a href="storeqna?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a>
+            </c:when>   
+         </c:choose>
+      </c:forEach>
+     
+      <c:if test="${paging.endPage != paging.lastPage}">
+      <a href="storeqna?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}">▶</a>
+   </c:if>
+   </td>
+</tr>
             </table>
             <input class="btn" type="button" value="1:1 문의하러 가기" onclick="location.href='question'">
         </div>
