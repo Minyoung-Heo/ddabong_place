@@ -83,4 +83,28 @@
 	</select>
 	<!-- 업체용 Q&A 검색 페이징처리 끝-->
 	
+	<!-- 답글용 Q&A 페이징처리 시작-->
+	<select id="cnt_reply" resultType="int">
+		select count(*) from question
+	</select>
+	
+	<select id="select_reply" resultType="com.ezen.dda.qna.QnADTO">
+		select * from (
+		select rownum rn, A.* from
+		(select * from question order by groups DESC,step asc) A)
+		where rn between #{start} AND #{end}
+	</select>
+	<!-- 답글용 Q&A 페이징처리 끝-->
+	
+	<update id="stepUp">
+	<![CDATA[
+	update question set step = step + 1 where groups = #{param1} and step > #{param2}
+	]]>
+	</update>
+	
+	<insert id="reply" parameterType="com.ezen.dda.qna.QnADTO">
+		insert into question values(question_seq.nextval, #{userType}, #{questionType}, #{title},
+		#{writer}, #{id}, #{content}, #{pw}, sysdate, #{groups}, #{step}, #{indent})
+	</insert>
+
 </mapper>

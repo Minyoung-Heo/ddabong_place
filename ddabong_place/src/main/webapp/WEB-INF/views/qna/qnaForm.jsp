@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -152,7 +153,9 @@ $(document).ready(function() {
 			<a href="qnaform" style="color:#ff8c00;">자주하는 질문</a><br>
 			<a href="storeqna">업체 Q&A</a><br>
 			<a href="customerqna">손님 Q&A</a><br>
-			<a href="question">1:1 문의하기</a>
+			<a href="question">1:1 문의하기</a><br>
+			<c:if test="${personal.id == 'admin'}">
+			<a href="reply">Q&A 답변하기</a></c:if>
 		</div>
 
 		<div class="qna">

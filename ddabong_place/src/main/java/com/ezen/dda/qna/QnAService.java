@@ -21,4 +21,12 @@ public interface QnAService {
 	// 업체용 검색 페이지 처리
 	public int cnt_storeSearch(String searchType, String searchContent);
 	public ArrayList<QnADTO> select_storeSearch(PageDTO dto);
+	
+	// 답글용 페이지 처리
+	public int cnt_reply();
+	public ArrayList<QnADTO> select_reply(PageDTO dto);
+	
+	// 답글 처리
+	public void stepUp(int groups, int step);
+	public void reply(QnADTO qnaDTO);
 }

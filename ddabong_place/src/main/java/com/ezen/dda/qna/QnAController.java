@@ -154,5 +154,63 @@ public class QnAController {
 		return "questionDetail";
 	}
 	
+	// 관리자용 Q&A 답글달기
+	@RequestMapping(value = "/reply")
+	public String goReply(HttpServletRequest request, PageDTO dto, Model model) {
+		String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+        String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+	     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+       //전체 레코드 수 구하기
+       int total = qnaService.cnt_reply(); // DB에서 레코드 수 가져옴
+	         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+	            nowPage = "1"; // 시작 페이지를 1로
+	            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+	         } else if(nowPage==null) {
+	            nowPage="1";
+	         } else if(cntPerPage==null) {
+	        	 cntPerPage="10";
+	         }      
+	         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	         model.addAttribute("paging", dto);
+	         model.addAttribute("list", qnaService.select_reply(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+		return "replyMain";
+	}
+	
+	// 관리자용 Q&A 답글달기 페이지로 이동
+		@RequestMapping(value = "/goReplyInput", method = RequestMethod.GET)
+		public String goReplypage(HttpServletRequest request, Model model) {
+			int question_num = Integer.parseInt(request.getParameter("question_num")); // 문의글 번호
+			QnAService qnaService = sqlSession.getMapper(QnAService.class);
+			QnADTO dto = qnaService.questionDetail(question_num);
+			model.addAttribute("dto", dto);
+			return "replyInput";
+		}
+		
+		// 답글달기 저장
+		@RequestMapping(value = "/replyInputSave", method = RequestMethod.POST)
+		public String replySave(HttpServletRequest request, Model model) {
+			String userType = request.getParameter("userType"); // 회원 유형
+			String questionType = request.getParameter("questionType"); // 문의 유형
+			String title = request.getParameter("title"); // 제목
+			String writer = request.getParameter("writer"); // 작성자
+			String id = request.getParameter("id"); // 작성자 아이디
+			String content = request.getParameter("content").replace("\n", "<br>"); // 문의 내용
+			int pw = Integer.parseInt(request.getParameter("pw")); // 비밀번호 4자리
+			int groups = Integer.parseInt(request.getParameter("groups"));
+			int step = Integer.parseInt(request.getParameter("step"));
+			int indent = Integer.parseInt(request.getParameter("indent"));
+			QnADTO qnaDTO = new QnADTO(userType, questionType, title, writer, id, content, pw);
+			QnAService qnaService = sqlSession.getMapper(QnAService.class);
+			qnaService.stepUp(step, indent);
+			step++;
+			indent++;
+			qnaDTO.setGroups(groups);
+			qnaDTO.setStep(step);
+			qnaDTO.setIndent(indent);
+			qnaService.reply(qnaDTO);
+			return "redirect:/reply";
+		}
+		
+		
 	
 }

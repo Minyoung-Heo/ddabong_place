@@ -57,15 +57,14 @@ width: 70%;
   border: 1px solid #ff8c00;
   outline: none;
 }
-.question input[type='button'] {
-margin-left:400px;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 7px;
-  outline: none;
-  color:white;
- border: 1px solid #ff8c00;  
- background-color: #FFBE1C;
+.btn {
+    margin-top: 20px;
+    margin-right: 100px;
+    background-color: #ffe8cc;
+}
+
+.btn:hover {
+    background-color:#ffba66;
 }
 </style>
 <script>
@@ -109,7 +108,9 @@ margin-left:400px;
 			<a href="qnaform">자주하는 질문</a><br>
 			<a href="storeqna">업체 Q&A</a><br>
 			<a href="customerqna">손님 Q&A</a><br>
-			<a href="question" style="color:#ff8c00;">1:1 문의하기</a>
+			<a href="question" style="color:#ff8c00;">1:1 문의하기</a><br>
+			<c:if test="${personal.id == 'admin'}">
+			<a href="reply">Q&A 답변하기</a></c:if>
 		</div>
 
 		<div class="qna">
@@ -164,7 +165,7 @@ margin-left:400px;
         
         <tr><td>문의내용</td><td><textarea cols="56" rows="10" name="content"></textarea></td></tr>
         <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
-        <tr><td colspan="2"><input type="button" value="입력" onclick="checkPw()"></td></tr>
+        <tr><td colspan="2" style="text-align: center;"><input class="btn" type="button" value="입력" onclick="checkPw()"></td></tr>
     </table>
     </form>
 	</div>
