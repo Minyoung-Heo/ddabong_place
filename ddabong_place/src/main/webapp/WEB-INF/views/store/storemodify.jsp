@@ -349,7 +349,7 @@ mainImageInput.addEventListener("change", function () {
             	<label><input type="checkbox" name="dessert" value="크로플"
             		<c:if test="${store.dessert.contains('크로플')}">checked</c:if>>크로플</label>
             	<label><input type="checkbox" name="dessert" value="휘낭시에"
-            		<c:if test="${store.dessert.contains('휘낭시에')}">checked</c:if>>휘낭시에</label>
+            		<c:if test="${store.dessert.contains('푸딩')}">checked</c:if>>푸딩</label>
             	<label><input type="checkbox" name="dessert" value="쿠키"
             		<c:if test="${store.dessert.contains('쿠키')}">checked</c:if>>쿠키</label>
             	<label><input type="checkbox" name="dessert" value="빙수"
