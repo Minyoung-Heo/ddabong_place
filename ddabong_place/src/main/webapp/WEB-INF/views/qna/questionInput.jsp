@@ -35,14 +35,37 @@ width: 90%;
 text-align: left;
 font-size: 20px;
 }
-.question input[type='text'] {
-border-radius: 30px;
-}
 .qna {
 margin-top: 20px;
 text-align: center;
 font-size: 25px;
 width: 85%;
+}
+.question input[type='text'] {
+width: 70%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 20px;
+  border: 1px solid #ff8c00;
+  outline: none;
+}
+.question textarea {
+	  border-radius: 30px;
+  margin-top: 10px;
+  padding: 20px;
+  border: 1px solid #ff8c00;
+  outline: none;
+}
+.question input[type='button'] {
+margin-left:400px;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 7px;
+  outline: none;
+  color:white;
+ border: 1px solid #ff8c00;  
+ background-color: #FFBE1C;
 }
 </style>
 <script>
@@ -139,7 +162,7 @@ width: 85%;
 			</c:otherwise>
 		</c:choose>
         
-        <tr><td>문의내용</td><td><textarea cols="25" rows="10" name="content"></textarea></td></tr>
+        <tr><td>문의내용</td><td><textarea cols="56" rows="10" name="content"></textarea></td></tr>
         <tr><td>비밀번호</td><td><input type="text" name="pw" placeholder="숫자 4자리"></td></tr>
         <tr><td colspan="2"><input type="button" value="입력" onclick="checkPw()"></td></tr>
     </table>

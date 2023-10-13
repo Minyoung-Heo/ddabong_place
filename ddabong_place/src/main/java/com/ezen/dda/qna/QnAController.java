@@ -29,43 +29,99 @@ public class QnAController {
 	}
 	
 	// 손님 QnA로 가기
-	@RequestMapping(value = "/customerqna")
-	public String gocustomerqna(Model model) {
-		QnAService qnaService = sqlSession.getMapper(QnAService.class);
-		ArrayList<QnADTO> list = qnaService.customerQnA();
-		model.addAttribute("list", list);
-		return "customerQnA";
-	}
+	@RequestMapping(value="/customerqna")
+	public String gocustomerqna(HttpServletRequest request, PageDTO dto, Model model) {
+         String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+         String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+	     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+        //전체 레코드 수 구하기
+        int total = qnaService.cnt_customer(); // DB에서 레코드 수 가져옴
+	         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+	            nowPage = "1"; // 시작 페이지를 1로
+	            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+	         } else if(nowPage==null) {
+	            nowPage="1";
+	         } else if(cntPerPage==null) {
+	        	 cntPerPage="10";
+	         }      
+	         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	         model.addAttribute("paging", dto);
+	         model.addAttribute("list", qnaService.select_customer(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+	         return "customerQnA";
+	      }
 	
 	// 손님 QnA 검색
 	@RequestMapping(value = "/customerSearch")
-	public String customerdsearch(HttpServletRequest request, Model model) {
-		String searchType = request.getParameter("searchType");
-		String searchContent = request.getParameter("searchContent");
-		QnAService qnaService = sqlSession.getMapper(QnAService.class);
-		ArrayList<QnADTO> list = qnaService.customerSearch(searchType, searchContent);
-		model.addAttribute("list", list);
-		return "customerQnA";
+	public String customerdsearch(HttpServletRequest request, PageDTO dto, Model model) {
+		String searchType = request.getParameter("searchType"); // 검색 유형
+		String searchContent = request.getParameter("searchContent"); // 검색 내용
+		String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+        String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+	     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+       //전체 레코드 수 구하기
+       int total = qnaService.cnt_customerSearch(searchType, searchContent); // DB에서 레코드 수 가져옴
+	         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+	            nowPage = "1"; // 시작 페이지를 1로
+	            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+	         } else if(nowPage==null) {
+	            nowPage="1";
+	         } else if(cntPerPage==null) {
+	        	 cntPerPage="10";
+	         }      
+	         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	         dto.setSearchType(searchType);
+	         dto.setSearchContent(searchContent);
+	         model.addAttribute("paging", dto);
+	         model.addAttribute("list", qnaService.select_customerSearch(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+	         return "customerQnA";
 	}
 	
 	// 업체 QnA로 가기
-	@RequestMapping(value = "/storeqna")
-	public String gostoreqna(Model model) {
-		QnAService qnaService = sqlSession.getMapper(QnAService.class);
-		ArrayList<QnADTO> list = qnaService.storeQnA();
-		model.addAttribute("list", list);
-		return "storeQnA";
-	}
+		@RequestMapping(value="/storeqna")
+		public String gostoreqna(HttpServletRequest request, PageDTO dto, Model model) {
+	         String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+	         String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+		     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+	        //전체 레코드 수 구하기
+	        int total = qnaService.cnt_store(); // DB에서 레코드 수 가져옴
+		         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+		            nowPage = "1"; // 시작 페이지를 1로
+		            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+		         } else if(nowPage==null) {
+		            nowPage="1";
+		         } else if(cntPerPage==null) {
+		        	 cntPerPage="10";
+		         }      
+		         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		         model.addAttribute("paging", dto);
+		         model.addAttribute("list", qnaService.select_store(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+		         return "storeQnA";
+		      }
 	
 	// 업체 QnA 검색
 	@RequestMapping(value = "/storeSearch")
-	public String storesearch(HttpServletRequest request, Model model) {
-		String searchType = request.getParameter("searchType");
-		String searchContent = request.getParameter("searchContent");
-		QnAService qnaService = sqlSession.getMapper(QnAService.class);
-		ArrayList<QnADTO> list = qnaService.storeSearch(searchType, searchContent);
-		model.addAttribute("list", list);
-		return "storeQnA";
+	public String storesearch(HttpServletRequest request, PageDTO dto, Model model) {
+		String searchType = request.getParameter("searchType"); // 검색 유형
+		String searchContent = request.getParameter("searchContent"); // 검색 내용
+		String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+        String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+	     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+       //전체 레코드 수 구하기
+       int total = qnaService.cnt_storeSearch(searchType, searchContent); // DB에서 레코드 수 가져옴
+	         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+	            nowPage = "1"; // 시작 페이지를 1로
+	            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+	         } else if(nowPage==null) {
+	            nowPage="1";
+	         } else if(cntPerPage==null) {
+	        	 cntPerPage="10";
+	         }      
+	         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	         dto.setSearchType(searchType);
+	         dto.setSearchContent(searchContent);
+	         model.addAttribute("paging", dto);
+	         model.addAttribute("list", qnaService.select_storeSearch(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+	         return "storeQnA";
 	}
 	
 	// 1:1 문의 DB 저장
@@ -97,5 +153,6 @@ public class QnAController {
 		model.addAttribute("dto", dto);
 		return "questionDetail";
 	}
+	
 	
 }
