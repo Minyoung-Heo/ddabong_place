@@ -211,6 +211,30 @@ public class QnAController {
 			return "redirect:/reply";
 		}
 		
-		
+		// 답글용 QnA 검색
+		@RequestMapping(value = "/replySearch")
+		public String replysearch(HttpServletRequest request, PageDTO dto, Model model) {
+			String searchType = request.getParameter("searchType"); // 검색 유형
+			String searchContent = request.getParameter("searchContent"); // 검색 내용
+			String nowPage = request.getParameter("nowPage"); // 처음엔 null만 들어감
+	        String cntPerPage = request.getParameter("cntPerPage"); // 처음엔 null만 들어감
+		     QnAService qnaService = sqlSession.getMapper(QnAService.class);
+	       //전체 레코드 수 구하기
+	       int total = qnaService.cnt_replySearch(searchType, searchContent); // DB에서 레코드 수 가져옴
+		         if(nowPage == null && cntPerPage == null) { // 처음 시작 시 둘 다 null
+		            nowPage = "1"; // 시작 페이지를 1로
+		            cntPerPage = "10"; // 한 페이지 당 레코드 수를 10개로
+		         } else if(nowPage==null) {
+		            nowPage="1";
+		         } else if(cntPerPage==null) {
+		        	 cntPerPage="10";
+		         }      
+		         dto = new PageDTO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		         dto.setSearchType(searchType);
+		         dto.setSearchContent(searchContent);
+		         model.addAttribute("paging", dto);
+		         model.addAttribute("list", qnaService.select_replySearch(dto)); // 전체 레코드 수 & 자료 행 중 start end 값 반환
+		         return "replyMain";
+		}
 	
 }
