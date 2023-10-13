@@ -44,13 +44,12 @@
 #searchbtn {
 	border: none;
 	border-radius: 0px;
-	background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png");
-	background-size:cover;
+ 	background-size:cover;
 	  position: absolute;
    width: 25px;
    height:25px;
-   top: 20px;
-   left: 235%;
+   top: 19px;
+   left: 233%;
    margin: 0;
 }
 .in2 {
