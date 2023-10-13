@@ -29,4 +29,8 @@ public interface QnAService {
 	// 답글 처리
 	public void stepUp(int groups, int step);
 	public void reply(QnADTO qnaDTO);
+	
+	// 답글용 검색 페이지 처리
+	public int cnt_replySearch(String searchType, String searchContent);
+	public ArrayList<QnADTO> select_replySearch(PageDTO dto);
 }

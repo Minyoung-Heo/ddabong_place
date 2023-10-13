@@ -93,9 +93,9 @@
             <h1 style="text-align: left;">Q&A 답변하기</h1><br>
             <table class="question" align="center">
             <caption>
-            <form action="">
+            <form action="replySearch">
             <select name="searchType">
-            <option value="question_num">문의번호</option>
+            <option value="groups">문의번호</option>
             <option value="title">제목</option>
             <option value="writer">작성자</option>
             </select>
