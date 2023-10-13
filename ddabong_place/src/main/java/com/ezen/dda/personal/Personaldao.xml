@@ -6,16 +6,42 @@
 <mapper namespace="com.ezen.dda.personal.PersonalService">
 	<!-- 유저 회원가입 -->
 	<insert id="personaljoin">
-		insert into customer values (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+		insert into customer values
+		(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
 	</insert>
+	<!-- 회원 정보 수정 -->
+	<update id="personalModifysave">
+		update customer set pw=#{param2}, name=#{param3},
+		nickname=#{param4}, phone=#{param5}, address=#{param6},
+		email=#{param7}
+		where id=#{param1}
+	</update>
+
+	<!-- 계정 정보 삭제 -->
+	<delete id="personaldelete">
+		delete from customer where id =#{param1}
+	</delete>
 
 	<!-- 회원 가입 아이디 중복확인 -->
 	<select id="idcheck" resultType="int">
-		select count(*) from customer where id = #{param1}
+		select count(*) from customer
+		where id = #{param1}
 	</select>
 
 	<!-- 회원 로그인 -->
 	<select id="personallogincheck"
+		resultType="com.ezen.dda.personal.PersonalDTO">
+		select * from customer where id =#{param1} and pw
+		=#{param2}
+	</select>
+
+	<!-- 마이페이지 비밀번호 인증 -->
+	<select id="personalpwchecking"
+		resultType="com.ezen.dda.personal.PersonalDTO">
+		select * from customer where id =#{param1} and pw =#{param2}
+	</select>
+	<!-- 회원 탈퇴 비밀번호 인증 -->
+	<select id="personalleavechecking"
 		resultType="com.ezen.dda.personal.PersonalDTO">
 		select * from customer where id =#{param1} and pw =#{param2}
 	</select>
@@ -24,13 +50,15 @@
 	<select id="personalidResult"
 		resultType="com.ezen.dda.personal.PersonalDTO">
 
-		select * from customer where name =#{param1} and email =#{param2}
+		select * from customer where name =#{param1} and email
+		=#{param2}
 	</select>
-	
+
 	<!-- 회원 비번 찾기 -->
 	<select id="personalpwResult"
 		resultType="com.ezen.dda.personal.PersonalDTO">
 
-		select * from customer where name =#{param1} and id =#{param2}
+		select * from customer where name =#{param1} and id
+		=#{param2}
 	</select>
 </mapper>

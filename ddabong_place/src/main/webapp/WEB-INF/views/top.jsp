@@ -43,7 +43,7 @@
 	<div class="login">
 		<c:choose>
 			<c:when test="${personalloginstate == true}">
-				<a href="#"> ${personal.name }님 어서오세요.</a>
+				<a href="personalpwcheck"> ${personal.nickname } 님 어서오세요.</a>
 				<a href="personallogout"> 로그아웃</a>
 			</c:when>
 
@@ -61,8 +61,7 @@
 	 <form action="search" method="post">
         <div class="search">
             <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
-            <button id="searchbtn" >
-        	</button>
+      <button id="searchbtn"></button>
         </div>
         </form>
 </header>

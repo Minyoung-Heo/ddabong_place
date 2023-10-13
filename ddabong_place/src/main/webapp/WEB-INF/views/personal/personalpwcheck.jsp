@@ -6,19 +6,17 @@
 <head>
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-		const pi = document.getElementById("storeid");
-		const pw = document.getElementById("storepw");
+		const pw = document.getElementById("personalpw");
 		const btn = document.getElementById("loginButton");
 
 		// 초기에 로그인 버튼을 비활성화
 		btn.style.backgroundColor = "#CCCCCC"; // 회색 배경색
 		btn.style.cursor = "not-allowed"; // 커서를 바꿔서 클릭 불가능한 상태로 만듬
 
-		pi.addEventListener("input", toggleLoginButton);
 		pw.addEventListener("input", toggleLoginButton);
 
 		function toggleLoginButton() {
-			if (pi.value.trim() !== "" && pw.value.trim() !== "") {
+			if (pw.value.trim() !== "") {
 				btn.style.backgroundColor = "#FF8C00"; // 입력이 있을 때 원래 색상으로 변경
 				btn.style.cursor = "pointer"; // 커서를 다시 클릭 가능한 상태로 변경
 				btn.removeAttribute("disabled");
@@ -170,6 +168,7 @@ body {
 	color: black;
 	font-weight: bold;
 	margin-bottom: 30px;
+	width: 100%;
 }
 
 .id, .pswd {
@@ -179,8 +178,8 @@ body {
 	margin: 5px;
 	padding: 10px 14px 10px 14px;
 	box-sizing: border-box;
-	border-radius: 40px;
 	font-size: 15px;
+	border-radius: 40px;
 }
 
 .btn_login {
@@ -197,34 +196,27 @@ p1 {
 	margin-top: 20%;
 }
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>업체 관리자 로그인</title>
+<title>회원 로그인</title>
 </head>
 <body>
 	<div class="BZ">
+		<h1 class="login_title">개인 정보 관리</h1>
+		<h4>비밀번호를 입력해주세요.</h4>
 		<div class="container2">
-			<h1 class="login_title">업체 관리자 로그인</h1>
-			<form class="login_form" action="storelogincheck" method="post">
-				<div class="id_area">
-					<span class="id_input"> <input type="text" id="storeid"
-						class="id" placeholder="아이디(사업자 번호)를 입력해주세요." name="storeid"
-						maxlength="20">
-					</span>
-				</div>
+			<form class="login_form" action="personalpwchecking" method="post">
 				<div class="pswd_area">
-					<span class="pswd_input"> <input type="password"
-						id="storepw" class="pswd" placeholder="비밀번호를 입력해주세요."
-						name="storepw" maxlength="16">
-
+					<span class="pswd_input"> <input type="hidden"
+						name="personalid" value="${personal.id}"> <input
+						type="password" id="personalpw" class="pswd"
+						placeholder="비밀번호를 입력하세요 !" name="personalpw" maxlength="16">
 					</span>
 				</div>
-				<button id="loginButton" class="btn_login" value="로그인" type="submit"
-					disabled>로그인</button>
+				<button id="loginButton" class="btn_login" value="완료" type="submit"
+					disabled>완료</button>
 				<br>
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='storeFind'"><p1>아이디 또는 비밀번호를 잃어버리셨나요 ?</p1></a>
 </body>
 </html>
