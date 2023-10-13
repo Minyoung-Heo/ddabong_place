@@ -99,6 +99,7 @@ border-style:solid;
 			<c:choose>
 				<c:when test="${storelist.size()>=1 }">
 					<c:forEach items="${ storelist}" var="aa">
+						<a href="detailview?store_id=${aa.store_id }">
 						<div class="tb">
 							<table border="1" align="center" heigt="500px" width="600px">
 								<tr>
@@ -111,7 +112,7 @@ border-style:solid;
 									<td>${aa.dessert }</td>
 								</tr>
 							</table>
-						</div>
+						</div></a>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

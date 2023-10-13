@@ -57,6 +57,12 @@
    </definition>
 <!--  @@카페추천종료@@ -->
 
+<!-- 회원용 매장 상세출력 -->
+  <definition name="personaldetail" extends="baseLayout">
+      <put-attribute name="title" value="매장정보 상세보기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/personalfunction/personaldetail.jsp" />
+   </definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
  
  
@@ -82,47 +88,7 @@
 			value="/WEB-INF/views/personal/personalJoin.jsp" />
 	</definition>
 	
-	<!-- 유저 회원 아이디비번찾기 -->
-	<definition name="personalFind" extends="baseLayout">
-		<put-attribute name="title" value="개인회원 아디비번찾기" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/personalFind.jsp" />
-	</definition>
-<!-- 	팝업창 관련 -->
-	<definition name="popupLayout"
-		template="/WEB-INF/views/popuplayout.jsp">
-		<put-attribute name="title" value="" />
-		<put-attribute name="top" value="" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer"
-			value="" />
-	</definition>
 	
-	<!-- 유저 회원 아이디찾기 -->
-	<definition name="personalidFind" extends="popupLayout">
-		<put-attribute name="title" value="개인회원 아이디찾기" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/personalidFind.jsp" />
-	</definition>
-	<!-- 유저 회원 아이디찾기 결과-->
-	<definition name="personalidResult" extends="popupLayout">
-		<put-attribute name="title" value="개인회원 아이디찾기 결과" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/personalidResult.jsp" />
-	</definition>
-	
-	<!-- 유저 회원 비번찾기 -->
-	<definition name="personalpwFind" extends="popupLayout">
-		<put-attribute name="title" value="개인회원 비번찾기" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/personalpwFind.jsp" />
-	</definition>
-	<!-- 유저 회원 비번찾기 결과 -->
-	<definition name="personalpwResult" extends="popupLayout">
-		<put-attribute name="title" value="개인회원 비번찾기 결과" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/personalpwResult.jsp" />
-	</definition>
 
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
