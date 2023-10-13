@@ -168,6 +168,21 @@ public class PersonalController {
 
 	    return "redirect:/";
 	}
+	
+	//회원 탈퇴
+	@RequestMapping(value = "/personaldelete")
+	public String del(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		
+		PersonalService ss = sqlSession.getMapper(PersonalService.class);
+		ss.personaldelete(id);
+		
+		HttpSession hs = request.getSession();
+	    hs.removeAttribute("personal");
+	    hs.setAttribute("personalloginstate", false);
+
+		return "redirect:/";
+	}
 
 
 //  아이디 중복확인 체크

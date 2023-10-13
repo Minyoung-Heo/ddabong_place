@@ -255,7 +255,6 @@
 <script>
 	$(document).ready(function() {
 		$("#loginButton").click(function() {
-			// 여기서 경고 메시지를 표시합니다.
 			alert("회원 정보가 정상적으로 수정되었습니다. 다시 로그인해주세요.");
 		});
 	});
