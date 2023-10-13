@@ -68,66 +68,6 @@
 		var passwordTimer;
 		var uTimer;
 
-		// 아이디 입력란의 유효성 검사 및 중복 체크
-		$("#personalid")
-				.on(
-						'input',
-						function() {
-							clearTimeout(idInputTimer);
-							idInputTimer = setTimeout(
-									function() {
-										var id = $("#personalid").val();
-										var idErrorMessage = $("#idErrorMessage");
-
-										if (/^[A-Za-z0-9]+$/.test(id)) {
-											// 아이디 형식이 올바른 경우
-											$
-													.ajax({
-														type : "post",
-														async : true,
-														url : "idcheck",
-														data : {
-															"id" : id
-														},
-														success : function(
-																result) {
-															if (result == "ok") {
-																// 사용 가능한 아이디
-																idErrorMessage
-																		.text(
-																				"✔ 사용 가능한 아이디입니다.")
-																		.addClass(
-																				"success-message");
-															} else {
-																// 사용 중인 아이디
-																idErrorMessage
-																		.text(
-																				"✘ 사용 중인 아이디입니다.")
-																		.removeClass(
-																				"success-message");
-															}
-														},
-														error : function(result) {
-															// 오류 발생 시
-															idErrorMessage
-																	.text(
-																			"✘ 다시 입력해주세요.")
-																	.removeClass(
-																			"success-message");
-														}
-													});
-										} else {
-											// 아이디 형식이 올바르지 않은 경우
-											idErrorMessage
-													.text(
-															"✘ 아이디는 영어와 숫자로만 입력 가능합니다.")
-													.removeClass(
-															"success-message")
-													.css("color", "red");
-										}
-									}, 1000);
-						});
-
 		// 비밀번호 유효성 검사
 		$("#personalpw").on(
 				'input',
@@ -311,35 +251,44 @@
 			}
 		}).open();
 	}
-
 </script>
-</head>
+<script>
+	$(document).ready(function() {
+		$("#loginButton").click(function() {
+			// 여기서 경고 메시지를 표시합니다.
+			alert("회원 정보가 정상적으로 수정되었습니다. 다시 로그인해주세요.");
+		});
+	});
+</script>
 <body>
 	<div class="BZ">
 		<div class="container2">
-			<h1 class="login_title">회원 가입</h1>
-			<form action="personalsave" method="post" id="myForm">
-				<br>
-				아이디<input type="text" id="personalid" class="textbox"
-					placeholder="아이디" name="personalid" maxlength="20">
+			<h1 class="login_title">회원 정보 수정</h1>
+			<form action="personalModifysave" method="post" id="myForm">
+				<br> 아이디<input type="text" id="personalid" class="textbox"
+					name="personalid" maxlength="20" value="${personal.id}"
+					readonly="readonly">
 				<div class="error-message" id="idErrorMessage"></div>
 
 				비밀번호<input type="password" id="personalpw" class="textbox"
-					placeholder="비밀번호" name="personalpw" maxlength="20"> 비밀번호확인<input
-					type="password" id="personalpw_confirm" class="textbox"
-					placeholder="비밀번호 확인" maxlength="20">
+					placeholder="비밀번호" name="personalpw" maxlength="20"
+					value="${personal.pw }"> 비밀번호확인<input type="password"
+					id="personalpw_confirm" class="textbox" placeholder="비밀번호 확인"
+					maxlength="20" value="${personal.pw }">
 				<div class="error-message" id="passwordErrorMessage"></div>
 
 				이름<input type="text" id="personalname" class="textbox"
-					placeholder="이름" name="personalname">
+					placeholder="이름" name="personalname" value="${personal.name }">
 				<div class="error-message" id="nameErrorMessage"></div>
 
 				닉네임<input type="text" id="personalnickname" class="textbox"
-					placeholder="닉네임" name="personalnickname">
+					placeholder="닉네임" name="personalnickname"
+					value="${personal.nickname }">
 				<div class="error-message" id="nicknameErrorMessage"></div>
 
-				전화번호<input type="text" id="personalphone" name="personalphone" class="textbox"
-					placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
+				전화번호<input type="text" id="personalphone" name="personalphone"
+					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx "
+					value="${personal.phone }">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 				주소<br> <input class="textbox"
@@ -353,12 +302,13 @@
 				<input class="textbox" style="background-color: #d9d9d9"
 					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
 					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
-					name="addr3" id="addr3" type="text" /> 
-					
-				이메일<input type="text" id="personalemail" class="textbox" name="personalemail"
-					placeholder="이메일 ex)user@ddabongplace.com">
+					name="addr3" id="addr3" type="text" /> 이메일<input type="text"
+					id="personalemail" class="textbox" name="personalemail"
+					placeholder="이메일 ex)user@ddabongplace.com"
+					value="${personal.email }">
 				<div class="error-message" id="emailErrorMessage"></div>
-				<button id="loginButton" class="btn_login" type="submit">회원가입</button>
+				<button id="loginButton" class="btn_login" type="submit">수정
+					완료</button>
 				<br>
 			</form>
 		</div>

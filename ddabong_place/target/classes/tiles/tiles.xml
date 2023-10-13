@@ -67,6 +67,20 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalLogin.jsp" />
 	</definition>
+	
+	<!-- 유저 회원 마이페이지 -->
+	<definition name="myinfo" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 마이페이지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/myinfo.jsp" />
+	</definition>
+	
+	<!-- 유저 회원 마이페이지 수정 -->
+	<definition name="myinfoModify" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 마이페이지 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/myinfoModify.jsp" />
+	</definition>
 
 	<!-- 유저 회원 로그인 에러 -->
 	<definition name="personalloginerr" extends="baseLayout">

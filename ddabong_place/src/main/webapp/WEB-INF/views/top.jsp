@@ -43,7 +43,7 @@
 	<div class="login">
 		<c:choose>
 			<c:when test="${personalloginstate == true}">
-				<a href="#"> ${personal.name }님 어서오세요.</a>
+				<a href="myinfo"> ${personal.nickname }님 어서오세요.</a>
 				<a href="personallogout"> 로그아웃</a>
 			</c:when>
 

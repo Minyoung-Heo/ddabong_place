@@ -18,6 +18,8 @@ public interface PersonalService {
 //	비밀번호 찾기
 	public ArrayList<PersonalDTO> personalpwResult(String name, String id);
 	
-	
+//	회원 정보 수정
+	public void personalModifysave(String id, String pw, String name, String nickname, String phone, String address, String email);
+
 
 }

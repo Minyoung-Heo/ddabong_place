@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class PersonalController {
@@ -23,6 +24,18 @@ public class PersonalController {
 	@RequestMapping(value = "/selectLogin")
 	public String selectLogin() {
 		return "selectLogin";
+	}
+
+	// 마이페이지
+	@RequestMapping(value = "/myinfo")
+	public String myinfo() {
+		return "myinfo";
+	}
+
+	// 마이페이지 수정
+	@RequestMapping(value = "/myinfoModify")
+	public String myinfoModify() {
+		return "myinfoModify";
 	}
 
 	// 회원가입 선택 화면
@@ -126,7 +139,7 @@ public class PersonalController {
 		String name = request.getParameter("personalname");
 		String nickname = request.getParameter("personalnickname");
 		String phone = request.getParameter("personalphone");
-		String address = request.getParameter("personaladdress");
+		String address = request.getParameter("addr2") + " " + request.getParameter("addr3");
 		String email = request.getParameter("personalemail");
 
 		PersonalService ss = sqlSession.getMapper(PersonalService.class);
@@ -134,6 +147,28 @@ public class PersonalController {
 
 		return "main";
 	}
+
+//  회원정보 수정
+	@RequestMapping(value = "/personalModifysave", method = RequestMethod.POST)
+	public String Modify(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+	    String id = request.getParameter("personalid");
+	    String pw = request.getParameter("personalpw");
+	    String name = request.getParameter("personalname");
+	    String nickname = request.getParameter("personalnickname");
+	    String phone = request.getParameter("personalphone");
+	    String address = request.getParameter("addr2") + " " + request.getParameter("addr3");
+	    String email = request.getParameter("personalemail");
+	    
+	    PersonalService ss = sqlSession.getMapper(PersonalService.class);
+	    ss.personalModifysave(id, pw, name, nickname, phone, address, email);
+	    
+	    HttpSession hs = request.getSession();
+	    hs.removeAttribute("personal");
+	    hs.setAttribute("personalloginstate", false);
+
+	    return "redirect:/";
+	}
+
 
 //  아이디 중복확인 체크
 	@ResponseBody
