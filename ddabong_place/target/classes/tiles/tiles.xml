@@ -55,6 +55,13 @@
          value="/WEB-INF/views/quiz/quizresult.jsp" />
    </definition>
 <!--  @@카페추천종료@@ -->
+
+<!-- 회원용 매장 상세출력 -->
+  <definition name="personaldetail" extends="baseLayout">
+      <put-attribute name="title" value="매장정보 상세보기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/personalfunction/personaldetail.jsp" />
+   </definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
  
  
@@ -79,6 +86,8 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalJoin.jsp" />
 	</definition>
+	
+	
 
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 회원 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
