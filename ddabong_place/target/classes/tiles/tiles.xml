@@ -262,4 +262,17 @@
          value="/WEB-INF/views/qna/questionDetail.jsp" />
    </definition>
    
+     	<definition name="replyMain" extends="baseLayout">
+      <put-attribute name="title" value="QnA 답변하기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/replyMain.jsp" />
+   </definition>
+   
+     	<definition name="replyInput" extends="baseLayout">
+      <put-attribute name="title" value="QnA 답변하기" />
+      <put-attribute name="body"
+         value="/WEB-INF/views/qna/replyInput.jsp" />
+   </definition>
+   
+   
 </tiles-definitions>

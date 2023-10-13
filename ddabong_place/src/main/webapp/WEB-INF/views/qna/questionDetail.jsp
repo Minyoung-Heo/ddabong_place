@@ -64,7 +64,9 @@ width: 85%;
 			<a href="qnaform">자주하는 질문</a><br>
 			<a href="storeqna">업체 Q&A</a><br>
 			<a href="customerqna">손님 Q&A</a><br>
-			<a href="question" style="color:#ff8c00;">1:1 문의하기</a>
+			<a href="question" style="color:#ff8c00;">1:1 문의하기</a><br>
+			<c:if test="${personal.id == 'admin'}">
+			<a href="reply">Q&A 답변하기</a></c:if>
 		</div>
 
 		<div class="qna">

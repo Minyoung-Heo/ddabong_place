@@ -107,7 +107,9 @@
             <a href="qnaform">자주하는 질문</a><br>
             <a href="storeqna">업체 Q&A</a><br>
             <a href="customerqna" style="color:#ff8c00;">손님 Q&A</a><br>
-            <a href="question">1:1 문의하기</a>
+            <a href="question">1:1 문의하기</a><br>
+			<c:if test="${personal.id == 'admin'}">
+			<a href="reply">Q&A 답변하기</a></c:if>
         </div>
 
         <div class="qna">
@@ -129,7 +131,10 @@
                 <c:forEach items="${list}" var="dto">
                     <tr>
                         <td>${dto.question_num}</td><td>${dto.questionType}</td>
-                        <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">${dto.title}</a></td>
+                        <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">
+                        <c:forEach begin="1" end="${dto.indent}" step="1">
+						<img src="/dda/image/re.png" width="15px"></c:forEach>
+                        ${dto.title}</a></td>
                         <td>${dto.writer}</td><td>${fn:substring(dto.question_date,0,16)}</td>
                     </tr>
                 </c:forEach>
