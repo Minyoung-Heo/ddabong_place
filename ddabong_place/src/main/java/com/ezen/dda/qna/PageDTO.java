@@ -9,9 +9,9 @@ public class PageDTO {
 			setNowPage(nowPage);
 			setCntPerPage(cntPerPage);
 			setTotal(total);
-			calcLastPage(getTotal(), getCntPerPage());
-			calcStartEndPage(getNowPage(), cntPage);
-			calcStartEnd(getNowPage(), getCntPerPage());					   
+			calcLastPage(getTotal(), getCntPerPage()); // 총 페이지 수 계산
+			calcStartEndPage(getNowPage(), cntPage); // 한 페이지 내에서 보여줄 시작페이지 숫자와 끝페이지 숫자를 계산
+			calcStartEnd(getNowPage(), getCntPerPage()); // 1페이지 내에서 출력할 rownum 계산하기	   
 			}   
 		// 전체 페이지 수
 		public void calcLastPage(int total, int cntPerPage) {
