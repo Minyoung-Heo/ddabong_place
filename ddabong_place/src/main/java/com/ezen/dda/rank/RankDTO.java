@@ -3,7 +3,7 @@ package com.ezen.dda.rank;
 public class RankDTO {
 	String store_id; // 가게 아이디
 	String storeName; // 매장명
-	int jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec; // 각 월의 따봉 수
+	int jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dcb; // 각 월의 따봉 수
 	String image; // 메인화면에 띄울 이미지
 	String month; // 이번 달
 	int sum; // 1~12월 따봉 수 총합
@@ -111,11 +111,11 @@ public class RankDTO {
 	public void setNov(int nov) {
 		this.nov = nov;
 	}
-	public int getDec() {
-		return dec;
+	public int getDcb() {
+		return dcb;
 	}
-	public void setDec(int dec) {
-		this.dec = dec;
+	public void setDcb(int dcb) {
+		this.dcb = dcb;
 	}
 	public RankDTO() {
 		super();
