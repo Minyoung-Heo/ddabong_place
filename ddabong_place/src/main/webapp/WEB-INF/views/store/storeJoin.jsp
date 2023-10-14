@@ -37,6 +37,7 @@
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 .btn_login {
@@ -47,6 +48,7 @@
 	font-size: 23px;
 	margin-top: 20px;
 	border-radius: 40px;
+	border: none;
 }
 
 .error-message {
