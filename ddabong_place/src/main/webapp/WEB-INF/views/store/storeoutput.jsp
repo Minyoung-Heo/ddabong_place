@@ -150,7 +150,7 @@ option {
           </div>
           
           <div class="region_name">
-            <h4>지역 코드</h4>
+            <h4>지역</h4>
             <input value="${store.region_name}" readonly>
           </div>
           
