@@ -6,9 +6,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class StoreDTO {
 	String store_id, storename, tel, address, lineintro, intro, id,pw,ceo,phone,email;
-	String image;
+	MultipartFile[] image;
 	String main_menu;
-	String main_image;
+	MultipartFile[] main_image;
 	String region_name, feature, dessert;
 	
 	public StoreDTO() {
@@ -16,7 +16,7 @@ public class StoreDTO {
 	}
 	
 	public StoreDTO(String store_id, String storename, String tel, String address, String lineintro, String intro,
-			String image, String main_menu, String main_image, String region_name, String feature,
+			MultipartFile[] image, String main_menu, MultipartFile[] main_image, String region_name, String feature,
 			String dessert) {
 		super();
 		this.store_id = store_id;
@@ -121,11 +121,11 @@ public class StoreDTO {
 		this.email = email;
 	}
 
-	public String getImage() {
+	public MultipartFile[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(MultipartFile[] image) {
 		this.image = image;
 	}
 
@@ -137,11 +137,11 @@ public class StoreDTO {
 		this.main_menu = main_menu;
 	}
 
-	public String getMain_image() {
+	public MultipartFile[] getMain_image() {
 		return main_image;
 	}
 
-	public void setMain_image(String main_image) {
+	public void setMain_image(MultipartFile[] main_image) {
 		this.main_image = main_image;
 	}
 

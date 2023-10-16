@@ -40,8 +40,8 @@
 	<beans:bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="mapperLocations"
-			value="classpath:com/ezen/dda/*/*.xml" />
+		<!-- <property name="configLocation" value="classpath:/mybatis-config.xml" /> -->
+		<beans:property name="mapperLocations" value="classpath:com/ezen/dda/*/*.xml" />
 	</beans:bean>
 	<beans:bean id="sqlSession"
 		class="org.mybatis.spring.SqlSessionTemplate">
@@ -50,6 +50,9 @@
 	</beans:bean>
 	<!-- 마이바티스 종료 -->
 	<!--multipart -->
+	<!-- 첨부 파일을 처리하는 빈 -->
+<!-- 	<beans:bean id="multipartResolver" 
+ 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/> -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="52428800" />

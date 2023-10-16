@@ -7,9 +7,16 @@
 
 	<!-- 매장 등록 -->
 	<insert id="storeinput" parameterType="com.ezen.dda.store.StoreDTO">
-    insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
-    values (#{store_id}, #{storename}, #{tel}, #{address}, #{lineintro}, #{intro}, #{image}, #{main_menu}, #{main_image}, #{region_name}, #{feature}, #{dessert})
+		insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
+    	values (#{store_id},#{storename},#{tel},#{address},#{lineintro},#{intro},#{image},#{main_menu},#{main_image},#{region_name},#{feature},#{dessert})
 	</insert>
+	<!-- <insert id="storeinput" parameterType="java.util.List">
+    insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
+    values 
+    <foreach collection="list" item="store" separator=";">
+    	(#{store.store_id}, #{store.storename}, #{store.tel}, #{store.address}, #{store.lineintro}, #{store.intro}, #{store.image,jdbcType=VARCHAR}, #{store.main_menu}, #{store.main_image,jdbcType=VARCHAR}, #{store.region_name}, #{store.feature}, #{dessert})
+	</foreach>
+	</insert> -->
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
@@ -22,7 +29,7 @@
 	</select>
 	
 	<!-- 매장 수정 -->
-	<update id="storemodifyfinal">
+	<update id="storemodifyfinal" parameterType="com.ezen.dda.store.StoreDTO">
 		update registration set storename=#{storename}, tel=#{tel}, address=#{address}, lineintro=#{lineintro}, intro=#{intro}, image=#{image}, main_menu=#{main_menu}, main_image=#{main_image}, region_name=#{region_name}, feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
 	</update>
 	

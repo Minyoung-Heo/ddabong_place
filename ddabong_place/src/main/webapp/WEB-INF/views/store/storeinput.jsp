@@ -262,7 +262,7 @@ function check(){
     f.submit();
 }
 
-/* // 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
+// 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
 document.addEventListener("DOMContentLoaded", function () {
     // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
     // 여기에서는 간단히 하드코딩으로 설정
@@ -297,7 +297,7 @@ mainImageInput.addEventListener("change", function () {
         // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
     }
 });
-*/
+
 
 </script>
 </head>

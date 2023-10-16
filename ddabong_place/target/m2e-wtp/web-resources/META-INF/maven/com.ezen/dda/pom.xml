@@ -8,6 +8,13 @@
    <name>ddabong_place</name>
    <packaging>war</packaging>
    <version>1.0.0-BUILD-SNAPSHOT</version>
+   <!-- 각 버전 수정 -->
+	<!-- <properties>
+		<java-version>1.8</java-version>
+		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+		<org.aspectj-version>1.9.0</org.aspectj-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
+	</properties> -->
    <properties>
       <java-version>11</java-version>
       <org.springframework-version>3.1.1.RELEASE</org.springframework-version>
@@ -92,6 +99,13 @@
       </dependency>
 
       <!-- Servlet -->
+      <!-- Servlet 버전 수정 (3.0 이상으로) -->
+	<!-- <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency> -->
       <dependency>
          <groupId>javax.servlet</groupId>
          <artifactId>servlet-api</artifactId>
