@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,12 @@ public class RankController {
 		// 예약 HOT 랭킹
 		ArrayList<RankDTO> hotList = rankService.hotRank();
 		model.addAttribute("hotList", hotList);
+		
+		HttpSession hs = request.getSession();
+		hs.setAttribute("storeloginstate", false);
+		hs.setAttribute("personalloginstate", false);
+		
 		return "main";
+		
 	}
 }
