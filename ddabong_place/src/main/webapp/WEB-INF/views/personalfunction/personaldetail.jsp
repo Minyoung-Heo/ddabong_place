@@ -47,6 +47,7 @@
 					</tr>
 				</table>
 			</div>
+			<h1><a href="waitingInput?store_id=${regi.store_id}">웨이팅</a></h1>
 		</c:forEach>
 	</c:forEach>
 	<div class="detailtable">
