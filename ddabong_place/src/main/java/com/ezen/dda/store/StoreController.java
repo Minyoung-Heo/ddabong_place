@@ -135,7 +135,7 @@ public class StoreController {
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
 		ss.insertDDA(store_id);
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 	//매장 출력창
@@ -267,7 +267,7 @@ public class StoreController {
 			 HttpSession session = request.getSession();
 			 session.setAttribute("store_id", dto.getStore_id());
 			    
-			return "redirect:/";
+			return "redirect:/main";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
@@ -284,7 +284,7 @@ public class StoreController {
 		hs.removeAttribute("store");
 		hs.setAttribute("storeloginstate", false);
 
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 //		비번찾기@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

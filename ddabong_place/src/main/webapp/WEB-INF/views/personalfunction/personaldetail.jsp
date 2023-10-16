@@ -27,7 +27,7 @@
 	<br>
 	<br>
 
-	<c:forEach items="${registrationlist}" var="regi">
+	<c:forEach items="${registrationlist}" var="regi" varStatus="loop">
 		<c:forEach items="${ddabonglist}" var="dda">
 			<div class="detailtable">
 				<table width="100%">
