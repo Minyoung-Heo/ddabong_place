@@ -103,9 +103,9 @@ public class PersonalController {
 			HttpSession hs = request.getSession();
 			hs.setAttribute("personal", dto);
 			hs.setAttribute("personalloginstate", true);
-			hs.setMaxInactiveInterval(3600);
+			hs.setMaxInactiveInterval(1800);
 
-			return "redirect:/";
+			return "redirect:/main";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
 			request.setAttribute("alertMessage", alertMessage);
@@ -182,7 +182,7 @@ public class PersonalController {
 			hs.removeAttribute("personal");
 			hs.setAttribute("personalloginstate", false);
 
-			return "redirect:/";
+			return "redirect:/main";
 		}
 //  로그아웃
 	@RequestMapping(value = "/personallogout")
@@ -192,7 +192,7 @@ public class PersonalController {
 		hs.removeAttribute("personal");
 		hs.setAttribute("personalloginstate", false);
 
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 	// 회원용 회원가입 화면
@@ -236,7 +236,7 @@ public class PersonalController {
 		hs.removeAttribute("personal");
 		hs.setAttribute("personalloginstate", false);
 
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 	

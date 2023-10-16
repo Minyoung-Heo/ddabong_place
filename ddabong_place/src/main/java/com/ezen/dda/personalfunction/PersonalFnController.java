@@ -2,6 +2,8 @@ package com.ezen.dda.personalfunction;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,6 +43,19 @@ SqlSession sqlSession;
 		ArrayList<ReviewDTO> reviewlist=ss.review(storeID);
 		ArrayList<DDAbongDTO> ddabonglist=ss.ddabong(storeID,month);
 		ArrayList<RegistrationDTO> registrationlist=ss.registration(storeID);
+		
+		List<String> imagevalue = registrationlist.get(0).getImage(); // 이미지 파일명 배열
+
+		List<String> imageList = new ArrayList<>(); // 이미지 파일명을 저장할 리스트
+
+		for (String image : imagevalue) {
+		    String[] imageFileNames = image.split("[,\\s]+"); // 이미지 파일명 분리
+		    imageList.addAll(Arrays.asList(imageFileNames)); // 분리된 파일명을 리스트에 추가
+		}
+
+		// RegistrationDTO에 이미지 리스트를 설정
+		RegistrationDTO registrationDTO = registrationlist.get(0); // 이미 저장된 RegistrationDTO 객체를 가져옴
+		registrationDTO.setImage(imageList);
 		
 		mo.addAttribute("reviewlist", reviewlist);
 		mo.addAttribute("ddabonglist", ddabonglist);

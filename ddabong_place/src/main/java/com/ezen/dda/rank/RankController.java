@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class RankController {
 	@Autowired
 	SqlSession sqlSession;
 	
-	@RequestMapping(value = "/") 
+	@RequestMapping(value = "/main") 
 	public String monthDDA(HttpServletRequest request, Model model) {
 		// 이달의 따봉 기능
 		RankService rankService = sqlSession.getMapper(RankService.class);
@@ -48,6 +49,7 @@ public class RankController {
 		// 예약 HOT 랭킹
 		ArrayList<RankDTO> hotList = rankService.hotRank();
 		model.addAttribute("hotList", hotList);
+		
 		return "main";
 	}
 }
