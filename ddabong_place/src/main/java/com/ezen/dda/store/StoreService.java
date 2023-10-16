@@ -9,6 +9,7 @@ public interface StoreService {
 
 	// 매장 등록
 	public void storeinput(StoreDTO storeDTO);
+	public void insertDDA(String id);
 
 	// 매장 출력
 	public ArrayList<StoreDTO> storeoutput();

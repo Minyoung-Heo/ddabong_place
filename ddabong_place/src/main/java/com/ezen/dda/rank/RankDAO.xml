@@ -10,7 +10,7 @@
 		<![CDATA[
 		SELECT store_id, ${month}, image, storename
 		FROM (
-		SELECT d.store_id, d.${month}, r.image, r.storename
+		SELECT d.store_id, d.${month}, SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image, r.storename
 		FROM ddabong d
 		JOIN registration r ON d.store_id = r.store_id
 		ORDER BY d.${month} DESC
@@ -26,7 +26,7 @@
 		FROM (
 		SELECT d.store_id,
 		(d.jan+d.feb+d.mar+d.apr+d.may+d.jun+d.jul+d.aug+d.sep+d.oct+d.nov+d.dcb)
-		as sum, r.image, r.storename
+		as sum, SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image, r.storename
 		FROM ddabong d
 		JOIN registration r ON d.store_id = r.store_id
 		ORDER BY
@@ -40,10 +40,10 @@
 	<select id="hotRank" resultType="com.ezen.dda.rank.RankDTO">
 			<![CDATA[
 	SELECT * FROM (
-    SELECT a.store_id, b.storename, b.image, b.lineintro
+    SELECT a.store_id, b.storename, SUBSTR(b.image, 1, INSTR(b.image, ' ') - 1) as image, b.lineintro
     FROM reservation a
     JOIN registration b ON a.store_id = b.store_id
-    GROUP BY a.store_id, b.storename, b.image, b.lineintro
+    GROUP BY a.store_id, b.storename, SUBSTR(b.image, 1, INSTR(b.image, ' ') - 1), b.lineintro
     ORDER BY COUNT(*) DESC
 	) WHERE ROWNUM <= 5
 				 ]]>
