@@ -1,11 +1,14 @@
 package com.ezen.dda.personalfunction;
 
+import java.util.List;
+
 public class RegistrationDTO {
-String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
+String store_id,storename,tel,address,intro,main_menu,main_image,region_name,feature,dessert;
+List<String> image;
 
 public RegistrationDTO() {}
 
-public RegistrationDTO(String store_id,String storename, String tel, String address, String intro, String image, String main_menu,
+public RegistrationDTO(String store_id,String storename, String tel, String address, String intro, List<String> image, String main_menu,
 		String main_image, String region_name, String feature, String dessert) {
 	super();
 	this.store_id = store_id;
@@ -61,12 +64,12 @@ public void setIntro(String intro) {
 	this.intro = intro;
 }
 
-public String getImage() {
+public List<String> getImage() {
 	return image;
 }
 
-public void setImage(String image) {
-	this.image = image;
+public void setImage(List<String> imageList) {
+	this.image = imageList;
 }
 
 public String getMain_menu() {

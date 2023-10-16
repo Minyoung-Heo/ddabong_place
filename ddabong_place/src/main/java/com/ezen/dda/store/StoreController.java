@@ -99,7 +99,7 @@ public class StoreController {
 		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
-		
+		ss.insertDDA(store_id);
 		return "redirect:/";
 	}
 
@@ -188,7 +188,6 @@ public class StoreController {
 		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storemodifyfinal(storeDTO);
-		
 		return "redirect:storeoutput";
 	}
 	

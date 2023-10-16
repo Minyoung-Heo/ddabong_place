@@ -17,7 +17,7 @@ public class RankController {
 	@Autowired
 	SqlSession sqlSession;
 	
-	@RequestMapping(value = "/") 
+	@RequestMapping(value = "/main") 
 	public String monthDDA(HttpServletRequest request, Model model) {
 		// 이달의 따봉 기능
 		RankService rankService = sqlSession.getMapper(RankService.class);
@@ -49,10 +49,6 @@ public class RankController {
 		// 예약 HOT 랭킹
 		ArrayList<RankDTO> hotList = rankService.hotRank();
 		model.addAttribute("hotList", hotList);
-		
-		HttpSession hs = request.getSession();
-		hs.setAttribute("storeloginstate", false);
-		hs.setAttribute("personalloginstate", false);
 		
 		return "main";
 		
