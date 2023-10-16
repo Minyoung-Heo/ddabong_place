@@ -33,7 +33,6 @@ input {
   width: 70%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
@@ -369,7 +368,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" name="image" id="file" multiple="multiple">
+            	<input type="file" style="outline:none;"name="image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="main_menu">
@@ -379,7 +378,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="main_image">
             	<h4>매장 대표 메뉴 사진</h4>
-            	<input type="file" name="main_image" id="file" multiple="multiple">
+            	<input type="file" style="outline:none;" name="main_image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="region_name">

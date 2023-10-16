@@ -35,7 +35,6 @@ input {
   width: 100%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
