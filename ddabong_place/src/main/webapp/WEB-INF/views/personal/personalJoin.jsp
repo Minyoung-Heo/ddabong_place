@@ -37,6 +37,7 @@
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 .btn_login {
@@ -47,6 +48,8 @@
 	font-size: 23px;
 	margin-top: 20px;
 	border-radius: 40px;
+	outline: none;
+	border: none;
 }
 
 .error-message {
@@ -342,14 +345,15 @@
 					placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
-				주소<br> <input class="textbox"
-					style="width: 40%; height: 40%; background-color: #d9d9d9; display: inline;"
+				주소<br> <div style="float: left;"><input class="textbox"
+					style="width: 65%; height: 40%; background-color: #d9d9d9; display: inline;"
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
 				<button type="button" class="btn btn-default"
 					onclick="execPostCode();">
 					<i class="fa fa-search"></i> 우편번호 찾기
 				</button>
+				</div>
 				<input class="textbox" style="background-color: #d9d9d9"
 					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
 					readonly="readonly" /> <input class="textbox" placeholder="상세주소"

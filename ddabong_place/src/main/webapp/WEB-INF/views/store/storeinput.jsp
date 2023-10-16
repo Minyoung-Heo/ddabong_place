@@ -383,7 +383,7 @@ mainImageInput.addEventListener("change", function () {
           	</div>
           	
           	<div class="region_name">
-            <h4>지역 코드</h4>
+            <h4>지역을 선택하세요.</h4>
             <select name="region_name">
                 <option selected>선택하세요</option>
                 <option value="강남">강남</option>

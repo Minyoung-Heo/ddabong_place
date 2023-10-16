@@ -16,9 +16,9 @@ public class PersonalFnController {
 @Autowired
 SqlSession sqlSession;
 	
-	@RequestMapping(value = "detailview")
+	@RequestMapping(value = "/detailview")
 	public String detailview(HttpServletRequest request,Model mo)
-	{	String storeID=request.getParameter("store_id");
+	{	String storeID = request.getParameter("store_id");
 	
 		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
 		String month; // 문자 월

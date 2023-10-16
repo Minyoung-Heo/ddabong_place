@@ -303,7 +303,7 @@ mainImageInput.addEventListener("change", function () {
           	</div>
           	
           	<div class="region_name">
-            <h4>지역 코드</h4>
+            <h4>지역을 선택하세요.</h4>
             <select name="region_name">
                 <option value="강남" <c:if test="${store.region_name == '강남'}">selected</c:if>>강남</option>
         		<option value="성수" <c:if test="${store.region_name == '성수'}">selected</c:if>>성수</option>

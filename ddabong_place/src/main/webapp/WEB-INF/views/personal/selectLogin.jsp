@@ -12,10 +12,12 @@
 	width: 400px; /* 박스의 너비 설정 */
 	margin: 0 auto; /* 가운데 정렬 */
 	font-size: 1.5em;
+		cursor: pointer;
 }
 
 p1 {
 	font-size: 1.8em;
+		cursor: pointer;
 }
 
 p {
@@ -55,6 +57,6 @@ p {
 			<p>매장 관리자용으로 로그인을 합니다.</p>
 		</div>
 	</div>
-	<a onclick="location.href='selectJoin'"><p1>회원이 아니신가요 ? 지금 바로 가입하세요 !</p1></a>
+	<a onclick="location.href='selectJoin'" style="text-decoration: none;"><p1>회원이 아니신가요 ? 지금 바로 가입하세요 !</p1></a>
 </body>
 </html>

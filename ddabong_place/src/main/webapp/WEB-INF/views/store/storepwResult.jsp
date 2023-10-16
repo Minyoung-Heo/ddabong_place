@@ -38,7 +38,7 @@
 	<c:choose>
 		<c:when test="${not empty list}">
 			<c:forEach items="${list}" var="a">
-				<h1 class="tt">${a.name }대표님의 비밀번호는</h1>
+				<h1 class="tt">${a.ceo }대표님의 비밀번호는</h1>
 				<h1>[ ${a.pw} ]</h1>
 				<h1>입니다.</h1>
 				<button class="btn3" value="창 닫기" type="button"

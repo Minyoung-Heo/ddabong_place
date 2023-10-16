@@ -58,6 +58,7 @@
 	color: white;
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
 	margin-top: 40px;
+		border: none;
 }
 
 .btn2 {
@@ -74,6 +75,7 @@
 	color: white;
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
 	margin-top: 40px;
+		border: none;
 }
 
 .btn2:hover, .btn3:hover {
@@ -93,7 +95,7 @@
 </head>
 <body>
 	<div class="BZ">
-		<h1 class="login_title">ID 또는 PW 찾기</h1>
+		<h1 class="login_title">아이디 또는 비밀번호 찾기</h1>
 
 		<div class="container2">
 			<input class="btn3" value="이름과 이메일로 아이디 찾기 " type="button"

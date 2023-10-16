@@ -40,7 +40,7 @@
 
 .slide_div_wrap {
 	padding: 15px 0 15px 0;
-	background: #e6e9f6;
+	background: #ffffff;
 	height: 500px;
 }
 
