@@ -24,7 +24,7 @@ public interface StoreService {
 	public StoreDTO storelogincheck(String id, String pw);
 	
 	//매장 수정창
-	public ArrayList<StoreDTO> storemodifyview();
+	public ArrayList<StoreDTO> storemodifyview(String store_id);
 	
 	//매장 수정 입력
 	public void storemodifyfinal(StoreDTO storeDTO);

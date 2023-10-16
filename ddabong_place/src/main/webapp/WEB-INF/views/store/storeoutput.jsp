@@ -41,17 +41,16 @@ input {
   outline: none;
 }
 
-.submit input {
-  width: 40%;
-  height: 50px;
-  border: 0;
-  outline: none;
-  border-radius: 40px;
-  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
-  color: white;
-  font-size: 1.2em;
-  letter-spacing: 2px;
-}
+.submit a {
+	width: 40%;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 40px;
+    }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
   width: 18px; /* 원하는 너비 값으로 조절하세요 */
@@ -177,8 +176,13 @@ option {
             <input value="${store.dessert}" readonly>
           </div>
           
+          <c:url var="url1" value="storemodifyview">
+          	<c:param name="storemodify" value="${store.store_id}"></c:param>
+          </c:url>
+          
             <div class="submit">
-                <input type="submit" value="수정하기">
+            <a href="${url1}">수정하기</a>
+                <!-- <input type="submit" value="수정하기"> -->
             </div>
             </c:forEach>
         </div>
