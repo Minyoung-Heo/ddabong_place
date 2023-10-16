@@ -14,11 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
+
 public class PersonalController {
 	@Autowired
+
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
+
+
+	@RequestMapping(value = "dda/", method = RequestMethod.GET)
+	public String loginPOSTNaver(HttpSession session) {
+		return "callback";
+	}
 
 	// 로그인 선택 화면
 	@RequestMapping(value = "/selectLogin")
@@ -107,7 +116,7 @@ public class PersonalController {
 
 			return "redirect:/main";
 		} else {
-			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
+			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
 
 			return "personalloginerr";
@@ -119,6 +128,7 @@ public class PersonalController {
 	public String personalpwcheck() {
 		return "personalpwcheck";
 	}
+
 	// 회원 탈퇴 마지막 질문
 	@RequestMapping(value = "/confirmLeave")
 	public String confirmLeave() {
@@ -145,11 +155,13 @@ public class PersonalController {
 			return "personalloginerr";
 		}
 	}
+
 	// 탈퇴하기 전 비밀번호 확인
 	@RequestMapping(value = "/personalleave")
 	public String personalleave() {
 		return "personalleave";
 	}
+
 //  탈퇴하기 전 비밀번호 확인 체킹
 	@RequestMapping(value = "/personalleavechecking", method = RequestMethod.POST)
 	public String personalpwchecking2(HttpServletRequest request) {
@@ -161,8 +173,8 @@ public class PersonalController {
 		PersonalDTO dto = ss.personalleavechecking(id, pw);
 
 		if (dto != null) {
-			 return "redirect:/confirmLeave";
-			 
+			return "redirect:/confirmLeave";
+
 		} else {
 			String alertMessage = "비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
@@ -170,17 +182,23 @@ public class PersonalController {
 			return "personalloginerr";
 		}
 	}
+
 	// 회원 탈퇴
-		@RequestMapping(value = "/personaldelete")
-		public String del(HttpServletRequest request) {
-			String id = request.getParameter("id");
+	@RequestMapping(value = "/personaldelete")
+	public String del(HttpServletRequest request) {
+		String id = request.getParameter("id");
 
-			PersonalService ss = sqlSession.getMapper(PersonalService.class);
-			ss.personaldelete(id);
+		PersonalService ss = sqlSession.getMapper(PersonalService.class);
+		ss.reservationdelete(id);
+		ss.stardelete(id);
+		ss.personaldelete(id);
 
-			HttpSession hs = request.getSession();
-			hs.removeAttribute("personal");
-			hs.setAttribute("personalloginstate", false);
+		HttpSession hs = request.getSession();
+		hs.removeAttribute("personal");
+		hs.setAttribute("personalloginstate", false);
+
+		return "redirect:/";
+	}
 
 			return "redirect:/main";
 		}
@@ -238,8 +256,6 @@ public class PersonalController {
 
 		return "redirect:/main";
 	}
-
-	
 
 //  아이디 중복확인 체크
 	@ResponseBody

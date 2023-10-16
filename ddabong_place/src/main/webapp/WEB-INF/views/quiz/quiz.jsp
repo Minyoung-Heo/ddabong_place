@@ -34,7 +34,7 @@
 <body>
 	<br>
 	<br>
-	<div class="quiztitle">당신에게 딱 맞는 카페를 추천드립니다.</div>
+	<div class="quiztitle">당신에게 딱 맞는 카페를 추천해드립니다.</div>
 	<div class="quiz">
 		<form action="recommend" method="post" id="quizForm">
 			<h1>아이와 함께 방문하시나요?</h1>

@@ -10,6 +10,10 @@
     insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
     values (#{store_id}, #{storename}, #{tel}, #{address}, #{lineintro}, #{intro}, #{image}, #{main_menu}, #{main_image}, #{region_name}, #{feature}, #{dessert})
 	</insert>
+<!--  매장 등록 시 따봉수 테이블 추가 -->
+	<insert id="insertDDA">
+	insert into ddabong(store_id) values(#{param1})
+	</insert>
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">

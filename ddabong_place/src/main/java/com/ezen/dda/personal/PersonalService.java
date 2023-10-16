@@ -29,6 +29,8 @@ public interface PersonalService {
 			String email);
 
 //	회원 탈퇴
+	public void reservationdelete(String id); // 회원아이디를 외래키로 갖는 테이블의 데이터 삭제
+	public void stardelete(String id); // 외래키 갖는 테이블의 데이터 삭제
 	public void personaldelete(String id);
 
 }
