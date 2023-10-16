@@ -296,6 +296,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/qna/replyInput.jsp" />
 	</definition>
+	
+	<definition name="waitingInput" extends="baseLayout">
+		<put-attribute name="title" value="웨이팅 등록" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/waiting/waitingInput.jsp" />
+	</definition>
 
-
+	<definition name="waitingDone" extends="baseLayout">
+		<put-attribute name="title" value="웨이팅 등록 완료" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/waiting/waitingDone.jsp" />
+	</definition>
 </tiles-definitions>

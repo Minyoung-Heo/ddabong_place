@@ -366,7 +366,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" name="image" id="file" multiple="multiple">
+            	<input type="file" style="outline:none;"name="image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="main_menu">
@@ -376,7 +376,7 @@ mainImageInput.addEventListener("change", function () {
           	
           	<div class="main_image">
             	<h4>매장 대표 메뉴 사진</h4>
-            	<input type="file" name="main_image" id="file">
+            	<input type="file" style="outline:none;" name="main_image" id="file">
           	</div>
           	
           	<div class="region_name">

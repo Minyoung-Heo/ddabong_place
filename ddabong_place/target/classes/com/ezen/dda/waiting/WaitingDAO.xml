@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.waiting.WaitingService">
+<insert id="waitingSave" parameterType="com.ezen.dda.waiting.WaitingDTO">
+insert into waiting(store_id, customer_id, name, phone, person_num) values(#{store_id}, #{customer_id}, #{name}, #{phone}, #{person_num})
+</insert>
+
+<select id="waitingOut" resultType="com.ezen.dda.waiting.WaitingDTO">
+select * from waiting where store_id = #{param1} and customer_id = #{param2}
+</select>
+
+</mapper>
