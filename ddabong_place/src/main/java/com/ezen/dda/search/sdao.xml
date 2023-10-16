@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.search.Service">
+	<!-- 상호명 검색 -->
+	<select id="storesearch" resultType="com.ezen.dda.search.SearchDTO">
+select * from registration where storename like #{param1}
+	</select>
+	<!-- 지역별 검색 -->
+	<select id="regionsearch" resultType="com.ezen.dda.search.SearchDTO">
+select * from registration where region_name like #{param1}
+	</select>
+</mapper>

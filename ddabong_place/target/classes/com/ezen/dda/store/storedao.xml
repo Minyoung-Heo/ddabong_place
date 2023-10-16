@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.store.StoreService">
+
+	<!-- 매장 등록 -->
+	<insert id="storeinput" parameterType="com.ezen.dda.store.StoreDTO">
+    insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
+    values (#{store_id}, #{storename}, #{tel}, #{address}, #{lineintro}, #{intro}, #{image}, #{main_menu}, #{main_image}, #{region_name}, #{feature}, #{dessert})
+	</insert>
+<!--  매장 등록 시 따봉수 테이블 추가 -->
+	<insert id="insertDDA">
+	insert into ddabong(store_id) values(#{param1})
+	</insert>
+
+	<!-- 매장 출력 -->
+	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
+		select * from registration
+	</select>
+
+	<!-- 매장 수정 -->
+	<select id="storemodifyview" resultType="com.ezen.dda.store.StoreDTO">
+		select * from registration
+	</select>
+	
+	<!-- 매장 수정 -->
+	<update id="storemodifyfinal">
+		update registration set storename=#{storename}, tel=#{tel}, address=#{address}, lineintro=#{lineintro}, intro=#{intro}, image=#{image}, main_menu=#{main_menu}, main_image=#{main_image}, region_name=#{region_name}, feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
+	</update>
+	
+	<!-- 매장 예약 현황 -->
+	<select id="storestatus" resultType="com.ezen.dda.calendar.CalendarDTO">
+		select * from reservation
+	</select>
+	
+	<!-- 업체 가입 -->
+	<insert id="storejoin">
+		insert into store values
+		(#{param1},#{param2},#{param3},#{param4},#{param5})
+	</insert>
+
+	<!-- 회원 가입 아이디 중복확인 -->
+	<select id="storeidcheck" resultType="int">
+		select count(*) from store
+		where
+		id = #{param1}
+	</select>
+
+	<!-- 회원 로그인 -->
+	<select id="storelogincheck"
+		resultType="com.ezen.dda.store.StoreDTO">
+		select * from store
+		where id =#{param1} and pw =#{param2}
+	</select>
+	
+	<!-- 업체 아이디 찾기 -->
+	<select id="storeidResult" resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where ceo =#{param1} and email=#{param2}
+	</select>
+
+	<!-- 업체 비번 찾기 -->
+	<select id="storepwResult" resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where ceo =#{param1} and id=#{param2}
+	</select>
+
+</mapper>

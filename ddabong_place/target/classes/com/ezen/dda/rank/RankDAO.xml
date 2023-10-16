@@ -1,0 +1,51 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.rank.RankService">
+
+	<!-- 이달의 따봉왕 1~3위 출력 -->
+	<select id="monthDDA" resultType="com.ezen.dda.rank.RankDTO"
+		parameterType="com.ezen.dda.rank.RankDTO">
+		<![CDATA[
+		SELECT store_id, ${month}, image, storename
+		FROM (
+		SELECT d.store_id, d.${month}, SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image, r.storename
+		FROM ddabong d
+		JOIN registration r ON d.store_id = r.store_id
+		ORDER BY d.${month} DESC
+		)
+		WHERE ROWNUM <= 3
+		 ]]>
+	</select>
+
+	<!-- 따봉 어워드 1~3위 출력 -->
+	<select id="awardDDA" resultType="com.ezen.dda.rank.RankDTO">
+			<![CDATA[
+		SELECT store_id, sum, image, storename
+		FROM (
+		SELECT d.store_id,
+		(d.jan+d.feb+d.mar+d.apr+d.may+d.jun+d.jul+d.aug+d.sep+d.oct+d.nov+d.dcb)
+		as sum, SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image, r.storename
+		FROM ddabong d
+		JOIN registration r ON d.store_id = r.store_id
+		ORDER BY
+		(d.jan+d.feb+d.mar+d.apr+d.may+d.jun+d.jul+d.aug+d.sep+d.oct+d.nov+d.dcb)
+		DESC
+		)
+		WHERE ROWNUM <= 3
+				 ]]>
+	</select>
+	
+	<select id="hotRank" resultType="com.ezen.dda.rank.RankDTO">
+			<![CDATA[
+	SELECT * FROM (
+    SELECT a.store_id, b.storename, SUBSTR(b.image, 1, INSTR(b.image, ' ') - 1) as image, b.lineintro
+    FROM reservation a
+    JOIN registration b ON a.store_id = b.store_id
+    GROUP BY a.store_id, b.storename, SUBSTR(b.image, 1, INSTR(b.image, ' ') - 1), b.lineintro
+    ORDER BY COUNT(*) DESC
+	) WHERE ROWNUM <= 5
+				 ]]>
+	</select>
+</mapper>
