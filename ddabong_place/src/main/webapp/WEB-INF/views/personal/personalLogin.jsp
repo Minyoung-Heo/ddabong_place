@@ -197,7 +197,56 @@ body {
 p1 {
 	margin-top: 20%;
 }
+
+.snslogin {
+	margin-top: 50px;
+	position: relative; /* 요소를 상대적 위치로 설정 */
+	display: inline-block;
+}
+
+.snslogin::before, .snslogin::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-top: 1px solid #000; /* 상단 가로 실선 스타일 및 두께 설정 */
+	position: absolute;
+	top: 50%;
+}
+
+.snslogin::before {
+	right: 100%; /* 왼쪽 가로 실선 위치 조절 */
+	margin-right: 5px; /* 왼쪽 간격 조절 */
+}
+
+.snslogin::after {
+	left: 100%; /* 오른쪽 가로 실선 위치 조절 */
+	margin-left: 5px; /* 오른쪽 간격 조절 */
+}
 </style>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
+	charset="utf-8"></script>
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId({
+		clientId : "aXkj6_wya1onatcykcxa",
+		// 본인의 Client ID로 수정, 띄어쓰기는 사용하지 마세요.
+		callbackUrl : "http://localhost:8421/dda/",
+		// 본인의 callBack url로 수정하세요.
+		isPopup : false,
+		loginButton : {
+			color : "white",
+			type : 3,
+			height : 60
+		}
+	// 네이버 로그인버튼 디자인 설정. 한번 바꿔보세요:D
+	});
+	naverLogin.init();
+</script>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>회원 로그인</title>
@@ -217,7 +266,6 @@ p1 {
 					<span class="pswd_input"> <input type="password"
 						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !"
 						name="personalpw" maxlength="16">
-
 					</span>
 				</div>
 				<button id="loginButton" class="btn_login" value="로그인" type="submit"
@@ -226,7 +274,20 @@ p1 {
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='personalFind'" style="text-decoration: none; cursor:pointer;">
-	<p1>아이디 또는 비밀번호를 잊어버리셨나요 ?</p1></a>
+	<a onclick="location.href='personalFind'"
+		style="text-decoration: none; cursor: pointer;"> <p1>아이디 또는
+		비밀번호를 잊어버리셨나요 ?</p1></a> <br>
+	<h3 class="snslogin">SNS 아이디로 로그인하기</h3>
+	<div id="naver_id_login"></div>
+	<script type="text/javascript">
+		var naver_id_login = new naver_id_login("aXkj6_wya1onatcykcxa",
+				"http://localhost:8421/dda/");
+		var state = naver_id_login.getUniqState();
+		naver_id_login.setButton("white", 2, 40);
+		naver_id_login.setDomain("http://localhost:8421/");
+		naver_id_login.setState(state);
+		naver_id_login.setPopup();
+		naver_id_login.init_naver_id_login();
+	</script>
 </body>
 </html>
