@@ -99,13 +99,6 @@
       </dependency>
 
       <!-- Servlet -->
-      <!-- Servlet 버전 수정 (3.0 이상으로) -->
-	<!-- <dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>3.1.0</version>
-		<scope>provided</scope>
-	</dependency> -->
       <dependency>
          <groupId>javax.servlet</groupId>
          <artifactId>servlet-api</artifactId>

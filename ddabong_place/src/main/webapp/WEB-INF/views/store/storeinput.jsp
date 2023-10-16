@@ -33,7 +33,6 @@ input {
   width: 70%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
@@ -89,7 +88,7 @@ input[type=file]::file-selector-button:hover {
   border: none;
   outline: none;
   position: relative;
-  left: 73px;
+  left: 75px;
 }
 
 select {
@@ -110,7 +109,7 @@ option {
   background: #ffffff;
 }
 
-.textbox {
+.textbox{
 	width: 70%;
 	height: 51px;
 	border: 1px solid #FF8C00;
@@ -119,6 +118,7 @@ option {
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 </style>
@@ -201,17 +201,17 @@ function check(){
 		return false;
     }
 
-    var caddress = f.address.value;
-    var vaddress = /^[가-힣0-9\s]{1,50}$/;
+    var caddr3 = f.addr3.value;
+    var vaddr3 = /^[가-힣0-9\s]{1,50}$/;
 
-    if(caddress== "" || caddress==" "){
+    if(caddr3== "" || caddr3==" "){
         alert("매장 주소 공백은 안돼요");
-        f.address.select();
+        f.addr3.select();
         return false;
     }
-    if(!vaddress.test(caddress)){
+    if(!vaddr3.test(caddr3)){
         alert("매장 주소는 숫자나 한글만 입력해주세요");
-		f.address.select();
+		f.addr3.select();
 		return false;
     }
 
@@ -262,7 +262,7 @@ function check(){
     f.submit();
 }
 
-// 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
+/* // 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
 document.addEventListener("DOMContentLoaded", function () {
     // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
     // 여기에서는 간단히 하드코딩으로 설정
@@ -296,7 +296,7 @@ mainImageInput.addEventListener("change", function () {
         var file = selectedFiles[i];
         // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
     }
-});
+}); */
 
 
 </script>
@@ -341,20 +341,17 @@ mainImageInput.addEventListener("change", function () {
             
             <div class="address">
               <h4>매장 주소</h4>
-              <input type="text" name="address" placeholder="매장 주소">
-            	<!-- <input class="textbox"
-					style="width: 20%; height: 50%; background-color: #d9d9d9; display: inline;"
+              <!-- <input type="text" name="address" placeholder="매장 주소"> -->
+            	<input class="textbox"
+					style="width: 45%; height: 51px; background-color: #d9d9d9; display: inline;"
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
 				<button type="button" class="btn btn-default" onclick="execPostCode();">
 					<i class="fa fa-search"></i> 우편번호 찾기
 				</button><br>
 				<input class="textbox" style="background-color: #d9d9d9"
-					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
-					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
-					name="addr3" id="addr3" type="text" /> 
-					도로명 + 상세주소 합쳐진거보내기 위한거 
-					<input type="hidden" id="personaladdress" name="address" value="전체주소"> -->
+					placeholder="도로명 주소" name="addr2" id="addr2" type="text"readonly="readonly" />
+				<input class="textbox" placeholder="상세주소" name="addr3" id="addr3" type="text" /> 
             </div>
             
             <div class="lineintro">

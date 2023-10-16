@@ -26,9 +26,7 @@ public interface StoreService {
 	public ArrayList<StoreDTO> storemodifyview();
 	
 	//매장 수정 입력
-	public void storemodifyfinal(String store_id, String storename, String tel, String address, String lineintro,
-			String intro, List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2,
-			String region_name, String feature2, String dessert2);
+	public void storemodifyfinal(StoreDTO storeDTO);
 
 	// 아이디 찾기
 	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
@@ -39,6 +37,7 @@ public interface StoreService {
 	public void storeinput(String storename, String tel, String address, String lineintro, String intro,
 			List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2, String region_name,
 			String feature2, String dessert2);
+
 
 
 }

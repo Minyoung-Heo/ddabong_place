@@ -10,13 +10,6 @@
 		insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
     	values (#{store_id},#{storename},#{tel},#{address},#{lineintro},#{intro},#{image},#{main_menu},#{main_image},#{region_name},#{feature},#{dessert})
 	</insert>
-	<!-- <insert id="storeinput" parameterType="java.util.List">
-    insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
-    values 
-    <foreach collection="list" item="store" separator=";">
-    	(#{store.store_id}, #{store.storename}, #{store.tel}, #{store.address}, #{store.lineintro}, #{store.intro}, #{store.image,jdbcType=VARCHAR}, #{store.main_menu}, #{store.main_image,jdbcType=VARCHAR}, #{store.region_name}, #{store.feature}, #{dessert})
-	</foreach>
-	</insert> -->
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">

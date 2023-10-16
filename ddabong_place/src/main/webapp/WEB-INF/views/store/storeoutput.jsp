@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,6 @@ input {
   width: 100%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
@@ -67,6 +67,15 @@ input {
 .mae_image input, .main_image input {
   border: none;
   outline: none;
+}
+
+.mae_image img, .main_image img{
+	width: 50px;
+	transition: width 0.3s ease;
+}
+
+.mae_image img:hover, .main_image img:hover{
+	width: 300px;
 }
 
 select {
@@ -136,7 +145,9 @@ option {
           
           <div class="mae_image">
             <h4>매장 이미지</h4>
-            <td><img alt="매장 이미지" src="image/${store.image}" width="300px"></td>
+            <c:forEach var="image" items="${fn:split(store.image, ' ')}">
+    			<td><img src="image/${image}" width="100px"></td>
+			</c:forEach>
           </div>
           
           <div class="main_menu">
@@ -146,7 +157,9 @@ option {
           
           <div class="main_image">
             <h4>매장 대표 메뉴 사진</h4>
-            <td><img alt="매장 대표 메뉴 사진" src="image/${store.main_image}" width="300px"></td>
+            <c:forEach items="${fn:split(store.main_image, ' ')}" var="main_image">
+    			<td><img src="image/${main_image}" width="100px"></td>
+			</c:forEach>
           </div>
           
           <div class="region_name">
