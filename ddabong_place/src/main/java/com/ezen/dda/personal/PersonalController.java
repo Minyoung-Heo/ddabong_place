@@ -176,6 +176,8 @@ public class PersonalController {
 			String id = request.getParameter("id");
 
 			PersonalService ss = sqlSession.getMapper(PersonalService.class);
+			ss.reservationdelete(id);
+			ss.stardelete(id);
 			ss.personaldelete(id);
 
 			HttpSession hs = request.getSession();

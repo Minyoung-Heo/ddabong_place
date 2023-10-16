@@ -139,7 +139,7 @@ public class StoreController {
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
 		
-		return "redirect:main";
+		return "redirect:/";
 	}
 
 	//매장 출력창

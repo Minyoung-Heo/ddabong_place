@@ -18,6 +18,15 @@
 	</update>
 
 	<!-- 계정 정보 삭제 -->
+		<!-- 회원 아이디를 외래키로 갖는 테이블의 데이터 삭제 -->
+	<delete id="reservationdelete">
+		delete from reservation where customer_id =#{param1}
+	</delete>
+	
+	<delete id="stardelete">
+		delete from star where customer_id =#{param1}
+	</delete>
+		<!-- 마지막으로 회원 계정 삭제 -->
 	<delete id="personaldelete">
 		delete from customer where id =#{param1}
 	</delete>
