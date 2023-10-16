@@ -27,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기
-	static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+	static String imagepath = "C:\\Users\\minyoung\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -89,17 +89,15 @@ public class StoreController {
 //				// TODO: handle exception
 //			}
 //		}
-		
+		String imagesName1 = "";
 		for (MultipartFile mf1 : filelist1) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			
+			imagesName1 += imagefile + " ";
 			try {
 				mf1.transferTo(new File(imagepath+"\\"+imagefile));
 			}catch (IllegalStateException e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -120,22 +118,20 @@ public class StoreController {
 //				// TODO: handle exception
 //			}
 //		}
-
+		String imagesName2 = "";
 		for (MultipartFile mf1 : filelist2) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			
+			imagesName2 += imagefile + " ";
 			try {
 				mf1.transferTo(new File(imagepath+"\\"+imagefile));
 			}catch (IllegalStateException e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, lineintro, intro, main_menu, main_menu, region_name, feature2, dessert2);
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
 		
