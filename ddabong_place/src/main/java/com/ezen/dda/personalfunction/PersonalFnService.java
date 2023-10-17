@@ -10,6 +10,9 @@ public interface PersonalFnService {
 
 	public ArrayList<RegistrationDTO> registration(String storeID);
 
+	public void reservation(String storeID, String customer_id, String reservation_date, String reservation_time,
+			int person_num);
+
 
 
 }

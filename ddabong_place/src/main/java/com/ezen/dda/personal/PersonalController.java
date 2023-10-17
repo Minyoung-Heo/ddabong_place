@@ -192,7 +192,7 @@ public class PersonalController {
 		hs.removeAttribute("personal");
 		hs.setAttribute("personalloginstate", false);
 
-		return "redirect:/main";
+		return "redirect:/";
 	}
 
 	// 회원용 회원가입 화면

@@ -252,7 +252,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storestatus.jsp" />
 	</definition>
-
+	<!-- 매장 예약하기 -->
+		<definition name="reservation" extends="baseLayout">
+		<put-attribute name="title" value="매장 예약하기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personalfunction/reservation.jsp" />
+	</definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 	<definition name="qnaForm" extends="baseLayout">

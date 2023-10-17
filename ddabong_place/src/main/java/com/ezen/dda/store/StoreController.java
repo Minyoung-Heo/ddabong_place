@@ -27,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기
-	static String imagepath = "C:\\Users\\minyoung\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+	static String imagepath = "/image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -53,8 +53,6 @@ public class StoreController {
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
 		
-		//System.out.println(image);
-		//System.out.println(main_image);
 		
 		//특징과 디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
 		String feature2 = "";
@@ -73,22 +71,7 @@ public class StoreController {
 		    }
 		}
 		
-//		//파일 업로드
-//		int size1 = image.size();
-//		for(int i=0; i<size1; i++) {
-//			MultipartFile mf1 = image.get(i);
-//			String imagefile = mf1.getOriginalFilename();
-//			
-//			File file = new File(imagepath + "\\" +imagefile);
-//			
-//			try {
-//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-//				bos.write(image.get(i).getBytes());
-//				bos.close();
-//			}catch (Exception e) {
-//				// TODO: handle exception
-//			}
-//		}
+
 		String imagesName1 = "";
 		for (MultipartFile mf1 : filelist1) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
@@ -102,22 +85,7 @@ public class StoreController {
 			}
 		}
 		
-//		//파일 업로드
-//		int size2 = main_image.size();
-//		for (int i = 0; i < size2; i++) {
-//			MultipartFile mf2 = main_image.get(i);
-//			String main_imagefile = mf2.getOriginalFilename();
-//
-//			File file = new File(imagepath + "\\" + main_imagefile);
-//
-//			try {
-//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-//				bos.write(main_image.get(i).getBytes());
-//				bos.close();
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//			}
-//		}
+		
 		String imagesName2 = "";
 		for (MultipartFile mf1 : filelist2) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
