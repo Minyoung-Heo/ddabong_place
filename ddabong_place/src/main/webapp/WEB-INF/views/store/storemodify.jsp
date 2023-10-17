@@ -216,17 +216,17 @@ function check(){
 		return false;
     }
 
-    var caddress = f.address.value;
-    var vaddress = /^[가-힣0-9\s]{1,50}$/;
+    var caddr3 = f.addr3.value;
+    var vaddr3 = /^[가-힣0-9\s]{1,50}$/;
 
-    if(caddress== "" || caddress==" "){
+    if(caddr3== "" || caddr3==" "){
         alert("매장 주소 공백은 안돼요");
-        f.address.select();
+        f.addr3.select();
         return false;
     }
-    if(!vaddress.test(caddress)){
+    if(!vaddr3.test(caddr3)){
         alert("매장 주소는 숫자나 한글만 입력해주세요");
-		f.address.select();
+		f.addr3.select();
 		return false;
     }
 

@@ -48,7 +48,7 @@ public class StoreController {
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		List<MultipartFile> filelist2 = mul.getFiles("main_image"); // 이미지 다중 파일 업로드
+		String main_image = mul.getParameter("main_image");
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -82,21 +82,8 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
-		String imagesName2 = "";
-		for (MultipartFile mf1 : filelist2) {
-			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			imagesName2 += imagefile + " ";
-			try {
-				mf1.transferTo(new File(imagepath+"\\"+imagefile));
-			}catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
 		ss.insertDDA(store_id);
@@ -115,9 +102,10 @@ public class StoreController {
 	
 	//매장 수정창
 	@RequestMapping(value = "/storemodifyview")
-	public String store4(Model md) {
+	public String store4(Model md, HttpServletRequest request) {
+		String store_id = request.getParameter("storemodify");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storemodifyview();
+		ArrayList<StoreDTO> list = ss.storemodifyview(store_id);
 		md.addAttribute("list", list);
 		
 		return "storemodify";
@@ -134,13 +122,10 @@ public class StoreController {
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		List<MultipartFile> filelist2 = mul.getFiles("main_image"); // 이미지 다중 파일 업로드
+		String main_image = mul.getParameter("main_image");
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
-		
-		//System.out.println(image);
-		//System.out.println(main_image);
 		
 		//특징과 디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
 		String feature2 = "";
@@ -171,21 +156,8 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
-		String imagesName2 = "";
-		for (MultipartFile mf1 : filelist2) {
-			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			imagesName2 += imagefile + " ";
-			try {
-				mf1.transferTo(new File(imagepath+"\\"+imagefile));
-			}catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storemodifyfinal(storeDTO);
 		return "redirect:storeoutput";
