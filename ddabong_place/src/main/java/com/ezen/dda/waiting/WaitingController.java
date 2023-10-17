@@ -60,4 +60,15 @@ public class WaitingController {
 			model.addAttribute("waitingDTO", dto);
 			return "waitingDetail";
 		}
+		
+		// 손님 측 웨이팅 취소
+		@RequestMapping(value = "/cancelwaiting", method = RequestMethod.GET)
+		public String cancelcustomer(HttpServletRequest request, Model model) {
+			String store_id = request.getParameter("store_id");
+			int waiting_num = Integer.parseInt(request.getParameter("waiting_num"));
+			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
+			waitingService.cancelWaiting(store_id, waiting_num); // 손님 웨이팅 취소
+			waitingService.updateWaitingNum(waiting_num); // 웨이팅 번호 차감
+			return "redirect:/main";
+		}
 }

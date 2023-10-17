@@ -18,4 +18,12 @@ SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image
 from waiting w join registration r on w.store_id=r.store_id where customer_id = #{param1}
 </select>
 
+<delete id="cancelWaiting">
+delete from waiting where store_id = #{param1} and waiting_num = #{param2}
+</delete>
+
+<update id="updateWaitingNum">
+update waiting set waiting_num = waiting_num - 1 where waiting_num > #{param1}
+</update>
+
 </mapper>
