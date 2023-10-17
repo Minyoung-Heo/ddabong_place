@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.security.SecureRandom"%>
+<%@ page import="java.math.BigInteger"%>
 
 <!DOCTYPE html>
 <html>
@@ -37,10 +40,14 @@
 a {
 	color: #222;
 	text-decoration: none;
+	margin-left: 20px;
 }
 
 a:hover {
 	color: #2698cb;
+	text-decoration: none;
+		margin-left: 20px;
+	
 }
 
 /* 폰트 스타일 초기화 */
@@ -211,37 +218,21 @@ p1 {
 	border-top: 1px solid #000; /* 상단 가로 실선 스타일 및 두께 설정 */
 	position: absolute;
 	top: 50%;
+	border-color: #FF8C00;
 }
 
 .snslogin::before {
 	right: 100%; /* 왼쪽 가로 실선 위치 조절 */
 	margin-right: 5px; /* 왼쪽 간격 조절 */
+	border-color: #FF8C00;
 }
 
 .snslogin::after {
 	left: 100%; /* 오른쪽 가로 실선 위치 조절 */
 	margin-left: 5px; /* 오른쪽 간격 조절 */
+	border-color: #FF8C00;
 }
 </style>
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
-	charset="utf-8"></script>
-<script type="text/javascript">
-	var naverLogin = new naver.LoginWithNaverId({
-		clientId : "aXkj6_wya1onatcykcxa",
-		// 본인의 Client ID로 수정, 띄어쓰기는 사용하지 마세요.
-		callbackUrl : "http://localhost:8421/dda/",
-		// 본인의 callBack url로 수정하세요.
-		isPopup : false,
-		loginButton : {
-			color : "white",
-			type : 3,
-			height : 60
-		}
-	// 네이버 로그인버튼 디자인 설정. 한번 바꿔보세요:D
-	});
-	naverLogin.init();
-</script>
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
 	charset="utf-8"></script>
@@ -276,18 +267,129 @@ p1 {
 	</div>
 	<a onclick="location.href='personalFind'"
 		style="text-decoration: none; cursor: pointer;"> <p1>아이디 또는
-		비밀번호를 잊어버리셨나요 ?</p1></a> <br>
+		비밀번호를 잊어버리셨나요 ?</p1></a>
+	<br>
 	<h3 class="snslogin">SNS 아이디로 로그인하기</h3>
-	<div id="naver_id_login"></div>
+	<br>
+	<%
+	String clientId = "aXkj6_wya1onatcykcxa"; // 애플리케이션 클라이언트 아이디값
+	String redirectURI = URLEncoder.encode("http://localhost:8421/api/login", "UTF-8");
+	SecureRandom random = new SecureRandom();
+	String state = new BigInteger(130, random).toString();
+	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code" + "&client_id=" + clientId
+			+ "&redirect_uri=" + redirectURI + "&state=" + state;
+	session.setAttribute("state", state);
+	%>
+	<a href="#" onclick="openNaverLoginPopup('<%=apiURL%>')"> <img
+		height="50" src="/dda/image/naver.svg" />
+	</a>
+
 	<script type="text/javascript">
-		var naver_id_login = new naver_id_login("aXkj6_wya1onatcykcxa",
-				"http://localhost:8421/dda/");
-		var state = naver_id_login.getUniqState();
-		naver_id_login.setButton("white", 2, 40);
-		naver_id_login.setDomain("http://localhost:8421/");
-		naver_id_login.setState(state);
-		naver_id_login.setPopup();
-		naver_id_login.init_naver_id_login();
+		function openNaverLoginPopup(url) {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			var popupWindow = window.open(url, "NaverLoginPopup", "width="
+					+ width + ", height=" + height + ", left=" + left
+					+ ", top=" + top);
+			if (popupWindow.focus) {
+				popupWindow.focus();
+			}
+			return false;
+		}
+	</script>
+	<a
+		href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D52%26category%3D166%26locale%3Dko#login"
+		onclick="openPopup1(); return false;"> <img
+		src="/dda/image/kakao.svg" />
+	</a>
+
+	<script type="text/javascript">
+		function openPopup1() {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			window
+					.open(
+							"https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D52%26category%3D166%26locale%3Dko#login",
+							"NaverPopup", "width=" + width + ", height="
+									+ height + ", left=" + left + ", top="
+									+ top);
+		}
+	</script>
+	<a
+		href="https://secure5.store.apple.com/kr/shop/signIn?ssi=1AAABizt6M5Agvt3ptSWX2l2nrvtJKO1C1SvWuS99pqx3eXwNIZrkSvYAAAAjaHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3Nob3AvYmFnfHwAAgEeYW-Ge1ZvUY5uYj86NBd9oGLwOnT6n09cvz_V8BrDWQ"
+		onclick="openPopup2(); return false;"> <img
+		src="/dda/image/apple.svg" />
+	</a>
+
+	<script type="text/javascript">
+		function openPopup2() {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			window.open("https://appleid.apple.com/sign-in", "NaverPopup",
+					"width=" + width + ", height=" + height + ", left=" + left
+							+ ", top=" + top);
+		}
+	</script>
+	<a href="https://ko-kr.facebook.com/login/device-based/regular/login/"
+		onclick="openPopup3(); return false;"> <img
+		src="/dda/image/facebook.svg" />
+	</a>
+
+	<script type="text/javascript">
+		function openPopup3() {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			window
+					.open(
+							"https://ko-kr.facebook.com/login/device-based/regular/login/",
+							"NaverPopup", "width=" + width + ", height="
+									+ height + ", left=" + left + ", top="
+									+ top);
+		}
+	</script>
+	<a
+		href="https://id.payco.com/login.nhn?serviceProviderCode=PAY&inflowKey=www&userLocale=ko_KR&nextURL=https%3A%2F%2Fwww.payco.com%2FisTargetForSecurity.nhn%3Fevent%3Dv03bfc269594ef649228e9a74bab00f042efc91d5acc6fbee31a382e80d42388fe"
+		onclick="openPopup4(); return false;"> <img
+		src="/dda/image/payco.svg" />
+	</a>
+
+	<script type="text/javascript">
+		function openPopup4() {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			window
+					.open(
+							"https://id.payco.com/login.nhn?serviceProviderCode=PAY&inflowKey=www&userLocale=ko_KR&nextURL=https%3A%2F%2Fwww.payco.com%2FisTargetForSecurity.nhn%3Fevent%3Dv03bfc269594ef649228e9a74bab00f042efc91d5acc6fbee31a382e80d42388fe",
+							"NaverPopup", "width=" + width + ", height="
+									+ height + ", left=" + left + ", top="
+									+ top);
+		}
+	</script>
+	<a href="https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp"
+		onclick="openPopup5(); return false;"> <img
+		src="/dda/image/phone.svg" />
+	</a>
+
+	<script type="text/javascript">
+		function openPopup5() {
+			var width = 400;
+			var height = 600;
+			var left = (screen.width - width) / 2;
+			var top = (screen.height - height) / 2;
+			window.open("https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp",
+					"NaverPopup", "width=" + width + ", height=" + height
+							+ ", left=" + left + ", top=" + top);
+		}
 	</script>
 </body>
 </html>
