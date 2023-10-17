@@ -21,20 +21,15 @@ public class CalendarController {
 		return "calendar";
 	}
 
-	// 일정보기
-
-	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public ModelAndView getCalendarList(ModelAndView mv, HttpServletRequest request) {
-		String viewpage = "calendar";
-		List<CalendarDTO> calendar = null;
-		try {
-			calendar = CalendarService.getCalendar();
-			request.setAttribute("calendarList", calendar);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		mv.setViewName(viewpage);
-		return mv;
-	}
+	/*
+	 * // 일정보기
+	 * 
+	 * @RequestMapping(value = "/calendar", method = RequestMethod.GET) public
+	 * ModelAndView getCalendarList(ModelAndView mv, HttpServletRequest request) {
+	 * String viewpage = "calendar"; List<CalendarDTO> calendar = null; try {
+	 * calendar = CalendarService.getCalendar();
+	 * request.setAttribute("calendarList", calendar); } catch (Exception e) {
+	 * e.printStackTrace(); } mv.setViewName(viewpage); return mv; }
+	 */
 	 
 }
