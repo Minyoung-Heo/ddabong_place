@@ -12,4 +12,10 @@ insert into waiting(store_id, customer_id, name, phone, person_num) values(#{sto
 select * from waiting where store_id = #{param1} and customer_id = #{param2}
 </select>
 
+<select id="mywaiting" resultType="com.ezen.dda.waiting.WaitingDTO">
+select w.store_id, w.waiting_num, w.customer_id, w.name, w.person_num, r.storename, r.lineintro, 
+SUBSTR(r.image, 1, INSTR(r.image, ' ') - 1) as image
+from waiting w join registration r on w.store_id=r.store_id where customer_id = #{param1}
+</select>
+
 </mapper>
