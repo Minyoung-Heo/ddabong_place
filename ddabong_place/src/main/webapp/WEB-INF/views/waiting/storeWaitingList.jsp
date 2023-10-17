@@ -96,7 +96,7 @@
     <div class="div-container">
         <div class="category">
             <h1>웨이팅 관리</h1>
-            <a href="waitinglist?store_id=${store_id}" style="color:#ff8c00;">웨이팅 리스트</a><br>
+            <a href="waitinglist?store_id=${store.id}" style="color:#ff8c00;">웨이팅 리스트</a><br>
             <a href="customerqna"">손님 Q&A</a><br>
             <a href="question">1:1 문의하기</a><br>
         </div>
