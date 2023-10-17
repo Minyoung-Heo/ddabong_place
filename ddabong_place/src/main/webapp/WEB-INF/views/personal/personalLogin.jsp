@@ -37,13 +37,13 @@
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-a {
+a1 {
 	color: #222;
 	text-decoration: none;
 	margin-left: 20px;
 }
 
-a:hover {
+a1:hover {
 	color: #2698cb;
 	text-decoration: none;
 		margin-left: 20px;
@@ -291,9 +291,9 @@ p1 {
 			+ "&redirect_uri=" + redirectURI + "&state=" + state;
 	session.setAttribute("state", state);
 	%>
-	<a href="#" onclick="openNaverLoginPopup('<%=apiURL%>')"> <img
+	<a1 href="#" onclick="openNaverLoginPopup('<%=apiURL%>')"> <img
 		height="50" src="/dda/image/naver.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openNaverLoginPopup(url) {
@@ -310,11 +310,11 @@ p1 {
 			return false;
 		}
 	</script>
-	<a
+	<a1
 		href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D52%26category%3D166%26locale%3Dko#login"
 		onclick="openPopup1(); return false;"> <img
 		src="/dda/image/kakao.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openPopup1() {
@@ -330,11 +330,11 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a
+	<a1
 		href="https://secure5.store.apple.com/kr/shop/signIn?ssi=1AAABizt6M5Agvt3ptSWX2l2nrvtJKO1C1SvWuS99pqx3eXwNIZrkSvYAAAAjaHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3Nob3AvYmFnfHwAAgEeYW-Ge1ZvUY5uYj86NBd9oGLwOnT6n09cvz_V8BrDWQ"
 		onclick="openPopup2(); return false;"> <img
 		src="/dda/image/apple.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openPopup2() {
@@ -347,10 +347,10 @@ p1 {
 							+ ", top=" + top);
 		}
 	</script>
-	<a href="https://ko-kr.facebook.com/login/device-based/regular/login/"
+	<a1 href="https://ko-kr.facebook.com/login/device-based/regular/login/"
 		onclick="openPopup3(); return false;"> <img
 		src="/dda/image/facebook.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openPopup3() {
@@ -366,11 +366,11 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a
+	<a1
 		href="https://id.payco.com/login.nhn?serviceProviderCode=PAY&inflowKey=www&userLocale=ko_KR&nextURL=https%3A%2F%2Fwww.payco.com%2FisTargetForSecurity.nhn%3Fevent%3Dv03bfc269594ef649228e9a74bab00f042efc91d5acc6fbee31a382e80d42388fe"
 		onclick="openPopup4(); return false;"> <img
 		src="/dda/image/payco.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openPopup4() {
@@ -386,10 +386,10 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a href="https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp"
+	<a1 href="https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp"
 		onclick="openPopup5(); return false;"> <img
 		src="/dda/image/phone.svg" />
-	</a>
+	</a1>
 
 	<script type="text/javascript">
 		function openPopup5() {
