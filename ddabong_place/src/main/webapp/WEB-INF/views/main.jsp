@@ -138,6 +138,8 @@ margin:20px;
 </head>
 <body>
 <br><br><br>
+<br><br><br>
+<br><br><br>
 <h1>디저트별 카페 추천</h1>
 <div class="dessertIcon">
 <a href=""><img src="/dda/image/케이크.png" width="140px"></a>

@@ -57,7 +57,7 @@
 .in2 {
    width: 250%;
    height: 60px;
-   border: 5px solid #ff8c00;
+   border: 4.9px solid #ff8c00;
    border-radius: 50px;
    padding: 10px 12px;
    font-size: 14px;

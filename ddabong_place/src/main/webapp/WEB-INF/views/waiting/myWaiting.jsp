@@ -85,7 +85,8 @@
 						${dto.lineintro}
 					</div>
 					<input type="button" class="btn"
-					 onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'" value="대기번호 확인">
+					 onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'" 
+					 value="대기번호 확인">
 				</div>
 				<hr>
 			</c:forEach>
