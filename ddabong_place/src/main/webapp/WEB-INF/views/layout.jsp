@@ -10,6 +10,7 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="image/ddabong.png" rel="shortcut icon" type="image/x-icon"> <!-- 로고 변경 -->
 <style type="text/css">
 .login {
    float: right;

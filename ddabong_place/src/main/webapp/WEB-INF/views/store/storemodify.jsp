@@ -99,7 +99,7 @@ select {
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ff8c00;
-  width: 45%;
+  width: 30%;
   height: 30px;
 }
 

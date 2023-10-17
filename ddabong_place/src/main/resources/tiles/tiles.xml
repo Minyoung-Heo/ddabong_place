@@ -308,4 +308,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/waiting/waitingDone.jsp" />
 	</definition>
+	
+	<definition name="calendar" extends="baseLayout">
+		<put-attribute name="title" value="일정 보기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/calendar.jsp" />
+	</definition>
 </tiles-definitions>
