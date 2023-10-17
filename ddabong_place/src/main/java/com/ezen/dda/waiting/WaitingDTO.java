@@ -7,6 +7,7 @@ public class WaitingDTO {
 	String name; // 이름
 	String phone; // 전화번호
 	int person_num; // 인원 수
+	String storename, lineintro, image; // 웨이팅 현황 보러가기에서 가게 출력용
 	public String getStore_id() {
 		return store_id;
 	}
@@ -53,5 +54,23 @@ public class WaitingDTO {
 		this.name = name;
 		this.phone = phone;
 		this.person_num = person_num;
+	}
+	public String getStorename() {
+		return storename;
+	}
+	public void setStorename(String storename) {
+		this.storename = storename;
+	}
+	public String getLineintro() {
+		return lineintro;
+	}
+	public void setLineintro(String lineintro) {
+		this.lineintro = lineintro;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
