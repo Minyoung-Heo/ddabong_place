@@ -31,6 +31,11 @@ public class PersonalController {
 	public String myinfo() {
 		return "myinfo";
 	}
+	// 예약현황
+	@RequestMapping(value = "/myStatus")
+	public String myStatus() {
+		return "myStatus";
+	}
 
 	// 마이페이지 수정
 	@RequestMapping(value = "/myinfoModify")

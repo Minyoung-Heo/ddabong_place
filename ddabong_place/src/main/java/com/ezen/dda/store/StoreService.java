@@ -34,5 +34,4 @@ public interface StoreService {
 
 	// 비밀번호 찾기
 	public ArrayList<StoreDTO> storepwResult(String ceo, String id);
-
 }

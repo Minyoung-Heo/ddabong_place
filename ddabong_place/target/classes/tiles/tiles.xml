@@ -80,6 +80,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/myinfo.jsp" />
 	</definition>
+	<!-- 유저 회원 예약 현황 -->
+	<definition name="myStatus" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 예약 현황" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/myStatus.jsp" />
+	</definition>
 
 	<!-- 유저 회원 마이페이지 수정 -->
 	<definition name="myinfoModify" extends="baseLayout">
@@ -178,9 +184,9 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
-	<!-- 유저 회원 아이디비번찾기 -->
+	<!-- 업체 회원 아이디비번찾기 -->
 	<definition name="storeFind" extends="baseLayout">
-		<put-attribute name="title" value="개인회원 아디비번찾기" />
+		<put-attribute name="title" value="업체회원 아디비번찾기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeFind.jsp" />
 	</definition>
