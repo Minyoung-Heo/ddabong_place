@@ -323,6 +323,11 @@
 			value="/WEB-INF/views/waiting/waitingDetail.jsp" />
 	</definition>
 	
+		<definition name="storeWaitingList" extends="baseLayout">
+		<put-attribute name="title" value="웨이팅 목록" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/waiting/storeWaitingList.jsp" />
+	</definition>
 <!-- 	웨이팅 종료 -->
 
 </tiles-definitions>

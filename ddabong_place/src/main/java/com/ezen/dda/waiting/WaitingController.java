@@ -68,7 +68,37 @@ public class WaitingController {
 			int waiting_num = Integer.parseInt(request.getParameter("waiting_num"));
 			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
 			waitingService.cancelWaiting(store_id, waiting_num); // 손님 웨이팅 취소
-			waitingService.updateWaitingNum(waiting_num); // 웨이팅 번호 차감
+			waitingService.updateWaitingNum(store_id, waiting_num); // 웨이팅 번호 차감
+			return "redirect:/main";
+		}
+		
+		// 가게 측 웨이팅 리스트 보기
+		@RequestMapping(value = "/waitinglist", method = RequestMethod.GET)
+		public String waitinglist(HttpServletRequest request, Model model) {
+			String store_id = request.getParameter("store_id");
+			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
+			ArrayList<WaitingDTO> waitingList = waitingService.waitingList(store_id);
+			model.addAttribute("waitingList", waitingList);
+			return "storeWaitingList";
+		}
+		
+		// 대기자 호출
+		@RequestMapping(value = "/call", method = RequestMethod.GET)
+		public String call(HttpServletRequest request, Model model) {
+			String store_id = request.getParameter("store_id");
+			int waiting_num = Integer.parseInt(request.getParameter("waiting_num"));
+			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
+			waitingService.call(store_id, waiting_num); // 대기자 호출
+			waitingService.updateWaitingNum(store_id, waiting_num); // 웨이팅 번호 차감
+			return "redirect:/waitinglist?store_id="+store_id;
+		}
+		
+		// 입장 완료
+		@RequestMapping(value = "/enter", method = RequestMethod.GET)
+		public String enter(HttpServletRequest request, Model model) {
+			String store_id = request.getParameter("store_id");
+			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
+			waitingService.enter(store_id); // 대기자 호출
 			return "redirect:/main";
 		}
 }

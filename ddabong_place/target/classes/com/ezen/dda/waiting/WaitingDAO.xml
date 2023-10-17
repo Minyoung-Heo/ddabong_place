@@ -23,7 +23,19 @@ delete from waiting where store_id = #{param1} and waiting_num = #{param2}
 </delete>
 
 <update id="updateWaitingNum">
-update waiting set waiting_num = waiting_num - 1 where waiting_num > #{param1}
+update waiting set waiting_num = waiting_num - 1 where store_id = #{param1} and waiting_num > #{param2}
 </update>
+
+<select id="waitingList" resultType="com.ezen.dda.waiting.WaitingDTO">
+select * from waiting where store_id = #{param1} order by waiting_num
+</select>
+
+<update id="call">
+update waiting set waiting_num = 0 where store_id = #{param1} and waiting_num = #{param2}
+</update>
+
+<delete id="enter">
+delete from waiting where store_id = #{param1} and waiting_num = 0
+</delete>
 
 </mapper>
