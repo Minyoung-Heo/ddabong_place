@@ -14,10 +14,9 @@ public class StoreDTO {
 	public StoreDTO() {
 		super();
 	}
-	
+
 	public StoreDTO(String store_id, String storename, String tel, String address, String lineintro, String intro,
-			String image, String main_menu, String main_image, String region_name, String feature,
-			String dessert) {
+			String image, String main_menu, String main_image, String region_name, String feature, String dessert) {
 		super();
 		this.store_id = store_id;
 		this.storename = storename;
@@ -168,6 +167,7 @@ public class StoreDTO {
 	public void setDessert(String dessert) {
 		this.dessert = dessert;
 	}
+
 
 
 }

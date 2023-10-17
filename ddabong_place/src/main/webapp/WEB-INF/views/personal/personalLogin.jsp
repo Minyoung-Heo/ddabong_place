@@ -115,6 +115,16 @@ input {
 	background-image: none;
 }
 
+#keyShow {
+	position: absolute;
+	display: none;
+	margin-left: 160px;
+	margin-top: -40px;
+	font-size: 15px;
+	cursor: pointer;
+	color: black;
+}
+
 input[type=button], input[type=reset], input[type=text], input[type=password],
 	input[type=submit], input[type=search], input[type=tel], input[type=email]
 	{
@@ -258,6 +268,7 @@ p1 {
 						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !"
 						name="personalpw" maxlength="16">
 					</span>
+					<div id="keyShow">SHOW</div>
 				</div>
 				<button id="loginButton" class="btn_login" value="로그인" type="submit"
 					disabled>로그인</button>
@@ -390,6 +401,31 @@ p1 {
 					"NaverPopup", "width=" + width + ", height=" + height
 							+ ", left=" + left + ", top=" + top);
 		}
+	</script>
+	
+	<script>
+	$(".pswd").on("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		    event.preventDefault();
+		    $(".btn_login").triggerHandler("click");
+		  } else {
+		    if (this.value) {
+		      $("#keyShow").css("display", "inline-block");
+		    } else {
+		      $("#keyShow").hide();
+		    }
+		  }
+		}).focus();
+
+		$("#keyShow").on("click", function() {
+		  if ($(".pswd").attr("type") == "password") {
+		    $(".pswd").attr("type", "text");
+		    $($(this)).text("H I D E");
+		  } else {
+		    $(".pswd").attr("type", "password");
+		    $($(this)).text("SHOW");
+		  }
+		});
 	</script>
 </body>
 </html>

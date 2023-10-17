@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,23 +36,21 @@ input {
   width: 100%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
 }
 
-.submit input {
-  width: 40%;
-  height: 50px;
-  border: 0;
-  outline: none;
-  border-radius: 40px;
-  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
-  color: white;
-  font-size: 1.2em;
-  letter-spacing: 2px;
-}
+.submit a {
+	width: 40%;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 40px;
+    }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
   width: 18px; /* 원하는 너비 값으로 조절하세요 */
@@ -67,6 +66,15 @@ input {
 .mae_image input, .main_image input {
   border: none;
   outline: none;
+}
+
+.mae_image img, .main_image img{
+	width: 50px;
+	transition: width 0.3s ease;
+}
+
+.mae_image img:hover, .main_image img:hover{
+	width: 300px;
 }
 
 select {
@@ -136,7 +144,9 @@ option {
           
           <div class="mae_image">
             <h4>매장 이미지</h4>
-            <td><img alt="매장 이미지" src="image/${store.image}" width="300px"></td>
+            <c:forEach var="image" items="${fn:split(store.image, ' ')}">
+    			<td><img src="image/${image}" width="100px"></td>
+			</c:forEach>
           </div>
           
           <div class="main_menu">
@@ -146,7 +156,9 @@ option {
           
           <div class="main_image">
             <h4>매장 대표 메뉴 사진</h4>
-            <td><img alt="매장 대표 메뉴 사진" src="image/${store.main_image}" width="300px"></td>
+            <c:forEach items="${fn:split(store.main_image, ' ')}" var="main_image">
+    			<td><img src="image/${main_image}" width="100px"></td>
+			</c:forEach>
           </div>
           
           <div class="region_name">
@@ -164,8 +176,13 @@ option {
             <input value="${store.dessert}" readonly>
           </div>
           
+          <c:url var="url1" value="storemodifyview">
+          	<c:param name="storemodify" value="${store.store_id}"></c:param>
+          </c:url>
+          
             <div class="submit">
-                <input type="submit" value="수정하기">
+            <a href="${url1}">수정하기</a>
+                <!-- <input type="submit" value="수정하기"> -->
             </div>
             </c:forEach>
         </div>

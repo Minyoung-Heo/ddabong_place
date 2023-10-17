@@ -24,12 +24,10 @@ public interface StoreService {
 	public StoreDTO storelogincheck(String id, String pw);
 	
 	//매장 수정창
-	public ArrayList<StoreDTO> storemodifyview();
+	public ArrayList<StoreDTO> storemodifyview(String store_id);
 	
 	//매장 수정 입력
-	public void storemodifyfinal(String store_id, String storename, String tel, String address, String lineintro,
-			String intro, List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2,
-			String region_name, String feature2, String dessert2);
+	public void storemodifyfinal(StoreDTO storeDTO);
 
 	// 아이디 찾기
 	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
@@ -40,6 +38,7 @@ public interface StoreService {
 	public void storeinput(String storename, String tel, String address, String lineintro, String intro,
 			List<MultipartFile> filelist1, String main_menu, List<MultipartFile> filelist2, String region_name,
 			String feature2, String dessert2);
+
 
 
 }

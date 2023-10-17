@@ -27,7 +27,7 @@
 	<br>
 	<br>
 
-	<c:forEach items="${registrationlist}" var="regi">
+	<c:forEach items="${registrationlist}" var="regi" varStatus="loop">
 		<c:forEach items="${ddabonglist}" var="dda">
 			<div class="detailtable">
 				<table width="100%">
@@ -39,9 +39,10 @@
 						<td style="text-align: left;"><h3>&emsp;
 								${regi.storename}</h3> &emsp;&emsp; ${regi.region_name} | ${regi.tel }</td>
 					</tr>
+					
 					<tr>
-						<td>
-							<h4>우리 매장의 대표메뉴</h4> <br> ${regi.main_image} <br>
+						<td class="table-bottom">
+							<h4>우리 매장의 대표메뉴</h4> <br> <img src="image/${regi.main_image}"> <br>
 							${regi.main_menu}
 						</td>
 					</tr>

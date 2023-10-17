@@ -26,6 +26,9 @@
 	<delete id="stardelete">
 		delete from star where customer_id =#{param1}
 	</delete>
+	<delete id="waitingdelete">
+		delete from waiting where customer_id =#{param1}
+	</delete>
 		<!-- 마지막으로 회원 계정 삭제 -->
 	<delete id="personaldelete">
 		delete from customer where id =#{param1}

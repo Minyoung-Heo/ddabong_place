@@ -27,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기
-	static String imagepath = "C:\\Users\\minyoung\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+	static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -43,18 +43,89 @@ public class StoreController {
 		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
-		String address = mul.getParameter("address");
+		String address = mul.getParameter("addr2") +" "+ mul.getParameter("addr3");
 		String lineintro = mul.getParameter("lineintro");
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		List<MultipartFile> filelist2 = mul.getFiles("main_image"); // 이미지 다중 파일 업로드
+		String main_image = mul.getParameter("main_image");
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
+
+		//특징과 디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
+		String feature2 = "";
+		for (int i = 0; i < feature.length; i++) {
+		    feature2 += feature[i];
+		    if (i < feature.length - 1) {
+		        feature2 += ", ";
+		    }
+		}
+
+		String dessert2 = "";
+		for (int j = 0; j < dessert.length; j++) {
+			dessert2 += dessert[j];
+		    if (j < dessert.length - 1) {
+		    	dessert2 += ", ";
+		    }
+		}
 		
-		//System.out.println(image);
-		//System.out.println(main_image);
+		String imagesName1 = "";
+		for (MultipartFile mf1 : filelist1) {
+			String imagefile = mf1.getOriginalFilename(); //원본 파일명
+			imagesName1 += imagefile + " ";
+			try {
+				mf1.transferTo(new File(imagepath+"\\"+imagefile));
+			}catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+				
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ss.storeinput(storeDTO);
+		ss.insertDDA(store_id);
+		return "redirect:/main";
+	}
+
+	//매장 출력창
+	@RequestMapping(value = "/storeoutput")
+	public String store3(Model md) {
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ArrayList<StoreDTO> list = ss.storeoutput();
+		md.addAttribute("list", list);
+
+		return "storeoutput";
+	}
+	
+	//매장 수정창
+	@RequestMapping(value = "/storemodifyview")
+	public String store4(Model md, HttpServletRequest request) {
+		String store_id = request.getParameter("storemodify");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ArrayList<StoreDTO> list = ss.storemodifyview(store_id);
+		md.addAttribute("list", list);
+		
+		return "storemodify";
+	}
+	
+	//매장 수정창에서 수정 후 db 등록
+	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
+	public String store5(MultipartHttpServletRequest mul) {
+		String store_id = mul.getParameter("store_id");
+		String storename = mul.getParameter("storename");
+		String tel = mul.getParameter("tel");
+		String address = mul.getParameter("addr2") +" "+ mul.getParameter("addr3");
+		String lineintro = mul.getParameter("lineintro");
+		String intro = mul.getParameter("intro");
+		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
+		String main_menu = mul.getParameter("main_menu");
+		String main_image = mul.getParameter("main_image");
+		String region_name = mul.getParameter("region_name");
+		String [] feature = mul.getParameterValues("feature");
+		String [] dessert = mul.getParameterValues("dessert");
 		
 		//특징과 디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
 		String feature2 = "";
@@ -73,22 +144,6 @@ public class StoreController {
 		    }
 		}
 		
-//		//파일 업로드
-//		int size1 = image.size();
-//		for(int i=0; i<size1; i++) {
-//			MultipartFile mf1 = image.get(i);
-//			String imagefile = mf1.getOriginalFilename();
-//			
-//			File file = new File(imagepath + "\\" +imagefile);
-//			
-//			try {
-//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-//				bos.write(image.get(i).getBytes());
-//				bos.close();
-//			}catch (Exception e) {
-//				// TODO: handle exception
-//			}
-//		}
 		String imagesName1 = "";
 		for (MultipartFile mf1 : filelist1) {
 			String imagefile = mf1.getOriginalFilename(); //원본 파일명
@@ -101,132 +156,10 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
-//		//파일 업로드
-//		int size2 = main_image.size();
-//		for (int i = 0; i < size2; i++) {
-//			MultipartFile mf2 = main_image.get(i);
-//			String main_imagefile = mf2.getOriginalFilename();
-//
-//			File file = new File(imagepath + "\\" + main_imagefile);
-//
-//			try {
-//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-//				bos.write(main_image.get(i).getBytes());
-//				bos.close();
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//			}
-//		}
-		String imagesName2 = "";
-		for (MultipartFile mf1 : filelist2) {
-			String imagefile = mf1.getOriginalFilename(); //원본 파일명
-			imagesName2 += imagefile + " ";
-			try {
-				mf1.transferTo(new File(imagepath+"\\"+imagefile));
-			}catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, imagesName2, region_name, feature2, dessert2);
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storeinput(storeDTO);
-		ss.insertDDA(store_id);
-		return "redirect:/";
-	}
-
-	//매장 출력창
-	@RequestMapping(value = "/storeoutput")
-	public String store3(Model md) {
-		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storeoutput();
-		md.addAttribute("list", list);
-
-		return "storeoutput";
-	}
-	
-	//매장 수정창
-	@RequestMapping(value = "/storemodifyview")
-	public String store4(Model md) {
-		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storemodifyview();
-		md.addAttribute("list", list);
-		
-		return "storemodify";
-	}
-	
-	//매장 수정창에서 수정 후 db 등록
-	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
-	public String store5(MultipartHttpServletRequest mul) {
-		String store_id = mul.getParameter("store_id");
-		String storename = mul.getParameter("storename");
-		String tel = mul.getParameter("tel");
-		String address = mul.getParameter("address");
-		String lineintro = mul.getParameter("lineintro");
-		String intro = mul.getParameter("intro");
-		List<MultipartFile> filelist1 = mul.getFiles("image"); //이미지 다중 파일 업로드
-		String main_menu = mul.getParameter("main_menu");
-		List<MultipartFile> filelist2 = mul.getFiles("main_image"); //이미지 다중 파일 업로드
-		String region_name = mul.getParameter("region_name");
-		String [] feature = mul.getParameterValues("feature");
-		String [] dessert = mul.getParameterValues("dessert");
-		
-		
-		//특징 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
-		String feature2 = "";
-		for (int i = 0; i < feature.length; i++) {
-		    feature2 += feature[i];
-		    if (i < feature.length - 1) {
-		        feature2 += ", ";
-		    }
-		}
-		
-		//디저트 체크박스 중복 선택 가능하게 하기, 중복 선택 했을시 마지막 , 빼기
-		String dessert2 = "";
-		for (int j = 0; j < dessert.length; j++) {
-			dessert2 += dessert[j];
-		    if (j < dessert.length - 1) {
-		    	dessert2 += ", ";
-		    }
-		}
-		
-		for (MultipartFile mf1 : filelist1) {
-			String originfilename1 = mf1.getOriginalFilename(); //원본 파일명
-			
-			String safefile1 = imagepath + System.currentTimeMillis() + originfilename1;
-			
-			try {
-				mf1.transferTo(new File(safefile1));
-			}catch (IllegalStateException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-			
-		for (MultipartFile mf2 : filelist2) {
-			String originfilename2 = mf2.getOriginalFilename(); //원본 파일명
-				
-			String safefile2 = imagepath + System.currentTimeMillis() + originfilename2;
-				
-			try {
-				mf2.transferTo(new File(safefile2));
-			}catch (IllegalStateException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
-		}
-		
-		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storemodifyfinal(store_id,storename,tel,address,lineintro,intro,filelist1,main_menu,filelist2,region_name,feature2,dessert2);
+		ss.storemodifyfinal(storeDTO);
 		return "redirect:storeoutput";
 	}
 	
@@ -267,7 +200,7 @@ public class StoreController {
 			 HttpSession session = request.getSession();
 			 session.setAttribute("store_id", dto.getStore_id());
 			    
-			return "redirect:/";
+			return "redirect:/main";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
@@ -284,7 +217,7 @@ public class StoreController {
 		hs.removeAttribute("store");
 		hs.setAttribute("storeloginstate", false);
 
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 //		비번찾기@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
