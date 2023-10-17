@@ -66,7 +66,9 @@ $(function() {
 </script>
 </head>
 <body>
-	<center>
+<c:choose>
+<c:when test="${personal!=null}">
+<center>
 	<br>
 	<br>
 	<h1>웨이팅 등록</h1>
@@ -89,5 +91,13 @@ $(function() {
 	<input class="btn" type="submit" value="웨이팅 걸기"></td></tr>
 	</table>
 	</form>
+</c:when>
+<c:otherwise>
+<script>
+alert("로그인 후 이용 가능한 서비스입니다.");
+location.href = "selectLogin";
+</script>
+</c:otherwise>
+</c:choose>
 </body>
 </html>
