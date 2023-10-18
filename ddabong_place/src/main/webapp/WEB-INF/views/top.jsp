@@ -11,6 +11,18 @@
 <script type="text/javascript">
 	//검색창 입력값 전송부분.
 	$(function() {
+		$(window).on('scroll', function() {
+		      scrollF();
+		    });
+
+		    function scrollF() {
+		      if ($(window).scrollTop() > 100) {
+		        document.getElementById('topnav').style.top = '0';
+		      } else {
+		        document.getElementById('topnav').style.top = '-200px';
+		      }
+		    }
+		
 		$("#searchbtn").click(function() {
 			var searchValue = $("#searchValue").val();
 			$.ajax({
@@ -32,6 +44,8 @@
 			});
 		});
 	});
+	
+
 </script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
             charset="utf-8"></script>
@@ -39,8 +53,8 @@
     
 <meta charset="UTF-8">
 <style type="text/css">
- .topnav {
-top:0px;
+#topnav {
+top:-200px;
 width: 100%;
 height: 80px;
 background-color: white;
@@ -49,13 +63,14 @@ opacity: 1;
 display: flex;
 padding: 5px;
 z-index: 1000;
+transition: top 0.5s;
 }
-.topnav > .tvl > a {
+#topnav > .tvl > a {
 font-size: 20px;
 margin-top:25px;
 color: #ff8c00;
 }
-.topnav > .tvl > a:hover {
+#topnav > .tvl > a:hover {
 text-decoration: none;
 }
 </style>
@@ -89,7 +104,7 @@ text-decoration: none;
         </div>
         </form>
         
-        <div class="topnav"> 
+        <div id="topnav"> 
         <img src="/dda/image/menu.png" width="35px" style="margin-left:18x; margin:15px;"> 
         <a style="margin-top:10px;" href="main"><img src="/dda/image/DDAlogo.png" width="200px"></a>
         
