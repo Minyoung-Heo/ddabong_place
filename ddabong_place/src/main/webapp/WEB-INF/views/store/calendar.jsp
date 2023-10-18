@@ -28,7 +28,7 @@
                     {
                         title:'hello',
                         start:'2023-10-18 10:30:00',
-                        end:'2023-10-18 11:30:00'
+                        end:'2023-10-18 12:30:00'
                     },
                     {
                         title:'반가와요',
@@ -36,53 +36,30 @@
                         end:'2023-10-23 19:30:00'
                     }
                 ],
-                eventClick:function(events) {
-                    if(event.url) {
-                        alert(events.title + "\n" + events.start + " - " + events.end );
-                        window.open(event.url);
-                        return false;
-                    }
-                }
+         
                 headerToolbar: {
-                    center: 'addEventButton' // headerToolbar에 버튼을 추가
+                	left: 'addEventButton prev,next today',
+    				center: 'title',
+    				right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    //center: 'addEventButton' // headerToolbar에 버튼을 추가
                 }, customButtons: {
                     addEventButton: { // 추가한 버튼 설정
                         text : "ADD",  // 버튼 내용
-                        click : function(){ // 버튼 클릭 시 이벤트 추가
-                            $("#calendarModal").modal("show"); // modal 나타내기
-                            
-                            $("#addCalendar").on("click", function () {
-                                var content = $("#calendar_content").val();
-                                var start_date = $("#reservation_start_date").val();
-                                var end_date = $("#reservation_end_date").val();
+                        click: function() {
+                            var dateStr = prompt('Enter a date in YYYY-MM-DD format');
+                            var date = new Date(dateStr + 'T00:00:00'); // will be in local time
 
-                                if (!content) {
-                                    alert("내용을 입력하세요.");
-                                } else if (!start_date || !end_date) {
-                                    alert("날짜를 입력하세요.");
-                                } else {
-                                    var startDate = new Date(start_date).getTime();
-                                    var endDate = new Date(end_date).getTime();
-
-                                    if (endDate < startDate) {
-                                        alert("종료일이 시작일보다 먼저입니다.");
-                                    } else {
-                                        var obj = {
-                                            title: content,
-                                            start: start_date,
-                                            end: end_date
-                                        };
-                                        console.log(obj);
-
-                                        // 여기에 FullCalendar에 이벤트를 추가하는 코드를 작성하세요
-                                        // calendar.addEvent({...});
-                                        
-                                        $('#calendarModal').modal('hide'); // 모달을 닫습니다.
-                                    }
-                                }
-                            });
-
-                        }
+                            if (!isNaN(date.valueOf())) { // valid?
+                              calendar.addEvent({
+                                title: 'dynamic event',
+                                start: date,
+                                allDay: true
+                              });
+                              alert('일정을 등록합니다');
+                            } else {
+                              alert('Invalid date.');
+                            }
+                          }
                     }
                 },
                 editable: true, // false로 변경 시 draggable 작동 x 
@@ -111,7 +88,7 @@
     <div id="calendarBox">
         <div id="calendar"></div>
     </div>
-
+<!-- <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script>Cloudflare Pages Analytics -->
     <!-- modal 추가 -->
     <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -134,9 +111,8 @@
                  	</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" id="addCalendar">추가</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        id="sprintSettingModalClose">취소</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        			<button type="button" class="btn btn-primary">저장</button>
                 </div>
             </div>
         </div>
