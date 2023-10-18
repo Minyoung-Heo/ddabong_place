@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
 }
 
 .img-wrapper {
-	margin-right: 30px; 
+	margin-right: 30px;
 	width: 200px;
 	height: 200px;
 	position: relative;
@@ -44,12 +44,13 @@
 }
 
 .flex-item h3 {
-	margin-top: 30px; 
+	margin-top: 30px;
 }
 
 .intro {
 	text-align: left;
 }
+
 .btn {
 	margin-top: 20px;
 	margin-right: 100px;
@@ -64,8 +65,10 @@
 </style>
 </head>
 <body>
-<br><br><br>
-<div class="flex-container">
+	<br>
+	<br>
+	<br>
+	<div class="flex-container">
 
 		<div class="flex-item">
 
@@ -81,17 +84,17 @@
 					</div>
 
 					<div class="intro">
-						<h3>${loop.index + 1}. ${dto.storename}</h3>
+						<h3>${loop.index + 1}.${dto.storename}</h3>
 						${dto.lineintro}
 					</div>
 					<input type="button" class="btn"
-					 onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'" 
-					 value="대기번호 확인">
+						onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'"
+						value="대기번호 확인">
 				</div>
 				<hr>
 			</c:forEach>
 
 		</div>
-
+	</div>
 </body>
 </html>
