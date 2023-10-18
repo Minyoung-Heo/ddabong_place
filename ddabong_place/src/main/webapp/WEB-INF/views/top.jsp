@@ -66,7 +66,7 @@ opacity: 1;
 display: flex;
 padding: 5px;
 z-index: 1000;
-transition: top 0.5s;
+transition: top 0.2s;
 }
 #topnav > .tvl > a {
 font-size: 20px;
