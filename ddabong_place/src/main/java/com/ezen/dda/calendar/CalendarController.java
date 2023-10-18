@@ -8,7 +8,7 @@ public class CalendarController{
 	
 	@RequestMapping(value = "/calendar")
 	public String cal1(){
-		return "calendar";
+		return "storestatus";
 	}
 }
 //import java.util.HashMap;

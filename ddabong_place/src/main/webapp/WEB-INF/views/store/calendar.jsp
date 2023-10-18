@@ -13,11 +13,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <!-- fullcalendar -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.js"></script>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -38,6 +36,13 @@
                         end:'2023-10-23 19:30:00'
                     }
                 ],
+                eventClick:function(events) {
+                    if(event.url) {
+                        alert(events.title + "\n" + events.start + " - " + events.end );
+                        window.open(event.url);
+                        return false;
+                    }
+                }
                 headerToolbar: {
                     center: 'addEventButton' // headerToolbar에 버튼을 추가
                 }, customButtons: {
@@ -81,19 +86,25 @@
                     }
                 },
                 editable: true, // false로 변경 시 draggable 작동 x 
-                displayEventTime: true // 시간 표시 x
+                displayEventTime: true, // 시간 표시 x
             });
             calendar.render();
         });
     </script>
 
-    <style>
-        #calendar{
-            width: 100%;
-            padding-left: 15%;
-        }
-
-    </style>
+<style>
+#calendar{
+	width: 100%;
+	font-size: 15px;
+}
+.fc-day-sat {
+    color: blue; /* 토요일과 일요일 텍스트 색상을 빨간색으로 설정 */
+  }
+  
+.fc-day-sun {
+    color: red; /* 토요일과 일요일 텍스트 색상을 빨간색으로 설정 */
+  }
+</style>
 </head>
 
 <body>
