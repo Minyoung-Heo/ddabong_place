@@ -86,6 +86,9 @@
 #nav {
 	width: 100%;
 }
+#top {
+font-family: 'BMJUA'; 
+}
 
 #body {
 	text-align: center;
@@ -96,18 +99,22 @@
 	min-height: 300%;
 	padding-bottom: 260px;
 	margin-top: 50px;
+	font-family: 'BMJUA'; 
 }
 
 #footer {
-   height: 260px;
+	padding:10px;
+   height: 290px;
    width: 100%;
    position: relative;
    background-color: #FF8C00;
    color: white;
-   transform: translatY(-100%);
+   transform: translateY(30%);
    margin: 0;
    font-weight: lighter;
-   font-size: 11.8px;
+   font-size: 15px;
+   font-family: 'NanumSquareRound';
+   line-height: 22px;
 }
 
 .info, .cc {
@@ -137,15 +144,17 @@
 /*    font-style: normal; */
 /* } */
 
+@font-face { 
+     font-family: 'BMJUA'; 
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+     font-weight: normal; 
+    font-style: normal; 
+} 
 @font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-* {
-     font-family: 'BMJUA';
 }
 
 </style>
