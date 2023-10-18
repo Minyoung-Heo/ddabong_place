@@ -1,35 +1,60 @@
-
 package com.ezen.dda.calendar;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class CalendarController {
-
+public class CalendarController{
+	
 	@RequestMapping(value = "/calendar")
-	public String store1() {
-
+	public String cal1(){
 		return "calendar";
 	}
-
-	/*
-	 * // 일정보기
-	 * 
-	 * @RequestMapping(value = "/calendar", method = RequestMethod.GET) public
-	 * ModelAndView getCalendarList(ModelAndView mv, HttpServletRequest request) {
-	 * String viewpage = "calendar"; List<CalendarDTO> calendar = null; try {
-	 * calendar = CalendarService.getCalendar();
-	 * request.setAttribute("calendarList", calendar); } catch (Exception e) {
-	 * e.printStackTrace(); } mv.setViewName(viewpage); return mv; }
-	 */
-	 
 }
+//import java.util.HashMap;
+//import java.util.List;
+//
+//import javax.servlet.http.HttpServletRequest;
+//
+//import org.apache.ibatis.session.SqlSession;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.servlet.ModelAndView;
+//
+//@Controller
+//@RequiredArgsConstructor
+//@RequestMapping("/calendar")
+//public class CalendarController {
+// 
+//    private static final Logger log = LoggerFactory.getLogger(CalendarController.class);
+// 
+//    private final ScheduleService scheduleService;
+// 
+//    @GetMapping("/calendar-admin")
+//    @ResponseBody
+//    public List<Map<String, Object>> monthPlan() {
+//        List<CalendarDTO> listAll = scheduleService.findAll();
+// 
+//        JSONObject jsonObj = new JSONObject();
+//        JSONArray jsonArr = new JSONArray();
+// 
+//        HashMap<String, Object> hash = new HashMap<>();
+// 
+//        for (int i = 0; i < listAll.size(); i++) {
+//            hash.put("title", listAll.get(i).getCustomer_id());
+//            hash.put("start", listAll.get(i).getReservation_start_date());
+//            hash.put("end", listAll.get(i).getReservation_end_date());
+////          hash.put("time", listAll.get(i).getScheduleTime());
+// 
+//            jsonObj = new JSONObject(hash);
+//            jsonArr.add(jsonObj);
+//        }
+//        log.info("jsonArrCheck: {}", jsonArr);
+//        return jsonArr;
+//    }
+//}

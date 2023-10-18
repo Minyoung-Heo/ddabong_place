@@ -167,7 +167,7 @@ public class StoreController {
 	@RequestMapping(value = "/storestatus")
 	public String store6() {
 			
-		return "storestatus";
+		return "calendar";
 	}
 	
 	//업체용 회원가입
