@@ -9,8 +9,24 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	//검색창 입력값 전송부분.
 	$(function() {
+		$(window).on('scroll', function() {
+		      scrollF();
+		    });
+
+		    function scrollF() {
+		      if ($(window).scrollTop() > 100) {
+		        document.getElementById('topnav').style.top = '0';
+		      } else {
+		        document.getElementById('topnav').style.top = '-200px';
+		      }
+		    }
+		    
+		    $(".menu_icon").click(function() {
+		    	$(".menu_div").animate({ width: 'toggle' });
+		    });
+		
+	//검색창 입력값 전송부분.
 		$("#searchbtn").click(function() {
 			var searchValue = $("#searchValue").val();
 			$.ajax({
@@ -32,11 +48,58 @@
 			});
 		});
 	});
+	
 </script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
             charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
 <meta charset="UTF-8">
+<style type="text/css">
+#topnav {
+top:-200px;
+width: 100%;
+height: 80px;
+background-color: white;
+position: fixed;
+opacity: 1;
+display: flex;
+padding: 5px;
+z-index: 1000;
+transition: top 0.5s;
+}
+#topnav > .tvl > a {
+font-size: 20px;
+margin-top:25px;
+color: #ff8c00;
+}
+#topnav > .tvl > a:hover {
+text-decoration: none;
+}
+.menu_icon {
+cursor:pointer;
+}
+.menu_div {
+  background-color: #ff8c00;
+  position: fixed;
+  display:none;
+  top: 80px;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  overflow-y: auto;
+  color: white;
+  font-size: 35px;
+  z-index: 1000;
+  padding:40px;
+}
+.menu_div > a {
+margin-top: 20px;
+color:white;
+text-decoration: none;
+position:fixed;
+}
+</style>
 </head>
 
 <header>
@@ -66,6 +129,69 @@
       <button id="searchbtn"></button>
         </div>
         </form>
-</header>
+        
+        <div id="topnav"> 
+        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:18x; margin:15px;"> 
+        <a style="margin-top:10px;" href="main"><img src="/dda/image/DDAlogo.png" width="200px"></a>
+        
+        <form action="search" method="post">
+        <div class="search" style="margin-top:5px; margin-left:20px; width:300px;">
+            <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
+      <button id="searchbtn" style="margin-right:10px;"></button>
+        </div>
+        </form>
+        
+		    <div class="tvl" style="display:flex; width:500px;">
+		<c:choose>
+			<c:when test="${personalloginstate == true}">
+				<a href="personalpwcheck" style="margin-right: 20px;">마이페이지</a>
+				<a href="personallogout"> 로그아웃</a>
+			</c:when>
 
+			<c:when test="${storeloginstate == true}">
+				<a href="" style="margin-right: 20px;">마이페이지</a>
+				<a href="storelogout">로그아웃</a>
+			</c:when>
+
+			<c:otherwise>
+				<a style="margin-right:40px;" href="selectJoin">회원가입</a>
+				<a href="selectLogin">로그인</a>
+			</c:otherwise>
+		</c:choose>
+  
+        	</div>  
+        </div>
+        
+      <c:choose>
+			<c:when test="${personalloginstate == true}">
+      <p class="menu_div">
+				<a href="personalpwcheck" >마이페이지</a><br>
+				<a href=>카페 보러가기</a><br>
+      <a href="qnaform">즐겨찾기</a><br>
+      <a href="qnaform">예약 현황</a><br>
+      <a href="qnaform">웨이팅 현황</a><br>
+				<a href="personallogout"> 로그아웃</a>
+     </p>
+			</c:when>
+
+			<c:when test="${storeloginstate == true}">
+			 <p class="menu_div">
+				<a href="#">마이페이지</a><br>
+				<a href="qnaform">매장 등록</a><br>
+      <a href="qnaform">매장 정보 수정</a><br>
+      <a href="qnaform">예약 현황</a><br>
+      <a href="qnaform">웨이팅 리스트</a><br>
+				<a href="storelogout">로그아웃</a><br>
+		</p>
+			</c:when>
+
+			<c:otherwise>
+			 <p class="menu_div">
+				<a href="selectJoin">회원가입</a><br>
+				<a href="selectLogin">로그인</a><br>
+				<a href="qnaform">카페 보러가기</a><br>
+      <a href="qnaform">Q&A</a><br></p>
+			</c:otherwise>
+		</c:choose>
+</header>
 </html>
