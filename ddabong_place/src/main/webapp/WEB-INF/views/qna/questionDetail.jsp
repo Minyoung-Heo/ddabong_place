@@ -31,10 +31,21 @@
 	color:#ff8c00;
 }
 .question {
+line-height:50px;
 margin-top: 20px;
 width: 90%;
 text-align: left;
 font-size: 20px;
+}
+.question th,td{
+border-top: 2px solid #ffba66;
+border-bottom:2px solid #ffba66;
+padding: 15px;
+}
+.question th {
+background-color: #ffd199;
+font-weight: normal;
+border-right: 2px solid #ffba66;
 }
 .question input[type='text'] {
 border-radius: 30px;
@@ -73,13 +84,13 @@ width: 85%;
 		<h1 style="text-align: left;">1:1 문의하기</h1><br>
     <table class="question" align="center">
         <tr>
-            <td>문의 유형</td>
+            <th>문의 유형</th>
             <td>${dto.questionType}</td>
         </tr>
-        <tr><td>제목</td><td>${dto.title}</td></tr>
-        <tr><td>작성자</td><td>${dto.writer}</td></tr>
-        <tr><td>작성일자</td><td>${fn:substring(dto.question_date,0,16)}</td></tr>
-        <tr><td>문의내용</td><td>${dto.content}</textarea></td></tr>
+        <tr><th>제목</th><td>${dto.title}</td></tr>
+        <tr><th>작성자</th><td>${dto.writer}</td></tr>
+        <tr><th>작성일자</th><td>${fn:substring(dto.question_date,0,16)}</td></tr>
+        <tr><th>문의내용</th><td>${dto.content}</textarea></td></tr>
     </table>
      <input class="btn" type="button" value="목록" onclick="window.history.back()">
 	</div>

@@ -52,6 +52,7 @@
 }
 
 .question th {
+	font-weight:normal;
     border-top: 2px solid #ff8c00;
     border-bottom: 2px solid #ff8c00;
     padding:15px;
