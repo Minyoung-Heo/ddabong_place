@@ -18,7 +18,7 @@
 }
 
 .flex-item {
-	
+	width:40%;
 }
 
 .flex-item img {
@@ -52,11 +52,10 @@
 }
 
 .btn {
-	margin-top: 20px;
-	margin-right: 100px;
+	position:relative;
+	float:right;
 	background-color: #ffe8cc;
 	outline: none;
-	margin-left: 100px;
 }
 
 .btn:hover {
@@ -83,9 +82,15 @@
 							src="/dda/image/${dto.image}" width="200px"></a>
 					</div>
 
-					<div class="intro">
-						<h3>${loop.index + 1}.${dto.storename}</h3>
+					<div class="intro" style="width:380px;">
+						<h3>${loop.index + 1}. ${dto.storename}</h3>
 						${dto.lineintro}
+						<br><br><br><br><br>
+						<c:forEach items="${totalList}" var="tot">
+						<c:if test="${tot.store_id == dto.store_id}">
+						현재 대기 인원 : <span style="color:#ff8c00;">${tot.totalwaiting}</span> 명
+						</c:if>
+						</c:forEach>
 					</div>
 					<input type="button" class="btn"
 						onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'"
