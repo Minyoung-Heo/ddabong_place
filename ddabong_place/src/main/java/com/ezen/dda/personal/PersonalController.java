@@ -31,6 +31,11 @@ public class PersonalController {
 	public String myinfo() {
 		return "myinfo";
 	}
+	// 예약현황
+	@RequestMapping(value = "/myStatus")
+	public String myStatus() {
+		return "myStatus";
+	}
 
 	// 마이페이지 수정
 	@RequestMapping(value = "/myinfoModify")
@@ -176,8 +181,12 @@ public class PersonalController {
 			String id = request.getParameter("id");
 
 			PersonalService ss = sqlSession.getMapper(PersonalService.class);
-			ss.personaldelete(id);
-
+			ss.reservationdelete(id); // 예약 데이터 삭제
+			//여기 리뷰테이블도 연결돼있는데 일단 나중에 다시 수정 필요!!!!!
+			ss.stardelete(id); // 즐겨찾기 데이터 삭제
+			ss.waitingdelete(id); // 웨이팅 데이터 삭제
+			ss.personaldelete(id); // 회원아이디 데이터 삭제
+			
 			HttpSession hs = request.getSession();
 			hs.removeAttribute("personal");
 			hs.setAttribute("personalloginstate", false);

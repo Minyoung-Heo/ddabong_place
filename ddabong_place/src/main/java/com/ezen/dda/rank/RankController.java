@@ -51,5 +51,6 @@ public class RankController {
 		model.addAttribute("hotList", hotList);
 		
 		return "main";
+		
 	}
 }
