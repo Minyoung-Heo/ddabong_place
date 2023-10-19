@@ -192,7 +192,7 @@ option {
           </div>
           
           <c:url var="url1" value="storemodifyview">
-          	<c:param name="storemodify" value="${store.store_id}"></c:param>
+          	<c:param name="store_id" value="${store.store_id}"></c:param>
           </c:url>
           
             <div class="submit">

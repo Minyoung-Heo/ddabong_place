@@ -130,10 +130,6 @@ margin-left: 40px;
 margin:20px;
 }
 
-.test{
-	position: relative;
-}
-
 </style>
 </head>
 <body>
@@ -227,13 +223,6 @@ margin:20px;
 		</div>
 	</div>
 
-
-<div class="test">
-    <a href="storeinput">테스트 이동</a><br>
-   	<a href="storestatus">캘린더 테스트</a>
-</div>
-	
 <br><br><br>
-
 </body>
 </html>
