@@ -1,12 +1,16 @@
 package com.ezen.dda.search;
 
+import java.util.List;
+
 public class SearchDTO {
 String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
+List<String> imageList;
 
 public SearchDTO() {}
 
-public SearchDTO(String store_id,String storename, String tel, String address, String intro, String image, String main_menu,
-		String main_image, String region_name, String feature, String dessert) {
+public SearchDTO(String store_id, String storename, String tel, String address, String intro, String image,
+		String main_menu, String main_image, String region_name, String feature, String dessert,
+		List<String> imageList) {
 	super();
 	this.store_id = store_id;
 	this.storename = storename;
@@ -19,6 +23,7 @@ public SearchDTO(String store_id,String storename, String tel, String address, S
 	this.region_name = region_name;
 	this.feature = feature;
 	this.dessert = dessert;
+	this.imageList = imageList;
 }
 
 public String getStore_id() {
@@ -108,6 +113,16 @@ public String getDessert() {
 public void setDessert(String dessert) {
 	this.dessert = dessert;
 }
+
+public List<String> getImageList() {
+	return imageList;
+}
+
+public void setImageList(List<String> imageList) {
+	this.imageList = imageList;
+}
+
+
 
 
 }

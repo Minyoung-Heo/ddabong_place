@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -133,16 +135,19 @@ public class PersonalFnController {
 		int person_num=Integer.parseInt(request.getParameter("person_num"));
 		
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reservation(storeID,customer_id,reservation_date,reservation_time,person_num);
+		ss.reservation(customer_id,storeID,reservation_date,reservation_time,person_num);
 		
 		return "redirect:/main";
 	}
 	
-	@RequestMapping(value = "/review")
+	@RequestMapping(value = "/review",method = RequestMethod.POST)
 	public String reviewsave(MultipartHttpServletRequest mul) {
 		List<MultipartFile> filelist=mul.getFiles("reviewfile");
 		String content=mul.getParameter("reviewcontent");
-		int star=Integer.parseInt(mul.getParameter("star"));
+		double star=Double.parseDouble(mul.getParameter("star"));
+		String storeid=mul.getParameter("storeid");
+		String customerid=mul.getParameter("customerid");
+		
 		
 		String imagesname="";
 		for(MultipartFile mf : filelist)
@@ -162,10 +167,24 @@ public class PersonalFnController {
 		String dateString = today.toString();
 		
 		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		//ss.reviewsave();
-		
+		ArrayList<ReviewDTO> reservnumlist=ss.reservnumlist(storeid,customerid);
+		Double reservnum=(double)reservnumlist.get(0).getReservation_num();
+		ss.reviewsave(reservnum,content,imagesname,star,dateString);
 		
 		return "redirect:/main";
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value = "/reviewcheck")
+	public String reviewcheck(String storeid,String customerid) {
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		int cnt=ss.reviewcheck(customerid,storeid);
+		String bb = null;
+		if (cnt == 0) {
+			bb = "ok";
+		} else {
+			bb = "";
+		}
+		return bb;
+	}
 }

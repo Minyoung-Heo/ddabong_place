@@ -9,7 +9,40 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$(function() {
+		$(".reviewsubmit").click(function(event) {
+			var f = document.reviewform;
+			var content = f.reviewcontent.value;
+			var id = "${personal.id}";
+
+			if (content === null || content === "") {
+				alert("리뷰 내용을 입력하세요.");
+				event.preventDefault(); // submit 막음
+			} else if (id === null || id.trim() === "") {
+				alert("로그인이 필요합니다.");
+				event.preventDefault(); // submit 막음
+			} else {
+				// AJAX로 reviewcheck 메소드 호출
+				$.ajax({
+					type : "POST",
+					async : true,
+					url : "reviewcheck",
+					data : {
+						storeid : "${storeid}",
+						customerid : "${customerid}"
+					},
+					success : function(result) {
+						if (result === "ok") {
+
+						} else {
+							alert("예약 이력이 없습니다.");
+							event.preventDefault(); // submit 막음
+						}
+					}
+				});
+			}
+		});
+	});
 </script>
 <style type="text/css">
 .detailtable {
@@ -126,9 +159,11 @@
 	<br>
 	<br>
 	<br>
-
+	<c:set var="storeid" value="" scope="page" />
 	<c:forEach items="${registrationlist}" var="regi" varStatus="loop">
 		<c:forEach items="${ddabonglist}" var="dda">
+			<c:set target="${pageScope}" property="storeid"
+				value="${regi.store_id}" />
 			<div class="detailtable">
 				<table width="100%">
 					<tr>
@@ -172,7 +207,9 @@
 		</c:forEach>
 	</c:forEach>
 	<div class="detailtable">
-		<form action="review" method="post">
+		<form action="review" method="post" name="reviewform" enctype="multipart/form-data">
+			<input type="hidden" name="storeid" value="${storeid }"> <input
+				type="hidden" name="customerid" value="${personal.id }">
 			<table width="100%" height="100%">
 				<tr>
 					<td>
