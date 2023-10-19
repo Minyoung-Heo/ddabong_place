@@ -132,7 +132,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="storeoutput">${store.ceo } 대표님 어서오세요.</a>
+				<a href="storeoutput?store_id=${store.id}">${store.ceo } 대표님 어서오세요.</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 
@@ -168,7 +168,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="" style="margin-right: 20px;">마이페이지</a>
+				<a href="storeoutput?store_id=${store.id}" style="margin-right: 20px;">마이페이지</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 
@@ -196,10 +196,10 @@ color:#ffe8cc;
 
 			<c:when test="${storeloginstate == true}">
 			 <p class="menu_div">
-				<a href="#">마이페이지</a><br>
+				<a href="storeoutput?store_id=${store.id}">마이페이지</a><br>
 				<a href="storeinput?store_id=${store.id}">매장 등록</a><br>
-      <a href="">매장 정보 수정</a><br>
-      <a href="">예약 현황</a><br>
+      <a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+      <a href="storestatus">예약 현황</a><br>
       <a href="waitinglist?store_id=${store.id}">웨이팅 리스트</a><br>
             <a href="qnaform">Q&A</a><br>
 				<a href="storelogout">로그아웃</a><br>

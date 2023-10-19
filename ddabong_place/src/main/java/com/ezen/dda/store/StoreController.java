@@ -105,7 +105,7 @@ public class StoreController {
 	//매장 수정창
 	@RequestMapping(value = "/storemodifyview", method = RequestMethod.GET)
 	public String store4(Model md, HttpServletRequest request) {
-		String store_id = request.getParameter("storemodify");
+		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ArrayList<StoreDTO> list = ss.storemodifyview(store_id);
 		md.addAttribute("list", list);
