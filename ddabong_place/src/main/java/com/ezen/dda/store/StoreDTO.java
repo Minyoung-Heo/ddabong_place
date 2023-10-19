@@ -1,9 +1,5 @@
 package com.ezen.dda.store;
 
-import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
-
 public class StoreDTO {
 	String store_id, storename, tel, address, lineintro, intro, id,pw,ceo,phone,email;
 	String image;

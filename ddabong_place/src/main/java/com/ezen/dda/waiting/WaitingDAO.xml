@@ -38,4 +38,8 @@ update waiting set waiting_num = 0 where store_id = #{param1} and waiting_num = 
 delete from waiting where store_id = #{param1} and waiting_num = 0
 </delete>
 
+<select id="totalWaiting" resultType="com.ezen.dda.waiting.WaitingDTO">
+select store_id, count(*) as totalwaiting from waiting group by store_id
+</select>
+
 </mapper>

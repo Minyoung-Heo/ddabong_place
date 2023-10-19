@@ -98,7 +98,7 @@ select {
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ff8c00;
-  width: 45%;
+  width: 30%;
   height: 30px;
 }
 
@@ -188,7 +188,7 @@ function check(){
     var f = document.store;
 
     var cstorename = f.storename.value;
-    var vstorename = /^[a-zA-Z가-힣0-9\s]{1,9}$/;
+    var vstorename = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
 
     if(cstorename== "" || cstorename==" "){
         alert("매장명 공백은 안돼요");
@@ -202,7 +202,7 @@ function check(){
     }
 
     var caddr3 = f.addr3.value;
-    var vaddr3 = /^[가-힣0-9\s]{1,50}$/;
+    var vaddr3 = /^[~!@#$%^&*(),_+|<>?:{}가-힣0-9\s]{1,50}$/;
 
     if(caddr3== "" || caddr3==" "){
         alert("매장 주소 공백은 안돼요");
@@ -216,7 +216,7 @@ function check(){
     }
 
     var cmain_menu = f.main_menu.value;
-    var vmain_menu = /^[a-zA-Z0-9가-힣\s]{1,15}$/;
+    var vmain_menu = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
 
     if(cmain_menu== "" || cmain_menu==" "){
         alert("매장 대표 메뉴 이름 공백은 안돼요");
@@ -261,43 +261,6 @@ function check(){
 
     f.submit();
 }
-
-/* // 로그인한 사용자의 store_id를 가져와서 store_id 입력 필드에 자동으로 설정
-document.addEventListener("DOMContentLoaded", function () {
-    // 서버에서 로그인한 사용자의 store_id를 가져오는 로직을 구현해야 함
-    // 여기에서는 간단히 하드코딩으로 설정
-    var loggedInStoreId = store_id; // 예: 로그인한 사용자의 store_id
-
-    // store_id 입력 필드를 가져옴
-    var storeIdInput =  document.getElementById("store_id");
-
-    // store_id 입력 필드에 로그인한 사용자의 store_id를 설정
-    storeIdInput.value = loggedInStoreId;
-});
-
-//파일 선택 필드를 가져옴
-var imageInput = document.getElementById("image");
-var mainImageInput = document.getElementById("main_image");
-
-// 파일이 선택되면 발생하는 이벤트 처리
-imageInput.addEventListener("change", function () {
-    var selectedFiles = imageInput.files;
-    // 선택한 파일들을 처리하는 코드를 작성
-    for (var i = 0; i < selectedFiles.length; i++) {
-        var file = selectedFiles[i];
-        // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
-    }
-});
-
-mainImageInput.addEventListener("change", function () {
-    var selectedFiles = mainImageInput.files;
-    // 선택한 파일들을 처리하는 코드를 작성
-    for (var i = 0; i < selectedFiles.length; i++) {
-        var file = selectedFiles[i];
-        // 각 파일에 대한 작업을 수행 (예: 업로드 또는 미리보기)
-    }
-}); */
-
 
 </script>
 </head>

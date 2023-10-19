@@ -68,9 +68,6 @@
 }
 
 .btn {
-    margin-top: 20px;
-    float: right;
-    margin-right: 60px;
     background-color: #ffe8cc;
 }
 
@@ -95,10 +92,10 @@
     <br><br>
     <div class="div-container">
         <div class="category">
-            <h1>웨이팅 관리</h1>
+            <h1>예약 / 웨이팅 관리</h1>
             <a href="waitinglist?store_id=${store.id}" style="color:#ff8c00;">웨이팅 리스트</a><br>
-            <a href="customerqna"">손님 Q&A</a><br>
-            <a href="question">1:1 문의하기</a><br>
+            <a href="storestatus">예약 현황</a><br>
+            
         </div>
 
         <div class="qna">

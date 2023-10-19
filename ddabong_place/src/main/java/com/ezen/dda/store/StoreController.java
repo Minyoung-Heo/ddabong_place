@@ -1,8 +1,6 @@
 package com.ezen.dda.store;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +46,8 @@ public class StoreController {
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		String main_image = mul.getParameter("main_image");
+		MultipartFile mf2 = mul.getFile("main_image");
+		String filelist2 = mf2.getOriginalFilename();
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -83,7 +82,7 @@ public class StoreController {
 			}
 		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
+		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
 		ss.insertDDA(store_id);
@@ -91,19 +90,20 @@ public class StoreController {
 	}
 
 	//매장 출력창
-	@RequestMapping(value = "/storeoutput")
-	public String store3(Model md) {
+	@RequestMapping(value = "/storeoutput", method = RequestMethod.GET)
+	public String store3(HttpServletRequest request, Model md) {
+		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storeoutput();
+		ArrayList<StoreDTO> list = ss.storeoutput(store_id);
 		md.addAttribute("list", list);
 
 		return "storeoutput";
 	}
 	
 	//매장 수정창
-	@RequestMapping(value = "/storemodifyview")
+	@RequestMapping(value = "/storemodifyview", method = RequestMethod.GET)
 	public String store4(Model md, HttpServletRequest request) {
-		String store_id = request.getParameter("storemodify");
+		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ArrayList<StoreDTO> list = ss.storemodifyview(store_id);
 		md.addAttribute("list", list);
@@ -167,7 +167,7 @@ public class StoreController {
 	@RequestMapping(value = "/storestatus")
 	public String store6() {
 			
-		return "storestatus";
+		return "calendar";
 	}
 	
 	//업체용 회원가입

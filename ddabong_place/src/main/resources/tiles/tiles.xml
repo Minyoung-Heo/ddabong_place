@@ -80,12 +80,6 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/myinfo.jsp" />
 	</definition>
-	<!-- 유저 회원 예약 현황 -->
-	<definition name="myStatus" extends="baseLayout">
-		<put-attribute name="title" value="개인회원 예약 현황" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/personal/myStatus.jsp" />
-	</definition>
 
 	<!-- 유저 회원 마이페이지 수정 -->
 	<definition name="myinfoModify" extends="baseLayout">
@@ -264,6 +258,13 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personalfunction/reservation.jsp" />
 	</definition>
+		<!-- 유저 회원 예약 현황 -->
+	<definition name="myStatus" extends="baseLayout">
+		<put-attribute name="title" value="개인회원 예약 현황" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personalfunction/myStatus.jsp" />
+	</definition>
+	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 <!-- QNA 시작 -->
@@ -341,4 +342,10 @@
 	</definition>
 <!-- 	웨이팅 종료 -->
 
+<!-- 캘린더 예비용 -->
+	<definition name="calendar" extends="baseLayout">
+		<put-attribute name="title" value="일정 보기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/calendar.jsp" />
+	</definition>
 </tiles-definitions>
