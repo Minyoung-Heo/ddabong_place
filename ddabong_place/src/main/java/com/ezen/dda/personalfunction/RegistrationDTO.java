@@ -4,24 +4,26 @@ import java.util.List;
 
 public class RegistrationDTO {
 String store_id,storename,tel,address,intro,main_menu,main_image,region_name,feature,dessert;
-List<String> image;
+String image;List<String> imageList;
 
-public RegistrationDTO() {}
+public RegistrationDTO() {
+}
 
-public RegistrationDTO(String store_id,String storename, String tel, String address, String intro, List<String> image, String main_menu,
-		String main_image, String region_name, String feature, String dessert) {
+public RegistrationDTO(String store_id, String storename, String tel, String address, String intro, String main_menu,
+		String main_image, String region_name, String feature, String dessert, String image, List<String> imageList) {
 	super();
 	this.store_id = store_id;
 	this.storename = storename;
 	this.tel = tel;
 	this.address = address;
 	this.intro = intro;
-	this.image = image;
 	this.main_menu = main_menu;
 	this.main_image = main_image;
 	this.region_name = region_name;
 	this.feature = feature;
 	this.dessert = dessert;
+	this.image = image;
+	this.imageList = imageList;
 }
 
 public String getStore_id() {
@@ -64,14 +66,6 @@ public void setIntro(String intro) {
 	this.intro = intro;
 }
 
-public List<String> getImage() {
-	return image;
-}
-
-public void setImage(List<String> imageList) {
-	this.image = imageList;
-}
-
 public String getMain_menu() {
 	return main_menu;
 }
@@ -111,6 +105,23 @@ public String getDessert() {
 public void setDessert(String dessert) {
 	this.dessert = dessert;
 }
+
+public String getImage() {
+	return image;
+}
+
+public void setImage(String image) {
+	this.image = image;
+}
+
+public List<String> getImageList() {
+	return imageList;
+}
+
+public void setImageList(List<String> imageList) {
+	this.imageList = imageList;
+}
+
 
 
 }

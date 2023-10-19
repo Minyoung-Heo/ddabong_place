@@ -1,12 +1,14 @@
 package com.ezen.dda.personalfunction;
 
+import java.util.List;
+
 public class ReviewDTO {
 
 	String id,pw,name,nickname,phone,address,email;
 	int reservation_num;
 	String customer_id,store_id,reservation_date,reservation_time;
 	int person_num,review_num;
-	String content,image,star,review_date;
+	String content,image,star,review_date;List<String> imageList;
 	
 	public ReviewDTO() {
 		super();
@@ -14,7 +16,8 @@ public class ReviewDTO {
 
 	public ReviewDTO(String id, String pw, String name, String nickname, String phone, String address, String email,
 			int reservation_num, String customer_id, String store_id, String reservation_date, String reservation_time,
-			int person_num, int review_num, String content, String image, String star, String review_date) {
+			int person_num, int review_num, String content, String image, String star, String review_date,
+			List<String> imageList) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -34,6 +37,7 @@ public class ReviewDTO {
 		this.image = image;
 		this.star = star;
 		this.review_date = review_date;
+		this.imageList = imageList;
 	}
 
 	public String getId() {
@@ -178,6 +182,14 @@ public class ReviewDTO {
 
 	public void setReview_date(String review_date) {
 		this.review_date = review_date;
+	}
+
+	public List<String> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
 
 	

@@ -19,11 +19,13 @@
 		        document.getElementById('topnav').style.top = '0';
 		      } else {
 		        document.getElementById('topnav').style.top = '-200px';
+		        $(".menu_div").css("display", "none");
+		        
 		      }
 		    }
 		    
 		    $(".menu_icon").click(function() {
-		    	$(".menu_div").animate({ width: 'toggle' });
+		    	$(".menu_div").toggle();
 		    });
 		
 	//검색창 입력값 전송부분.
@@ -80,24 +82,41 @@ text-decoration: none;
 cursor:pointer;
 }
 .menu_div {
-  background-color: #ff8c00;
+margin-left:15px;
+  background-color:#ff8c00;
   position: fixed;
+  border-radius: 19px;
   display:none;
-  top: 80px;
+  top: 100px;
   left: 0;
-  height: 100%;
-  width: 20%;
+  height: auto;
+  width: auto;
   overflow-y: auto;
-  color: white;
   font-size: 35px;
   z-index: 1000;
   padding:40px;
+  border:3.3px solid #ff8c00;
 }
 .menu_div > a {
 margin-top: 20px;
 color:white;
 text-decoration: none;
-position:fixed;
+}
+.menu_div a:hover {
+color:#ffe8cc;
+}
+
+.menu_div::before {
+  border-color: #ff8c00 transparent; 
+  border-style: solid;
+  border-width: 0 8px 10px 8.5px;
+  content: '';
+  display: block;
+  left: 40px;
+  position: fixed;
+  top: 90px;
+  width: 0;
+  z-index: 1100;
 }
 </style>
 </head>
@@ -131,7 +150,7 @@ position:fixed;
         </form>
         
         <div id="topnav"> 
-        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:18x; margin:15px;"> 
+        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:30px; margin:15px;"> 
         <a style="margin-top:10px;" href="main"><img src="/dda/image/DDAlogo.png" width="200px"></a>
         
         <form action="search" method="post">
@@ -166,10 +185,11 @@ position:fixed;
 			<c:when test="${personalloginstate == true}">
       <p class="menu_div">
 				<a href="personalpwcheck" >마이페이지</a><br>
-				<a href=>카페 보러가기</a><br>
-      <a href="qnaform">즐겨찾기</a><br>
-      <a href="qnaform">예약 현황</a><br>
-      <a href="qnaform">웨이팅 현황</a><br>
+				<a href="">카페 보러가기</a><br>
+      <a href="">즐겨찾기</a><br>
+      <a href="">예약 현황</a><br>
+      <a href="mywaiting?customer_id=${personal.id}">웨이팅 현황</a><br>
+      <a href="qnaform">Q&A</a><br>
 				<a href="personallogout"> 로그아웃</a>
      </p>
 			</c:when>
@@ -177,10 +197,11 @@ position:fixed;
 			<c:when test="${storeloginstate == true}">
 			 <p class="menu_div">
 				<a href="#">마이페이지</a><br>
-				<a href="qnaform">매장 등록</a><br>
-      <a href="qnaform">매장 정보 수정</a><br>
-      <a href="qnaform">예약 현황</a><br>
-      <a href="qnaform">웨이팅 리스트</a><br>
+				<a href="storeinput?store_id=${store.id}">매장 등록</a><br>
+      <a href="">매장 정보 수정</a><br>
+      <a href="">예약 현황</a><br>
+      <a href="waitinglist?store_id=${store.id}">웨이팅 리스트</a><br>
+            <a href="qnaform">Q&A</a><br>
 				<a href="storelogout">로그아웃</a><br>
 		</p>
 			</c:when>
@@ -189,7 +210,7 @@ position:fixed;
 			 <p class="menu_div">
 				<a href="selectJoin">회원가입</a><br>
 				<a href="selectLogin">로그인</a><br>
-				<a href="qnaform">카페 보러가기</a><br>
+				<a href="">카페 보러가기</a><br>
       <a href="qnaform">Q&A</a><br></p>
 			</c:otherwise>
 		</c:choose>
