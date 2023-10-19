@@ -14,11 +14,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ezen.dda.store.StoreDTO;
+import com.ezen.dda.store.StoreService;
+
 @Controller
 public class PersonalController {
 	@Autowired
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
+	ArrayList<StoreDTO> slist = new ArrayList<StoreDTO>();
+
+	// 예약현황
+	@RequestMapping(value = "/myStatus", method = RequestMethod.POST)
+	public String myStatus(Model mo) {
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		PersonalService ps = sqlSession.getMapper(PersonalService.class);
+		mo.addAttribute("list", list);
+		mo.addAttribute("slist", slist);
+		return "myStatus";
+	}
 
 	// 로그인 선택 화면
 	@RequestMapping(value = "/selectLogin")
@@ -30,11 +44,6 @@ public class PersonalController {
 	@RequestMapping(value = "/myinfo")
 	public String myinfo() {
 		return "myinfo";
-	}
-	// 예약현황
-	@RequestMapping(value = "/myStatus")
-	public String myStatus() {
-		return "myStatus";
 	}
 
 	// 마이페이지 수정
@@ -66,6 +75,7 @@ public class PersonalController {
 	public String personalidFind() {
 		return "personalidFind";
 	}
+
 
 	// 회원용 아이디찾기 검색결과
 	@RequestMapping(value = "/personalidResult", method = RequestMethod.POST)
@@ -124,6 +134,7 @@ public class PersonalController {
 	public String personalpwcheck() {
 		return "personalpwcheck";
 	}
+
 	// 회원 탈퇴 마지막 질문
 	@RequestMapping(value = "/confirmLeave")
 	public String confirmLeave() {
@@ -150,11 +161,13 @@ public class PersonalController {
 			return "personalloginerr";
 		}
 	}
+
 	// 탈퇴하기 전 비밀번호 확인
 	@RequestMapping(value = "/personalleave")
 	public String personalleave() {
 		return "personalleave";
 	}
+
 //  탈퇴하기 전 비밀번호 확인 체킹
 	@RequestMapping(value = "/personalleavechecking", method = RequestMethod.POST)
 	public String personalpwchecking2(HttpServletRequest request) {
@@ -166,8 +179,8 @@ public class PersonalController {
 		PersonalDTO dto = ss.personalleavechecking(id, pw);
 
 		if (dto != null) {
-			 return "redirect:/confirmLeave";
-			 
+			return "redirect:/confirmLeave";
+
 		} else {
 			String alertMessage = "비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
@@ -175,24 +188,26 @@ public class PersonalController {
 			return "personalloginerr";
 		}
 	}
+
 	// 회원 탈퇴
-		@RequestMapping(value = "/personaldelete")
-		public String del(HttpServletRequest request) {
-			String id = request.getParameter("id");
+	@RequestMapping(value = "/personaldelete")
+	public String del(HttpServletRequest request) {
+		String id = request.getParameter("id");
 
-			PersonalService ss = sqlSession.getMapper(PersonalService.class);
-			ss.reservationdelete(id); // 예약 데이터 삭제
-			//여기 리뷰테이블도 연결돼있는데 일단 나중에 다시 수정 필요!!!!!
-			ss.stardelete(id); // 즐겨찾기 데이터 삭제
-			ss.waitingdelete(id); // 웨이팅 데이터 삭제
-			ss.personaldelete(id); // 회원아이디 데이터 삭제
-			
-			HttpSession hs = request.getSession();
-			hs.removeAttribute("personal");
-			hs.setAttribute("personalloginstate", false);
+		PersonalService ss = sqlSession.getMapper(PersonalService.class);
+		ss.reservationdelete(id); // 예약 데이터 삭제
+		// 여기 리뷰테이블도 연결돼있는데 일단 나중에 다시 수정 필요!!!!!
+		ss.stardelete(id); // 즐겨찾기 데이터 삭제
+		ss.waitingdelete(id); // 웨이팅 데이터 삭제
+		ss.personaldelete(id); // 회원아이디 데이터 삭제
 
-			return "redirect:/main";
-		}
+		HttpSession hs = request.getSession();
+		hs.removeAttribute("personal");
+		hs.setAttribute("personalloginstate", false);
+
+		return "redirect:/main";
+	}
+
 //  로그아웃
 	@RequestMapping(value = "/personallogout")
 	public String personallogout(HttpServletRequest request) {
@@ -247,8 +262,6 @@ public class PersonalController {
 
 		return "redirect:/main";
 	}
-
-	
 
 //  아이디 중복확인 체크
 	@ResponseBody

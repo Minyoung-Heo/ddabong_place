@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -84,6 +85,7 @@ h2 {
 	margin-top: 20px;
 	display: none;
 }
+
 h5 {
 	margin-top: 20px;
 	display: none;
@@ -96,122 +98,126 @@ h5 {
 <body>
 	<div class="BZ">
 		<h1>예약 현황</h1>
-		<table class="maint1" align="center">
-			<tr>
-				<th>
-					<div class="timg">
-						<img src="/dda/image/스벅.png" alt="스벅 이미지">
-					</div>
-				</th>
-				<th>
-					<table class="cont">
-						<tr>
-							<th class="cname">연남5701</th>
-						</tr>
-						<tr>
-							<th class="cdate">2023.10.18 · 오후 7시 · 4명</th>
-						</tr>
-						<tr>
-							<th>예약 번호[01234567]</th>
-						</tr>
-						<tr>
-							<th>전화번호 : 02-333-8161</th>
-						</tr>
-					</table>
-				</th>
-				<th>
-					<div class="buttons">
-						<input type="button" value="매장 보기"> <input type="button"
-							value="지도 보기"> <input type="button" value="예약 취소">
-					</div>
-				</th>
-			</tr>
-		</table>
-		<div id="map-container">
-			<h2>매장 위치 확인</h2>
-			<div id="map" style="width: 500px; height: 400px; display: none;"></div>
-			<h5>서울 마포구 동교로 23길 64</h5>
-		</div>
-		<script type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8fc3585ad5a21392e7cb628332db3e4c&libraries=services"></script>
+		<c:forEach items="${slist}" var="store">
+			<c:forEach items="${list}" var="personal">
+				<table class="maint1" align="center">
+					<tr>
+						<th>
+							<div class="timg">
+								<img src="/dda/image/스벅.png" alt="스벅 이미지">
+							</div>
+						</th>
+						<th>
+							<table class="cont">
+								<tr>
+									<th class="cname">${store.storename }</th>
+								</tr>
+								<tr>
+									<th class="cdate">2023.10.18 · 오후 7시 · 4명</th>
+								</tr>
+								<tr>
+									<th>예약 번호 : [01234567]</th>
+								</tr>
+								<tr>
+									<th>전화번호 : 02-333-8161</th>
+								</tr>
+							</table>
+						</th>
+						<th>
+							<div class="buttons">
+								<input type="button" value="매장 보기"> <input type="button"
+									value="지도 보기"> <input type="button" value="예약 취소">
+							</div>
+						</th>
+					</tr>
+				</table>
+				<div id="map-container">
+					<h2>매장 위치 확인</h2>
+					<div id="map" style="width: 500px; height: 400px; display: none;"></div>
+					<h5>서울 마포구 동교로 23길 64</h5>
+				</div>
+				<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8fc3585ad5a21392e7cb628332db3e4c&libraries=services"></script>
 
-		<script>
-			var mapVisible = false;
-			var map;
+				<script>
+					var mapVisible = false;
+					var map;
 
-			function toggleMap() {
-				var mapContainer = document.getElementById('map');
-				var h2 = document.querySelector('h2');
-				var h5 = document.querySelector('h5');
-				if (!mapVisible) {
-					mapContainer.style.display = 'block';
-					h2.style.display = 'block'; 
-					h5.style.display = 'block';
-					mapVisible = true;
-					initMap();
-				} else {
-					mapContainer.style.display = 'none';
-					h2.style.display = 'none';
-					h5.style.display = 'none';
-					mapVisible = false;
-				}
-			}
-			var findStoreButton = document
-					.querySelector('input[value="지도 보기"]');
-			findStoreButton.addEventListener('click', toggleMap);
+					function toggleMap() {
+						var mapContainer = document.getElementById('map');
+						var h2 = document.querySelector('h2');
+						var h5 = document.querySelector('h5');
+						if (!mapVisible) {
+							mapContainer.style.display = 'block';
+							h2.style.display = 'block';
+							h5.style.display = 'block';
+							mapVisible = true;
+							initMap();
+						} else {
+							mapContainer.style.display = 'none';
+							h2.style.display = 'none';
+							h5.style.display = 'none';
+							mapVisible = false;
+						}
+					}
+					var findStoreButton = document
+							.querySelector('input[value="지도 보기"]');
+					findStoreButton.addEventListener('click', toggleMap);
 
-			var infowindow = new kakao.maps.InfoWindow({
-				zIndex : 1
-			});
+					var infowindow = new kakao.maps.InfoWindow({
+						zIndex : 1
+					});
 
-			var mapContainer = document.getElementById('map');
-			var mapOption = {
-				center : new kakao.maps.LatLng(37.566826, 126.9786567),
-				level : 3
-			};
+					var mapContainer = document.getElementById('map');
+					var mapOption = {
+						center : new kakao.maps.LatLng(37.566826, 126.9786567),
+						level : 3
+					};
 
-			function initMap() {
-				map = new kakao.maps.Map(mapContainer, mapOption);
-				var ps = new kakao.maps.services.Places();
+					function initMap() {
+						map = new kakao.maps.Map(mapContainer, mapOption);
+						var ps = new kakao.maps.services.Places();
 
-				ps.keywordSearch('연남5701', placesSearchCB);
-			}
-
-			function placesSearchCB(data, status, pagination) {
-				if (status === kakao.maps.services.Status.OK) {
-					var bounds = new kakao.maps.LatLngBounds();
-
-					for (var i = 0; i < data.length; i++) {
-						displayMarker(data[i]);
-						bounds.extend(new kakao.maps.LatLng(data[i].y,
-								data[i].x));
+						ps.keywordSearch('연남5701', placesSearchCB);
 					}
 
-					map.setBounds(bounds);
-				}
-			}
+					function placesSearchCB(data, status, pagination) {
+						if (status === kakao.maps.services.Status.OK) {
+							var bounds = new kakao.maps.LatLngBounds();
 
-			function displayMarker(place) {
-				var marker = new kakao.maps.Marker({
-					map : map,
-					position : new kakao.maps.LatLng(place.y, place.x)
-				});
+							for (var i = 0; i < data.length; i++) {
+								displayMarker(data[i]);
+								bounds.extend(new kakao.maps.LatLng(data[i].y,
+										data[i].x));
+							}
 
-				kakao.maps.event
-						.addListener(
-								marker,
-								'click',
-								function() {
-									infowindow
-											.setContent('<div style="padding:5px;font-size:12px;">'
-													+ place.place_name
-													+ '</div>');
-									infowindow.open(map, marker);
-								});
-			}
+							map.setBounds(bounds);
+						}
+					}
 
-			initMap();
-		</script>
+					function displayMarker(place) {
+						var marker = new kakao.maps.Marker({
+							map : map,
+							position : new kakao.maps.LatLng(place.y, place.x)
+						});
+
+						kakao.maps.event
+								.addListener(
+										marker,
+										'click',
+										function() {
+											infowindow
+													.setContent('<div style="padding:5px;font-size:12px;">'
+															+ place.place_name
+															+ '</div>');
+											infowindow.open(map, marker);
+										});
+					}
+
+					initMap();
+				</script>
+			</c:forEach>
+		</c:forEach>
 	</div>
 </body>
 </html>
