@@ -2,12 +2,24 @@ package com.ezen.dda.calendar;
 
 public class CalendarDTO {
 	int reservation_num;
-	String customer_id, store_id, reservation_date, reservation_time;
+	String customer_id, store_id, reservation_start_date, reservation_end_date, reservation_time;
 	int person_num;
 	
 	public CalendarDTO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public CalendarDTO(int reservation_num, String customer_id, String store_id, String reservation_start_date,
+			String reservation_end_date, String reservation_time, int person_num) {
+		super();
+		this.reservation_num = reservation_num;
+		this.customer_id = customer_id;
+		this.store_id = store_id;
+		this.reservation_start_date = reservation_start_date;
+		this.reservation_end_date = reservation_end_date;
+		this.reservation_time = reservation_time;
+		this.person_num = person_num;
 	}
 
 	public int getReservation_num() {
@@ -34,12 +46,20 @@ public class CalendarDTO {
 		this.store_id = store_id;
 	}
 
-	public String getReservation_date() {
-		return reservation_date;
+	public String getReservation_start_date() {
+		return reservation_start_date;
 	}
 
-	public void setReservation_date(String reservation_date) {
-		this.reservation_date = reservation_date;
+	public void setReservation_start_date(String reservation_start_date) {
+		this.reservation_start_date = reservation_start_date;
+	}
+
+	public String getReservation_end_date() {
+		return reservation_end_date;
+	}
+
+	public void setReservation_end_date(String reservation_end_date) {
+		this.reservation_end_date = reservation_end_date;
 	}
 
 	public String getReservation_time() {
@@ -57,5 +77,5 @@ public class CalendarDTO {
 	public void setPerson_num(int person_num) {
 		this.person_num = person_num;
 	}
-	
+
 }

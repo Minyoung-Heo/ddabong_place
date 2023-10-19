@@ -94,6 +94,21 @@ option {
   background: #ffffff;
 }
 
+.btn2, .btn3 {
+	width: 35%;
+	height: 51px;
+	font-size: 23px;
+	border-radius: 40px;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+
+	/* 기본 스타일 */
+	background-color: gray;
+	color: white;
+	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
+
+	margin-top: 40px;
+}
+
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -109,7 +124,7 @@ option {
 <div class="wrap">
         <div class="storeinput">
             <h1>나의 매장 정보</h1>
-            
+
             <c:forEach items="${list}" var="store">
             
             <div class="store_id">
@@ -185,6 +200,7 @@ option {
                 <!-- <input type="submit" value="수정하기"> -->
             </div>
             </c:forEach>
+       
         </div>
     </div>
 </form>

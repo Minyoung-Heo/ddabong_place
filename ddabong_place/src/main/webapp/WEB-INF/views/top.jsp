@@ -132,7 +132,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="#">${store.ceo } 대표님 어서오세요.</a>
+				<a href="storeoutput">${store.ceo } 대표님 어서오세요.</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 
