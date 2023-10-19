@@ -8,6 +8,14 @@ public class WaitingDTO {
 	String phone; // 전화번호
 	int person_num; // 인원 수
 	String storename, lineintro, image; // 웨이팅 현황 보러가기에서 가게 출력용
+	int totalwaiting; // 현재 대기 인원
+	
+	public int getTotalwaiting() {
+		return totalwaiting;
+	}
+	public void setTotalwaiting(int totalwaiting) {
+		this.totalwaiting = totalwaiting;
+	}
 	public String getStore_id() {
 		return store_id;
 	}

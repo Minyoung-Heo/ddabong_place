@@ -342,4 +342,10 @@
 	</definition>
 <!-- 	웨이팅 종료 -->
 
+<!-- 캘린더 예비용 -->
+	<definition name="calendar" extends="baseLayout">
+		<put-attribute name="title" value="일정 보기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/calendar.jsp" />
+	</definition>
 </tiles-definitions>

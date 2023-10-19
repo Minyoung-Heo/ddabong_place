@@ -17,12 +17,12 @@
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
-		select * from registration
+		select * from registration where store_id=#{param1}
 	</select>
 
 	<!-- 매장 수정 -->
 	<select id="storemodifyview" resultType="com.ezen.dda.store.StoreDTO">
-		select * from registration
+		select * from registration where store_id=#{param1}
 	</select>
 	
 	<!-- 매장 수정 -->

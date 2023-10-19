@@ -130,10 +130,6 @@ margin-left: 40px;
 margin:20px;
 }
 
-.test{
-	position: relative;
-}
-
 </style>
 </head>
 <body>
@@ -235,6 +231,5 @@ margin:20px;
 </div>
 	
 <br><br><br>
-
 </body>
 </html>

@@ -10,6 +10,7 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="image/ddabong.png" rel="shortcut icon" type="image/x-icon"> <!-- 로고 변경 -->
 <style type="text/css">
 .login {
    float: right;
@@ -35,7 +36,7 @@
 }
 
 .search {
-   margin-top: -30px;
+   margin-top: -33px;
    float: right;
    margin-right: 1100px;
    position: relative;
@@ -57,7 +58,7 @@
 .in2 {
    width: 250%;
    height: 60px;
-   border: 4.9px solid #ff8c00;
+   border: 3px solid #ff8c00;
    border-radius: 50px;
    padding: 10px 12px;
    font-size: 14px;
@@ -87,7 +88,7 @@
 	width: 100%;
 }
 #top {
-font-family: 'BMJUA'; 
+font-family: 'TmoneyRoundWindExtraBold'; 
 }
 
 #body {
@@ -99,12 +100,12 @@ font-family: 'BMJUA';
 	min-height: 300%;
 	padding-bottom: 260px;
 	margin-top: 50px;
-	font-family: 'BMJUA'; 
+	font-family: 'TmoneyRoundWindExtraBold'; 
 }
 
 #footer {
 	padding:10px;
-   height: 290px;
+   height: 390px;
    width: 100%;
    position: relative;
    background-color: #FF8C00;
@@ -134,6 +135,14 @@ font-family: 'BMJUA';
 .BZ {
 	margin-top: 70px;
 }
+
+ @font-face { 
+    font-family: 'TmoneyRoundWindExtraBold'; 
+    src: 
+      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff');      format('woff'); 
+   font-weight: normal; 
+    font-style: normal; 
+ } 
 
 @font-face { 
      font-family: 'BMJUA'; 

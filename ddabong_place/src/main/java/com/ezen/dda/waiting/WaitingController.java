@@ -46,7 +46,9 @@ public class WaitingController {
 			String customer_id = request.getParameter("customer_id");
 			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
 			ArrayList<WaitingDTO> waitingList = waitingService.mywaiting(customer_id);
+			ArrayList<WaitingDTO> totalList = waitingService.totalWaiting();
 			model.addAttribute("waitingList", waitingList);
+			model.addAttribute("totalList", totalList);
 			return "myWaiting";
 		}
 		
