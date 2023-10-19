@@ -4,6 +4,7 @@
 
 <mapper namespace="com.ezen.dda.personalfunction.PersonalFnService">
 
+<!-- 리뷰와 예약 작성,출력에 필요한 reservation,customer,review 조인하여 출력 -->
 <select id="review" resultType="com.ezen.dda.personalfunction.ReviewDTO">
 <![CDATA[
 SELECT c.id, c.pw, c.name, c.nickname, c.phone, c.address, c.email,
@@ -15,6 +16,8 @@ JOIN customer c ON a.customer_id = c.id
 WHERE a.store_id = #{param1}
 ]]>
 </select>
+
+<!-- 따봉수 출력 -->
 <select id="ddabong" resultType="com.ezen.dda.personalfunction.DDAbongDTO">
 
     SELECT ${param2} as thismonth, sum(jan+feb+mar+apr+may+jun+jul+aug+sep+oct+nov+dcb) as totaldda
@@ -24,8 +27,11 @@ WHERE a.store_id = #{param1}
 
 </select>
 
+<!-- 업체정보 출력 -->
 <select id="registration" resultType="com.ezen.dda.personalfunction.RegistrationDTO">
 select * from registration where store_id = #{param1}
 </select>
-
+<insert id="reservation">
+insert into RESERVATION values(RESERVATION_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
+</insert>
 </mapper>
