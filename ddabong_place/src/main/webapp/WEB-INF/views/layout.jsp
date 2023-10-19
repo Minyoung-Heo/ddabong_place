@@ -104,7 +104,7 @@ font-family: 'BMJUA';
 
 #footer {
 	padding:10px;
-   height: 370px;
+   height: 390px;
    width: 100%;
    position: relative;
    background-color: #FF8C00;
