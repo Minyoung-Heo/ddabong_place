@@ -1,11 +1,12 @@
 package com.ezen.dda.personalfunction;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -20,9 +22,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
-	
-	//자기 이미지 저장경로로 바꿔주기.
+
+	// 자기 이미지 저장경로로 바꿔주기.
 	static String imagepath = "/image";
+
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")
 	public String detailview(HttpServletRequest request, Model mo) {
@@ -73,7 +76,7 @@ public class PersonalFnController {
 		ArrayList<ReviewDTO> reviewlist = ss.review(storeID);
 		ArrayList<DDAbongDTO> ddabonglist = ss.ddabong(storeID, month);
 		ArrayList<RegistrationDTO> registrationlist = ss.registration(storeID);
-		
+
 		// registrationlist의 다중 이미지 출력
 		// 이미지 파일명을 처리하여 imageList에 저장
 		for (RegistrationDTO registrationDTO : registrationlist) {
@@ -89,7 +92,7 @@ public class PersonalFnController {
 				registrationDTO.setImageList(imageList);
 			}
 		}
-		
+
 		// reviewlist의 다중 이미지 출력
 		// 이미지 파일명을 처리하여 imageList에 저장
 		for (ReviewDTO reviewDTO : reviewlist) {
@@ -116,56 +119,65 @@ public class PersonalFnController {
 	@RequestMapping(value = "/reserv")
 	public String reserv(HttpServletRequest request, Model mo) {
 
-		String storeID=request.getParameter("storeID");
-		String storename=request.getParameter("storename");
+		String storeID = request.getParameter("storeID");
+		String storename = request.getParameter("storename");
 		mo.addAttribute("storeID", storeID);
 		mo.addAttribute("storename", storename);
-		
+
 		return "reservation";
 	}
+
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
 
-		String storeID=request.getParameter("storeid");
-		String customer_id=request.getParameter("customer_id");
-		String reservation_date=request.getParameter("reservation_date");
-		String reservation_time=request.getParameter("reservation_time");
-		int person_num=Integer.parseInt(request.getParameter("person_num"));
-		
+		String storeID = request.getParameter("storeid");
+		String customer_id = request.getParameter("customer_id");
+		String reservation_date = request.getParameter("reservation_date");
+		String reservation_time = request.getParameter("reservation_time");
+		int person_num = Integer.parseInt(request.getParameter("person_num"));
+
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reservation(storeID,customer_id,reservation_date,reservation_time,person_num);
-		
+		ss.reservation(storeID, customer_id, reservation_date, reservation_time, person_num);
+
 		return "redirect:/main";
 	}
-	
+
 	@RequestMapping(value = "/review")
 	public String reviewsave(MultipartHttpServletRequest mul) {
-		List<MultipartFile> filelist=mul.getFiles("reviewfile");
-		String content=mul.getParameter("reviewcontent");
-		int star=Integer.parseInt(mul.getParameter("star"));
-		
-		String imagesname="";
-		for(MultipartFile mf : filelist)
-		{
-			String imagefile=mf.getOriginalFilename();
+		List<MultipartFile> filelist = mul.getFiles("reviewfile");
+		String content = mul.getParameter("reviewcontent");
+		int star = Integer.parseInt(mul.getParameter("star"));
+
+		String imagesname = "";
+		for (MultipartFile mf : filelist) {
+			String imagefile = mf.getOriginalFilename();
 			imagesname += imagefile + " ";
 			try {
-				mf.transferTo(new File(imagepath+"//"+imagefile));
+				mf.transferTo(new File(imagepath + "//" + imagefile));
 			} catch (IllegalStateException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
+
 		}
 
 		LocalDate today = LocalDate.now();
 		String dateString = today.toString();
-		
-		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		//ss.reviewsave();
-		
-		
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		// ss.reviewsave();
+
 		return "redirect:/main";
 	}
 
+	// 예약현황
+	@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
+	public String myStatus(HttpServletRequest request, Model mo) {
+		String customer_id = request.getParameter("customer_id");
+		PersonalFnService ps = sqlSession.getMapper(PersonalFnService.class);
+
+		ArrayList<ReservationDTO> ReservationList = ps.myStatus(customer_id);
+		mo.addAttribute("ReservationList", ReservationList);
+		return "myStatus";
+	}
 }

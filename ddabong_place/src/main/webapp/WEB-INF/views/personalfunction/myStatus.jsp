@@ -97,9 +97,8 @@ h5 {
 </head>
 <body>
 	<div class="BZ">
+	<c:forEach items="${ReservationList}" var="reserv">
 		<h1>예약 현황</h1>
-		<c:forEach items="${slist}" var="store">
-			<c:forEach items="${list}" var="personal">
 				<table class="maint1" align="center">
 					<tr>
 						<th>
@@ -110,7 +109,7 @@ h5 {
 						<th>
 							<table class="cont">
 								<tr>
-									<th class="cname">${store.storename }</th>
+									<th class="cname">${personal.name}</th>
 								</tr>
 								<tr>
 									<th class="cdate">2023.10.18 · 오후 7시 · 4명</th>
@@ -216,7 +215,6 @@ h5 {
 
 					initMap();
 				</script>
-			</c:forEach>
 		</c:forEach>
 	</div>
 </body>

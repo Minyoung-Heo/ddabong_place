@@ -106,7 +106,7 @@ $(function() {
 	<div class="detailtable">
 		<form action="reservsave" method="post" name="reserv">
 			<input type="hidden" name="storeid" value="${storeID }">
-			<input type="hidden" name="customer_id" value="${personal.nickname }">
+			<input type="hidden" name="customer_id" value="${personal.id }">
 			<table width="100%">
 				<tr>
 					<td class="center-td" style="padding: 10px; text-align: left;"><h3>${storename }

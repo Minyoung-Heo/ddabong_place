@@ -41,13 +41,25 @@ a1 {
 	color: #222;
 	text-decoration: none;
 	margin-left: 20px;
+	color: #222;
 }
 
 a1:hover {
 	color: #2698cb;
 	text-decoration: none;
-		margin-left: 20px;
-	
+	margin-left: 20px;
+}
+a2 {
+	color: #222;
+	text-decoration: none;
+	margin-left: 20px;
+	color: #222;
+}
+
+a2:hover {
+	color: #2698cb;
+	text-decoration: none;
+	margin-left: 20px;
 }
 
 /* 폰트 스타일 초기화 */
@@ -270,20 +282,19 @@ p1 {
 					</span>
 					<div id="keyShow">SHOW</div>
 				</div>
-				<button id="loginButton" class="btn_login" value="로그인" type="submit"
+				<button id="loginButton" class="btn_login" value="로그인" type="submit" style= "margin-bottom: 10px"
 					disabled>로그인</button>
 				<br>
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='personalFind'"
-		style="text-decoration: none; cursor: pointer;"> <p1>아이디 또는
-		비밀번호를 잊어버리셨나요 ?</p1></a>
+	<a1 onclick="location.href='personalFind'" style="text-decoration: none; cursor: pointer; display: block;"> <p1>아이디 또는
+		비밀번호를 잊어버리셨나요 ?</p1></a1>
 	<br>
 	<h3 class="snslogin">SNS 아이디로 로그인하기</h3>
 	<br>
 	<%
-	String clientId = "aXkj6_wya1onatcykcxa"; // 애플리케이션 클라이언트 아이디값
+	String clientId = "aXkj6_wya2onatcykcxa"; // 애플리케이션 클라이언트 아이디값
 	String redirectURI = URLEncoder.encode("http://localhost:8421/api/login", "UTF-8");
 	SecureRandom random = new SecureRandom();
 	String state = new BigInteger(130, random).toString();
@@ -291,9 +302,8 @@ p1 {
 			+ "&redirect_uri=" + redirectURI + "&state=" + state;
 	session.setAttribute("state", state);
 	%>
-	<a1 href="#" onclick="openNaverLoginPopup('<%=apiURL%>')"> <img
-		height="50" src="/dda/image/naver.svg" />
-	</a1>
+	<a2 href="#" onclick="openNaverLoginPopup('<%=apiURL%>')"> <img
+		height="50" src="/dda/image/naver.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openNaverLoginPopup(url) {
@@ -310,11 +320,10 @@ p1 {
 			return false;
 		}
 	</script>
-	<a1
+	<a2
 		href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D52%26category%3D166%26locale%3Dko#login"
 		onclick="openPopup1(); return false;"> <img
-		src="/dda/image/kakao.svg" />
-	</a1>
+		src="/dda/image/kakao.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openPopup1() {
@@ -330,11 +339,10 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a1
+	<a2
 		href="https://secure5.store.apple.com/kr/shop/signIn?ssi=1AAABizt6M5Agvt3ptSWX2l2nrvtJKO1C1SvWuS99pqx3eXwNIZrkSvYAAAAjaHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3Nob3AvYmFnfHwAAgEeYW-Ge1ZvUY5uYj86NBd9oGLwOnT6n09cvz_V8BrDWQ"
 		onclick="openPopup2(); return false;"> <img
-		src="/dda/image/apple.svg" />
-	</a1>
+		src="/dda/image/apple.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openPopup2() {
@@ -347,10 +355,9 @@ p1 {
 							+ ", top=" + top);
 		}
 	</script>
-	<a1 href="https://ko-kr.facebook.com/login/device-based/regular/login/"
+	<a2 href="https://ko-kr.facebook.com/login/device-based/regular/login/"
 		onclick="openPopup3(); return false;"> <img
-		src="/dda/image/facebook.svg" />
-	</a1>
+		src="/dda/image/facebook.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openPopup3() {
@@ -366,11 +373,10 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a1
+	<a2
 		href="https://id.payco.com/login.nhn?serviceProviderCode=PAY&inflowKey=www&userLocale=ko_KR&nextURL=https%3A%2F%2Fwww.payco.com%2FisTargetForSecurity.nhn%3Fevent%3Dv03bfc269594ef649228e9a74bab00f042efc91d5acc6fbee31a382e80d42388fe"
 		onclick="openPopup4(); return false;"> <img
-		src="/dda/image/payco.svg" />
-	</a1>
+		src="/dda/image/payco.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openPopup4() {
@@ -386,10 +392,9 @@ p1 {
 									+ top);
 		}
 	</script>
-	<a1 href="https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp"
+	<a2 href="https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp"
 		onclick="openPopup5(); return false;"> <img
-		src="/dda/image/phone.svg" />
-	</a1>
+		src="/dda/image/phone.svg" /> </a2>
 
 	<script type="text/javascript">
 		function openPopup5() {
@@ -402,29 +407,29 @@ p1 {
 							+ ", left=" + left + ", top=" + top);
 		}
 	</script>
-	
+
 	<script>
-	$(".pswd").on("keyup", function(event) {
-		  if (event.keyCode === 13) {
-		    event.preventDefault();
-		    $(".btn_login").triggerHandler("click");
-		  } else {
-		    if (this.value) {
-		      $("#keyShow").css("display", "inline-block");
-		    } else {
-		      $("#keyShow").hide();
-		    }
-		  }
+		$(".pswd").on("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				$(".btn_login").triggerHandler("click");
+			} else {
+				if (this.value) {
+					$("#keyShow").css("display", "inline-block");
+				} else {
+					$("#keyShow").hide();
+				}
+			}
 		}).focus();
 
 		$("#keyShow").on("click", function() {
-		  if ($(".pswd").attr("type") == "password") {
-		    $(".pswd").attr("type", "text");
-		    $($(this)).text("H I D E");
-		  } else {
-		    $(".pswd").attr("type", "password");
-		    $($(this)).text("SHOW");
-		  }
+			if ($(".pswd").attr("type") == "password") {
+				$(".pswd").attr("type", "text");
+				$($(this)).text("H I D E");
+			} else {
+				$(".pswd").attr("type", "password");
+				$($(this)).text("SHOW");
+			}
 		});
 	</script>
 </body>

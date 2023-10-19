@@ -14,25 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ezen.dda.store.StoreDTO;
-import com.ezen.dda.store.StoreService;
-
 @Controller
 public class PersonalController {
 	@Autowired
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
-	ArrayList<StoreDTO> slist = new ArrayList<StoreDTO>();
-
-	// 예약현황
-	@RequestMapping(value = "/myStatus", method = RequestMethod.POST)
-	public String myStatus(Model mo) {
-		StoreService ss = sqlSession.getMapper(StoreService.class);
-		PersonalService ps = sqlSession.getMapper(PersonalService.class);
-		mo.addAttribute("list", list);
-		mo.addAttribute("slist", slist);
-		return "myStatus";
-	}
 
 	// 로그인 선택 화면
 	@RequestMapping(value = "/selectLogin")
