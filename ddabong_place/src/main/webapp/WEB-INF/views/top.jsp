@@ -25,7 +25,7 @@
 		    }
 		    
 		    $(".menu_icon").click(function() {
-		    	$(".menu_div").animate({ width: 'toggle' });
+		    	$(".menu_div").toggle();
 		    });
 		
 	//검색창 입력값 전송부분.
@@ -82,27 +82,41 @@ text-decoration: none;
 cursor:pointer;
 }
 .menu_div {
-  background-color: #ff8c00;
+margin-left:15px;
+  background-color:#ff8c00;
   position: fixed;
+  border-radius: 19px;
   display:none;
-  top: 80px;
+  top: 100px;
   left: 0;
-  height: 100%;
-  width: 20%;
+  height: auto;
+  width: auto;
   overflow-y: auto;
-  color: white;
   font-size: 35px;
   z-index: 1000;
   padding:40px;
+  border:3.3px solid #ff8c00;
 }
 .menu_div > a {
 margin-top: 20px;
 color:white;
 text-decoration: none;
-position:fixed;
 }
 .menu_div a:hover {
 color:#ffe8cc;
+}
+
+.menu_div::before {
+  border-color: #ff8c00 transparent; 
+  border-style: solid;
+  border-width: 0 8px 10px 8.5px;
+  content: '';
+  display: block;
+  left: 40px;
+  position: fixed;
+  top: 90px;
+  width: 0;
+  z-index: 1100;
 }
 </style>
 </head>
@@ -136,7 +150,7 @@ color:#ffe8cc;
         </form>
         
         <div id="topnav"> 
-        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:18x; margin:15px;"> 
+        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:30px; margin:15px;"> 
         <a style="margin-top:10px;" href="main"><img src="/dda/image/DDAlogo.png" width="200px"></a>
         
         <form action="search" method="post">

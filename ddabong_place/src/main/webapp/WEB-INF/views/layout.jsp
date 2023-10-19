@@ -35,7 +35,7 @@
 }
 
 .search {
-   margin-top: -30px;
+   margin-top: -33px;
    float: right;
    margin-right: 1100px;
    position: relative;
@@ -57,7 +57,7 @@
 .in2 {
    width: 250%;
    height: 60px;
-   border: 4.9px solid #ff8c00;
+   border: 3px solid #ff8c00;
    border-radius: 50px;
    padding: 10px 12px;
    font-size: 14px;
