@@ -160,7 +160,7 @@ option {
           <div class="mae_image">
             <h4>매장 이미지</h4>
             <c:forEach var="image" items="${fn:split(store.image, ' ')}">
-    			<td><img src="image/${image}" width="100px"></td>
+    			<td><img src="image/${image}"></td>
 			</c:forEach>
           </div>
           
@@ -172,7 +172,7 @@ option {
           <div class="main_image">
             <h4>매장 대표 메뉴 사진</h4>
             <c:forEach items="${fn:split(store.main_image, ' ')}" var="main_image">
-    			<td><img src="image/${main_image}" width="100px"></td>
+    			<td><img src="image/${main_image}"></td>
 			</c:forEach>
           </div>
           

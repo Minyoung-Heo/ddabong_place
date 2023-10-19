@@ -17,7 +17,7 @@
 
 	<!-- 매장 출력 -->
 	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
-		select * from registration where store_id=#{param1}
+		select * from registration
 	</select>
 
 	<!-- 매장 수정 -->

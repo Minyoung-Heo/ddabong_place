@@ -1,5 +1,6 @@
 package com.ezen.dda.store;
 
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 
 @Controller
 public class StoreController {
@@ -94,9 +94,8 @@ public class StoreController {
 	//매장 출력창
 	@RequestMapping(value = "/storeoutput", method = RequestMethod.GET)
 	public String store3(HttpServletRequest request, Model md) {
-		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storeoutput(store_id);
+		ArrayList<StoreDTO> list = ss.storeoutput();
 		md.addAttribute("list", list);
 
 		return "storeoutput";
