@@ -87,7 +87,7 @@
 	width: 100%;
 }
 #top {
-font-family: 'BMJUA'; 
+font-family: 'TmoneyRoundWindExtraBold'; 
 }
 
 #body {
@@ -99,7 +99,7 @@ font-family: 'BMJUA';
 	min-height: 300%;
 	padding-bottom: 260px;
 	margin-top: 50px;
-	font-family: 'BMJUA'; 
+	font-family: 'TmoneyRoundWindExtraBold'; 
 }
 
 #footer {
@@ -135,14 +135,13 @@ font-family: 'BMJUA';
 	margin-top: 70px;
 }
 
-/* @font-face { */
-/*    font-family: 'TmoneyRoundWindExtraBold'; */
-/*    src: */
-/*       url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') */
-/*       format('woff'); */
-/*    font-weight: normal; */
-/*    font-style: normal; */
-/* } */
+ @font-face { 
+    font-family: 'TmoneyRoundWindExtraBold'; 
+    src: 
+      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff');      format('woff'); 
+   font-weight: normal; 
+    font-style: normal; 
+ } 
 
 @font-face { 
      font-family: 'BMJUA'; 
