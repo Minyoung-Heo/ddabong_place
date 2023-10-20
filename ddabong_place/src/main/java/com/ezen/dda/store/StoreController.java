@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.ezen.dda.personal.PersonalDTO;
-import com.ezen.dda.personal.PersonalService;
 
 @Controller
 public class StoreController {
@@ -27,7 +25,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기
-		static String imagepath = "/image";
+		static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -39,7 +37,7 @@ public class StoreController {
 
 	//매장 입력창에서 입력 후 db 저장
 	@RequestMapping(value = "/storeinputsave", method = RequestMethod.POST)
-	public String store2(MultipartHttpServletRequest mul) {
+	public String store2(MultipartHttpServletRequest mul) throws IllegalStateException, IOException {
 		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
@@ -83,7 +81,8 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-				
+		
+		mf2.transferTo(new File(imagepath+"\\"+filelist2));
 		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(dto);
@@ -94,8 +93,9 @@ public class StoreController {
 	//매장 출력창
 	@RequestMapping(value = "/storeoutput", method = RequestMethod.GET)
 	public String store3(HttpServletRequest request, Model md) {
+		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ArrayList<StoreDTO> list = ss.storeoutput();
+		ArrayList<StoreDTO> list = ss.storeoutput(store_id);
 		md.addAttribute("list", list);
 
 		return "storeoutput";
@@ -114,7 +114,7 @@ public class StoreController {
 	
 	//매장 수정창에서 수정 후 db 등록
 	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
-	public String store5(MultipartHttpServletRequest mul) {
+	public String store5(MultipartHttpServletRequest mul) throws IllegalStateException, IOException {
 		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
@@ -123,7 +123,8 @@ public class StoreController {
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		String main_image = mul.getParameter("main_image");
+		MultipartFile mf2 = mul.getFile("main_image");
+		String filelist2 = mf2.getOriginalFilename();
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -157,11 +158,13 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-				
-		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
+		
+		mf2.transferTo(new File(imagepath+"\\"+filelist2));
+		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storemodifyfinal(dto);
-		return "redirect:storeoutput";
+		
+		return "redirect:main";
 	}
 	
 	//storestatus 캘린더
@@ -198,9 +201,8 @@ public class StoreController {
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
 		
-			  HttpSession session = request.getSession(); 
-			  session.setAttribute("store_id", dto.getStore_id());
-
+			HttpSession session = request.getSession(); 
+			session.setAttribute("store_id", dto.getStore_id());
 
 			return "redirect:/main";
 		} else {
@@ -213,13 +215,14 @@ public class StoreController {
 	
 	// 업체정보 들어가기 전 비밀번호 확인
 		@RequestMapping(value = "/storepwcheck")
-		public String personalpwcheck() {
+		public String personalpwcheck(/* HttpServletRequest request */) {
+		
 			return "storepwcheck";
 		}
 		
-	//  개인정보 들어가기 전 비밀번호 확인 체킹
-		@RequestMapping(value = "/storepwchecking", method = RequestMethod.POST)
-		public String personalpwchecking(HttpServletRequest request) {
+	//  업체정보 들어가기 전 비밀번호 확인 체킹
+		@RequestMapping(value = "/storepwchecking", method = RequestMethod.GET)
+		public String storepwchecking(HttpServletRequest request) {
 			String id = request.getParameter("storeid");
 			String pw = request.getParameter("storepw");
 

@@ -12,7 +12,7 @@ public interface StoreService {
 	public void insertDDA(String id);
 
 	// 매장 출력
-	public ArrayList<StoreDTO> storeoutput();
+	public ArrayList<StoreDTO> storeoutput(String store_id);
 
 	// 회원 가입
 	public void storejoin(String id, String pw, String ceo, String phone, String email);
@@ -37,4 +37,5 @@ public interface StoreService {
 	
 	//마이페이지 들어가기 전 비밀번호 인증
 	public StoreDTO storepwchecking(String id, String pw);
+	public void storepwcheck(String store_id);
 }

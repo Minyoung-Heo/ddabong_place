@@ -33,16 +33,18 @@ h1 {
 }
 
 input {
-  width: 100%;
+  width: 130%;
   height: 50px;
   border-radius: 30px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
+  position: relative;
+  left: -50px;
 }
 
 .submit a {
-	width: 40%;
+	width: 60%;
     display: inline-block;
     padding: 10px 20px;
     background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
@@ -109,6 +111,17 @@ option {
 	margin-top: 40px;
 }
 
+.address2 {
+	border: 1px solid #ff8c00;
+	border-radius: 20px;
+	text-align: center;
+	width: 80%;
+	height: auto;
+	white-space: pre-wrap;
+	margin-top: 20px;
+	outline: none;
+}
+
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -143,7 +156,7 @@ option {
             
             <div class="address">
               <h4>매장 주소</h4>
-              <input value="${store.address}" readonly>
+              <textarea class="address2" readonly>${store.address}</textarea>
             </div>
             
             <div class="lineintro">

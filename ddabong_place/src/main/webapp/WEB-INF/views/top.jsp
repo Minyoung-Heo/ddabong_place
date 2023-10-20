@@ -168,7 +168,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="storepwcheck" style="margin-right: 20px;">마이페이지</a>
+				<a href="storeoutput?store_id=${store.id}" style="margin-right: 20px;">마이페이지</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 

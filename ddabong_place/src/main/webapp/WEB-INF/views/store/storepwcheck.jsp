@@ -204,7 +204,7 @@ p1 {
 		<h1 class="login_title">업체 정보 관리</h1>
 		<h4>비밀번호를 입력해주세요.</h4>
 		<div class="container2">
-			<form class="login_form" action="storepwchecking" method="post">
+			<form class="login_form" action="storepwchecking" method="get">
 				<div class="pswd_area">
 					<span class="pswd_input"> 
 					<input type="hidden" name="storeid" value="${store.id}"> 
