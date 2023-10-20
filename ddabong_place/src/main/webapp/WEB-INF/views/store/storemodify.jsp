@@ -81,7 +81,7 @@ input[type=file]::file-selector-button {
   left: -5px;
 }
 input[type=file]::file-selector-button:hover {
-    background: rgb(77,77,77);
+    background: rgb(254,163,72);
     color: #fff;
   }
 
@@ -173,7 +173,7 @@ option {
 		}).open();
 	}
 
-	// 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
+	/* // 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
 	$("#addr2, #addr3").on('input', function() {
 		var addr2 = $("#addr2").val();
 		var addr3 = $("#addr3").val();
@@ -181,7 +181,7 @@ option {
 
 		// address 값을 hidden 필드에 할당
 		$("#personaladdress").val(address);
-	});
+	}); */
 </script>
 
 <script>

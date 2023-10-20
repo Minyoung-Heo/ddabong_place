@@ -118,7 +118,7 @@ height:1px;
 				<div class="flex-container-inner">
 
 					<div class="img-wrapper">
-						<a href="매장상세페이지로?store_id=${dto.store_id}"> <img alt=""
+						<a href="detailview?store_id=${dto.store_id}"> <img alt=""
 							src="/dda/image/${dto.image}" width="200px"></a>
 					</div>
 

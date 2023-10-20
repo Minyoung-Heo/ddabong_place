@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <style type="text/css">
 
 h1 {
@@ -172,7 +174,7 @@ option {
 		}).open();
 	}
 
-	// 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
+	/* // 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
 	$("#addr2, #addr3").on('input', function() {
 		var addr2 = $("#addr2").val();
 		var addr3 = $("#addr3").val();
@@ -180,7 +182,7 @@ option {
 
 		// address 값을 hidden 필드에 할당
 		$("#personaladdress").val(address);
-	});
+	}); */
 </script>
 
 <script>
@@ -262,6 +264,18 @@ function check(){
     f.submit();
 }
 
+//Textarea 요소 가져오기
+var textarea = document.getElementById("introTextarea");
+
+// 엔터 키 입력 감지
+textarea.addEventListener("input", function () {
+    // 내용에서 줄바꿈을 <br> 태그로 대체
+    var formattedText = textarea.value.replace(/\n/g, "<br>");
+
+    // 대체된 내용을 textarea에 설정
+    textarea.innerHTML = formattedText;
+});
+
 </script>
 </head>
 <body>
@@ -324,7 +338,7 @@ function check(){
           	
            	<div class="intro">
             	<h4>매장 소개글</h4>
-            	<textarea rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
+            	<textarea id="introTextarea" rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
           	</div>
           	
           	<div class="mae_image">
