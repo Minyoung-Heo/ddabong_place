@@ -201,6 +201,7 @@
 									<h1>예약하기</h1>
 								</button>
 							</form></td>
+							<a href="waitingInput?store_id=${regi.store_id}">웨이팅</a>
 					</tr>
 				</table>
 			</div>
