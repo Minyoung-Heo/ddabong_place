@@ -185,7 +185,7 @@ color:#ffe8cc;
 			<c:when test="${personalloginstate == true}">
       <p class="menu_div">
 				<a href="personalpwcheck" >마이페이지</a><br>
-				<a href="">카페 보러가기</a><br>
+				<a href="gocafe">카페 보러가기</a><br>
       <a href="">즐겨찾기</a><br>
       <a href="">예약 현황</a><br>
       <a href="mywaiting?customer_id=${personal.id}">웨이팅 현황</a><br>
@@ -201,6 +201,7 @@ color:#ffe8cc;
       <a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
       <a href="storestatus">예약 현황</a><br>
       <a href="waitinglist?store_id=${store.id}">웨이팅 리스트</a><br>
+            <a href="gocafe">카페 보러가기</a><br>
             <a href="qnaform">Q&A</a><br>
 				<a href="storelogout">로그아웃</a><br>
 		</p>
@@ -210,7 +211,7 @@ color:#ffe8cc;
 			 <p class="menu_div">
 				<a href="selectJoin">회원가입</a><br>
 				<a href="selectLogin">로그인</a><br>
-				<a href="">카페 보러가기</a><br>
+				<a href="gocafe">카페 보러가기</a><br>
       <a href="qnaform">Q&A</a><br></p>
 			</c:otherwise>
 		</c:choose>

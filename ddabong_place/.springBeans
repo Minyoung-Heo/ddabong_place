@@ -13,6 +13,7 @@
 		<config>src/main/java/com/ezen/dda/personalfunction/personalFnDAO.xml</config>
 		<config>src/main/java/com/ezen/dda/waiting/WaitingDAO.xml</config>
 		<config>src/main/java/com/ezen/dda/calendar/calendardao.xml</config>
+		<config>src/main/java/com/ezen/dda/cafe/CafeDAO.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
