@@ -32,8 +32,7 @@
 }
 
 .question {
-    margin-top: 20px;
-    width: 90%;
+    width: 100%;
     text-align: left;
     font-size: 20px;
 }
@@ -93,8 +92,8 @@
     <div class="div-container">
         <div class="category">
             <h1>예약 / 웨이팅 관리</h1>
-            <a href="waitinglist?store_id=${store.id}" style="color:#ff8c00;">웨이팅 리스트</a><br>
             <a href="storestatus">예약 현황</a><br>
+            <a href="waitinglist?store_id=${store.id}" style="color:#ff8c00;">웨이팅 리스트</a><br>
             
         </div>
 

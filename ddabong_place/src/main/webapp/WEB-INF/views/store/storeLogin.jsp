@@ -29,7 +29,7 @@
 			}
 		}
 	});
-	</script>
+</script>
 
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -162,6 +162,7 @@ input:checked[type=checkbox] {
 	width: 100%;
 	height: 36px;
 	padding: 0 10px;
+	
 }
 
 body {
@@ -227,40 +228,42 @@ p1 {
 					<span class="pswd_input"> <input type="password"
 						id="storepw" class="pswd" placeholder="비밀번호를 입력해주세요."
 						name="storepw" maxlength="16">
-  					</span>
-  					<div id="keyShow">SHOW</div>
+					</span>
+					<div id="keyShow">SHOW</div>
 				</div>
-				<button id="loginButton" class="btn_login" value="로그인" type="submit"
+				<button id="loginButton" class="btn_login" value="로그인" type="submit" style= "margin-bottom: 10px"
 					disabled>로그인</button>
 				<br>
 			</form>
 		</div>
 	</div>
-	<a onclick="location.href='storeFind'" style="text-decoration: none; cursor:pointer;">
-	<p1>아이디 또는 비밀번호를 잊어버리셨나요 ?</p1></a>
-	
+	<a onclick="location.href='storeFind'"
+		style="text-decoration: none; cursor: pointer;">
+		<p1>아이디 또는 비밀번호를 잊어버리셨나요 ?</p1>
+	</a>
+
 	<script>
-	$(".pswd").on("keyup", function(event) {
-		  if (event.keyCode === 13) {
-		    event.preventDefault();
-		    $(".btn_login").triggerHandler("click");
-		  } else {
-		    if (this.value) {
-		      $("#keyShow").css("display", "inline-block");
-		    } else {
-		      $("#keyShow").hide();
-		    }
-		  }
+		$(".pswd").on("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				$(".btn_login").triggerHandler("click");
+			} else {
+				if (this.value) {
+					$("#keyShow").css("display", "inline-block");
+				} else {
+					$("#keyShow").hide();
+				}
+			}
 		}).focus();
 
 		$("#keyShow").on("click", function() {
-		  if ($(".pswd").attr("type") == "password") {
-		    $(".pswd").attr("type", "text");
-		    $($(this)).text("H I D E");
-		  } else {
-		    $(".pswd").attr("type", "password");
-		    $($(this)).text("SHOW");
-		  }
+			if ($(".pswd").attr("type") == "password") {
+				$(".pswd").attr("type", "text");
+				$($(this)).text("H I D E");
+			} else {
+				$(".pswd").attr("type", "password");
+				$($(this)).text("SHOW");
+			}
 		});
 	</script>
 </body>

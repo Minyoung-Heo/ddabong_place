@@ -109,12 +109,12 @@ color:#ffe8cc;
 .menu_div::before {
   border-color: #ff8c00 transparent; 
   border-style: solid;
-  border-width: 0 8px 10px 8.5px;
+  border-width: 0 15px 22px 15.5px;
   content: '';
   display: block;
   left: 40px;
   position: fixed;
-  top: 90px;
+  top: 87px;
   width: 0;
   z-index: 1100;
 }

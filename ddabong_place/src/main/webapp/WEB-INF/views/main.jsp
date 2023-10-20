@@ -85,12 +85,17 @@ margin: 30px;
 	display: flex;
 }
 
-.flex-item {
-	
+.flex-item hr{
+background : #ffddb3;
+border:0;
+height:1px;
 }
 
 .flex-item img {
 	max-width: 100%;
+}
+.flex-item {
+width:25%;
 }
 
 .img-wrapper {
@@ -166,7 +171,7 @@ margin:20px;
 			<c:forEach items="${rankList}" var="monthDDA" varStatus="loop">
 				<div>
 					<h2>${loop.index + 1}등</h2>
-					<a href="매장상세페이지로?store_id=${monthDDA.store_id}"><img alt=""
+					<a href="detailview?store_id=${monthDDA.store_id}"><img alt=""
 						src="/dda/image/${monthDDA.image}" width="400px"></a>
 					<h3>${monthDDA.storeName}</h3>
 				</div>
@@ -179,7 +184,7 @@ margin:20px;
 		<c:forEach items="${awardList}" var="awardDDA" varStatus="loop">
 		<div>
 			<div class="award-img-wrapper">
-				<a href="매장상세페이지로?store_id=${awardDDA.store_id}"> <img alt=""
+				<a href="detailview?store_id=${awardDDA.store_id}"> <img alt=""
 					src="/dda/image/${awardDDA.image}"></a>
 					</div> 
 					
@@ -195,14 +200,14 @@ margin:20px;
 
 		<div class="flex-item">
 
-			<h1>예약 <span style="color:#FF4500;">HOT</span>  랭킹</h1>
+			<h1>예약 <span style="color:#ff4d00;">HOT</span>  랭킹</h1>
 			<hr>
 			<c:forEach items="${hotList}" var="rank" varStatus="loop">
 
 				<div class="flex-container-inner">
 
 					<div class="img-wrapper">
-						<a href="매장상세페이지로?store_id=${rank.store_id}"> <img alt=""
+						<a href="detailview?store_id=${rank.store_id}"> <img alt=""
 							src="/dda/image/${rank.image}" width="100px"></a>
 					</div>
 
@@ -223,6 +228,13 @@ margin:20px;
 		</div>
 	</div>
 
+
+<div class="test">
+    <a href="storeinput">테스트 이동</a><br>
+   	<a href="storestatus">캘린더 테스트</a> <br>
+   	<a href="myStatus?customer_id=${personal.id}">예약현황</a>
+</div>
+	
 <br><br><br>
 </body>
 </html>

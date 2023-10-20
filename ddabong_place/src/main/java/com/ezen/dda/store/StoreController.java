@@ -1,9 +1,6 @@
 package com.ezen.dda.store;
 
-
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -200,12 +197,11 @@ public class StoreController {
 			hs.setAttribute("store", dto);
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
-			
-			
+		
 			  HttpSession session = request.getSession(); 
 			  session.setAttribute("store_id", dto.getStore_id());
-			 
-			    
+
+
 			return "redirect:/main";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";

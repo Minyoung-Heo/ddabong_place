@@ -25,7 +25,7 @@ $(function() {
         var ctime = f.reservation_time.value;
         var cperson = f.person_num.value;
         var vperson = /^[0-9]$/;
-        var nickname = "${personal.nickname}";
+        var id = "${personal.id}";
 
         if (cdate === null || cdate === "") {
             alert("일자를 선택하세요.");
@@ -40,7 +40,7 @@ $(function() {
         }else if (!vperson.test(cperson)) {
             alert("숫자 한 자리로만 입력하세요.");
             event.preventDefault(); // submit 막음
-        } else if (nickname === null || nickname.trim() === "") {
+        } else if (id === null || id.trim() === "") {
             alert("로그인이 필요합니다.");
             event.preventDefault(); // submit 막음
         }
@@ -106,7 +106,7 @@ $(function() {
 	<div class="detailtable">
 		<form action="reservsave" method="post" name="reserv">
 			<input type="hidden" name="storeid" value="${storeID }">
-			<input type="hidden" name="customer_id" value="${personal.nickname }">
+			<input type="hidden" name="customer_id" value="${personal.id }">
 			<table width="100%">
 				<tr>
 					<td class="center-td" style="padding: 10px; text-align: left;"><h3>${storename }
