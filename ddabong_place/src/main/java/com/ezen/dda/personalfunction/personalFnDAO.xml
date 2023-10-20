@@ -25,10 +25,9 @@ WHERE a.store_id = #{param1}
 
 		SELECT ${param2} as thismonth,
 		sum(jan+feb+mar+apr+may+jun+jul+aug+sep+oct+nov+dcb) as totaldda
-		FROM ddabong
-		WHERE store_id = #{param1}
+		FROM
+		ddabong WHERE store_id = #{param1}
 		GROUP BY ${param2}
-
 	</select>
 
 	<!-- 업체정보 출력 -->
@@ -42,12 +41,22 @@ WHERE a.store_id = #{param1}
 		values(RESERVATION_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
 	</insert>
 
-	<select id="myStatus"
-		resultType="com.ezen.dda.personalfunction.ReservationDTO">
-        SELECT rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME, rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS
-    FROM RESERVATION rs
-    JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
-    WHERE rs.CUSTOMER_ID = #{param1}
+	<!-- 라뷰 등록 전 예약여부 확인 -->
+	<select id="reviewcheck" resultType="int">
+		select count(*) from
+		RESERVATION
+		where customer_id = #{param1} and store_id = #{param2}
 	</select>
 
+	<!-- 해당 매장에 대한 회원의 예약내역에서 가장 최근의 예약번호를 가져옴 -->
+	<select id="reservnumlist"
+		resultType="com.ezen.dda.personalfunction.ReviewDTO">
+		select reservation_num from reservation where store_id =
+		#{param1} and customer_id = #{param2} order by reservation_num DESC
+	</select>
+	<!-- 리뷰저장 -->
+	<insert id="reviewsave">
+		insert into review
+		values(review_num_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
+	</insert>
 </mapper>

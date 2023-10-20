@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -137,20 +138,24 @@ public class PersonalFnController {
 		int person_num = Integer.parseInt(request.getParameter("person_num"));
 
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reservation(storeID, customer_id, reservation_date, reservation_time, person_num);
-
+		ss.reservation(customer_id,storeID,reservation_date,reservation_time,person_num);
+		
 		return "redirect:/main";
 	}
-
-	@RequestMapping(value = "/review")
+	
+	@RequestMapping(value = "/review",method = RequestMethod.POST)
 	public String reviewsave(MultipartHttpServletRequest mul) {
-		List<MultipartFile> filelist = mul.getFiles("reviewfile");
-		String content = mul.getParameter("reviewcontent");
-		int star = Integer.parseInt(mul.getParameter("star"));
-
-		String imagesname = "";
-		for (MultipartFile mf : filelist) {
-			String imagefile = mf.getOriginalFilename();
+		List<MultipartFile> filelist=mul.getFiles("reviewfile");
+		String content=mul.getParameter("reviewcontent");
+		double star=Double.parseDouble(mul.getParameter("star"));
+		String storeid=mul.getParameter("storeid");
+		String customerid=mul.getParameter("customerid");
+		
+		
+		String imagesname="";
+		for(MultipartFile mf : filelist)
+		{
+			String imagefile=mf.getOriginalFilename();
 			imagesname += imagefile + " ";
 			try {
 				mf.transferTo(new File(imagepath + "//" + imagefile));
@@ -163,21 +168,26 @@ public class PersonalFnController {
 
 		LocalDate today = LocalDate.now();
 		String dateString = today.toString();
-
-		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		// ss.reviewsave();
-
+		
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		ArrayList<ReviewDTO> reservnumlist=ss.reservnumlist(storeid,customerid);
+		Double reservnum=(double)reservnumlist.get(0).getReservation_num();
+		ss.reviewsave(reservnum,content,imagesname,star,dateString);
+		
 		return "redirect:/main";
 	}
-
-	// 예약현황
-	@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
-	public String myStatus(HttpServletRequest request, Model mo) {
-		String customer_id = request.getParameter("customer_id");
-		PersonalFnService ps = sqlSession.getMapper(PersonalFnService.class);
-
-		ArrayList<ReservationDTO> ReservationList = ps.myStatus(customer_id);
-		mo.addAttribute("ReservationList", ReservationList);
-		return "myStatus";
+	
+	@ResponseBody
+	@RequestMapping(value = "/reviewcheck")
+	public String reviewcheck(String storeid,String customerid) {
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		int cnt=ss.reviewcheck(customerid,storeid);
+		String bb = null;
+		if (cnt == 0) {
+			bb = "ok";
+		} else {
+			bb = "";
+		}
+		return bb;
 	}
 }

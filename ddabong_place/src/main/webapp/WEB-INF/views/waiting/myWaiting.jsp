@@ -17,12 +17,14 @@
 	display: flex;
 }
 
-.flex-item {
-	width:40%;
-}
-
 .flex-item img {
 	max-width: 100%;
+}
+
+.flex-item hr{
+background : #ffddb3;
+border:0;
+height:1px;
 }
 
 .img-wrapper {
@@ -61,16 +63,54 @@
 .btn:hover {
 	background-color: #ffba66;
 }
+
+.div-container {
+    margin-top: 30px;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.category {
+    margin-top:70px;
+    width:30%;
+    margin-left:40px;
+    text-align: left;
+}
+
+.category a {
+    line-height:40px;
+    font-size:20px;
+    color:#FFBE1C;
+    text-decoration: none;
+}
+
+.category a:hover {
+    color:#ff8c00;
+}
+
+.qna {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 15px;
+    width: 85%;
+}
 </style>
 </head>
 <body>
 	<br>
 	<br>
-	<br>
-	<div class="flex-container">
+	
+	<div class="div-container">
+        <div class="category">
+            <h1>예약 / 웨이팅</h1>
+            <a href="">예약 현황</a><br>
+            <a href="mywaiting?customer_id=${personal.id}" style="color:#ff8c00;">웨이팅 현황</a><br>
+        </div>
 
+        <div class="qna">
+      <div class="flex-container">
 		<div class="flex-item">
-
 			<h1>웨이팅 현황</h1>
 			<hr>
 			<c:forEach items="${waitingList}" var="dto" varStatus="loop">
@@ -100,6 +140,9 @@
 			</c:forEach>
 
 		</div>
+	</div>   
+</div>
 	</div>
+	
 </body>
 </html>

@@ -98,12 +98,12 @@ border-style:solid;
 		<div class="slide_div">
 			<c:choose>
 				<c:when test="${storelist.size()>=1 }">
-					<c:forEach items="${ storelist}" var="aa">
+					<c:forEach items="${ storelist}" var="aa" varStatus="loop">
 						<a href="detailview?store_id=${aa.store_id }">
 						<div class="tb">
 							<table border="1" align="center" heigt="500px" width="600px">
 								<tr>
-									<td><img src="/dda/image/${ aa.image}" width="300px"
+									<td><img src="/dda/image/${ aa.imageList[0]}" width="300px"
 										height="300px"></td>
 								</tr>
 								<tr>

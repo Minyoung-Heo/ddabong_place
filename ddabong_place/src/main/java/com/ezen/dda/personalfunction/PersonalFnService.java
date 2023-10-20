@@ -1,6 +1,7 @@
 package com.ezen.dda.personalfunction;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface PersonalFnService {
 
@@ -10,10 +11,16 @@ public interface PersonalFnService {
 
 	public ArrayList<RegistrationDTO> registration(String storeID);
 
-	public ArrayList<ReservationDTO>  reservation(String storeID, String customer_id, String reservation_date, String reservation_time,
+	public void reservation(String customer_id,String storeID, String reservation_date, String reservation_time,
 			int person_num);
 	
 	public ArrayList<ReservationDTO> myStatus(String customer_id);
+
+	public int reviewcheck(String customerid, String storeid);
+
+	public ArrayList<ReviewDTO> reservnumlist(String storeid, String customerid);
+
+	public void reviewsave(Double reservnum, String content, String imagesname, double star, String dateString);
 
 
 
