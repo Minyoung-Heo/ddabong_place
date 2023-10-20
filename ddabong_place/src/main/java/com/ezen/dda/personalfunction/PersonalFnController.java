@@ -164,8 +164,7 @@ public class PersonalFnController {
 		}
 		//현재 날짜 정보를 가져와서 datestring에 저장.
 		LocalDate today = LocalDate.now();
-		//datestring=예약일자(예약등록일).
-		String dateString = today.toString();
+		String dateString = today.toString();	//datestring=예약일자(예약등록일).
 		
 		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
 		ArrayList<ReviewDTO> reservnumlist=ss.reservnumlist(storeid,customerid);
@@ -175,6 +174,7 @@ public class PersonalFnController {
 		return "redirect:/main";
 	}
 	
+	//
 	@ResponseBody
 	@RequestMapping(value = "/reviewcheck")
 	public String reviewcheck(String storeid,String customerid) {

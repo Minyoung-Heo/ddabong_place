@@ -66,14 +66,6 @@
 }
 
 
-.test{
-   position: fixed;
-   float: left;
-   left: 300px;
-   top: 150px;
-   font-size: 30px;
-}
-
 #container {
    border: 1px slid #bcbcbc;
 }
