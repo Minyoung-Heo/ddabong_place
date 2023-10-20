@@ -59,4 +59,14 @@ WHERE a.store_id = #{param1}
 		insert into review
 		values(review_num_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
 	</insert>
+	
+	
+	<select id="myStatus"
+		resultType="com.ezen.dda.personalfunction.ReservationDTO">
+		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, rg.MAIN_IMAGE
+		FROM RESERVATION rs
+		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
+		WHERE rs.CUSTOMER_ID = #{param1}
+	</select>
 </mapper>

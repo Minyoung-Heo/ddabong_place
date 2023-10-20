@@ -1,23 +1,57 @@
 package com.ezen.dda.personalfunction;
 
 public class ReservationDTO {
-String store_img, store_name,reservation_date,reservation_time;
+String store_img, storename,reservation_date,reservation_time;
 int person_num;
-String reservation_num, store_tel,store_addr;
+String reservation_num;
+String store_id, tel, address;
+String main_image;
+
+public String getMain_image() {
+	return main_image;
+}
+
+public void setMain_image(String main_image) {
+	this.main_image = main_image;
+}
+
 public ReservationDTO() {
 }
 
-public ReservationDTO(String store_img, String store_name, String reservation_date, String reservation_time,
+public String getStore_id() {
+	return store_id;
+}
+
+public void setStore_id(String store_id) {
+	this.store_id = store_id;
+}
+
+public String getTel() {
+	return tel;
+}
+
+public void setTel(String tel) {
+	this.tel = tel;
+}
+
+public String getAddress() {
+	return address;
+}
+
+public void setAddress(String address) {
+	this.address = address;
+}
+
+
+public ReservationDTO(String store_img, String storename, String reservation_date, String reservation_time,
 		int person_num, String reservation_num, String store_tel, String store_addr) {
 	super();
 	this.store_img = store_img;
-	this.store_name = store_name;
+	this.storename = storename;
 	this.reservation_date = reservation_date;
 	this.reservation_time = reservation_time;
 	this.person_num = person_num;
 	this.reservation_num = reservation_num;
-	this.store_tel = store_tel;
-	this.store_addr = store_addr;
 }
 
 
@@ -27,11 +61,11 @@ public String getStore_img() {
 public void setStore_img(String store_img) {
 	this.store_img = store_img;
 }
-public String getStore_name() {
-	return store_name;
+public String getStorename() {
+	return storename;
 }
-public void setStore_name(String store_name) {
-	this.store_name = store_name;
+public void setStorename(String storename) {
+	this.storename = storename;
 }
 public String getReservation_date() {
 	return reservation_date;
@@ -56,18 +90,6 @@ public String getReservation_num() {
 }
 public void setReservation_num(String reservation_num) {
 	this.reservation_num = reservation_num;
-}
-public String getStore_tel() {
-	return store_tel;
-}
-public void setStore_tel(String store_tel) {
-	this.store_tel = store_tel;
-}
-public String getStore_addr() {
-	return store_addr;
-}
-public void setStore_addr(String store_addr) {
-	this.store_addr = store_addr;
 }
 
 }

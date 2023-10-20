@@ -190,4 +190,14 @@ public class PersonalFnController {
 		}
 		return bb;
 	}
+	// 예약현황
+		@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
+		public String myStatus(HttpServletRequest request, Model mo) {
+			String customer_id = request.getParameter("customer_id");
+			PersonalFnService ps = sqlSession.getMapper(PersonalFnService.class);
+
+			ArrayList<ReservationDTO> ReservationList = ps.myStatus(customer_id);
+			mo.addAttribute("ReservationList", ReservationList);
+			return "myStatus";
+		}
 }
