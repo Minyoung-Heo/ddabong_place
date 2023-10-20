@@ -124,9 +124,8 @@ option {
 <div class="wrap">
         <div class="storeinput">
             <h1>나의 매장 정보</h1>
-
-            <c:forEach items="${list}" var="store">
             
+            <c:forEach items="${list}" var="store">
             <div class="store_id">
                 <h4>업체 아이디</h4>
                 <input value="${store.store_id}" readonly>
@@ -199,8 +198,7 @@ option {
             <a href="${url1}">수정하기</a>
                 <!-- <input type="submit" value="수정하기"> -->
             </div>
-            </c:forEach>
-       
+			</c:forEach>
         </div>
     </div>
 </form>

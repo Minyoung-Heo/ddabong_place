@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.ezen.dda.personal.PersonalDTO;
+import com.ezen.dda.personal.PersonalService;
+
 @Controller
 public class StoreController {
 
@@ -84,9 +87,9 @@ public class StoreController {
 			}
 		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
+		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storeinput(storeDTO);
+		ss.storeinput(dto);
 		ss.insertDDA(store_id);
 		return "redirect:/main";
 	}
@@ -158,9 +161,9 @@ public class StoreController {
 			}
 		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
+		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storemodifyfinal(storeDTO);
+		ss.storemodifyfinal(dto);
 		return "redirect:storeoutput";
 	}
 	
@@ -198,8 +201,10 @@ public class StoreController {
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
 			
-			 HttpSession session = request.getSession();
-			 session.setAttribute("store_id", dto.getStore_id());
+			
+			  HttpSession session = request.getSession(); 
+			  session.setAttribute("store_id", dto.getStore_id());
+			 
 			    
 			return "redirect:/main";
 		} else {
@@ -209,6 +214,33 @@ public class StoreController {
 			return "storeloginerr";
 		}
 	}
+	
+	// 업체정보 들어가기 전 비밀번호 확인
+		@RequestMapping(value = "/storepwcheck")
+		public String personalpwcheck() {
+			return "storepwcheck";
+		}
+		
+	//  개인정보 들어가기 전 비밀번호 확인 체킹
+		@RequestMapping(value = "/storepwchecking", method = RequestMethod.POST)
+		public String personalpwchecking(HttpServletRequest request) {
+			String id = request.getParameter("storeid");
+			String pw = request.getParameter("storepw");
+
+			StoreService ss = sqlSession.getMapper(StoreService.class);
+
+			StoreDTO dto = ss.storepwchecking(id, pw);
+
+			if (dto != null) {
+
+				return "storeoutput";
+			} else {
+				String alertMessage = "비밀번호를 다시 확인해주세요.";
+				request.setAttribute("alertMessage", alertMessage);
+
+				return "storeloginerr";
+			}
+		}
 
 	// 업체 로그아웃
 	@RequestMapping(value = "/storelogout")

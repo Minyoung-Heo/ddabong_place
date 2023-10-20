@@ -10,7 +10,8 @@
 		insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
     	values (#{store_id},#{storename},#{tel},#{address},#{lineintro},#{intro},#{image},#{main_menu},#{main_image},#{region_name},#{feature},#{dessert})
 	</insert>
-<!--  매장 등록 시 따봉수 테이블 추가 -->
+	
+	<!--  매장 등록 시 따봉수 테이블 추가 -->
 	<insert id="insertDDA">
 	insert into ddabong(store_id) values(#{param1})
 	</insert>
@@ -53,6 +54,12 @@
 		resultType="com.ezen.dda.store.StoreDTO">
 		select * from store
 		where id =#{param1} and pw =#{param2}
+	</select>
+	
+	<!-- 마이페이지 비밀번호 인증 -->
+	<select id="storepwchecking"
+		resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where id =#{param1} and pw =#{param2}
 	</select>
 	
 	<!-- 업체 아이디 찾기 -->

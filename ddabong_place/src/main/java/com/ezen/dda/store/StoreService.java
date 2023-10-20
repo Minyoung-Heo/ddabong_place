@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface StoreService {
 
 	// 매장 등록
-	public void storeinput(StoreDTO storeDTO);
+	public void storeinput(StoreDTO dto);
 	public void insertDDA(String id);
 
 	// 매장 출력
@@ -27,11 +27,14 @@ public interface StoreService {
 	public ArrayList<StoreDTO> storemodifyview(String store_id);
 	
 	//매장 수정 입력
-	public void storemodifyfinal(StoreDTO storeDTO);
+	public void storemodifyfinal(StoreDTO dto);
 
 	// 아이디 찾기
 	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
 
 	// 비밀번호 찾기
 	public ArrayList<StoreDTO> storepwResult(String ceo, String id);
+	
+	//마이페이지 들어가기 전 비밀번호 인증
+	public StoreDTO storepwchecking(String id, String pw);
 }

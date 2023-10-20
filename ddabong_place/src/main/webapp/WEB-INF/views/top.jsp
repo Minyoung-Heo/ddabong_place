@@ -132,7 +132,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="storeoutput?store_id=${store.id}">${store.ceo } 대표님 어서오세요.</a>
+				<a href="storepwcheck">${store.ceo } 대표님 어서오세요.</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 
@@ -168,7 +168,7 @@ color:#ffe8cc;
 			</c:when>
 
 			<c:when test="${storeloginstate == true}">
-				<a href="storeoutput?store_id=${store.id}" style="margin-right: 20px;">마이페이지</a>
+				<a href="storepwcheck" style="margin-right: 20px;">마이페이지</a>
 				<a href="storelogout">로그아웃</a>
 			</c:when>
 
