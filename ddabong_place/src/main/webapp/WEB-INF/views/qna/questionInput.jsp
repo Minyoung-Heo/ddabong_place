@@ -185,9 +185,9 @@
 						</c:otherwise>
 					</c:choose>
 
-					<tr>
+					<tr> 
 						<td>문의내용</td>
-						<td><textarea cols="60" rows="10" name="content"></textarea></td>
+						<td><textarea cols="56" rows="10" name="content"></textarea></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
