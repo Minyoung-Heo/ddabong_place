@@ -342,6 +342,13 @@
 	</definition>
 <!-- 	웨이팅 종료 -->
 
+<!-- 카페보러가기 -->
+<definition name="cafeOut" extends="baseLayout">
+		<put-attribute name="title" value="카페 리스트" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cafe/cafeOut.jsp" />
+	</definition>
+
 <!-- 캘린더 예비용 -->
 	<definition name="calendar" extends="baseLayout">
 		<put-attribute name="title" value="일정 보기" />

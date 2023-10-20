@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dda.cafe.CafeService">
+<select id="cafeOut" resultType="com.ezen.dda.cafe.CafeDTO">
+select store_id, storename, tel, address, lineintro, intro, 
+SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
+main_menu, main_image, region_name, feature, dessert 
+from registration
+</select>
+<select id="reviewStar" resultType="com.ezen.dda.cafe.CafeDTO">
+select a.store_id, sum(b.star)/count(*) as star_score, count(*) as review_count from 
+reservation a join review b on a.reservation_num = b.reservation_num group by a.store_id
+</select>
+</mapper>
