@@ -24,7 +24,6 @@ public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
 
-	// 자기 이미지 저장경로로 바꿔주기.
 	static String imagepath = "/image";
 
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
@@ -94,17 +93,12 @@ public class PersonalFnController {
 			}
 		}
 
-		// reviewlist의 다중 이미지 출력
-		// 이미지 파일명을 처리하여 imageList에 저장
 		for (ReviewDTO reviewDTO : reviewlist) {
-			String image = reviewDTO.getImage(); // dto의 이미지 데이터를 image에 저장.
+			String image = reviewDTO.getImage();
 
-			// image가 null이거나 비어있을경우가 아닐때 imageFileNames에 콤마와 공백을 기준으로 배열저장.
 			if (image != null && !image.isEmpty()) {
 				String[] imageFileNames = image.split("[,\\s]+");
 
-				// imageFileNames를 리스트화 시키고 ArrayList에 집어넣은 imageList를 만들고 DTO의 imagelist 배열에
-				// 저장.
 				List<String> imageList = new ArrayList<>(Arrays.asList(imageFileNames));
 				reviewDTO.setImageList(imageList);
 			}
@@ -117,6 +111,7 @@ public class PersonalFnController {
 		return "personaldetail";
 	}
 
+	//예약페이지로 이동 및 해당 매장의 정보를 예약 페이지로 전송. 
 	@RequestMapping(value = "/reserv")
 	public String reserv(HttpServletRequest request, Model mo) {
 
@@ -128,6 +123,7 @@ public class PersonalFnController {
 		return "reservation";
 	}
 
+	//예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
 
@@ -143,6 +139,7 @@ public class PersonalFnController {
 		return "redirect:/main";
 	}
 	
+	//리뷰 데이터를 저장.
 	@RequestMapping(value = "/review",method = RequestMethod.POST)
 	public String reviewsave(MultipartHttpServletRequest mul) {
 		List<MultipartFile> filelist=mul.getFiles("reviewfile");
@@ -165,8 +162,9 @@ public class PersonalFnController {
 			}
 
 		}
-
+		//현재 날짜 정보를 가져와서 datestring에 저장.
 		LocalDate today = LocalDate.now();
+		//datestring=예약일자(예약등록일).
 		String dateString = today.toString();
 		
 		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
