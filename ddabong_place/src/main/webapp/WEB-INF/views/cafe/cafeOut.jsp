@@ -151,11 +151,11 @@ font-size: 20px;
 							src="/dda/image/${dto.image}" width="200px"></a>
 					</div>
 
-					<div class="intro" style="width:380px;">
+					<div class="intro" style="width:60%;">
 					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
 						<h3>${dto.storename}</h3>
 						${dto.lineintro}
-						<br><br>
+						<br><br><br>
 						<c:forEach items="${reviewList}" var="re">
 						<c:if test="${dto.store_id == re.store_id}">
 						<span class="review">
