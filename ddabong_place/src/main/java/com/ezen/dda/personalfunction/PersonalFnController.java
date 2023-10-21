@@ -24,7 +24,7 @@ public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
 
-	static String imagepath = "/image";
+	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")
@@ -111,7 +111,7 @@ public class PersonalFnController {
 		return "personaldetail";
 	}
 
-	//예약페이지로 이동 및 해당 매장의 정보를 예약 페이지로 전송. 
+	// 예약페이지로 이동 및 해당 매장의 정보를 예약 페이지로 전송.
 	@RequestMapping(value = "/reserv")
 	public String reserv(HttpServletRequest request, Model mo) {
 
@@ -123,7 +123,7 @@ public class PersonalFnController {
 		return "reservation";
 	}
 
-	//예약내역을 저장.
+	// 예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
 
@@ -131,28 +131,27 @@ public class PersonalFnController {
 		String customer_id = request.getParameter("customer_id");
 		String reservation_date = request.getParameter("reservation_date");
 		String reservation_time = request.getParameter("reservation_time");
+		String reservation_name = request.getParameter("reservation_name");
 		int person_num = Integer.parseInt(request.getParameter("person_num"));
 
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reservation(customer_id,storeID,reservation_date,reservation_time,person_num);
-		
+		ss.reservation(customer_id, storeID, reservation_date, reservation_time, person_num, reservation_name);
+
 		return "redirect:/main";
 	}
-	
-	//리뷰 데이터를 저장.
-	@RequestMapping(value = "/review",method = RequestMethod.POST)
+
+	// 리뷰 데이터를 저장.
+	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	public String reviewsave(MultipartHttpServletRequest mul) {
-		List<MultipartFile> filelist=mul.getFiles("reviewfile");
-		String content=mul.getParameter("reviewcontent");
-		double star=Double.parseDouble(mul.getParameter("star"));
-		String storeid=mul.getParameter("storeid");
-		String customerid=mul.getParameter("customerid");
-		
-		
-		String imagesname="";
-		for(MultipartFile mf : filelist)
-		{
-			String imagefile=mf.getOriginalFilename();
+		List<MultipartFile> filelist = mul.getFiles("reviewfile");
+		String content = mul.getParameter("reviewcontent");
+		double star = Double.parseDouble(mul.getParameter("star"));
+		String storeid = mul.getParameter("storeid");
+		String customerid = mul.getParameter("customerid");
+
+		String imagesname = "";
+		for (MultipartFile mf : filelist) {
+			String imagefile = mf.getOriginalFilename();
 			imagesname += imagefile + " ";
 			try {
 				mf.transferTo(new File(imagepath + "//" + imagefile));
@@ -162,24 +161,24 @@ public class PersonalFnController {
 			}
 
 		}
-		//현재 날짜 정보를 가져와서 datestring에 저장.
+		// 현재 날짜 정보를 가져와서 datestring에 저장.
 		LocalDate today = LocalDate.now();
-		String dateString = today.toString();	//datestring=예약일자(예약등록일).
-		
-		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		ArrayList<ReviewDTO> reservnumlist=ss.reservnumlist(storeid,customerid);
-		Double reservnum=(double)reservnumlist.get(0).getReservation_num();
-		ss.reviewsave(reservnum,content,imagesname,star,dateString);
-		
+		String dateString = today.toString(); // datestring=예약일자(예약등록일).
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ArrayList<ReviewDTO> reservnumlist = ss.reservnumlist(storeid, customerid);
+		Double reservnum = (double) reservnumlist.get(0).getReservation_num();
+		ss.reviewsave(reservnum, content, imagesname, star, dateString);
+
 		return "redirect:/main";
 	}
-	
+
 	//
 	@ResponseBody
 	@RequestMapping(value = "/reviewcheck")
-	public String reviewcheck(String storeid,String customerid) {
-		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		int cnt=ss.reviewcheck(customerid,storeid);
+	public String reviewcheck(String storeid, String customerid) {
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		int cnt = ss.reviewcheck(customerid, storeid);
 		String bb = null;
 		if (cnt == 0) {
 			bb = "ok";
@@ -188,14 +187,25 @@ public class PersonalFnController {
 		}
 		return bb;
 	}
-	// 예약현황
-		@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
-		public String myStatus(HttpServletRequest request, Model mo) {
-			String customer_id = request.getParameter("customer_id");
-			PersonalFnService ps = sqlSession.getMapper(PersonalFnService.class);
 
-			ArrayList<ReservationDTO> ReservationList = ps.myStatus(customer_id);
-			mo.addAttribute("ReservationList", ReservationList);
-			return "myStatus";
-		}
+	// 예약현황
+	@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
+	public String myStatus(HttpServletRequest request, Model mo) {
+		String customer_id = request.getParameter("customer_id");
+		PersonalFnService ps = sqlSession.getMapper(PersonalFnService.class);
+
+		ArrayList<ReservationDTO> ReservationList = ps.myStatus(customer_id);
+		mo.addAttribute("ReservationList", ReservationList);
+		return "myStatus";
+	}
+
+	// 예약 삭제
+	@RequestMapping(value = "/ReservationDelete")
+	public String ReservationDelete(HttpServletRequest request) {
+		String reservation_num = request.getParameter("reservation_num");
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.reservationDelete(reservation_num);
+
+		return "myStatus";
+	}
 }

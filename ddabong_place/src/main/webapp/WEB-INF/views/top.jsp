@@ -161,7 +161,7 @@ width="58px" style="margin-left:200px;">
 				<a href="personalpwcheck" >마이페이지</a><br>
 				<a href="gocafe">카페 보러가기</a><br>
       <a href="">즐겨찾기</a><br>
-      <a href="">예약 현황</a><br>
+      <a href="myStatus?customer_id=${personal.id}">예약 현황</a><br>
       <a href="mywaiting?customer_id=${personal.id}">웨이팅 현황</a><br>
       <a href="qnaform">Q&A</a><br>
 				<a href="personallogout"> 로그아웃</a>
@@ -170,7 +170,7 @@ width="58px" style="margin-left:200px;">
 
 			<c:when test="${storeloginstate == true}">
 			 <p class="menu_div">
-				<a href="storeoutput?store_id=${store.id}">마이페이지</a><br>
+				<a href="storepwcheck">마이페이지</a><br>
 				<a href="storeinput?store_id=${store.id}">매장 등록</a><br>
       <a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
       <a href="storestatus">예약 현황</a><br>

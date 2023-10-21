@@ -6,7 +6,7 @@ public class ReviewDTO {
 
 	String id,pw,name,nickname,phone,address,email;
 	int reservation_num;
-	String customer_id,store_id,reservation_date,reservation_time;
+	String customer_id,store_id,reservation_date,reservation_time,reservation_name;
 	int person_num,review_num;
 	String content,image,review_date;List<String> imageList;
 	double star;
@@ -17,8 +17,8 @@ public class ReviewDTO {
 
 	public ReviewDTO(String id, String pw, String name, String nickname, String phone, String address, String email,
 			int reservation_num, String customer_id, String store_id, String reservation_date, String reservation_time,
-			int person_num, int review_num, String content, String image, String review_date, List<String> imageList,
-			double star) {
+			String reservation_name, int person_num, int review_num, String content, String image, String review_date,
+			List<String> imageList, double star) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -32,6 +32,7 @@ public class ReviewDTO {
 		this.store_id = store_id;
 		this.reservation_date = reservation_date;
 		this.reservation_time = reservation_time;
+		this.reservation_name = reservation_name;
 		this.person_num = person_num;
 		this.review_num = review_num;
 		this.content = content;
@@ -137,6 +138,14 @@ public class ReviewDTO {
 		this.reservation_time = reservation_time;
 	}
 
+	public String getReservation_name() {
+		return reservation_name;
+	}
+
+	public void setReservation_name(String reservation_name) {
+		this.reservation_name = reservation_name;
+	}
+
 	public int getPerson_num() {
 		return person_num;
 	}
@@ -193,7 +202,5 @@ public class ReviewDTO {
 		this.star = star;
 	}
 
-	
-	
 	
 }

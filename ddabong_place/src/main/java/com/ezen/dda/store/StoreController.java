@@ -24,7 +24,7 @@ public class StoreController {
 
 	@Autowired
 	SqlSession sqlSession;
-	//각자 이미지 폴더 위치 넣기
+	//각자 이미지 폴더 위치 넣기		
 		static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
@@ -81,8 +81,9 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
+				
 		mf2.transferTo(new File(imagepath+"\\"+filelist2));
+		
 		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(dto);
@@ -158,13 +159,12 @@ public class StoreController {
 				e.printStackTrace();
 			}
 		}
-		
+				
 		mf2.transferTo(new File(imagepath+"\\"+filelist2));
 		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storemodifyfinal(dto);
-		
-		return "redirect:main";
+		return "redirect:/storeoutput?store_id=" + store_id;
 	}
 	
 	//storestatus 캘린더
@@ -200,10 +200,10 @@ public class StoreController {
 			hs.setAttribute("store", dto);
 			hs.setAttribute("storeloginstate", true);
 			hs.setMaxInactiveInterval(3600);
-		
-			HttpSession session = request.getSession(); 
-			session.setAttribute("store_id", dto.getStore_id());
-
+			
+			 HttpSession session = request.getSession();
+			 session.setAttribute("store_id", dto.getStore_id());
+			    
 			return "redirect:/main";
 		} else {
 			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
@@ -215,7 +215,7 @@ public class StoreController {
 	
 	// 업체정보 들어가기 전 비밀번호 확인
 		@RequestMapping(value = "/storepwcheck")
-		public String personalpwcheck(/* HttpServletRequest request */) {
+		public String storepwcheck() {
 		
 			return "storepwcheck";
 		}
@@ -232,7 +232,7 @@ public class StoreController {
 
 			if (dto != null) {
 
-				return "storeoutput";
+				return "redirect:/storeoutput?store_id=" + id;
 			} else {
 				String alertMessage = "비밀번호를 다시 확인해주세요.";
 				request.setAttribute("alertMessage", alertMessage);
