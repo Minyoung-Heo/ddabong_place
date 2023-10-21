@@ -1,7 +1,6 @@
 package com.ezen.dda.personalfunction;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface PersonalFnService {
 
@@ -22,6 +21,7 @@ public interface PersonalFnService {
 
 	public void reviewsave(Double reservnum, String content, String imagesname, double star, String dateString);
 
+	public void reservationDelete(String reservation_num);
 
 
 }
