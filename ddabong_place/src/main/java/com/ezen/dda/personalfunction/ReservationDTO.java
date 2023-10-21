@@ -3,7 +3,27 @@ package com.ezen.dda.personalfunction;
 public class ReservationDTO {
 String store_img, storename,reservation_date,reservation_time;
 int person_num;
-String reservation_num, reservation_name, store_tel,store_addr;
+String reservation_num;
+String store_id, tel, address;
+String image;
+String RESERVATION_NAME;
+
+
+public String getImage() {
+	return image;
+}
+
+public void setImage(String image) {
+	this.image = image;
+}
+
+public String getRESERVATION_NAME() {
+	return RESERVATION_NAME;
+}
+
+public void setRESERVATION_NAME(String rESERVATION_NAME) {
+	RESERVATION_NAME = rESERVATION_NAME;
+}
 
 public ReservationDTO() {
 }

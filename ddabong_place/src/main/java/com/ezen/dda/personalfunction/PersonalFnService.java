@@ -14,7 +14,7 @@ public interface PersonalFnService {
 	public void reservation(String customer_id,String storeID, String reservation_date, String reservation_time,
 			int person_num, String reservation_name);
 	
-//	public ArrayList<ReservationDTO> myStatus(String customer_id);
+	public ArrayList<ReservationDTO> myStatus(String customer_id);
 
 	public int reviewcheck(String customerid, String storeid);
 
