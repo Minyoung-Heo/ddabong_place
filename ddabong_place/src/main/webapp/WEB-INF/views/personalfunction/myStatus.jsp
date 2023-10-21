@@ -112,7 +112,7 @@ h5 {
 				<tr>
 					<th>
 						<div class="timg">
-							<img src="/dda/image/${dto.main_image}" alt="매장 이미지">
+							<img src="/dda/image/${dto.image}" alt="매장 이미지">
 						</div>
 					</th>
 					<th>	
@@ -129,7 +129,7 @@ h5 {
 								<th>예약 번호 : [${dto.reservation_num}]번</th> 
 							</tr>
 							<tr>
-								<th>예약자명 : ${personal.name}님</th>
+								<th>예약자명 : ${dto.reservation_name}님</th>
 							</tr>
 							<tr>
 								<th>매장 전화번호 : ${dto.tel}</th>

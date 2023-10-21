@@ -5,14 +5,24 @@ String store_img, storename,reservation_date,reservation_time;
 int person_num;
 String reservation_num;
 String store_id, tel, address;
-String main_image;
+String image;
+String RESERVATION_NAME;
 
-public String getMain_image() {
-	return main_image;
+
+public String getImage() {
+	return image;
 }
 
-public void setMain_image(String main_image) {
-	this.main_image = main_image;
+public void setImage(String image) {
+	this.image = image;
+}
+
+public String getRESERVATION_NAME() {
+	return RESERVATION_NAME;
+}
+
+public void setRESERVATION_NAME(String rESERVATION_NAME) {
+	RESERVATION_NAME = rESERVATION_NAME;
 }
 
 public ReservationDTO() {

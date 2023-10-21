@@ -64,9 +64,9 @@ WHERE a.store_id = #{param1}
 	<select id="myStatus"
 		resultType="com.ezen.dda.personalfunction.ReservationDTO">
 		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
-		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, rg.MAIN_IMAGE, rs.RESERVATION_NAME
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, rg.IMAGE, rs.RESERVATION_NAME
 		FROM RESERVATION rs
 		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
-		WHERE rs.CUSTOMER_ID = #{param1}
+		WHERE rs.customer_id = #{param1}
 	</select>
 </mapper>
