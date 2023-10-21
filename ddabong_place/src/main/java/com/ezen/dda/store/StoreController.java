@@ -24,9 +24,8 @@ public class StoreController {
 
 	@Autowired
 	SqlSession sqlSession;
-	//각자 이미지 폴더 위치 넣기
-		static String imagepath = "C:\\Users\\Brother_zin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
-		
+	//각자 이미지 폴더 위치 넣기		
+		static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -85,9 +84,9 @@ public class StoreController {
 				
 		mf2.transferTo(new File(imagepath+"\\"+filelist2));
 		
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
+		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storeinput(storeDTO);
+		ss.storeinput(dto);
 		ss.insertDDA(store_id);
 		return "redirect:/main";
 	}
@@ -116,7 +115,7 @@ public class StoreController {
 	
 	//매장 수정창에서 수정 후 db 등록
 	@RequestMapping(value = "/storemodifysave", method = RequestMethod.POST)
-	public String store5(MultipartHttpServletRequest mul) {
+	public String store5(MultipartHttpServletRequest mul) throws IllegalStateException, IOException {
 		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
@@ -125,7 +124,8 @@ public class StoreController {
 		String intro = mul.getParameter("intro");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
-		String main_image = mul.getParameter("main_image");
+		MultipartFile mf2 = mul.getFile("main_image");
+		String filelist2 = mf2.getOriginalFilename();
 		String region_name = mul.getParameter("region_name");
 		String [] feature = mul.getParameterValues("feature");
 		String [] dessert = mul.getParameterValues("dessert");
@@ -160,10 +160,11 @@ public class StoreController {
 			}
 		}
 				
-		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, main_image, region_name, feature2, dessert2);
+		mf2.transferTo(new File(imagepath+"\\"+filelist2));
+		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
-		ss.storemodifyfinal(storeDTO);
-		return "redirect:storeoutput";
+		ss.storemodifyfinal(dto);
+		return "redirect:/storeoutput?store_id=" + store_id;
 	}
 	
 	//storestatus 캘린더
@@ -211,6 +212,34 @@ public class StoreController {
 			return "storeloginerr";
 		}
 	}
+	
+	// 업체정보 들어가기 전 비밀번호 확인
+		@RequestMapping(value = "/storepwcheck")
+		public String storepwcheck() {
+		
+			return "storepwcheck";
+		}
+		
+	//  업체정보 들어가기 전 비밀번호 확인 체킹
+		@RequestMapping(value = "/storepwchecking", method = RequestMethod.GET)
+		public String storepwchecking(HttpServletRequest request) {
+			String id = request.getParameter("storeid");
+			String pw = request.getParameter("storepw");
+
+			StoreService ss = sqlSession.getMapper(StoreService.class);
+
+			StoreDTO dto = ss.storepwchecking(id, pw);
+
+			if (dto != null) {
+
+				return "redirect:/storeoutput?store_id=" + id;
+			} else {
+				String alertMessage = "비밀번호를 다시 확인해주세요.";
+				request.setAttribute("alertMessage", alertMessage);
+
+				return "storeloginerr";
+			}
+		}
 
 	// 업체 로그아웃
 	@RequestMapping(value = "/storelogout")
