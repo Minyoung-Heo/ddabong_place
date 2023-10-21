@@ -1,7 +1,7 @@
 package com.ezen.dda.personalfunction;
 
 public class ReservationDTO {
-String store_img, store_name,reservation_date,reservation_time;
+String store_img, storename,reservation_date,reservation_time;
 int person_num;
 String reservation_num, reservation_name, store_tel,store_addr;
 
@@ -12,7 +12,7 @@ public ReservationDTO(String store_img, String store_name, String reservation_da
 		int person_num, String reservation_num, String reservation_name, String store_tel, String store_addr) {
 	super();
 	this.store_img = store_img;
-	this.store_name = store_name;
+	this.storename = storename;
 	this.reservation_date = reservation_date;
 	this.reservation_time = reservation_time;
 	this.person_num = person_num;

@@ -224,6 +224,13 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeJoin.jsp" />
 	</definition>
+	
+	<!-- 업체 회원 마이페이지 비번 확인 -->
+	<definition name="storepwcheck" extends="baseLayout">
+		<put-attribute name="title" value="마이페이지 비번 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storepwcheck.jsp" />
+	</definition>
 
 	<!-- 업체 매장 등록 -->
 	<definition name="storeinput" extends="baseLayout">

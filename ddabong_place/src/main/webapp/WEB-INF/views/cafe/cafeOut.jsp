@@ -59,9 +59,10 @@ font-size:25px;
 
 .btn {
 	position:relative;
-	float:right;
+	float:left;
 	background-color: #ffe8cc;
 	outline: none;
+	margin-right:15px;
 }
 
 .btn:hover {
@@ -124,6 +125,27 @@ font-size: 20px;
         	alert("비밀번호가 올바르지 않습니다!");
         }
     }
+    $(function () {
+        var region = "${region}";
+        if (region === "강남") {
+            $('.btn[value="강남"]').css('background-color', '#ffba66');
+        }
+        if (region === "성수") {
+            $('.btn[value="성수"]').css('background-color', '#ffba66');
+        }
+        if (region === "연남") {
+            $('.btn[value="연남"]').css('background-color', '#ffba66');
+        }
+        if (region === "을지로") {
+            $('.btn[value="을지로"]').css('background-color', '#ffba66');
+        }
+        if (region === "잠실") {
+            $('.btn[value="잠실"]').css('background-color', '#ffba66');
+        }
+        if (region === "혜화") {
+            $('.btn[value="혜화"]').css('background-color', '#ffba66');
+        }
+    });
 </script>
 
 </head>
@@ -132,14 +154,31 @@ font-size: 20px;
     <div class="div-container">
         <div class="category">
             <h1>카페 보러가기</h1>
+            <c:choose>
+            <c:when test="${region != null}">
+            <a href="gocafe">전체 목록 보기</a><br>
+            <a href="goregion?region_name=강남" style="color:#ff8c00;">지역별 카페 보기</a><br>
+            <a href="">디저트별 카페 보기</a>
+            </c:when>
+            <c:otherwise>
             <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
-            <a href="">지역별 카페 보기</a><br>
+            <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
             <a href="">디저트별 카페 보기</a><br>
+            </c:otherwise>
+            </c:choose>
         </div>
 
         <div class="cafe">
             <h1 style="text-align: left;">카페 리스트</h1><br>
-            <div class="flex-container">
+			<c:if test="${region != null}">
+             <input class="btn" type="button" value="강남" onclick="location.href='goregion?region_name=강남'" >
+             <input class="btn" type="button" value="성수" onclick="location.href='goregion?region_name=성수'">
+             <input class="btn" type="button" value="연남" onclick="location.href='goregion?region_name=연남'">
+             <input class="btn" type="button" value="을지로" onclick="location.href='goregion?region_name=을지로'">
+             <input class="btn" type="button" value="잠실" onclick="location.href='goregion?region_name=잠실'">
+             <input class="btn" type="button" value="혜화" onclick="location.href='goregion?region_name=혜화'">
+            </c:if>
+       <div class="flex-container">
 		<div class="flex-item">
 			<hr>
 			<c:forEach items="${cafeList}" var="dto">
