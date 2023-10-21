@@ -24,7 +24,7 @@ public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
 
-	static String imagepath = "/image";
+	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")
@@ -103,7 +103,7 @@ public class PersonalFnController {
 				reviewDTO.setImageList(imageList);
 			}
 		}
-
+		
 		mo.addAttribute("reviewlist", reviewlist);
 		mo.addAttribute("ddabonglist", ddabonglist);
 		mo.addAttribute("registrationlist", registrationlist);
@@ -131,10 +131,11 @@ public class PersonalFnController {
 		String customer_id = request.getParameter("customer_id");
 		String reservation_date = request.getParameter("reservation_date");
 		String reservation_time = request.getParameter("reservation_time");
+		String reservation_name = request.getParameter("reservation_name");
 		int person_num = Integer.parseInt(request.getParameter("person_num"));
 
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reservation(customer_id,storeID,reservation_date,reservation_time,person_num);
+		ss.reservation(customer_id,storeID,reservation_date,reservation_time,person_num,reservation_name);
 		
 		return "redirect:/main";
 	}

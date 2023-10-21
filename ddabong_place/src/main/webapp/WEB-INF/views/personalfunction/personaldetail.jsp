@@ -43,6 +43,13 @@
 			}
 		});
 	});
+
+	  document.addEventListener("DOMContentLoaded", function() {
+		    var starInputs = document.querySelectorAll("input.outstar");
+		    starInputs.forEach(function(input) {
+		      input.disabled = true; // 모든 별점 input 요소를 비활성화
+		    });
+		  });
 </script>
 <style type="text/css">
 .detailtable {
@@ -92,6 +99,16 @@
 	left: 270px;
 }
 
+/* 리뷰출력 */
+.rev-img {
+	margin-right: 48px;
+	margin-top: 10px;
+	width: 260px;
+	height: 260px;
+	position: relative;
+}
+
+/* 끝 */
 .blind {
 	position: absolute;
 	overflow: hidden;
@@ -201,14 +218,15 @@
 									<h1>예약하기</h1>
 								</button>
 							</form></td>
-							<a href="waitingInput?store_id=${regi.store_id}">웨이팅</a>
+						<a href="waitingInput?store_id=${regi.store_id}">웨이팅</a>
 					</tr>
 				</table>
 			</div>
 		</c:forEach>
 	</c:forEach>
 	<div class="detailtable">
-		<form action="review" method="post" name="reviewform" enctype="multipart/form-data">
+		<form action="review" method="post" name="reviewform"
+			enctype="multipart/form-data">
 			<input type="hidden" name="storeid" value="${storeid }"> <input
 				type="hidden" name="customerid" value="${personal.id }">
 			<table width="100%" height="100%">
@@ -260,7 +278,7 @@
 			</table>
 		</form>
 	</div>
-	<c:forEach items="${reviewlist}" var="rev">
+	<c:forEach items="${reviewlist}" var="rev" varStatus="loop">
 		<c:set var="uid" value="${rev.id}" />
 		<c:set var="length" value="${fn:length(uid)}" />
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
@@ -269,10 +287,47 @@
 		<div class="detailtable">
 			<table width="100%" height="100%" align="center">
 				<tr style="text-align: left;">
-					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
+					<td><br>&emsp;&emsp;${rev.nickname}님(${id})</td>
 				</tr>
 				<tr>
-					<td></td>
+					<td><div class="startRadio">
+							<label class="startRadio__box"> <input type="radio"
+								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 0.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 1.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 1.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 2.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 2.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 3.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 3.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 4.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 4.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+									class="blind">별 5.0개</span></span>
+							</label>
+						</div></td>
+				</tr>
+				<tr>
+					<td><div class="rev-img">
+							<img src="image/${rev.imageList[0]}" width="200px">
+						</div></td>
 				</tr>
 			</table>
 		</div>

@@ -25,7 +25,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기
-		static String imagepath = "image";
+		static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -37,7 +37,7 @@ public class StoreController {
 
 	//매장 입력창에서 입력 후 db 저장
 	@RequestMapping(value = "/storeinputsave", method = RequestMethod.POST)
-	public String store2(MultipartHttpServletRequest mul) {
+	public String store2(MultipartHttpServletRequest mul) throws IllegalStateException, IOException {
 		String store_id = mul.getParameter("store_id");
 		String storename = mul.getParameter("storename");
 		String tel = mul.getParameter("tel");
@@ -82,6 +82,8 @@ public class StoreController {
 			}
 		}
 				
+		mf2.transferTo(new File(imagepath+"\\"+filelist2));
+		
 		StoreDTO storeDTO = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storeinput(storeDTO);
