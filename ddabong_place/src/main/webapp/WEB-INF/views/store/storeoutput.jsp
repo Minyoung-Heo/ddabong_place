@@ -115,7 +115,7 @@ option {
 	border: 1px solid #ff8c00;
 	border-radius: 20px;
 	text-align: center;
-	width: 80%;
+	width: 100%;
 	height: auto;
 	white-space: pre-wrap;
 	margin-top: 20px;
