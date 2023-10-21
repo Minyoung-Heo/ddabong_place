@@ -157,12 +157,12 @@ margin:20px;
 
 <h1>어디로 갈까요?</h1>
 <div class="regionIcon">
-<a href=""><img src="/dda/image/강남아이콘.png" width="100px"></a>
-<a href=""><img src="/dda/image/성수아이콘.png" width="100px"></a>
-<a href=""><img src="/dda/image/연남아이콘.png" width="100px"></a>
-<a href=""><img src="/dda/image/을지로아이콘.png" width="100px"></a>
-<a href=""><img src="/dda/image/잠실아이콘.png" width="100px"></a>
-<a href=""><img src="/dda/image/혜화아이콘.png" width="100px"></a>
+<a href="goregion?region_name=강남"><img src="/dda/image/강남아이콘.png" width="100px"></a>
+<a href="goregion?region_name=성수"><img src="/dda/image/성수아이콘.png" width="100px"></a>
+<a href="goregion?region_name=연남"><img src="/dda/image/연남아이콘.png" width="100px"></a>
+<a href="goregion?region_name=을지로"><img src="/dda/image/을지로아이콘.png" width="100px"></a>
+<a href="goregion?region_name=잠실"><img src="/dda/image/잠실아이콘.png" width="100px"></a>
+<a href="goregion?region_name=혜화"><img src="/dda/image/혜화아이콘.png" width="100px"></a>
 </div>
 
 	<h1>이달의 따봉왕</h1>
