@@ -119,6 +119,9 @@ $(function() {
 					<td><h4>예약시간</h4> <input type="time" name="reservation_time"></td>
 				</tr>
 				<tr>
+					<td><h4>예약자명</h4> <input type="text" name="reservation_name"></td>
+				</tr>
+				<tr>
 					<td class="table-bottom"><h4>예약인원</h4> <input type="number" name="person_num"></td>
 				</tr>
 				<tr>

@@ -112,10 +112,10 @@ h5 {
 				<tr>
 					<th>
 						<div class="timg">
-							<img src="/dda/image/${dto.main_image}" alt="매장 이미지">
+							<img src="/dda/image/${dto.image}" alt="매장 이미지">
 						</div>
 					</th>
-					<th>
+					<th>	
 						<table class="cont">
 							<tr>
 								<th class="cname" id="storenamemap">${dto.storename}</th>
@@ -126,7 +126,10 @@ h5 {
 									${dto.reservation_time} · ${dto.person_num}명</th>
 							</tr>
 							<tr>
-								<th>예약 번호 : [${dto.reservation_num}]번</th>
+								<th>예약 번호 : [${dto.reservation_num}]번</th> 
+							</tr>
+							<tr>
+								<th>예약자명 : ${dto.reservation_name}님</th>
 							</tr>
 							<tr>
 								<th>매장 전화번호 : ${dto.tel}</th>
@@ -135,7 +138,7 @@ h5 {
 					</th>
 					<th>
 						<div class="buttons">
-							<input type="button" value="매장 보기"> <input type="button"
+							<input type="button" value="매장 보기" onclick="location.href='detailview?store_id=${dto.store_id}'"> <input type="button"
 								value="지도 보기"> <input type="button" value="예약 취소">
 						</div>
 					</th>

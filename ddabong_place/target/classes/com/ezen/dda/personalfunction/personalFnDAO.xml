@@ -11,7 +11,7 @@
 <![CDATA[
 SELECT c.id, c.pw, c.name, c.nickname, c.phone, c.address, c.email,
        a.reservation_num, a.store_id, a.reservation_date, a.reservation_time, a.person_num,
-       b.review_num, b.content, b.image, b.star, b.review_date
+       a.reservation_name, b.review_num, b.content, b.image, b.star, b.review_date
 FROM reservation a
 JOIN review b ON a.reservation_num = b.reservation_num
 JOIN customer c ON a.customer_id = c.id
@@ -38,7 +38,7 @@ WHERE a.store_id = #{param1}
 
 	<insert id="reservation">
 		insert into RESERVATION
-		values(RESERVATION_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
+		values(RESERVATION_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>
 
 	<!-- 라뷰 등록 전 예약여부 확인 -->
@@ -64,9 +64,9 @@ WHERE a.store_id = #{param1}
 	<select id="myStatus"
 		resultType="com.ezen.dda.personalfunction.ReservationDTO">
 		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
-		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, rg.MAIN_IMAGE
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, rg.IMAGE, rs.RESERVATION_NAME
 		FROM RESERVATION rs
 		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
-		WHERE rs.CUSTOMER_ID = #{param1}
+		WHERE rs.customer_id = #{param1}
 	</select>
 </mapper>

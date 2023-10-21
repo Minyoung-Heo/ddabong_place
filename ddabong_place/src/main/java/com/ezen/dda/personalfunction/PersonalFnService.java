@@ -12,7 +12,7 @@ public interface PersonalFnService {
 	public ArrayList<RegistrationDTO> registration(String storeID);
 
 	public void reservation(String customer_id,String storeID, String reservation_date, String reservation_time,
-			int person_num);
+			int person_num, String reservation_name);
 	
 	public ArrayList<ReservationDTO> myStatus(String customer_id);
 
