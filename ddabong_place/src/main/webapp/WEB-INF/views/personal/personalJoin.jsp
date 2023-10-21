@@ -346,7 +346,7 @@
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 				주소<br> <input class="textbox"
-					style="width: 70%; height: 50%; background-color: #d9d9d9; display: inline; margin-right: 25px;" 
+					style="width: 70%; height: 50%; background-color: #d9d9d9; display: inline; margin-right: 18px;" 
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
 				<button type="button" class="btn btn-default"
