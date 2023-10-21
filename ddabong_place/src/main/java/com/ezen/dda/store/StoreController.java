@@ -164,7 +164,7 @@ public class StoreController {
 		StoreDTO dto = new StoreDTO(store_id, storename, tel, address, lineintro, intro, imagesName1, main_menu, filelist2, region_name, feature2, dessert2);
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 		ss.storemodifyfinal(dto);
-		return "redirect:main";
+		return "redirect:/storeoutput?store_id=" + store_id;
 	}
 	
 	//storestatus 캘린더
