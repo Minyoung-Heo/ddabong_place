@@ -196,7 +196,7 @@ color:#ffe8cc;
 
 			<c:when test="${storeloginstate == true}">
 			 <p class="menu_div">
-				<a href="storeoutput?store_id=${store.id}">마이페이지</a><br>
+				<a href="storepwcheck">마이페이지</a><br>
 				<a href="storeinput?store_id=${store.id}">매장 등록</a><br>
       <a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
       <a href="storestatus">예약 현황</a><br>

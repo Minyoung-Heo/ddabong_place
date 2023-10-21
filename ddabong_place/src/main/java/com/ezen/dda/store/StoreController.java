@@ -232,7 +232,7 @@ public class StoreController {
 
 			if (dto != null) {
 
-				return "storeoutput";
+				return "redirect:/storeoutput?store_id=" + id;
 			} else {
 				String alertMessage = "비밀번호를 다시 확인해주세요.";
 				request.setAttribute("alertMessage", alertMessage);
