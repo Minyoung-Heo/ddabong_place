@@ -134,13 +134,19 @@ margin-left: 40px;
 .dessertIcon img {
 margin:20px;
 }
+.main-banner{
+text-align: center;
 
+width: 1200px;
+height: 500px;
+border: 1px solid black;
+margin-top: 70px;
+margin-left: 700px;
+}
 </style>
 </head>
 <body>
-<br><br><br>
-<br><br><br>
-<br><br><br>
+<div class="main-banner"></div>
 <h1>디저트별 카페 추천</h1>
 <div class="dessertIcon">
 <a href="godessert?dessert=케이크"><img src="/dda/image/케이크.png" width="140px"></a>
