@@ -39,6 +39,8 @@ h1 {
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
+  position: relative;
+  left: -16px;
 }
 
 .submit a {
