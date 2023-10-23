@@ -11,7 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ezen.dda.personalfunction.RegistrationDTO;
+import com.ezen.dda.cafe.CafeDTO;
+import com.ezen.dda.cafe.CafeService;
 
 @Controller
 public class SearchController {
@@ -42,9 +43,17 @@ public class SearchController {
 			}
 		}
 		
-		mo.addAttribute("storelist", storelist);
-		mo.addAttribute("regionlist", regionlist);
+		CafeService cafeService = sqlSession.getMapper(CafeService.class);
+		ArrayList<CafeDTO> reviewList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		if(searchValue.equals("") || searchValue.equals(" ")) {
+			mo.addAttribute("storelist", null);
+			mo.addAttribute("regionlist", null);
+		} else {
+			mo.addAttribute("storelist", storelist);
+			mo.addAttribute("regionlist", regionlist);
+		}
 		mo.addAttribute("searchValue", searchValue);
+		mo.addAttribute("reviewList", reviewList);
 		return "searchList";
 	}
 }
