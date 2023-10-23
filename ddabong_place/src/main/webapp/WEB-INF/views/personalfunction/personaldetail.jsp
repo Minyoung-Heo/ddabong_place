@@ -60,6 +60,15 @@
 	border-left-color: #e6e6e6;
 	border-right-color: #e6e6e6;
 }
+.reviewtable {
+	width: 860px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid #b3b3b3;
+	border-radius: 20px;
+	border-left-color: #e6e6e6;
+	border-right-color: #e6e6e6;
+}
 
 .reviewsubmit {
 	position: relative;
@@ -168,6 +177,12 @@
 	width: 500px;
 	height: 40px;
 	pointer-events: none;
+}
+
+.starout
+{
+position: relative;
+padding-right: 110px;
 }
 </style>
 <title>Insert title here</title>
@@ -284,13 +299,15 @@
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-		<div class="detailtable">
+		<div class="reviewtable">
 			<table width="100%" height="100%" align="center">
 				<tr style="text-align: left;">
 					<td><br>&emsp;&emsp;${rev.nickname}님(${id})</td>
 				</tr>
 				<tr>
-					<td><div class="startRadio">
+					<td>
+					<div class="starout">
+					<div class="startRadio">
 							<label class="startRadio__box"> <input type="radio"
 								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
 									class="blind">별 0.5개</span></span>
@@ -322,7 +339,7 @@
 								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
 									class="blind">별 5.0개</span></span>
 							</label>
-						</div></td>
+						</div></div></td><td>드래곤</td>
 				</tr>
 				<tr>
 					<td><div class="rev-img">

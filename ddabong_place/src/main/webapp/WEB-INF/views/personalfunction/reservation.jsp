@@ -18,41 +18,57 @@
 	integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
-$(function() {
-    $(".reservbtn").click(function(event) {
-        var f = document.reserv;
-        var cdate = f.reservation_date.value;
-        var ctime = f.reservation_time.value;
-        var cperson = f.person_num.value;
-        var vperson = /^[0-9]$/;
-        var id = "${personal.id}";
+	$(function() {
+		$(".reservbtn").click(function(event) {
+			var f = document.reserv;
+			var cdate = f.reservation_date.value;
+			var ctime = f.reservation_time.value;
+			var cperson = f.person_num.value;
+			var vperson = /^[0-9]$/;
+			var id = "${personal.id}";
 
-        if (cdate === null || cdate === "") {
-            alert("일자를 선택하세요.");
-            event.preventDefault(); // submit 막음
-        } else if (ctime === null || ctime === "") {
-            alert("예약시간을 선택하세요.");
-            event.preventDefault(); // submit 막음
-        } else if (cperson === null || cperson === "") {
-            alert("예약인원을 입력하세요.");
-            event.preventDefault(); // submit 막음
-            
-        }else if (!vperson.test(cperson)) {
-            alert("숫자 한 자리로만 입력하세요.");
-            event.preventDefault(); // submit 막음
-        } else if (id === null || id.trim() === "") {
-            alert("로그인이 필요합니다.");
-            event.preventDefault(); // submit 막음
-        }
-    });
-});
+			if (cdate === null || cdate === "") {
+				alert("일자를 선택하세요.");
+				event.preventDefault(); // submit 막음
+			} else if (ctime === null || ctime === "") {
+				alert("예약시간을 선택하세요.");
+				event.preventDefault(); // submit 막음
+			} else if (cperson === null || cperson === "") {
+				alert("예약인원을 입력하세요.");
+				event.preventDefault(); // submit 막음
 
+			} else if (!vperson.test(cperson)) {
+				alert("숫자 한 자리로만 입력하세요.");
+				event.preventDefault(); // submit 막음
+			} else if (id === null || id.trim() === "") {
+				alert("로그인이 필요합니다.");
+				event.preventDefault(); // submit 막음
+			} else {
+				// AJAX로 reviewcheck 메소드 호출
+				 var reservation_date = $("#reservation_date").val();
+				$.ajax({
+					type : "POST",
+					async : true,
+					url : "duplicatecheck",
+					data : {
+						customer_id : "${personal.id}",
+						reservation_date : reservation_date
+					},
+					success : function(result) {
+						if (result === "ok") {
+							alert("예약이 완료되었습니다.");
+							f.submit();
+						} else {
+							alert("당일 중복 예약할 수 없습니다.");
+							 event.preventDefault();
+						}
+					}
+				});
+			}
+		});
+	});
 
-
-
-
-
-// 데이트 픽커
+	// 데이트 픽커
 	$.datepicker.setDefaults({
 		dateFormat : 'yy-mm-dd',
 		prevText : '이전 달',
@@ -89,6 +105,7 @@ $(function() {
 .table-bottom {
 	padding-bottom: 14px;
 }
+
 .reservbtn {
 	width: 250px;
 	height: 100px;
@@ -105,15 +122,16 @@ $(function() {
 
 	<div class="detailtable">
 		<form action="reservsave" method="post" name="reserv">
-			<input type="hidden" name="storeid" value="${storeID }">
-			<input type="hidden" name="customer_id" value="${personal.id }">
+			<input type="hidden" name="storeid" value="${storeID }"> <input
+				type="hidden" name="customer_id" value="${personal.id }">
 			<table width="100%">
 				<tr>
 					<td class="center-td" style="padding: 10px; text-align: left;"><h3>${storename }
 							매장 예약하기</h3></td>
 				</tr>
 				<tr>
-					<td><h4>예약일자</h4> <input class="datepicker" name="reservation_date"></td>
+					<td><h4>예약일자</h4> <input class="datepicker"
+						name="reservation_date" id="reservation_date"></td>
 				</tr>
 				<tr>
 					<td><h4>예약시간</h4> <input type="time" name="reservation_time"></td>
@@ -122,11 +140,12 @@ $(function() {
 					<td><h4>예약자명</h4> <input type="text" name="reservation_name"></td>
 				</tr>
 				<tr>
-					<td class="table-bottom"><h4>예약인원</h4> <input type="number" name="person_num"></td>
+					<td class="table-bottom"><h4>예약인원</h4> <input type="number"
+						name="person_num"></td>
 				</tr>
 				<tr>
 					<td class="table-bottom">
-						<button class="reservbtn" type="submit">
+						<button class="reservbtn" type="button">
 							<h1>예약하기</h1>
 						</button>
 					</td>

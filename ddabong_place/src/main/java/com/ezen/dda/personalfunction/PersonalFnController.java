@@ -129,7 +129,7 @@ public class PersonalFnController {
 
 		String storeID = request.getParameter("storeid");
 		String customer_id = request.getParameter("customer_id");
-		String reservation_date = request.getParameter("reservation_date");
+		String reservation_date = request.getParameter("reservation_date").substring(0, 10);
 		String reservation_time = request.getParameter("reservation_time");
 		String reservation_name = request.getParameter("reservation_name");
 		int person_num = Integer.parseInt(request.getParameter("person_num"));
@@ -175,7 +175,7 @@ public class PersonalFnController {
 		return "redirect:/main";
 	}
 	
-	//
+	// 리뷰 작성전 예약이력 체크
 	@ResponseBody
 	@RequestMapping(value = "/reviewcheck")
 	public String reviewcheck(String storeid,String customerid) {
@@ -189,6 +189,22 @@ public class PersonalFnController {
 		}
 		return bb;
 	}
+	
+	// 예약 중복 확인
+	@ResponseBody
+	@RequestMapping(value = "/duplicatecheck")
+	public String duplicatecheck(String customer_id,String reservation_date) {
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		int cnt=ss.duplicatecheck(customer_id,reservation_date);
+		String bb = null;
+		if (cnt == 0) {
+			bb = "ok"; 
+		} else {
+			bb = "";
+		}
+		return bb;
+	}
+	
 	// 예약현황
 		@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
 		public String myStatus(HttpServletRequest request, Model mo) {
