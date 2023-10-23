@@ -21,10 +21,10 @@
 	max-width: 100%;
 }
 
-.flex-item hr{
-background : #ffddb3;
-border:0;
-height:1px;
+.flex-item hr {
+	background: #ffddb3;
+	border: 0;
+	height: 1px;
 }
 
 .img-wrapper {
@@ -54,8 +54,8 @@ height:1px;
 }
 
 .btn {
-	position:relative;
-	float:right;
+	position: relative;
+	float: right;
 	background-color: #ffe8cc;
 	outline: none;
 }
@@ -65,84 +65,84 @@ height:1px;
 }
 
 .div-container {
-    margin-top: 30px;
-    display: flex;
-    width: 90%;
-    justify-content: space-evenly;
+	margin-top: 30px;
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
 }
 
 .category {
-    margin-top:70px;
-    width:30%;
-    margin-left:40px;
-    text-align: left;
+	margin-top: 70px;
+	width: 30%;
+	margin-left: 40px;
+	text-align: left;
 }
 
 .category a {
-    line-height:40px;
-    font-size:20px;
-    color:#FFBE1C;
-    text-decoration: none;
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFBE1C;
+	text-decoration: none;
 }
 
 .category a:hover {
-    color:#ff8c00;
+	color: #ff8c00;
 }
 
 .qna {
-    margin-top: 20px;
-    text-align: left;
-    font-size: 15px;
-    width: 85%;
+	margin-top: 20px;
+	text-align: left;
+	font-size: 15px;
+	width: 85%;
 }
 </style>
 </head>
 <body>
 	<br>
 	<br>
-	
+
 	<div class="div-container">
-        <div class="category">
-            <h1>예약 / 웨이팅</h1>
-            <a href="">예약 현황</a><br>
-            <a href="mywaiting?customer_id=${personal.id}" style="color:#ff8c00;">웨이팅 현황</a><br>
-        </div>
-
-        <div class="qna">
-      <div class="flex-container">
-		<div class="flex-item">
-			<h1>웨이팅 현황</h1>
-			<hr>
-			<c:forEach items="${waitingList}" var="dto" varStatus="loop">
-
-				<div class="flex-container-inner">
-
-					<div class="img-wrapper">
-						<a href="detailview?store_id=${dto.store_id}"> <img alt=""
-							src="/dda/image/${dto.image}" width="200px"></a>
-					</div>
-
-					<div class="intro" style="width:380px;">
-						<h3>${loop.index + 1}. ${dto.storename}</h3>
-						${dto.lineintro}
-						<br><br><br><br><br>
-						<c:forEach items="${totalList}" var="tot">
-						<c:if test="${tot.store_id == dto.store_id}">
-						현재 대기 인원 : <span style="color:#ff8c00;">${tot.totalwaiting}</span> 명
-						</c:if>
-						</c:forEach>
-					</div>
-					<input type="button" class="btn"
-						onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'"
-						value="대기번호 확인">
-				</div>
-				<hr>
-			</c:forEach>
-
+		<div class="category">
+			<h1>예약 / 웨이팅</h1>
+			<a href="myStatus?customer_id=${personal.id}">예약 현황</a><br> <a
+				href="mywaiting?customer_id=${personal.id}" style="color: #ff8c00;">웨이팅
+				현황</a><br>
 		</div>
-	</div>   
-</div>
+
+		<div class="qna">
+			<div class="flex-container">
+				<div class="flex-item">
+					<h1>웨이팅 현황</h1>
+					<hr>
+					<c:forEach items="${waitingList}" var="dto" varStatus="loop">
+
+						<div class="flex-container-inner">
+
+							<div class="img-wrapper">
+								<a href="detailview?store_id=${dto.store_id}"> <img alt=""
+									src="/dda/image/${dto.image}" width="200px"></a>
+							</div>
+
+							<div class="intro" style="width: 380px;">
+								<h3>${loop.index + 1}.${dto.storename}</h3>
+								${dto.lineintro} <br> <br> <br> <br> <br>
+								<c:forEach items="${totalList}" var="tot">
+									<c:if test="${tot.store_id == dto.store_id}">
+						현재 대기 인원 : <span style="color: #ff8c00;">${tot.totalwaiting}</span> 명
+						</c:if>
+								</c:forEach>
+							</div>
+							<input type="button" class="btn"
+								onclick="location.href='waitingdetail?store_id=${dto.store_id}&customer_id=${dto.customer_id}'"
+								value="대기번호 확인">
+						</div>
+						<hr>
+					</c:forEach>
+
+				</div>
+			</div>
+		</div>
 	</div>
-	
+
 </body>
 </html>

@@ -7,6 +7,7 @@ String reservation_num;
 String store_id, tel, address;
 String image;
 String reservation_name;
+
 public ReservationDTO() {
 }
 public String getStore_img() {
@@ -78,6 +79,7 @@ public void setReservation_name(String reservation_name) {
 public ReservationDTO(String store_img, String storename, String reservation_date, String reservation_time,
 		int person_num, String reservation_num, String store_id, String tel, String address, String image,
 		String reservation_name) {
+	
 	super();
 	this.store_img = store_img;
 	this.storename = storename;
@@ -90,7 +92,9 @@ public ReservationDTO(String store_img, String storename, String reservation_dat
 	this.address = address;
 	this.image = image;
 	this.reservation_name = reservation_name;
+	
 }
+
 
 
 }
