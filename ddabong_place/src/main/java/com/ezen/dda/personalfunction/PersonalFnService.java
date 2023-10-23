@@ -22,6 +22,9 @@ public interface PersonalFnService {
 	public void reviewsave(Double reservnum, String content, String imagesname, double star, String dateString);
 
 	public void reservationDelete(String reservation_num);
+	
+	public int duplicatecheck(String customer_id, String reservation_date);
+
 
 
 }

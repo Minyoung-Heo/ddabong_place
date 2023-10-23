@@ -3,126 +3,133 @@ package com.ezen.dda.search;
 import java.util.List;
 
 public class SearchDTO {
-String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
-List<String> imageList;
+	String store_id, storename, tel, address, intro, image, main_menu, main_image, region_name, feature, dessert;
+	List<String> imageList;
+	String lineintro;
 
-public SearchDTO() {}
+	public String getLineintro() {
+		return lineintro;
+	}
 
-public SearchDTO(String store_id, String storename, String tel, String address, String intro, String image,
-		String main_menu, String main_image, String region_name, String feature, String dessert,
-		List<String> imageList) {
-	super();
-	this.store_id = store_id;
-	this.storename = storename;
-	this.tel = tel;
-	this.address = address;
-	this.intro = intro;
-	this.image = image;
-	this.main_menu = main_menu;
-	this.main_image = main_image;
-	this.region_name = region_name;
-	this.feature = feature;
-	this.dessert = dessert;
-	this.imageList = imageList;
-}
+	public void setLineintro(String lineintro) {
+		this.lineintro = lineintro;
+	}
 
-public String getStore_id() {
-	return store_id;
-}
+	public SearchDTO() {
+	}
 
-public void setStore_id(String store_id) {
-	this.store_id = store_id;
-}
+	public SearchDTO(String store_id, String storename, String tel, String address, String intro, String image,
+			String main_menu, String main_image, String region_name, String feature, String dessert,
+			List<String> imageList) {
+		super();
+		this.store_id = store_id;
+		this.storename = storename;
+		this.tel = tel;
+		this.address = address;
+		this.intro = intro;
+		this.image = image;
+		this.main_menu = main_menu;
+		this.main_image = main_image;
+		this.region_name = region_name;
+		this.feature = feature;
+		this.dessert = dessert;
+		this.imageList = imageList;
+	}
 
-public String getStorename() {
-	return storename;
-}
+	public String getStore_id() {
+		return store_id;
+	}
 
-public void setStorename(String storename) {
-	this.storename = storename;
-}
+	public void setStore_id(String store_id) {
+		this.store_id = store_id;
+	}
 
-public String getTel() {
-	return tel;
-}
+	public String getStorename() {
+		return storename;
+	}
 
-public void setTel(String tel) {
-	this.tel = tel;
-}
+	public void setStorename(String storename) {
+		this.storename = storename;
+	}
 
-public String getAddress() {
-	return address;
-}
+	public String getTel() {
+		return tel;
+	}
 
-public void setAddress(String address) {
-	this.address = address;
-}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 
-public String getIntro() {
-	return intro;
-}
+	public String getAddress() {
+		return address;
+	}
 
-public void setIntro(String intro) {
-	this.intro = intro;
-}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-public String getImage() {
-	return image;
-}
+	public String getIntro() {
+		return intro;
+	}
 
-public void setImage(String image) {
-	this.image = image;
-}
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
 
-public String getMain_menu() {
-	return main_menu;
-}
+	public String getImage() {
+		return image;
+	}
 
-public void setMain_menu(String main_menu) {
-	this.main_menu = main_menu;
-}
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-public String getMain_image() {
-	return main_image;
-}
+	public String getMain_menu() {
+		return main_menu;
+	}
 
-public void setMain_image(String main_image) {
-	this.main_image = main_image;
-}
+	public void setMain_menu(String main_menu) {
+		this.main_menu = main_menu;
+	}
 
-public String getRegion_name() {
-	return region_name;
-}
+	public String getMain_image() {
+		return main_image;
+	}
 
-public void setRegion_name(String region_name) {
-	this.region_name = region_name;
-}
+	public void setMain_image(String main_image) {
+		this.main_image = main_image;
+	}
 
-public String getFeature() {
-	return feature;
-}
+	public String getRegion_name() {
+		return region_name;
+	}
 
-public void setFeature(String feature) {
-	this.feature = feature;
-}
+	public void setRegion_name(String region_name) {
+		this.region_name = region_name;
+	}
 
-public String getDessert() {
-	return dessert;
-}
+	public String getFeature() {
+		return feature;
+	}
 
-public void setDessert(String dessert) {
-	this.dessert = dessert;
-}
+	public void setFeature(String feature) {
+		this.feature = feature;
+	}
 
-public List<String> getImageList() {
-	return imageList;
-}
+	public String getDessert() {
+		return dessert;
+	}
 
-public void setImageList(List<String> imageList) {
-	this.imageList = imageList;
-}
+	public void setDessert(String dessert) {
+		this.dessert = dessert;
+	}
 
+	public List<String> getImageList() {
+		return imageList;
+	}
 
-
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
+	}
 
 }
