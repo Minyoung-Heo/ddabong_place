@@ -32,7 +32,7 @@ h1 {
   width: 100%;
 }
 
-input {
+.input_store {
   width: 130%;
   height: 50px;
   border-radius: 30px;
@@ -141,17 +141,17 @@ option {
             <c:forEach items="${list}" var="store">
             <div class="store_id">
                 <h4>업체 아이디</h4>
-                <input value="${store.store_id}" readonly>
+                <input class="input_store" value="${store.store_id}" readonly>
             </div>
             
             <div class="storename">
                 <h4>매장명</h4>
-                <input value="${store.storename}" readonly>
+                <input class="input_store" value="${store.storename}" readonly>
             </div>
             
             <div class="tel">
               <h4>매장 전화번호</h4>
-              <input value="${store.tel}" readonly>
+              <input class="input_store" value="${store.tel}" readonly>
             </div>
             
             <div class="address">
@@ -178,7 +178,7 @@ option {
           
           <div class="main_menu">
             <h4>매장 대표 메뉴 이름</h4>
-            <input value="${store.main_menu}" readonly>
+            <input class="input_store" value="${store.main_menu}" readonly>
           </div>
           
           <div class="main_image">
@@ -190,17 +190,17 @@ option {
           
           <div class="region_name">
             <h4>지역</h4>
-            <input value="${store.region_name}" readonly>
+            <input class="input_store" value="${store.region_name}" readonly>
           </div>
           
           <div class="feature">
             <h4>특징</h4>
-              <input value="${store.feature}" readonly>
+              <input class="input_store" value="${store.feature}" readonly>
           </div>
           
           <div class="dessert">
             <h4>디저트</h4>
-            <input value="${store.dessert}" readonly>
+            <input class="input_store" value="${store.dessert}" readonly>
           </div>
           
           <c:url var="url1" value="storemodifyview">

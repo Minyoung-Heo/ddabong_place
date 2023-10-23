@@ -37,7 +37,7 @@
                 }
             ],
             headerToolbar: {
-                left: 'prev,next today addEventButton',
+                left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             }

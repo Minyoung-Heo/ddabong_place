@@ -59,10 +59,7 @@
 	<!-- 마이페이지 비밀번호 인증 -->
 	<select id="storepwchecking"
 		resultType="com.ezen.dda.store.StoreDTO">
-		select store.id, registration.storename, registration.tel, registration.address, registration.lineintro, registration.intro, registration.image, registration.main_menu, registration.main_image, registration.region_name, registration.feature, registration.dessert 
-		from store
-		inner join registration on store.id = registration.store_id
-		where store.id = #{param1} and store.pw = #{param2}
+		select * from store where id=#{param1} and pw=#{param2}
 	</select>
 	
 	<!-- 업체 아이디 찾기 -->

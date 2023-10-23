@@ -111,9 +111,8 @@ input {
 #keyShow {
 	position: absolute;
 	display: none;
-	margin-left: 160px;
-	margin-top: -40px;
-	font-size: 15px;
+	margin-left: 193px;
+	margin-top: -41px;
 	cursor: pointer;
 	color: black;
 }
@@ -229,7 +228,7 @@ p1 {
 						id="storepw" class="pswd" placeholder="비밀번호를 입력해주세요."
 						name="storepw" maxlength="16">
 					</span>
-					<div id="keyShow">SHOW</div>
+					<div id="keyShow"><img src="/dda/image/hide.png" width="20px"></div>
 				</div>
 				<button id="loginButton" class="btn_login" value="로그인" type="submit" style= "margin-bottom: 10px"
 					disabled>로그인</button>
@@ -257,13 +256,16 @@ p1 {
 		}).focus();
 
 		$("#keyShow").on("click", function() {
-			if ($(".pswd").attr("type") == "password") {
-				$(".pswd").attr("type", "text");
-				$($(this)).text("H I D E");
-			} else {
-				$(".pswd").attr("type", "password");
-				$($(this)).text("SHOW");
-			}
+		    const passwordInput = $(".pswd");
+		    const eyeIcon = $(this);
+
+		    if (passwordInput.attr("type") == "password") {
+		        passwordInput.attr("type", "text");
+		        eyeIcon.html('<img src="/dda/image/show.png"  width="20px" alt="Show">');
+		    } else {
+		        passwordInput.attr("type", "password");
+		        eyeIcon.html('<img src="/dda/image/hide.png" width="20px" alt="Hide">');
+		    }
 		});
 	</script>
 </body>

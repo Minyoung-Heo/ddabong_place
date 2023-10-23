@@ -139,7 +139,8 @@ h5 {
 					<th>
 						<div class="buttons">
 							<input type="button" value="매장 보기" onclick="location.href='detailview?store_id=${dto.store_id}'"> <input type="button"
-								value="지도 보기"> <input type="button" value="예약 취소">
+								value="지도 보기"> 
+								<input type="button" value="예약 취소"  onclick="location.href='ReservationDelete?reservation_num=${dto.reservation_num}'">
 						</div>
 					</th>
 				</tr>
