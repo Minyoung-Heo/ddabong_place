@@ -76,7 +76,7 @@ margin-left:170px;
   width: auto;
   overflow-y: auto;
   font-size: 35px;
-  z-index: 15;
+  z-index: 1500;
   padding:40px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -104,7 +104,7 @@ text-decoration: none;
   position: fixed;
   top: 105px;
   width: 0;
-  z-index:11;
+  z-index:1100;
   background-color: white;
   transform: rotate(45deg);
   
@@ -114,7 +114,7 @@ width:100%;
 display: flex;
 top:0;
 position: fixed;
-z-index: 10;
+z-index: 1000;
 background-color: white;
 }
 </style>
