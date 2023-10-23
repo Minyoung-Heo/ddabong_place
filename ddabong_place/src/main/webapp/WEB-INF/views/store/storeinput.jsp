@@ -12,7 +12,6 @@
 
 h1 {
   color: black;
-  font-size: 2em;
   position: relative;
   font-size: 50px;
 }
@@ -27,7 +26,7 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 30px;
+  margin-top: 60px;
   width: 100%;
 }
 
@@ -48,16 +47,65 @@ input {
   border-radius: 40px;
   background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
   color: white;
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: 2px;
   position: relative;
   left: 0px;
 }
 
-.feature input[type="checkbox"], .dessert input[type="checkbox"] {
-  width: 18px; /* 원하는 너비 값으로 조절하세요 */
-  height: 18px; /* 원하는 높이 값으로 조절하세요 */
-  vertical-align: bottom; /* 체크박스 위치 조정 */
+label {
+	margin-left: 15px;
+	position: relative;
+	left: -10px;
+}
+
+.feature, .dessert{
+	font-size: 18px;
+}
+
+.feature input[type="checkbox"], .dessert input[type="checkbox"]{ 
+	position:absolute;
+    width:20px; 
+    height:20px;
+    margin:0px;
+    overflow:hidden;
+    clip:rect(0,0,0,0); 
+    border:0;
+    display: none;
+}
+
+.feature input[type="checkbox"] + label, .dessert input[type="checkbox"] + label{ 
+	display:inline-block; 
+    position:relative; 
+    padding-left:26px; 
+    cursor:pointer; 
+}
+
+.feature input[type="checkbox"] + label:before, .dessert input[type="checkbox"] + label:before{ 
+	content:''; 
+    position:absolute; 
+    left:0; 
+    top: 50%; /* 글씨를 수직 가운데로 위치시키기 위해 top을 50%로 조절 */
+    transform: translateY(-50%); /* 글씨를 수직 가운데로 위치시킴 */ 
+    width:18px; 
+    height:18px; 
+    text-align:center; 
+    background:#fff; 
+    border:1px solid #ccc; 
+    box-sizing:border-box; 
+}
+
+/* 보여질 부분의 스타일을 추가하면 된다. */
+.feature input[type="checkbox"]:checked + label:after, .dessert input[type="checkbox"]:checked + label:after{ 
+	content: ''; 
+    position:absolute; 
+    top:3px; 
+    left:0;
+    top: 50%; /* 글씨를 수직 가운데로 위치시키기 위해 top을 50%로 조절 */
+    transform: translateY(-50%); /* 글씨를 수직 가운데로 위치시킴 */ 
+    width:18px; 
+    height:18px; 
+    background-color:rgb(252,113,7);
 }
 
 .lineintro textarea, .intro textarea {
@@ -204,17 +252,11 @@ function check(){
     }
 
     var caddr3 = f.addr3.value;
-    var vaddr3 = /^[~!@#$%^&*(),_+|<>?:{}가-힣0-9\s]{1,50}$/;
 
     if(caddr3== "" || caddr3==" "){
         alert("매장 주소 공백은 안돼요");
         f.addr3.select();
         return false;
-    }
-    if(!vaddr3.test(caddr3)){
-        alert("매장 주소는 숫자나 한글만 입력해주세요");
-		f.addr3.select();
-		return false;
     }
 
     var cmain_menu = f.main_menu.value;
@@ -371,27 +413,27 @@ textarea.addEventListener("input", function () {
           
           	<div class="feature">
             <h4>특징</h4>
-            	<label><input type="checkbox" name="feature" value="노키즈존">노키즈존</label>
-	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 O">반려견 동반 입장 O</label>
-	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 X">반려견 동반 입장 X</label><br>
-	        	<label><input type="checkbox" name="feature" value="주차장 O">주차장 O</label>
-	        	<label><input type="checkbox" name="feature" value="주차장 X">주차장 X</label>
-	        	<label><input type="checkbox" name="feature" value="루프탑">루프탑</label><br>
-	        	<label><input type="checkbox" name="feature" value="테라스">테라스</label>
-	        	<label><input type="checkbox" name="feature" value="노트북 사용 O">노트북 사용 O</label>
-	        	<label><input type="checkbox" name="feature" value="노트북 사용 X">노트북 사용 X</label>
+            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"><label for="feature1">노키즈존</label>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"><label for="feature2">반려견 동반 입장 O</label>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"><label for="feature3">반려견 동반 입장 X</label><br>
+	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"><label for="feature4">주차장 O</label>
+	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"><label for="feature5">주차장 X</label>
+	        	<input type="checkbox" name="feature" value="루프탑" id="feature6"><label for="feature6">루프탑</label><br>
+	        	<input type="checkbox" name="feature" value="테라스" id="feature7"><label for="feature7">테라스</label>
+	        	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"><label for="feature8">노트북 사용 O</label>
+	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"><label for="feature9">노트북 사용 X</label>
           	</div>
           
           	<div class="dessert">
             <h4>디저트</h4>
-            	<label><input type="checkbox" name="dessert" value="케이크">케이크</label>
-            	<label><input type="checkbox" name="dessert" value="마들렌">마들렌</label>
-            	<label><input type="checkbox" name="dessert" value="스콘">스콘</label>
-            	<label><input type="checkbox" name="dessert" value="마카롱">마카롱</label><br>
-            	<label><input type="checkbox" name="dessert" value="크로플">크로플</label>
-            	<label><input type="checkbox" name="dessert" value="푸딩">푸딩</label>
-            	<label><input type="checkbox" name="dessert" value="쿠키">쿠키</label>
-            	<label><input type="checkbox" name="dessert" value="빙수">빙수</label>
+            	<input type="checkbox" name="dessert" value="케이크" id="dessert1"><label for="dessert1">케이크</label>
+            	<input type="checkbox" name="dessert" value="마들렌" id="dessert2"><label for="dessert2">마들렌</label>
+            	<input type="checkbox" name="dessert" value="스콘" id="dessert3"><label for="dessert3">스콘</label>
+            	<input type="checkbox" name="dessert" value="마카롱" id="dessert4"><label for="dessert4">마카롱</label><br>
+            	<input type="checkbox" name="dessert" value="크로플" id="dessert5"><label for="dessert5">크로플</label>
+            	<input type="checkbox" name="dessert" value="푸딩" id="dessert6"><label for="dessert6">푸딩</label>
+            	<input type="checkbox" name="dessert" value="쿠키" id="dessert7"><label for="dessert7">쿠키</label>
+            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"><label for="dessert8">빙수</label>
            	</div>
           
            	<div class="submit">
