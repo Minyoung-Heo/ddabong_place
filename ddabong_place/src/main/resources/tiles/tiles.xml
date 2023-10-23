@@ -19,7 +19,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/main.jsp" />
 	</definition>
-	
+
+	<!-- 메인 팝업 -->
+	<definition name="main_popup" extends="popupLayout">
+		<put-attribute name="title" value="메인 팝업창" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/main_popup.jsp" />
+	</definition>
+
 	<!-- 로그인 선택창 -->
 	<definition name="selectLogin" extends="baseLayout">
 		<put-attribute name="title" value="로그인 선택창" />
@@ -57,12 +64,12 @@
 	</definition>
 	<!-- @@카페추천종료@@ -->
 
-<!-- 회원용 매장 상세출력 -->
-  <definition name="personaldetail" extends="baseLayout">
-      <put-attribute name="title" value="매장정보 상세보기" />
-      <put-attribute name="body"
-         value="/WEB-INF/views/personalfunction/personaldetail.jsp" />
-   </definition>
+	<!-- 회원용 매장 상세출력 -->
+	<definition name="personaldetail" extends="baseLayout">
+		<put-attribute name="title" value="매장정보 상세보기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personalfunction/personaldetail.jsp" />
+	</definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 메인 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
@@ -101,8 +108,8 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalJoin.jsp" />
 	</definition>
-	
-	
+
+
 
 	<!-- 유저 회원 아이디비번찾기 -->
 	<definition name="personalFind" extends="baseLayout">
@@ -224,7 +231,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeJoin.jsp" />
 	</definition>
-	
+
 	<!-- 업체 회원 마이페이지 비번 확인 -->
 	<definition name="storepwcheck" extends="baseLayout">
 		<put-attribute name="title" value="마이페이지 비번 확인" />
@@ -260,21 +267,21 @@
 			value="/WEB-INF/views/store/storestatus.jsp" />
 	</definition>
 	<!-- 매장 예약하기 -->
-		<definition name="reservation" extends="baseLayout">
+	<definition name="reservation" extends="baseLayout">
 		<put-attribute name="title" value="매장 예약하기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personalfunction/reservation.jsp" />
 	</definition>
-		<!-- 유저 회원 예약 현황 -->
+	<!-- 유저 회원 예약 현황 -->
 	<definition name="myStatus" extends="baseLayout">
 		<put-attribute name="title" value="개인회원 예약 현황" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personalfunction/myStatus.jsp" />
 	</definition>
-	
+
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 업체 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
-<!-- QNA 시작 -->
+	<!-- QNA 시작 -->
 	<definition name="qnaForm" extends="baseLayout">
 		<put-attribute name="title" value="QnA" />
 		<put-attribute name="body"
@@ -317,7 +324,7 @@
 			value="/WEB-INF/views/qna/replyInput.jsp" />
 	</definition>
 	<!-- QNA 종료 -->
-<!-- 	웨이팅 시작 -->
+	<!-- 웨이팅 시작 -->
 	<definition name="waitingInput" extends="baseLayout">
 		<put-attribute name="title" value="웨이팅 등록" />
 		<put-attribute name="body"
@@ -329,34 +336,34 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/waiting/waitingDone.jsp" />
 	</definition>
-	
+
 	<definition name="myWaiting" extends="baseLayout">
 		<put-attribute name="title" value="웨이팅 현황" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/waiting/myWaiting.jsp" />
 	</definition>
-	
-		<definition name="waitingDetail" extends="baseLayout">
+
+	<definition name="waitingDetail" extends="baseLayout">
 		<put-attribute name="title" value="대기번호 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/waiting/waitingDetail.jsp" />
 	</definition>
-	
-		<definition name="storeWaitingList" extends="baseLayout">
+
+	<definition name="storeWaitingList" extends="baseLayout">
 		<put-attribute name="title" value="웨이팅 목록" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/waiting/storeWaitingList.jsp" />
 	</definition>
-<!-- 	웨이팅 종료 -->
+	<!-- 웨이팅 종료 -->
 
-<!-- 카페보러가기 -->
-<definition name="cafeOut" extends="baseLayout">
+	<!-- 카페보러가기 -->
+	<definition name="cafeOut" extends="baseLayout">
 		<put-attribute name="title" value="카페 리스트" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cafe/cafeOut.jsp" />
 	</definition>
 
-<!-- 캘린더 예비용 -->
+	<!-- 캘린더 예비용 -->
 	<definition name="calendar" extends="baseLayout">
 		<put-attribute name="title" value="일정 보기" />
 		<put-attribute name="body"
