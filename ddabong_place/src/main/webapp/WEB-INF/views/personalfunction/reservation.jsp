@@ -19,6 +19,22 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
 $(function() {
+	var num = 1;
+	// 인원수 증가버튼
+	$("#plus").click(function() {
+				num = num + 1;
+				$("#person").html(num);
+				$("#person_num").val(num);
+	});
+	// 인원수 감소버튼
+	$("#minus").click(function() {
+		if(num > 0) { // 0 밑으로 떨어지지 않게 설정
+		num = num - 1;
+		$("#person").html(num);
+		$("#person_num").val(num);
+		}
+		});
+	
     $("#reservbnt").click(function(event) {
         var f = document.reserv;
         var cdate = f.reservation_date.value;
@@ -59,22 +75,7 @@ $(function() {
 		});
     });
     
-    var num = 1;
-	// 인원수 증가버튼
-	$("#plus").click(function() {
-				num = num + 1;
-				$("#person").html(num);
-				$("#person_num").val(num);
-	});
-	// 인원수 감소버튼
-	$("#minus").click(function() {
-		if(num > 0) { // 0 밑으로 떨어지지 않게 설정
-		num = num - 1;
-		$("#person").html(num);
-		$("#person_num").val(num);
-		}
-});
-});
+    
 
 // 데이트 픽커
 	$.datepicker.setDefaults({
@@ -185,7 +186,7 @@ $(function() {
 	<table class="wait">
 	<input type="hidden" name="store_id" value="${store_id}">
 	<input type="hidden" name="customer_id" value="${personal.id}">
-	<tr><td>예약일자</td><td><input class="datepicker" name="reservation_date" autocomplete="off"></td></tr>
+	<tr><td>예약일자</td><td><input class="datepicker" name="reservation_date" id="reservation_date" autocomplete="off"></td></tr>
 	<tr><td>예약시간</td><td><input type="time" name="reservation_time"></td></tr>
 	<tr><td>예약자명</td><td><input type="text" name="reservation_name"></td></tr>
 	<tr><td>인원 수</td>
@@ -198,7 +199,7 @@ $(function() {
 	</tr>
 	
 	<tr><td colspan="2" style="text-align: center;">
-	<input class="btn" id="reservbnt" type="submit" value="예약하기"></td></tr>
+	<input class="btn" id="reservbnt" type="button" value="예약하기"></td></tr>
 	</table>
 	</form>
 </c:when>
