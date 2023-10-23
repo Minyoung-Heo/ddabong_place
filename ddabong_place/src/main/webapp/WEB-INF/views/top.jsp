@@ -123,7 +123,7 @@ background-color: white;
 <header>
 <div class="flex-header">
 <img class="menu_icon" src="/dda/image/menu.png" 
-width="58px" style="margin-left:200px;"> 
+width="44px" height="52px" style="margin-left:200px; margin-top:40px;">  
 
 	<a href="main"><img class="header2" src="/dda/image/DDAlogo.png"
 		width="300px"></a>

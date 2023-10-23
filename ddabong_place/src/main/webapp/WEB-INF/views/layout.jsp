@@ -24,7 +24,6 @@
 }
 
 .header2 {
-   margin:10px;
    margin-top:25px;
 }
 
@@ -40,9 +39,10 @@
    width: 25px;
    height:25px;
    top: 55px;
-   left: 66.5%;
+   left: 64.5%;
 }
 .in2 {
+	background-color:white;
    width: 700px;
    height: 60px;
    border: 3px solid #ff8c00;
@@ -136,7 +136,10 @@ font-family: 'TmoneyRoundWindExtraBold';
     font-weight: normal;
     font-style: normal;
 }
-
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus,
+ input:-webkit-autofill:active 
+{ transition: background-color 5000s ease-in-out 0s; }
 </style>
 <meta charset="UTF-8">
 <title><t:insertAttribute name="title" /></title>

@@ -90,7 +90,7 @@ border-style:solid;
 <body>
 	<br>
 	<br>
-	<h1>"${searchValue }"를 검색하신 결과입니다</h1>
+	<h1>"${searchValue }"를 검색하신 결과입니다.</h1>
 	<br>
 	<h3>상호명 검색결과</h3> 
 <!-- 	상호명 검색결과 시작 -->
@@ -117,7 +117,7 @@ border-style:solid;
 				</c:when>
 				<c:otherwise>
 					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
+					<h1>검색 결과가 존재하지 않습니다.</h1>
 					</div>
 				</c:otherwise>
 			</c:choose>
@@ -148,7 +148,7 @@ border-style:solid;
 				</c:when>
 				<c:otherwise>
 					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
+					<h1>검색 결과가 존재하지 않습니다.</h1>
 					</div>
 				</c:otherwise>
 			</c:choose>
