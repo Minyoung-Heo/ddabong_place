@@ -22,6 +22,7 @@
 		});
 	});
 </script>
+<jsp:include page="main_popup.jsp"/>
 <style type="text/css">
 h1{
 margin: 30px;
@@ -134,19 +135,19 @@ margin-left: 40px;
 .dessertIcon img {
 margin:20px;
 }
-.main-banner{
+.main-banner2{
 text-align: center;
-
 width: 1200px;
 height: 500px;
-border: 1px solid black;
 margin-top: 70px;
-margin-left: 700px;
+margin-left: 17%;
 }
 </style>
 </head>
 <body>
-<div class="main-banner"></div>
+<div class="main-banner2">
+<a  href=""><img alt="메인배너1" src="/dda/image/main_banner.png"></a>
+</div>
 <h1>디저트별 카페 추천</h1>
 <div class="dessertIcon">
 <a href="godessert?dessert=케이크"><img src="/dda/image/케이크.png" width="140px"></a>

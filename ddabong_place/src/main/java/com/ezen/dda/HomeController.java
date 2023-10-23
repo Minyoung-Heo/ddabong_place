@@ -64,4 +64,9 @@ public class HomeController {
 		return "main";
 	}
 
+	// 메인 팝업
+		@RequestMapping(value = "/main_popup")
+		public String main_popup() {
+			return "main_popup";
+		}
 }
