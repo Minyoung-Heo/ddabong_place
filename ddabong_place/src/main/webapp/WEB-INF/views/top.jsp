@@ -75,9 +75,9 @@ margin-left:170px;
   height: auto;
   width: auto;
   overflow-y: auto;
-  font-size: 35px;
   z-index: 1500;
-  padding:40px;
+  padding:30px;
+  line-height:35px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,7 +85,7 @@ margin-left:170px;
 margin-top: 20px;
 color:#ffaf4d;
 text-decoration: none;
-font-size: 25px;
+font-size: 19px;
 }
 
 .menu_div a:hover {
@@ -97,12 +97,12 @@ text-decoration: none;
   box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1);
   border-color: white transparent; 
   border-style: solid;
-  border-width: 15px 15px 15px 15px;
+  border-width: 8px 8px 8px 8px;
   content: '';
   display: block;
   left: 210px;
   position: fixed;
-  top: 105px;
+  top: 112px;
   width: 0;
   z-index:1100;
   background-color: white;
