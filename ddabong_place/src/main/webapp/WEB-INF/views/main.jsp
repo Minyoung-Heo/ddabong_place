@@ -143,16 +143,16 @@ margin:20px;
 <br><br><br>
 <h1>디저트별 카페 추천</h1>
 <div class="dessertIcon">
-<a href=""><img src="/dda/image/케이크.png" width="140px"></a>
-<a href=""><img src="/dda/image/마카롱.png" width="140px"></a>
-<a href=""><img src="/dda/image/푸딩.png" width="140px"></a>
-<a href=""><img src="/dda/image/크로플.png" width="140px"></a>
+<a href="godessert?dessert=케이크"><img src="/dda/image/케이크.png" width="140px"></a>
+<a href="godessert?dessert=마카롱"><img src="/dda/image/마카롱.png" width="140px"></a>
+<a href="godessert?dessert=푸딩"><img src="/dda/image/푸딩.png" width="140px"></a>
+<a href="godessert?dessert=크로플"><img src="/dda/image/크로플.png" width="140px"></a>
 </div>
 <div class="dessertIcon">
-<a href=""><img src="/dda/image/스콘.png" width="140px"></a>
-<a href=""><img src="/dda/image/마들렌.png" width="140px"></a>
-<a href=""><img src="/dda/image/쿠키.png" width="140px"></a>
-<a href=""><img src="/dda/image/빙수.png" width="140px"></a>
+<a href="godessert?dessert=스콘"><img src="/dda/image/스콘.png" width="140px"></a>
+<a href="godessert?dessert=마들렌"><img src="/dda/image/마들렌.png" width="140px"></a>
+<a href="godessert?dessert=쿠키"><img src="/dda/image/쿠키.png" width="140px"></a>
+<a href="godessert?dessert=빙수"><img src="/dda/image/빙수.png" width="140px"></a>
 </div>
 
 <h1>어디로 갈까요?</h1>

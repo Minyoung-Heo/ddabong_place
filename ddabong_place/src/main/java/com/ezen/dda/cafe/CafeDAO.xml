@@ -21,4 +21,12 @@ SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
 main_menu, main_image, region_name, feature, dessert 
 from registration where region_name = #{param1}
 </select>
+
+<select id="cafeDessert" resultType="com.ezen.dda.cafe.CafeDTO">
+select store_id, storename, tel, address, lineintro, intro, 
+SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
+main_menu, main_image, region_name, feature, dessert 
+from registration where dessert like '%' || #{param1} || '%'
+</select>
+
 </mapper>

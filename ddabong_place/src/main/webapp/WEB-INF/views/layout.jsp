@@ -13,58 +13,46 @@
 <link href="image/ddabong.png" rel="shortcut icon" type="image/x-icon"> <!-- 로고 변경 -->
 <style type="text/css">
 .login {
-   float: right;
-   position: relative;
-   text-align: right;
-   margin-right: 50px;
-   margin-top: -5px;
-   margin-bottom: 0px;
+   margin-top:52px;
 }
 
 .login a {
-   margin-left: 50px;
+   margin-left: 55px;
    color: #FF8C00;
    text-decoration: none;
    font-size: 20px;
 }
 
 .header2 {
-   float: left;
-   position: relative;
-   margin-top: -40px;
-   margin-left: 20px;
+   margin:10px;
+   margin-top:25px;
 }
 
 .search {
-   margin-top: -33px;
-   float: right;
-   margin-right: 1100px;
-   position: relative;
-   width: 300px;
+   margin-top: 36px;
 }
 #searchbtn {
 	border: none;
-	border-radius: 0px;
 	background-image: url("/dda/image/search.png"); 
  	background-size:cover;
  	background-color:white;
-	  position: absolute;
+	position: absolute;
    width: 25px;
    height:25px;
-   top: 19px;
-   left: 233%;
-   margin: 0;
+   top: 55px;
+   left: 66.5%;
 }
 .in2 {
-   width: 250%;
+   width: 700px;
    height: 60px;
    border: 3px solid #ff8c00;
    border-radius: 50px;
-   padding: 10px 12px;
+   padding: 10px 17px;
    font-size: 14px;
-   	outline: none;
+   outline: none;
+   margin-left: 20px;
+   	
 }
-
 
 #container {
    border: 1px slid #bcbcbc;

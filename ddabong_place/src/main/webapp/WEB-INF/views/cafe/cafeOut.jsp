@@ -145,6 +145,33 @@ font-size: 20px;
         if (region === "혜화") {
             $('.btn[value="혜화"]').css('background-color', '#ffba66');
         }
+        
+        var dessert = "${dessert}";
+        if (dessert === "마들렌") {
+            $('.btn[value="마들렌"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "마카롱") {
+            $('.btn[value="마카롱"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "빙수") {
+            $('.btn[value="빙수"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "스콘") {
+            $('.btn[value="스콘"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "케이크") {
+            $('.btn[value="케이크"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "쿠키") {
+            $('.btn[value="쿠키"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "크로플") {
+            $('.btn[value="크로플"]').css('background-color', '#ffba66');
+        }
+        if (dessert === "푸딩") {
+            $('.btn[value="푸딩"]').css('background-color', '#ffba66');
+        }
+        
     });
 </script>
 
@@ -158,12 +185,17 @@ font-size: 20px;
             <c:when test="${region != null}">
             <a href="gocafe">전체 목록 보기</a><br>
             <a href="goregion?region_name=강남" style="color:#ff8c00;">지역별 카페 보기</a><br>
-            <a href="">디저트별 카페 보기</a>
+            <a href="godessert?dessert=케이크">디저트별 카페 보기</a>
+            </c:when>
+            <c:when test="${dessert != null}">
+            <a href="gocafe">전체 목록 보기</a><br>
+            <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
+            <a href="godessert?dessert=케이크" style="color:#ff8c00;">디저트별 카페 보기</a>
             </c:when>
             <c:otherwise>
             <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
             <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
-            <a href="">디저트별 카페 보기</a><br>
+            <a href="godessert?dessert=케이크">디저트별 카페 보기</a><br>
             </c:otherwise>
             </c:choose>
         </div>
@@ -178,6 +210,16 @@ font-size: 20px;
              <input class="btn" type="button" value="잠실" onclick="location.href='goregion?region_name=잠실'">
              <input class="btn" type="button" value="혜화" onclick="location.href='goregion?region_name=혜화'">
             </c:if>
+            <c:if test="${dessert != null}">
+             <input class="btn" type="button" value="케이크" onclick="location.href='godessert?dessert=케이크'" >
+             <input class="btn" type="button" value="마카롱" onclick="location.href='godessert?dessert=마카롱'">
+             <input class="btn" type="button" value="푸딩" onclick="location.href='godessert?dessert=푸딩'">
+             <input class="btn" type="button" value="크로플" onclick="location.href='godessert?dessert=크로플'">
+             <input class="btn" type="button" value="스콘" onclick="location.href='godessert?dessert=스콘'">
+             <input class="btn" type="button" value="마들렌" onclick="location.href='godessert?dessert=마들렌'">
+             <input class="btn" type="button" value="쿠키" onclick="location.href='godessert?dessert=쿠키'">
+             <input class="btn" type="button" value="빙수" onclick="location.href='godessert?dessert=빙수'">
+            </c:if>
        <div class="flex-container">
 		<div class="flex-item">
 			<hr>
@@ -189,7 +231,7 @@ font-size: 20px;
 						<a href="detailview?store_id=${dto.store_id}"> <img alt=""
 							src="/dda/image/${dto.image}" width="200px"></a>
 					</div>
-
+					
 					<div class="intro" style="width:60%;">
 					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
 						<h3>${dto.storename}</h3>

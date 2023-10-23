@@ -60,7 +60,7 @@ WHERE a.store_id = #{param1}
 		values(review_num_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
 	</insert>
 	
-	
+<!-- 	예약확인 -->
 	<select id="myStatus"
 		resultType="com.ezen.dda.personalfunction.ReservationDTO">
 		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
@@ -69,4 +69,9 @@ WHERE a.store_id = #{param1}
 		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
 		WHERE rs.customer_id = #{param1}
 	</select>
+	
+	<!-- 예약 삭제 -->
+	<delete id="reservationDelete">
+		delete RESERVATION where reservation_num=#{param1}
+	</delete>
 </mapper>
