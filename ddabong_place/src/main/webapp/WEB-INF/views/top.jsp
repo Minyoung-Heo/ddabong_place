@@ -58,73 +58,84 @@
     
 <meta charset="UTF-8">
 <style type="text/css">
-#topnav {
-top:-200px;
-width: 100%;
-height: 80px;
-background-color: white;
-position: fixed;
-opacity: 1;
-display: flex;
-padding: 5px;
-z-index: 1000;
-transition: top 0.2s;
-}
-#topnav > .tvl > a {
-font-size: 20px;
-margin-top:25px;
-color: #ff8c00;
-}
-#topnav > .tvl > a:hover {
-text-decoration: none;
-}
 .menu_icon {
 cursor:pointer;
+margin:15px;
+margin-top:30px;
 }
+
 .menu_div {
-margin-left:15px;
-  background-color:#ff8c00;
+margin-left:170px;
+  background-color:white;
   position: fixed;
-  border-radius: 19px;
+  border-radius: 20px;
   display:none;
-  top: 100px;
+  top: 120px;
   left: 0;
   height: auto;
   width: auto;
   overflow-y: auto;
-  font-size: 35px;
-  z-index: 1000;
-  padding:40px;
-  border:3.3px solid #ff8c00;
-}
-.menu_div > a {
-margin-top: 20px;
-color:white;
-text-decoration: none;
-}
-.menu_div a:hover {
-color:#ffe8cc;
+  z-index: 1500;
+  padding:30px;
+  line-height:35px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu_div::before {
-  border-color: #ff8c00 transparent; 
+.menu_div > a {
+margin-top: 20px;
+color:#ffaf4d;
+text-decoration: none;
+font-size: 19px;
+}
+
+.menu_div a:hover {
+color: #ff8c00;
+text-decoration: none;
+}
+
+.menu_div::after {
+  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1);
+  border-color: white transparent; 
   border-style: solid;
-  border-width: 0 15px 22px 15.5px;
+  border-width: 8px 8px 8px 8px;
   content: '';
   display: block;
-  left: 40px;
+  left: 210px;
   position: fixed;
-  top: 87px;
+  top: 112px;
   width: 0;
-  z-index: 1100;
+  z-index:1100;
+  background-color: white;
+  transform: rotate(45deg);
+  
+}
+.flex-header {
+width:100%;
+display: flex;
+top:0;
+position: fixed;
+z-index: 1000;
+background-color: white;
 }
 </style>
 </head>
 
 <header>
+<div class="flex-header">
+<img class="menu_icon" src="/dda/image/menu.png" 
+width="44px" height="52px" style="margin-left:200px; margin-top:40px;">  
+
 	<a href="main"><img class="header2" src="/dda/image/DDAlogo.png"
-		width="450px"></a>
-	<div class="login">
+		width="300px"></a>
+		
+	 <form action="search" method="post">
+        <div class="search">
+            <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
+      <button id="searchbtn"></button>
+        </div>
+        </form>
+        
+        <div class="login">
 		<c:choose>
 			<c:when test="${personalloginstate == true}">
 				<a href="personalpwcheck"> ${personal.nickname } 님 어서오세요.</a>
@@ -142,43 +153,6 @@ color:#ffe8cc;
 			</c:otherwise>
 		</c:choose>
 	</div>
-	 <form action="search" method="post">
-        <div class="search">
-            <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
-      <button id="searchbtn"></button>
-        </div>
-        </form>
-        
-        <div id="topnav"> 
-        <img class="menu_icon" src="/dda/image/menu.png" width="35px" style="margin-left:30px; margin:15px;"> 
-        <a style="margin-top:10px;" href="main"><img src="/dda/image/DDAlogo.png" width="200px"></a>
-        
-        <form action="search" method="post">
-        <div class="search" style="margin-top:5px; margin-left:20px; width:300px;">
-            <input class="in2" type="text" placeholder="검색어 입력" name="searchValue" id="searchValue">
-      <button id="searchbtn" style="margin-right:10px;"></button>
-        </div>
-        </form>
-        
-		    <div class="tvl" style="display:flex; width:500px;">
-		<c:choose>
-			<c:when test="${personalloginstate == true}">
-				<a href="personalpwcheck" style="margin-right: 20px;">마이페이지</a>
-				<a href="personallogout"> 로그아웃</a>
-			</c:when>
-
-			<c:when test="${storeloginstate == true}">
-				<a href="storeoutput?store_id=${store.id}" style="margin-right: 20px;">마이페이지</a>
-				<a href="storelogout">로그아웃</a>
-			</c:when>
-
-			<c:otherwise>
-				<a style="margin-right:40px;" href="selectJoin">회원가입</a>
-				<a href="selectLogin">로그인</a>
-			</c:otherwise>
-		</c:choose>
-  
-        	</div>  
         </div>
         
       <c:choose>

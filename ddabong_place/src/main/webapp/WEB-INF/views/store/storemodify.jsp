@@ -30,7 +30,7 @@ h1 {
 }
 
 input {
-  width: 70%;
+  width: 80%;
   height: 50px;
   border-radius: 30px;
   margin-top: 10px;

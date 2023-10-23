@@ -39,4 +39,17 @@ public class CafeController {
 		model.addAttribute("region", region_name);
 		return "cafeOut";
 	}
+	
+	// 디저트별 카페 보러가기
+		@RequestMapping(value = "/godessert", method = RequestMethod.GET)
+		public String godessert(HttpServletRequest request, Model model) {
+			String dessert = request.getParameter("dessert");
+			CafeService cafeService = sqlSession.getMapper(CafeService.class);
+			ArrayList<CafeDTO> cafeList = cafeService.cafeDessert(dessert); // 지역별 카페 리스트
+			ArrayList<CafeDTO> reviewList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+			model.addAttribute("cafeList", cafeList);
+			model.addAttribute("reviewList", reviewList);
+			model.addAttribute("dessert", dessert);
+			return "cafeOut";
+		}
 }

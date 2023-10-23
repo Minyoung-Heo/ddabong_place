@@ -4,157 +4,221 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.slide_div').slick({
-			  infinite: true,
-			  slidesToShow: 3,
-			  slidesToScroll: 3
-			});
-	});
-	
-</script>
 <style type="text/css">
-.slick-prev {
-	left: 160px;
-	z-index: 1;
-	background-color: red;
+.flex-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
 }
 
-.slick-next {
-	right: 160px;
-	z-index: 1;
-	background-color: red;
-}
-.slide_div img {
-	margin: auto;
+.flex-container-inner {
+	display: flex;
 }
 
-.slide_div_wrap {
-	padding: 15px 0 15px 0;
-	background: #ffffff;
-	height: 500px;
+.flex-item img {
+	max-width: 100%;
 }
 
-.image_wrap img {
-	max-width: 85%;
-	height: auto;
-	display: block;
-	margin: auto;
+.flex-item hr{
+background : #ffddb3;
+border:0;
+height:1px;
 }
-.tb{
-margin-top: 50px;
+.flex-item h3 {
+font-size:30px;
+margin-top: 3px;
+margin-bottom:20px;
 }
-.nulldata
-{
-margin-top: 150px;
-}
-h1 {
-	text-align: center;
-}
-h3{
-text-align: left;
-}
-table {
-border-style:solid;
-	border-width: 10px;
-	border-color:black;
-	background-color: #FF8C00;
-}
-tr{
-border-style:solid;
-	border-width: 6px;
-	border-color:black;
-	background-color: #FF8C00;
-}
-td{
-border-style:solid;
-	border-width: 6px;
-	border-color:black;
-	background-color: #FF8C00;
+.flex-item {
+width:100%;
+font-size:25px;
 }
 
+.img-wrapper {
+	margin-right: 40px;
+	width: 260px;
+	height: 260px;
+	position: relative;
+}
+
+.img-wrapper img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.intro {
+	text-align: left;
+}
+
+.btn {
+	position:relative;
+	float:left;
+	background-color: #ffe8cc;
+	outline: none;
+	margin-right:15px;
+}
+
+.btn:hover {
+	background-color: #ffba66;
+}
+
+.div-container {
+    margin-top: 30px;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.category {
+    margin-top:10px;
+    width:30%;
+    margin-left:40px;
+    text-align: left;
+}
+
+.category a {
+    line-height:40px;
+    font-size:20px;
+    color:#FFBE1C;
+    text-decoration: none;
+}
+
+.category a:hover {
+    color:#ff8c00;
+}
+
+.cafe {
+    text-align: left;
+    width: 90%;
+}
+.region {
+font-size: 15px;
+color:gray;
+}
+.region img {
+margin-right: 3px;
+margin-bottom:4px;
+}
+.review img {
+width:25px;
+margin-right:5px;
+margin-bottom:5px;
+}
+.review {
+font-size: 20px;
+}
 </style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<br>
-	<br>
-	<h1>"${searchValue }"를 검색하신 결과입니다</h1>
-	<br>
-	<h3>상호명 검색결과</h3> 
-<!-- 	상호명 검색결과 시작 -->
-	<div class="slide_div_wrap">
-		<div class="slide_div">
-			<c:choose>
-				<c:when test="${storelist.size()>=1 }">
-					<c:forEach items="${ storelist}" var="aa" varStatus="loop">
-						<a href="detailview?store_id=${aa.store_id }">
-						<div class="tb">
-							<table border="1" align="center" heigt="500px" width="600px">
-								<tr>
-									<td><img src="/dda/image/${ aa.imageList[0]}" width="300px"
-										height="300px"></td>
-								</tr>
-								<tr>
-									<td>${aa.storename }</td>
-									<td>${aa.region_name }</td>
-									<td>${aa.dessert }</td>
-								</tr>
-							</table>
-						</div></a>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
-	<br>
-<!-- 	상호명 검색 결과 끝 , 지역별 검색결과 출력 시작 -->
-	<h3>지역별 검색결과</h3>
-	<div class="slide_div_wrap">
-		<div class="slide_div">
-			<c:choose>
-				<c:when test="${regionlist.size()>=1 }">
-					<c:forEach items="${ regionlist}" var="bb">
-						<div class="tb">
-							<table border="1" align="center" heigt="500px" width="600px">
-								<tr>
-									<td><img src="/dda/image/${ bb.image}" width="300px"
-										height="300px"></td>
-								</tr>
-								<tr>
-									<td>${bb.storename }</td>
-									<td>${bb.region_name }</td>
-									<td>${bb.dessert }</td>
-								</tr>
-							</table>
-						</div>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
+<br><br>
+<h1>"${searchValue}"을(를) 검색하신 결과입니다.</h1>
+    <div class="div-container">
+        <div class="category">
+            <h1 style="margin-bottom: 11px;">카페 보러가기</h1>
+            <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
+            <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
+            <a href="godessert?dessert=케이크">디저트별 카페 보기</a><br>
+        </div>
 
+        <div class="cafe">
+            <h3 style="color:gray;">상호명 검색결과</h3>
+            <!-- 	상호명 검색결과 시작 -->
+       <div class="flex-container">
+		<div class="flex-item">
+			<hr>
+			<c:choose>
+			<c:when test="${storelist.size()>=1 }">
+			<c:forEach items="${ storelist}" var="dto" varStatus="loop">
+
+				<div class="flex-container-inner">
+
+					<div class="img-wrapper">
+						<a href="detailview?store_id=${dto.store_id}"> <img alt=""
+							src="/dda/image/${dto.imageList[0]}" width="200px"></a>
+					</div>
+					
+					<div class="intro" style="width:60%;">
+					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
+						<h3>${dto.storename}</h3>
+						${dto.lineintro}
+						<br><br><br>
+						<c:forEach items="${reviewList}" var="re">
+						<c:if test="${dto.store_id == re.store_id}">
+						<span class="review">
+						<img src="/dda/image/star.png">
+						${re.star_score} (${re.review_count})</span> 
+						</c:if>
+						</c:forEach>
+					</div>
+				</div>
+				<hr>
+			</c:forEach>
+			</c:when>
+				<c:otherwise>
+					<div class="nulldata">
+					<h3 style="text-align: center;">검색 결과가 존재하지 않습니다.</h3>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
+		</div>
+	</div>   
+	<br><br><br>
+	<!-- 	상호명 검색 결과 끝 , 지역별 검색결과 출력 시작 -->
+	<h3 style="color:gray;">지역별 검색결과</h3>
+	<div class="flex-container">
+		<div class="flex-item">
+			<hr>
+			<c:choose>
+			<c:when test="${regionlist.size()>=1 }">
+			<c:forEach items="${regionlist}" var="dto" varStatus="loop">
+
+				<div class="flex-container-inner">
+
+					<div class="img-wrapper">
+						<a href="detailview?store_id=${dto.store_id}"> <img alt=""
+							src="/dda/image/${dto.image}" width="200px"></a>
+					</div>
+					
+					<div class="intro" style="width:60%;">
+					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
+						<h3>${dto.storename}</h3>
+						${dto.lineintro}
+						<br><br><br>
+						<c:forEach items="${reviewList}" var="re">
+						<c:if test="${dto.store_id == re.store_id}">
+						<span class="review">
+						<img src="/dda/image/star.png">
+						${re.star_score} (${re.review_count})</span> 
+						</c:if>
+						</c:forEach>
+					</div>
+				</div>
+				<hr>
+			</c:forEach>
+			</c:when>
+				<c:otherwise>
+					<div class="nulldata">
+					<h3 style="text-align: center;">검색 결과가 존재하지 않습니다.</h3>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
+		</div>
+	</div>   
+        </div>
+    </div>
 
 </body>
 </html>

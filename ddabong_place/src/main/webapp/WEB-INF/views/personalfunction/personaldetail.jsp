@@ -60,6 +60,15 @@
 	border-left-color: #e6e6e6;
 	border-right-color: #e6e6e6;
 }
+.reviewtable {
+	width: 860px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid #b3b3b3;
+	border-radius: 20px;
+	border-left-color: #e6e6e6;
+	border-right-color: #e6e6e6;
+}
 
 .reviewsubmit {
 	position: relative;
@@ -169,6 +178,19 @@
 	height: 40px;
 	pointer-events: none;
 }
+.reviewstar img {
+width:25px;
+margin-right:5px;
+margin-bottom:5px;
+}
+.reviewstar {
+font-size: 20px;
+}
+.starout
+{
+position: relative;
+padding-right: 110px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -184,6 +206,21 @@
 			<div class="detailtable">
 				<table width="100%">
 					<tr>
+						<td style="text-align: left;"><img src="/dda/image/pin.png" width="21px"> ${regi.region_name}<br>
+						<h1>${regi.storename}</h1>
+						<span class="review">
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:if test="${regi.store_id == re.store_id}">
+						<span class="reviewstar">
+						<img src="/dda/image/star.png">
+						${re.star_score} (${re.review_count})</span> 
+						</c:if>
+						</c:forEach>
+					<img src="/dda/image/tel.png" width="18px"> ${regi.tel }
+							&emsp;&emsp;&emsp;&emsp;${regi.address}</td>
+					</tr>
+				
+					<tr>
 						<td class="center-td" style="padding: 10px;"><img
 							src="image/${regi.imageList[0]}" width="840px" height="500px"></td>
 					</tr>
@@ -197,12 +234,7 @@
 							</c:forEach></td>
 
 					</tr>
-					<tr>
-						<td style="text-align: left;"><h3>&emsp;
-								${regi.storename}</h3> &emsp;&emsp; ${regi.region_name} | ${regi.tel }
-							&emsp;&emsp;&emsp;&emsp;${regi.address}</td>
-					</tr>
-
+					
 					<tr>
 						<td><br>
 							<h3>우리 매장의 대표메뉴</h3> <br> <img
@@ -284,13 +316,15 @@
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-		<div class="detailtable">
+		<div class="reviewtable">
 			<table width="100%" height="100%" align="center">
 				<tr style="text-align: left;">
 					<td><br>&emsp;&emsp;${rev.nickname}님(${id})</td>
 				</tr>
 				<tr>
-					<td><div class="startRadio">
+					<td>
+					<div class="starout">
+					<div class="startRadio">
 							<label class="startRadio__box"> <input type="radio"
 								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
 									class="blind">별 0.5개</span></span>
@@ -322,7 +356,7 @@
 								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
 									class="blind">별 5.0개</span></span>
 							</label>
-						</div></td>
+						</div></div></td><td>드래곤</td>
 				</tr>
 				<tr>
 					<td><div class="rev-img">

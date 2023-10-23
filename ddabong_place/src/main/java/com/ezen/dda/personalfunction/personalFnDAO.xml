@@ -26,7 +26,7 @@ WHERE a.store_id = #{param1}
 		SELECT ${param2} as thismonth,
 		sum(jan+feb+mar+apr+may+jun+jul+aug+sep+oct+nov+dcb) as totaldda
 		FROM
-		ddabong WHERE store_id = #{param1}
+		ddabong where store_id = #{param1}
 		GROUP BY ${param2}
 	</select>
 
@@ -37,14 +37,14 @@ WHERE a.store_id = #{param1}
 	</select>
 
 	<insert id="reservation">
-		insert into RESERVATION
-		values(RESERVATION_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+		insert into reservation
+		values(reservation_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>
 
-	<!-- 라뷰 등록 전 예약여부 확인 -->
+	<!-- 리뷰 등록 전 예약여부 확인 -->
 	<select id="reviewcheck" resultType="int">
 		select count(*) from
-		RESERVATION
+		reservation
 		where customer_id = #{param1} and store_id = #{param2}
 	</select>
 
@@ -61,6 +61,13 @@ WHERE a.store_id = #{param1}
 	</insert>
 	
 <!-- 	예약확인 -->
+		<!-- 예약 등록 전 중복 예약여부 확인 -->
+	<select id="duplicatecheck" resultType="int">
+	select count(*) from RESERVATION where customer_id = #{param1} 
+	and TO_DATE(reservation_date, 'YY-MM-DD') = TO_DATE(#{param2}, 'YY-MM-DD')
+</select>
+
+	
 	<select id="myStatus"
 		resultType="com.ezen.dda.personalfunction.ReservationDTO">
 		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
