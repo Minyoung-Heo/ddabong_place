@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.ezen.dda.cafe.CafeDTO;
+import com.ezen.dda.cafe.CafeService;
+
 @Controller
 public class PersonalFnController {
 	@Autowired
@@ -103,7 +106,9 @@ public class PersonalFnController {
 				reviewDTO.setImageList(imageList);
 			}
 		}
-
+		CafeService cafeService = sqlSession.getMapper(CafeService.class);
+		ArrayList<CafeDTO> reviewstarList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		mo.addAttribute("reviewstarList", reviewstarList);
 		mo.addAttribute("reviewlist", reviewlist);
 		mo.addAttribute("ddabonglist", ddabonglist);
 		mo.addAttribute("registrationlist", registrationlist);

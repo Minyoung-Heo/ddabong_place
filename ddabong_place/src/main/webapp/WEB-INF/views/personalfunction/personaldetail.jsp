@@ -178,7 +178,14 @@
 	height: 40px;
 	pointer-events: none;
 }
-
+.reviewstar img {
+width:25px;
+margin-right:5px;
+margin-bottom:5px;
+}
+.reviewstar {
+font-size: 20px;
+}
 .starout
 {
 position: relative;
@@ -199,6 +206,21 @@ padding-right: 110px;
 			<div class="detailtable">
 				<table width="100%">
 					<tr>
+						<td style="text-align: left;"><img src="/dda/image/pin.png" width="21px"> ${regi.region_name}<br>
+						<h1>${regi.storename}</h1>
+						<span class="review">
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:if test="${regi.store_id == re.store_id}">
+						<span class="reviewstar">
+						<img src="/dda/image/star.png">
+						${re.star_score} (${re.review_count})</span> 
+						</c:if>
+						</c:forEach>
+					<img src="/dda/image/tel.png" width="18px"> ${regi.tel }
+							&emsp;&emsp;&emsp;&emsp;${regi.address}</td>
+					</tr>
+				
+					<tr>
 						<td class="center-td" style="padding: 10px;"><img
 							src="image/${regi.imageList[0]}" width="840px" height="500px"></td>
 					</tr>
@@ -212,12 +234,7 @@ padding-right: 110px;
 							</c:forEach></td>
 
 					</tr>
-					<tr>
-						<td style="text-align: left;"><h3>&emsp;
-								${regi.storename}</h3> &emsp;&emsp; ${regi.region_name} | ${regi.tel }
-							&emsp;&emsp;&emsp;&emsp;${regi.address}</td>
-					</tr>
-
+					
 					<tr>
 						<td><br>
 							<h3>우리 매장의 대표메뉴</h3> <br> <img

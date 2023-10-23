@@ -18,32 +18,23 @@
 	integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
-	$(function() {
-		$(".reservbtn").click(function(event) {
-			var f = document.reserv;
-			var cdate = f.reservation_date.value;
-			var ctime = f.reservation_time.value;
-			var cperson = f.person_num.value;
-			var vperson = /^[0-9]$/;
-			var id = "${personal.id}";
+$(function() {
+    $("#reservbnt").click(function(event) {
+        var f = document.reserv;
+        var cdate = f.reservation_date.value;
+        var ctime = f.reservation_time.value;
+        var cname = f.reservation_name.value;
 
-			if (cdate === null || cdate === "") {
-				alert("일자를 선택하세요.");
-				event.preventDefault(); // submit 막음
-			} else if (ctime === null || ctime === "") {
-				alert("예약시간을 선택하세요.");
-				event.preventDefault(); // submit 막음
-			} else if (cperson === null || cperson === "") {
-				alert("예약인원을 입력하세요.");
-				event.preventDefault(); // submit 막음
-
-			} else if (!vperson.test(cperson)) {
-				alert("숫자 한 자리로만 입력하세요.");
-				event.preventDefault(); // submit 막음
-			} else if (id === null || id.trim() === "") {
-				alert("로그인이 필요합니다.");
-				event.preventDefault(); // submit 막음
-			} else {
+        if (cdate === null || cdate === "") {
+            alert("예약일자를 선택하세요.");
+            event.preventDefault(); // submit 막음
+        } else if (ctime === null || ctime === "") {
+            alert("예약시간을 선택하세요.");
+            event.preventDefault(); // submit 막음
+        } else if (cname === null || cname === "") {
+            alert("예약자명을 입력하세요.");
+            event.preventDefault(); // submit 막음
+        } else {
 				// AJAX로 reviewcheck 메소드 호출
 				 var reservation_date = $("#reservation_date").val();
 				$.ajax({
@@ -66,9 +57,26 @@
 				});
 			}
 		});
+    });
+    
+    var num = 1;
+	// 인원수 증가버튼
+	$("#plus").click(function() {
+				num = num + 1;
+				$("#person").html(num);
+				$("#person_num").val(num);
 	});
+	// 인원수 감소버튼
+	$("#minus").click(function() {
+		if(num > 0) { // 0 밑으로 떨어지지 않게 설정
+		num = num - 1;
+		$("#person").html(num);
+		$("#person_num").val(num);
+		}
+});
+});
 
-	// 데이트 픽커
+// 데이트 픽커
 	$.datepicker.setDefaults({
 		dateFormat : 'yy-mm-dd',
 		prevText : '이전 달',
@@ -112,6 +120,52 @@
 	border-radius: 14px;
 	border: 1px solid #b3b3b3;
 }
+.datepicker {
+	width: 70%;
+	height: 50px;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 20px;
+	border: 1px solid #ff8c00;
+	outline: none;
+}
+.wait {
+	margin-top: 20px;
+	margin-left: 100px;
+	text-align: left;
+	font-size: 25px;
+	width: 40%;
+}
+
+.wait input[type='text'],.wait input[type='time'] {
+	width: 70%;
+	height: 50px;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 20px;
+	border: 1px solid #ff8c00;
+	outline: none;
+}
+
+.btn {
+	margin-top: 20px;
+	margin-right: 100px;
+	background-color: #ffe8cc;
+	outline: none;
+}
+
+.btn:hover {
+	background-color: #ffba66;
+}
+#flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 10px;
+}
+#flex input{
+	margin:0px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -119,39 +173,43 @@
 	<br>
 	<br>
 	<br>
+	<c:choose>
+<c:when test="${personal!=null}">
+<center>
+	<br>
+	<br>
+	<h1>매장 예약</h1>
+	<form action="reservsave" method="post" name="reserv">
+	<input type="hidden" name="storeid" value="${storeID }">
+			<input type="hidden" name="customer_id" value="${personal.id }">
+	<table class="wait">
+	<input type="hidden" name="store_id" value="${store_id}">
+	<input type="hidden" name="customer_id" value="${personal.id}">
+	<tr><td>예약일자</td><td><input class="datepicker" name="reservation_date" autocomplete="off"></td></tr>
+	<tr><td>예약시간</td><td><input type="time" name="reservation_time"></td></tr>
+	<tr><td>예약자명</td><td><input type="text" name="reservation_name"></td></tr>
+	<tr><td>인원 수</td>
+	<td id="flex">
+	<input class="btn" type="button" value="-" id="minus">
+	<div id="person">1</div> 
+	<input class="btn" type="button" value="+" id="plus" style="margin-right:200px;">
+	<input type="hidden" name="person_num" id="person_num">
+	</td>
+	</tr>
+	
+	<tr><td colspan="2" style="text-align: center;">
+	<input class="btn" id="reservbnt" type="submit" value="예약하기"></td></tr>
+	</table>
+	</form>
+</c:when>
+<c:otherwise>
 
-	<div class="detailtable">
-		<form action="reservsave" method="post" name="reserv">
-			<input type="hidden" name="storeid" value="${storeID }"> <input
-				type="hidden" name="customer_id" value="${personal.id }">
-			<table width="100%">
-				<tr>
-					<td class="center-td" style="padding: 10px; text-align: left;"><h3>${storename }
-							매장 예약하기</h3></td>
-				</tr>
-				<tr>
-					<td><h4>예약일자</h4> <input class="datepicker"
-						name="reservation_date" id="reservation_date"></td>
-				</tr>
-				<tr>
-					<td><h4>예약시간</h4> <input type="time" name="reservation_time"></td>
-				</tr>
-				<tr>
-					<td><h4>예약자명</h4> <input type="text" name="reservation_name"></td>
-				</tr>
-				<tr>
-					<td class="table-bottom"><h4>예약인원</h4> <input type="number"
-						name="person_num"></td>
-				</tr>
-				<tr>
-					<td class="table-bottom">
-						<button class="reservbtn" type="button">
-							<h1>예약하기</h1>
-						</button>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+<script>
+alert("로그인 후 이용 가능한 서비스입니다.");
+location.href = "selectLogin";
+</script>
+
+</c:otherwise>
+</c:choose>
 </body>
 </html>
