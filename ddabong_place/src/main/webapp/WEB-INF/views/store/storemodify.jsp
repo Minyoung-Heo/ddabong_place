@@ -25,15 +25,14 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 30px;
+  margin-top: 60px;
   width: 100%;
 }
 
-input {
-  width: 80%;
+.input_store {
+  width: 70%;
   height: 50px;
   border-radius: 30px;
-  margin-top: 10px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
@@ -47,16 +46,65 @@ input {
   border-radius: 40px;
   background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
   color: white;
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: 2px;
   position: relative;
   left: 0px;
 }
 
-.feature input[type="checkbox"], .dessert input[type="checkbox"] {
-  width: 18px; /* 원하는 너비 값으로 조절하세요 */
-  height: 18px; /* 원하는 높이 값으로 조절하세요 */
-  vertical-align: bottom; /* 체크박스 위치 조정 */
+label {
+	margin-left: 15px;
+	position: relative;
+	left: -10px;
+}
+
+.feature, .dessert{
+	font-size: 18px;
+}
+
+.feature input[type="checkbox"], .dessert input[type="checkbox"]{ 
+	position:absolute;
+    width:20px; 
+    height:20px;
+    margin:0px;
+    overflow:hidden;
+    clip:rect(0,0,0,0); 
+    border:0;
+    display: none;
+}
+
+.feature input[type="checkbox"] + label, .dessert input[type="checkbox"] + label{ 
+	display:inline-block; 
+    position:relative; 
+    padding-left:26px; 
+    cursor:pointer; 
+}
+
+.feature input[type="checkbox"] + label:before, .dessert input[type="checkbox"] + label:before{ 
+	content:''; 
+    position:absolute; 
+    left:0; 
+    top: 50%; /* 글씨를 수직 가운데로 위치시키기 위해 top을 50%로 조절 */
+    transform: translateY(-50%); /* 글씨를 수직 가운데로 위치시킴 */ 
+    width:18px; 
+    height:18px; 
+    text-align:center; 
+    background:#fff; 
+    border:1px solid #ccc; 
+    box-sizing:border-box; 
+}
+
+/* 보여질 부분의 스타일을 추가하면 된다. */
+.feature input[type="checkbox"]:checked + label:after, .dessert input[type="checkbox"]:checked + label:after{ 
+	content: ''; 
+    position:absolute; 
+    top:3px; 
+    left:0;
+    top: 50%; /* 글씨를 수직 가운데로 위치시키기 위해 top을 50%로 조절 */
+    transform: translateY(-50%); /* 글씨를 수직 가운데로 위치시킴 */ 
+    width:18px; 
+    height:18px; 
+    background-color:rgb(252,113,7);
 }
 
 .lineintro textarea, .intro textarea {
@@ -280,17 +328,17 @@ function check(){
             <c:forEach items="${list}" var="store">
             <div class="store_id">
                 <h4>업체 아이디</h4>
-                <input type="text" name="store_id" value="${store.store_id}" readonly>
+                <input class="input_store" type="text" name="store_id" value="${store.store_id}" readonly>
             </div>
             
             <div class="storename">
                 <h4>매장명</h4>
-                <input type="text" name="storename" value="${store.storename}">
+                <input class="input_store" type="text" name="storename" value="${store.storename}">
             </div>
             
             <div class="tel">
               <h4>매장 전화번호</h4>
-              <input type="text" name="tel" value="${store.tel}">
+              <input class="input_store" type="text" name="tel" value="${store.tel}">
             </div>
             
             <div class="address">
@@ -320,17 +368,17 @@ function check(){
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" name="image" id="file" multiple>
+            	<input class="input_store" type="file" name="image" id="file" multiple>
           	</div>
           	
           	<div class="main_menu">
             <h4>매장 대표 메뉴 이름</h4>
-            <input type="text" name="main_menu" value="${store.main_menu}">
+            <input class="input_store" type="text" name="main_menu" value="${store.main_menu}">
           	</div>
           	
           	<div class="main_image">
             	<h4>매장 대표 메뉴 사진</h4>
-            	<input type="file" name="main_image" id="file" multiple>
+            	<input class="input_store" type="file" name="main_image" id="file" multiple>
           	</div>
           	
           	<div class="region_name">
@@ -347,44 +395,44 @@ function check(){
           
           	<div class="feature">
             <h4>특징</h4>
-            	<label><input type="checkbox" name="feature" value="노키즈존"
-            		<c:if test="${store.feature.contains('노키즈존')}">checked</c:if>>노키즈존</label>
-	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 O"
-	        		<c:if test="${store.feature.contains('반려견 동반 입장 O')}">checked</c:if>>반려견 동반 입장 O</label>
-	        	<label><input type="checkbox" name="feature" value="반려견 동반 입장 X"
-	        		<c:if test="${store.feature.contains('반려견 동반 입장 X')}">checked</c:if>>반려견 동반 입장 X</label><br>
-	        	<label><input type="checkbox" name="feature" value="주차장 O"
-	        		<c:if test="${store.feature.contains('주차장 O')}">checked</c:if>>주차장 O</label>
-	        	<label><input type="checkbox" name="feature" value="주차장 X"
-	        		<c:if test="${store.feature.contains('주차장 X')}">checked</c:if>>주차장 X</label>
-	        	<label><input type="checkbox" name="feature" value="루프탑"
-	        		<c:if test="${store.feature.contains('루프탑')}">checked</c:if>>루프탑</label><br>
-	        	<label><input type="checkbox" name="feature" value="테라스"
-	        		<c:if test="${store.feature.contains('테라스')}">checked</c:if>>테라스</label>
-	        	<label><input type="checkbox" name="feature" value="노트북 사용 O"
-	        		<c:if test="${store.feature.contains('노트북 사용 O')}">checked</c:if>>노트북 사용 O</label>
-	        	<label><input type="checkbox" name="feature" value="노트북 사용 X"
-	        		<c:if test="${store.feature.contains('노트북 사용 X')}">checked</c:if>>노트북 사용 X</label>
+            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"
+            		<c:if test="${store.feature.contains('노키즈존')}">checked</c:if>><label for="feature1">노키즈존</label>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"
+	        		<c:if test="${store.feature.contains('반려견 동반 입장 O')}">checked</c:if>><label for="feature2">반려견 동반 입장 O</label>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"
+	        		<c:if test="${store.feature.contains('반려견 동반 입장 X')}">checked</c:if>><label for="feature3">반려견 동반 입장 X</label><br>
+	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"
+	        		<c:if test="${store.feature.contains('주차장 O')}">checked</c:if>><label for="feature4">주차장 O</label>
+	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"
+	        		<c:if test="${store.feature.contains('주차장 X')}">checked</c:if>><label for="feature5">주차장 X</label>
+	        	<input type="checkbox" name="feature" value="루프탑" id="feature6"
+	        		<c:if test="${store.feature.contains('루프탑')}">checked</c:if>><label for="feature6">루프탑</label><br>
+	        	<input type="checkbox" name="feature" value="테라스" id="feature7"
+	        		<c:if test="${store.feature.contains('테라스')}">checked</c:if>><label for="feature7">테라스</label>
+	        	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"
+	        		<c:if test="${store.feature.contains('노트북 사용 O')}">checked</c:if>><label for="feature8">노트북 사용 O</label>
+	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"
+	        		<c:if test="${store.feature.contains('노트북 사용 X')}">checked</c:if>><label for="feature9">노트북 사용 X</label>
           	</div>
           
           	<div class="dessert">
             <h4>디저트</h4>
-            	<label><input type="checkbox" name="dessert" value="케이크"
-            		<c:if test="${store.dessert.contains('케이크')}">checked</c:if>>케이크</label>
-            	<label><input type="checkbox" name="dessert" value="마들렌"
-            		<c:if test="${store.dessert.contains('마들렌')}">checked</c:if>>마들렌</label>
-            	<label><input type="checkbox" name="dessert" value="스콘"
-            		<c:if test="${store.dessert.contains('스콘')}">checked</c:if>>스콘</label>
-            	<label><input type="checkbox" name="dessert" value="마카롱"
-            		<c:if test="${store.dessert.contains('마카롱')}">checked</c:if>>마카롱</label><br>
-            	<label><input type="checkbox" name="dessert" value="크로플"
-            		<c:if test="${store.dessert.contains('크로플')}">checked</c:if>>크로플</label>
-            	<label><input type="checkbox" name="dessert" value="휘낭시에"
-            		<c:if test="${store.dessert.contains('푸딩')}">checked</c:if>>푸딩</label>
-            	<label><input type="checkbox" name="dessert" value="쿠키"
-            		<c:if test="${store.dessert.contains('쿠키')}">checked</c:if>>쿠키</label>
-            	<label><input type="checkbox" name="dessert" value="빙수"
-            		<c:if test="${store.dessert.contains('빙수')}">checked</c:if>>빙수</label>
+            	<input type="checkbox" name="dessert" value="케이크" id="dessert1"
+            		<c:if test="${store.dessert.contains('케이크')}">checked</c:if>><label for="dessert1">케이크</label>
+            	<input type="checkbox" name="dessert" value="마들렌" id="dessert2"
+            		<c:if test="${store.dessert.contains('마들렌')}">checked</c:if>><label for="dessert2">마들렌</label>
+            	<input type="checkbox" name="dessert" value="스콘" id="dessert3"
+            		<c:if test="${store.dessert.contains('스콘')}">checked</c:if>><label for="dessert3">스콘</label>
+            	<input type="checkbox" name="dessert" value="마카롱" id="dessert4"
+            		<c:if test="${store.dessert.contains('마카롱')}">checked</c:if>><label for="dessert4">마카롱</label><br>
+            	<input type="checkbox" name="dessert" value="크로플" id="dessert5"
+            		<c:if test="${store.dessert.contains('크로플')}">checked</c:if>><label for="dessert5">크로플</label>
+            	<input type="checkbox" name="dessert" value="휘낭시에" id="dessert6"
+            		<c:if test="${store.dessert.contains('푸딩')}">checked</c:if>><label for="dessert6">푸딩</label>
+            	<input type="checkbox" name="dessert" value="쿠키" id="dessert7"
+            		<c:if test="${store.dessert.contains('쿠키')}">checked</c:if>><label for="dessert7">쿠키</label>
+            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"
+            		<c:if test="${store.dessert.contains('빙수')}">checked</c:if>><label for="dessert8">빙수</label>
            	</div>
            	</c:forEach>
           

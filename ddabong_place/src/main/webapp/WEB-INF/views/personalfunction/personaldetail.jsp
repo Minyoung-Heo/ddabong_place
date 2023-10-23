@@ -235,7 +235,25 @@ font-size: 15px;
 .starout
 {
 position: relative;
-padding-right: 110px;
+padding-right: 190px;
+padding-top: 10px;
+}
+.dateCreated
+{position:relative;
+left:240px;
+width: 100px;
+bottom: 35px;
+color: #8c8c8c;
+}
+.contentout
+{
+position:relative;
+bottom: 270px;
+left:250px;
+text-align: left;
+font-size:25px;
+width: 550px;
+height: 150px;
 }
 .storetitle {
 font-size: 40px;
@@ -464,11 +482,10 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 		<div class="reviewtable">
 			<table width="100%" height="100%" align="center">
 				<tr style="text-align: left;">
-					<td><br>&emsp;&emsp;${rev.nickname}님(${id})</td>
+					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
 				</tr>
 				<tr>
-					<td>
-					<div class="starout">
+					<td class="starout">
 					<div class="startRadio">
 							<label class="startRadio__box"> <input type="radio"
 								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
@@ -501,12 +518,12 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
 									class="blind">별 5.0개</span></span>
 							</label>
-						</div></div></td><td>드래곤</td>
+						</div><div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div></td>
 				</tr>
 				<tr>
 					<td><div class="rev-img">
-							<img src="image/${rev.imageList[0]}" width="200px">
-						</div></td>
+							<img src="image/${rev.imageList[0]}" width="200px" height="150px">
+						</div><div class="contentout">${rev.content }</div></td>
 				</tr>
 			</table>
 		</div>

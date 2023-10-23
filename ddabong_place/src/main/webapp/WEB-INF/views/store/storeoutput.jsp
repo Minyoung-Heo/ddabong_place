@@ -28,19 +28,19 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 30px;
+  margin-top: 60px;
   width: 100%;
 }
 
 .input_store {
-  width: 130%;
+  width: 110%;
   height: 50px;
   border-radius: 30px;
   padding: 0px 20px;
   border: 1px solid #ff8c00; /*인풋 부분 테두리 색*/
   outline: none;
   position: relative;
-  left: -50px;
+  left: -16px;
 }
 
 .submit a {
@@ -111,7 +111,7 @@ option {
 	margin-top: 40px;
 }
 
-.address2 {
+.address2, .feature2 {
 	border: 1px solid #ff8c00;
 	border-radius: 20px;
 	text-align: center;
@@ -195,7 +195,7 @@ option {
           
           <div class="feature">
             <h4>특징</h4>
-              <input class="input_store" value="${store.feature}" readonly>
+            <textarea class="feature2" readonly>${store.feature}</textarea>
           </div>
           
           <div class="dessert">
