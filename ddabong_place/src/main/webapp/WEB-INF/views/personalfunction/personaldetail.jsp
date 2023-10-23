@@ -9,7 +9,13 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+function goToScroll() {
+    var location = document.querySelector(".scroll").offsetTop;
+    window.scrollTo({top: location, behavior: 'smooth'});
+}
 	$(function() {
+		
+		
 		$(".reviewsubmit").click(function(event) {
 			var f = document.reviewform;
 			var content = f.reviewcontent.value;
@@ -53,15 +59,18 @@
 </script>
 <style type="text/css">
 .detailtable {
-	width: 860px;
+	width: 55%;
 	margin: 0 auto;
 	border: 1px solid #b3b3b3;
 	border-radius: 20px;
 	border-left-color: #e6e6e6;
 	border-right-color: #e6e6e6;
 }
+.storeshow {
+margin:40px;
+}
 .reviewtable {
-	width: 860px;
+	width: 55%;
 	height: 300px;
 	margin: 0 auto;
 	border: 1px solid #b3b3b3;
@@ -86,10 +95,46 @@
 	left: 200px;
 	bottom: 50px;
 }
-
-.center-td {
+.flex_image{
+display:flex;
+	margin-bottom:30px;
+justify-content: space-evenly;
+}
+.center_image {
+	width: 890px;
+	height: 600px;
+	position: relative;
 	text-align: center;
 	vertical-align: top;
+	margin: 20px;
+}
+.center_image img {
+border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.mini_image {
+	width: 200px;
+	height: 140px;
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	margin: 10px;
+}
+.mini_image img {
+border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .table-bottom {
@@ -179,17 +224,41 @@
 	pointer-events: none;
 }
 .reviewstar img {
-width:25px;
-margin-right:5px;
+width:18px;
+margin-left:21px;
+margin-right:2px;
 margin-bottom:5px;
 }
 .reviewstar {
-font-size: 20px;
+font-size: 15px;
 }
 .starout
 {
 position: relative;
 padding-right: 110px;
+}
+.storetitle {
+font-size: 40px;
+margin-top:2px;
+margin-bottom:10px;
+margin-left:21px;
+}
+.btn {	
+width:420px;
+	text-align:center;
+    float: right;
+    margin-right: 30px;
+    margin-left: 10px;
+    background-color: #ffe8cc;
+    padding:8px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.btn:hover {
+    background-color:#ffba66;
 }
 </style>
 <title>Insert title here</title>
@@ -204,10 +273,12 @@ padding-right: 110px;
 			<c:set target="${pageScope}" property="storeid"
 				value="${regi.store_id}" />
 			<div class="detailtable">
-				<table width="100%">
+				<table class="storeshow">
 					<tr>
-						<td style="text-align: left;"><img src="/dda/image/pin.png" width="21px"> ${regi.region_name}<br>
-						<h1>${regi.storename}</h1>
+						<td style="text-align: left;">
+						<img src="/dda/image/pin.png" width="21px" style="margin-bottom:5px;
+						margin-left:21px;"> ${regi.region_name}<br>
+						<h1 class="storetitle">${regi.storename}</h1>
 						<span class="review">
 						<c:forEach items="${reviewstarList}" var="re">
 						<c:if test="${regi.store_id == re.store_id}">
@@ -216,31 +287,105 @@ padding-right: 110px;
 						${re.star_score} (${re.review_count})</span> 
 						</c:if>
 						</c:forEach>
-					<img src="/dda/image/tel.png" width="18px"> ${regi.tel }
-							&emsp;&emsp;&emsp;&emsp;${regi.address}</td>
+					</td>
 					</tr>
 				
 					<tr>
-						<td class="center-td" style="padding: 10px;"><img
-							src="image/${regi.imageList[0]}" width="840px" height="500px"></td>
+						<td>
+						<div class="center_image">
+						<img src="image/${regi.imageList[0]}" width="100px">
+						</div>
+						</td>
 					</tr>
 					<tr>
 
-						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;"><c:forEach
-								items="${regi.imageList}" var="img" varStatus="loop">
+						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
+								<div class="flex_image">
+						<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
 								<c:if test="${loop.index >= 1 && loop.index < 7}">
-									<img src="image/${img}" width="120px" height="120px">
+									<div class="mini_image">
+									<img src="image/${img}" >
+									</div>
 								</c:if>
-							</c:forEach></td>
-
+							</c:forEach>
+									</div>
+								<button class="btn" onclick="goToScroll()">
+								<img src="/dda/image/map.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 위치 보기
+								</button>
+								<button class="btn">
+								<img src="/dda/image/call.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 전화 걸기
+								</button>
+							</td>
 					</tr>
+					<tr><td><hr></td></tr>
+					<tr>
+					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
+					<h1 style="margin-top:30px;">매장 소개</h1>
+					<img src="/dda/image/tel.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> ${regi.tel}<br>
+					<br>
+					<h4>${regi.intro}</h4><br>
+					</td>
+					</tr>
+					<tr><td><hr></td></tr>
 					
 					<tr>
-						<td><br>
-							<h3>우리 매장의 대표메뉴</h3> <br> <img
-							src="image/${regi.main_image}" width="150px" height="150px">
-							<br>
-							<h4>${regi.main_menu}</h4> <br></td>
+					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
+					<h1 style="margin-top:30px;">대표메뉴</h1>
+					<div class="mini_image" style="margin-top:40px; margin-bottom: 20px; margin-left:0px;
+					width:550px; height:300px;">
+									<img src="image/${regi.main_image}">
+									</div>
+									<h4>${regi.main_menu}</h4>
+					</td>
+					</tr>
+					<tr class="scroll"><td><hr></td></tr>
+					<tr>
+					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
+					<h1 style="margin-top:30px;">위치 정보</h1>
+					<br>
+					<h4>${regi.address}</h4><br>
+					<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};  
+
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+//주소로 좌표를 검색합니다
+geocoder.addressSearch('${regi.address}', function(result, status) {
+
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
+    });
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">${regi.storename}</div>'
+    });
+    infowindow.open(map, marker);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    map.setCenter(coords);
+} 
+});    
+</script>
+					</td>
 					</tr>
 					<tr>
 						<td class="table-bottom"><form action="reserv" method="POST">
@@ -366,6 +511,5 @@ padding-right: 110px;
 			</table>
 		</div>
 	</c:forEach>
-
 </body>
 </html>
