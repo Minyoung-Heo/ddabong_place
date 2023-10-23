@@ -240,7 +240,7 @@ padding-top: 10px;
 }
 .dateCreated
 {position:relative;
-left:240px;
+left:310px;
 width: 100px;
 bottom: 35px;
 color: #8c8c8c;
