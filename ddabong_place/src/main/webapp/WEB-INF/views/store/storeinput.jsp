@@ -247,12 +247,12 @@ function check(){
     var vstorename = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
 
     if(cstorename== "" || cstorename==" "){
-        alert("매장명 공백은 안돼요");
+        alert("매장명을 입력해주세요.");
         f.storename.select();
         return false;
     }
     if(!vstorename.test(cstorename)){
-        alert("매장명을 제대로 입력해주세요");
+        alert("매장명을 제대로 입력해주세요.");
 		f.storename.select();
 		return false;
     }
@@ -260,7 +260,7 @@ function check(){
     var caddr3 = f.addr3.value;
 
     if(caddr3== "" || caddr3==" "){
-        alert("매장 주소 공백은 안돼요");
+        alert("매장 주소 공백은 안 돼요.");
         f.addr3.select();
         return false;
     }
@@ -269,12 +269,12 @@ function check(){
     var vmain_menu = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
 
     if(cmain_menu== "" || cmain_menu==" "){
-        alert("매장 대표 메뉴 이름 공백은 안돼요");
+        alert("매장 대표 메뉴 이름 공백은 안 돼요.");
         f.main_menu.select();
         return false;
     }
     if(!vmain_menu.test(cmain_menu)){
-        alert("매장 대표 메뉴 이름을 제대로 입력해주세요");
+        alert("매장 대표 메뉴 이름을 제대로 입력해주세요.");
 		f.main_menu.select();
 		return false;
     }
@@ -381,12 +381,12 @@ textarea.addEventListener("input", function () {
             
             <div class="lineintro">
               <h4>매장 한줄 소개</h4>
-              <textarea rows="4" cols="40" name="lineintro" placeholder="매장 소개를 적어주세요"></textarea>
+              <textarea rows="4" cols="40" name="lineintro" placeholder="매장 소개를 적어주세요!"></textarea>
           	</div>
           	
            	<div class="intro">
             	<h4>매장 소개글</h4>
-            	<textarea id="introTextarea" rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
+            	<textarea id="introTextarea" rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일을 꼭 적어주세요!"></textarea>
           	</div>
           	
           	<div class="mae_image">
