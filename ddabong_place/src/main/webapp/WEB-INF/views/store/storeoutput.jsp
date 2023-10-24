@@ -44,7 +44,7 @@ h1 {
 }
 
 .submit a {
-	width: 60%;
+	width: 38%;
     display: inline-block;
     padding: 10px 20px;
     background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
@@ -52,6 +52,7 @@ h1 {
     text-decoration: none;
     font-size: 1.2em;
     border-radius: 40px;
+    margin-left: 5px;
     }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
@@ -123,6 +124,7 @@ option {
 }
 
 </style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -210,9 +212,13 @@ option {
           	<c:param name="store_id" value="${store.store_id}"></c:param>
           </c:url>
           
+          <c:url var="url2" value="storeleave">
+          	<c:param name="id" value="${store.store_id}"></c:param>
+          </c:url>
+          
             <div class="submit">
             <a href="${url1}">수정하기</a>
-                <!-- <input type="submit" value="수정하기"> -->
+            <a href="${url2}">삭제하기</a>
             </div>
 			</c:forEach>
         </div>

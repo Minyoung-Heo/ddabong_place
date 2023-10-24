@@ -28,7 +28,18 @@ public interface StoreService {
 	
 	//매장 수정 입력
 	public void storemodifyfinal(StoreDTO dto);
-
+	
+	//매장 삭제
+	public void storedelete(String id);
+	public void registrationdelete(String id); //store 테이블의 외래키인 매장 등록 테이블 id 같이 삭제
+	public void ddabongdelete(String id); //store 테이블의 외래키인 따봉 수 테이블 id 같이 삭제
+	public void stardelete(String id); //store 테이블의 외래키인 즐겨찾기 id 같이 삭제
+	public void waitingdelete(String id); //store 테이블의 외래키인 웨이팅 테이블 id 같이 삭제
+	public void reservationdelete(String id); //store 테이블의 외래키인 예약 테이블 id 같이 삭제
+	
+	//탈퇴 전 비밀번호 인증
+	public StoreDTO storeleavechecking(String id, String pw);
+	
 	// 아이디 찾기
 	public ArrayList<StoreDTO> storeidResult(String ceo, String email);
 

@@ -185,6 +185,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
+	
+	<!-- 업체 회원 로그인 에러2 -->
+	<definition name="storeloginerr2" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeloginerr2.jsp" />
+	</definition>
+	
 	<!-- 업체 회원 아이디비번찾기 -->
 	<definition name="storeFind" extends="baseLayout">
 		<put-attribute name="title" value="업체회원 아디비번찾기" />
@@ -258,6 +266,20 @@
 		<put-attribute name="title" value="매장 등록 수정" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storemodify.jsp" />
+	</definition>
+	
+	<!-- 업체 회원 탈퇴하기전 비번 확인 -->
+	<definition name="storeleave" extends="baseLayout">
+		<put-attribute name="title" value="업체탈퇴 비밀번호 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeleave.jsp" />
+	</definition>
+		
+	<!-- 업체 회원 탈퇴하기전 마지막 비번 확인 -->
+	<definition name="storeconfirmLeave" extends="baseLayout">
+		<put-attribute name="title" value="업체탈퇴 비밀번호 마지막 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeconfirmLeave.jsp" />
 	</definition>
 
 	<!-- 매장 예약 현황창 -->
