@@ -232,7 +232,7 @@ $(window).on("load resize ", function() {
                         <c:forEach items="${list}" var="aa">
                             <tr>
                                 <td>${aa.storename}</td>
-                                <td><img src="/dda/image/${aa.image}" width="300px" height="300px"></td>
+                                <td><img src="/dda/image/${aa.imageList[0]}" width="300px" height="300px"></td>
                                 <td>${aa.region_name}</td>
                                 <td>${aa.dessert}</td>
                             </tr>

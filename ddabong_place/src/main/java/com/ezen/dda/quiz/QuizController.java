@@ -1,6 +1,8 @@
 package com.ezen.dda.quiz;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ezen.dda.personalfunction.ReviewDTO;
 
 @Controller
 public class QuizController {
@@ -58,14 +62,28 @@ public class QuizController {
 		}
        
 		if (sql.equals("")) {
-		} else {
-			sql = sql.substring(0, sql.length() - 2);
-			QuizDTO quizDTO = new QuizDTO();
-			quizDTO.setSql(sql);
-			QuizService sb = sqlSession.getMapper(QuizService.class);
-			ArrayList<QuizDTO> list = sb.recommend(quizDTO);
-			mo.addAttribute("list", list);
+		} 
+		else {
+		    sql = sql.substring(0, sql.length() - 2);
+		    QuizDTO quizDTO = new QuizDTO();
+		    quizDTO.setSql(sql);
+		    QuizService sb = sqlSession.getMapper(QuizService.class);
+		    ArrayList<QuizDTO> list = sb.recommend(quizDTO);
+
+			for (QuizDTO imageDTO : list) {
+				String image = imageDTO.getImage();
+
+				if (image != null && !image.isEmpty()) {
+					String[] imageFileNames = image.split("[,\\s]+");
+
+					List<String> imageList = new ArrayList<>(Arrays.asList(imageFileNames));
+					imageDTO.setImageList(imageList);
+				}
+			}
+
+		    mo.addAttribute("list", list);
 		}
+
 
 		return "quizresult";
 	}
