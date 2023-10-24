@@ -27,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기		
-		static String imagepath = "C:\\Users\\Brother_zin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+		static String imagepath = "C:\\Users\\BrotherZin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -169,6 +169,53 @@ public class StoreController {
 		return "redirect:/storeoutput?store_id=" + store_id;
 	}
 	
+	// 매장 삭제 전 비밀번호 확인
+	@RequestMapping(value = "/storeleave")
+	public String storeleave() {
+		return "storeleave";
+	}
+		
+	@RequestMapping(value = "/storeconfirmLeave")
+	public String storeconfirmLeave() {
+		return "storeconfirmLeave";
+	}
+	
+	// 탈퇴하기 전 비밀번호 확인 체킹
+	@RequestMapping(value = "/storeleavechecking", method = RequestMethod.POST)
+	public String storepwchecking2(HttpServletRequest request) {
+		String id = request.getParameter("storeid");
+		String pw = request.getParameter("storepw");
+
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+
+		StoreDTO dto = ss.storeleavechecking(id, pw);
+
+		if (dto != null) {
+			return "redirect:/storeconfirmLeave";
+
+		} else {
+			String alertMessage = "비밀번호를 다시 확인해주세요.";
+			request.setAttribute("alertMessage", alertMessage);
+
+			return "storeloginerr2";
+		}
+	}
+		
+	//매장 삭제
+	@RequestMapping(value = "/storedelete")
+	public String storedelete(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ss.stardelete(id); // 즐겨찾기 삭제
+		ss.waitingdelete(id); // 웨이팅 삭제
+		ss.ddabongdelete(id); //따봉 삭제
+		ss.reservationdelete(id); 
+		// 예약 삭제 인데 이거 수정해야 됨 예약테이블에서 업체아이디 갖는 레코드 찾아서 예약번호 가져오고 예약번호 해당하는 리뷰 테이블 삭제하고 그다음 예약테이블 다시 삭제
+		ss.registrationdelete(id); // 매장 삭제
+		return "redirect:/main";
+	}
+	
+
 	// 회원 예약 현황
 	@RequestMapping(value = "/storeStatus", method = RequestMethod.GET)
 	public String storeStatus(HttpServletRequest request, Model mo) {
@@ -250,7 +297,7 @@ public class StoreController {
 				String alertMessage = "비밀번호를 다시 확인해주세요.";
 				request.setAttribute("alertMessage", alertMessage);
 
-				return "storeloginerr";
+				return "storeloginerr2";
 			}
 		}
 

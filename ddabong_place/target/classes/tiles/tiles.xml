@@ -185,6 +185,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
+	
+	<!-- 업체 회원 로그인 에러2 -->
+	<definition name="storeloginerr2" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeloginerr2.jsp" />
+	</definition>
+	
 	<!-- 업체 회원 아이디비번찾기 -->
 	<definition name="storeFind" extends="baseLayout">
 		<put-attribute name="title" value="업체회원 아디비번찾기" />
@@ -258,6 +266,20 @@
 		<put-attribute name="title" value="매장 등록 수정" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storemodify.jsp" />
+	</definition>
+	
+	<!-- 업체 회원 탈퇴하기전 비번 확인 -->
+	<definition name="storeleave" extends="baseLayout">
+		<put-attribute name="title" value="업체탈퇴 비밀번호 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeleave.jsp" />
+	</definition>
+		
+	<!-- 업체 회원 탈퇴하기전 마지막 비번 확인 -->
+	<definition name="storeconfirmLeave" extends="baseLayout">
+		<put-attribute name="title" value="업체탈퇴 비밀번호 마지막 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeconfirmLeave.jsp" />
 	</definition>
 
 	<!-- 매장 예약 현황창 -->
@@ -375,4 +397,40 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/calendar.jsp" />
 	</definition>
+	
+	<!-- 매장 계정 정보 보기 -->
+	<definition name="storeAccountInfo" extends="baseLayout">
+		<put-attribute name="title" value="나의 회원 정보" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountInfo.jsp" />
+	</definition>
+	
+		<!-- 매장 계정 정보 수정 -->
+	<definition name="storeAccountModify" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountModify.jsp" />
+	</definition>
+	
+	<!-- 매장 계정 삭제 -->
+	<definition name="storeAccountLeave" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 삭제" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountLeave.jsp" />
+	</definition>
+
+	<!-- 매장 계정 삭제 확인-->
+	<definition name="confirmLeaveacc" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 삭제 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/confirmLeaveacc.jsp" />
+	</definition>
+	
+	<!-- 매장 계정 삭제 확인 오류메시지 -->
+	<definition name="storeaccloginerr" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeaccloginerr.jsp" />
+	</definition>
+	
 </tiles-definitions>

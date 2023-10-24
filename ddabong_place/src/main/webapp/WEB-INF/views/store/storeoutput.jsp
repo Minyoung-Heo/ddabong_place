@@ -10,13 +10,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-h1 {
-  color: black;
-  position: relative;
-  font-size: 35px;
-}
-
 .wrap{
 	width: 100%;
     align-items: center;
@@ -27,7 +20,7 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -43,7 +36,7 @@ h1 {
 }
 
 .submit a {
-	width: 60%;
+	width: 38%;
     display: inline-block;
     padding: 10px 20px;
     background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
@@ -51,6 +44,7 @@ h1 {
     text-decoration: none;
     font-size: 1.2em;
     border-radius: 40px;
+    margin-left: 5px;
     }
 
 .feature input[type="checkbox"], .dessert input[type="checkbox"] {
@@ -153,6 +147,7 @@ option {
 	
 }
 </style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -161,21 +156,22 @@ option {
 	<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
- <c:forEach items="${list}" var="store">
-<c:url var="url1" value="storemodifyview">
-          	<c:param name="store_id" value="${store.store_id}"></c:param>
-          </c:url>
-			<a href="storeoutput?store_id=${store.store_id}" style="color: #ff8c00;">나의 매장 정보</a><br> 
-			<a href="${url1}">매장 정보 수정</a><br>
-			<a href="">매장 삭제</a><br>
+			<a href="storeoutput?store_id=${store.id}" style="color: #ff8c00;">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+			<a href="storeinput">매장 등록</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">
 		<form action="storemodifyview" method="post">
 		<div class="wrap">
+			<c:forEach items="${list}" var="store">
         <div class="storeinput">
             <h1 style="margin-bottom: 50px;">나의 매장 정보</h1>
-            
            
             <div class="store_id">
                 <h4>업체 아이디</h4>
@@ -243,16 +239,14 @@ option {
             <h4>디저트</h4>
             <input class="input_store" value="${store.dessert}" readonly>
           </div>
-          
             <div class="submit">
-            <a href="${url1}">수정하기</a>
-                <!-- <input type="submit" value="수정하기"> -->
+            <a href="storemodifyview?store_id=${store.id}">수정하기</a>
+            <a href="storeleave?id=${store.store_id}">삭제하기</a>
             </div>
 			</c:forEach>
-        </div>
-    </div>
+        </div></div>
 </form>
+    </div>
 		</div>
-	</div>
 </body>
 </html>
