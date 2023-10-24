@@ -9,13 +9,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <style type="text/css">
-
-h1 {
-  color: black;
-  position: relative;
-  font-size: 50px;
-}
-
 .wrap{
 	width: 100%;
     align-items: center;
@@ -26,7 +19,7 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 60px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -176,6 +169,38 @@ display: flex;
 .feature_box1,.feature_box2,.feature_box3 {
 text-align: left;
 margin-left: 30px;
+}
+.div-container {
+	margin-top: 30px;
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
+}
+
+.category {
+	margin-top: 70px;
+	width: 30%;
+	margin-left: 40px;
+	text-align: left;
+}
+
+.category a {
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFBE1C;
+	text-decoration: none;
+}
+
+.category a:hover {
+	color: #ff8c00;
+}
+.qna {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 15px;
+	width: 100%;
+	margin-right:230px;
+	
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -327,16 +352,25 @@ textarea.addEventListener("input", function () {
 </script>
 </head>
 <body>
+<br><br>	
+		<div class="div-container">
+		<div class="category">
+			<h1>마이페이지</h1>
+			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+			<a href="storeinput" style="color: #ff8c00;">매장 등록</a><br>
+			<a href="">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
+		</div>
 
-<br>
-<br>
-<br>
-<br>
-
+		<div class="qna">
 <form action="storeinputsave" method="post" enctype="multipart/form-data" name="store">
 <div class="wrap">
         <div class="storeinput">
-            <h1>매장 등록 입력창</h1>
+            <h1 style="margin-bottom: 30px;">매장 등록</h1>
             
             <div class="store_id">
                 <h4>업체 아이디</h4>
@@ -456,6 +490,7 @@ textarea.addEventListener("input", function () {
         </div>
     </div>
 </form>
-
+		</div>
+	</div>
 </body>
 </html>

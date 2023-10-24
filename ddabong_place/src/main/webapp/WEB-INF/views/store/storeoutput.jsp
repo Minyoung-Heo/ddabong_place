@@ -10,13 +10,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-h1 {
-  color: black;
-  position: relative;
-  font-size: 35px;
-}
-
 .wrap{
 	width: 100%;
     align-items: center;
@@ -161,13 +154,18 @@ option {
 	<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
- <c:forEach items="${list}" var="store">
+			<c:forEach items="${list}" var="store">
 <c:url var="url1" value="storemodifyview">
           	<c:param name="store_id" value="${store.store_id}"></c:param>
           </c:url>
 			<a href="storeoutput?store_id=${store.store_id}" style="color: #ff8c00;">나의 매장 정보</a><br> 
 			<a href="${url1}">매장 정보 수정</a><br>
+			<a href="storeinput">매장 등록</a><br>
 			<a href="">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.store_id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.store_id}">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">

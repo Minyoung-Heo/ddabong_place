@@ -20,7 +20,6 @@
 .flex-item img {
 	max-width: 100%;
 }
-
 .flex-item hr {
 	background: #ffddb3;
 	border: 0;
@@ -94,6 +93,7 @@
 	text-align: left;
 	font-size: 15px;
 	width: 85%;
+	margin-right: 230px;
 }
 </style>
 </head>
