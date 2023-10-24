@@ -13,6 +13,7 @@
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 .btn_login {
@@ -20,7 +21,7 @@
 	height: 51px;
 	background-color: #FF8C00; /* 배경색을 하얀색으로 변경 */
 	color: white; /* 글씨색을 #FF8C00으로 변경 */
-	font-size: 23px;
+	font-size: 18px;
 	margin-top: 40px;
 	border-radius: 40px;
 	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
@@ -28,13 +29,18 @@
 	background-color: gray;
 	color: white;
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
-	margin-top: 40px;
+	margin-top: 25px;
+	border:0px;
 }
 .btn_login:hover {
 	/* 호버 시 스타일 */
 	background-color: #ff8c00;
 	color: white;
 }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus,
+ input:-webkit-autofill:active 
+{ transition: background-color 5000s ease-in-out 0s; }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>

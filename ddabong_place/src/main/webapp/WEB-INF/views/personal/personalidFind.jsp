@@ -13,6 +13,7 @@
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 .btn_login {
@@ -28,13 +29,18 @@
 	background-color: gray;
 	color: white;
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
-	margin-top: 40px;
+	margin-top: 25px;
+	border:0px;
 }
 .btn_login:hover {
 	/* 호버 시 스타일 */
 	background-color: #ff8c00;
 	color: white;
 }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus,
+ input:-webkit-autofill:active 
+{ transition: background-color 5000s ease-in-out 0s; }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
