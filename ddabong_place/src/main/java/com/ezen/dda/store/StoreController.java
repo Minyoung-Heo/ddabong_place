@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.ezen.dda.personalfunction.ReservationDTO;
+
 
 @Controller
 public class StoreController {
@@ -25,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기		
-		static String imagepath = "C:\\Users\\minyoung\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+		static String imagepath = "C:\\Users\\BrotherZin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -213,15 +215,27 @@ public class StoreController {
 		return "redirect:/main";
 	}
 	
-	//storestatus 캘린더
-	@RequestMapping(value = "/storestatus")
+
+	// 회원 예약 현황
+	@RequestMapping(value = "/storeStatus", method = RequestMethod.GET)
+	public String storeStatus(HttpServletRequest request, Model mo) {
+		String store_id = request.getParameter("store_id");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+
+		ArrayList<StoreDTO> ReservationList = ss.storeStatus(store_id);
+		mo.addAttribute("ReservationList", ReservationList);
+		
+		return "storeStatus";
+	}
+	// 캘린더
+	@RequestMapping(value = "/storecalendar")
 	public String store6() {
-			
+		
 		return "calendar";
 	}
 	
 	//업체용 회원가입
-	@RequestMapping(value = "/storeJoin")
+	@RequestMapping(value = "/storeJoin")	
 	public String storeJoin() {
 				
 		return "storeJoin";

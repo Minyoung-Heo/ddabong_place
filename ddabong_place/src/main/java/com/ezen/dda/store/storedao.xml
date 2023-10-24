@@ -101,4 +101,14 @@
 		select * from store where ceo =#{param1} and id=#{param2}
 	</select>
 
+<!-- 스토어 예약 현황 -->
+<select id="storeStatus"
+		resultType="com.ezen.dda.store.StoreDTO">
+		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, 
+		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image, rs.RESERVATION_NAME
+		FROM RESERVATION rs
+		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
+		WHERE rs.store_id = #{param1}
+	</select>
 </mapper>

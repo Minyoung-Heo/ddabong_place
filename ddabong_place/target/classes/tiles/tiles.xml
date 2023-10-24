@@ -283,10 +283,16 @@
 	</definition>
 
 	<!-- 매장 예약 현황창 -->
-	<definition name="storestatus" extends="baseLayout">
+	<definition name="storeStatus" extends="baseLayout">
+		<put-attribute name="title" value="매장 예약 현황" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/store/storeStatus.jsp" />
+	</definition>
+	<!-- 매장 예약 캘린더 -->
+	<definition name="storecalendar" extends="baseLayout">
 		<put-attribute name="title" value="매장 예약 캘린더" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/store/storestatus.jsp" />
+			value="/WEB-INF/views/store/storecalendar.jsp" />
 	</definition>
 	<!-- 매장 예약하기 -->
 	<definition name="reservation" extends="baseLayout">
