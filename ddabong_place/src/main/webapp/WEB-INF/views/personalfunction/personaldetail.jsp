@@ -320,7 +320,7 @@ width:420px;
 						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
 								<div class="flex_image">
 						<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
-								<c:if test="${loop.index >= 1 && loop.index < 7}">
+								<c:if test="${loop.index >= 1 && loop.index < 5}">
 									<div class="mini_image">
 									<img src="image/${img}" >
 									</div>

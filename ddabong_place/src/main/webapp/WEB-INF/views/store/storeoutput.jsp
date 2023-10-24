@@ -171,9 +171,12 @@ option {
           
           <div class="mae_image">
             <h4>매장 이미지</h4>
-            <c:forEach var="image" items="${fn:split(store.image, ' ')}">
-    			<td><img src="image/${image}"></td>
-			</c:forEach>
+            <c:forEach items="${fn:split(store.image, ' ')}" var="image" varStatus="loopStatus">
+        		<c:if test="${loopStatus.index % 5 == 0}">
+            	<br /> <!-- 매 5개의 이미지마다 줄바꿈 -->
+        		</c:if>
+        		<img src="image/${image}" width="100px">
+    		</c:forEach>
           </div>
           
           <div class="main_menu">
