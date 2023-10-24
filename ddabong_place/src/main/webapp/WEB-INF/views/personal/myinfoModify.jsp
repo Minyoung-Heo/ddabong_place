@@ -6,14 +6,42 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>회원 가입</title>
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.div-container {
+	margin-top: 30px;
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
+}
 
+.category {
+	margin-top: 70px;
+	width: 30%;
+	margin-left: 40px;
+	text-align: left;
+}
+
+.category a {
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFBE1C;
+	text-decoration: none;
+}
+
+.category a:hover {
+	color: #ff8c00;
+}
+.qna {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 15px;
+	width: 85%;
+	margin-right:260px;
+	
+}
 .container2 {
 	width: 460px;
 	margin: auto;
@@ -21,10 +49,9 @@
 }
 
 .login_title {
-	font-size: 50px;
+	font-size: 35px;
 	color: black;
-	font-weight: bold;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 }
 
 .textbox {
@@ -62,8 +89,6 @@
 	font-size: 12px;
 	margin-top: 5px;
 }
-
-
 </style>
 
 <script type="text/javascript">
@@ -252,8 +277,17 @@
 	});
 </script>
 <body>
-	<div class="BZ">
-		<div class="container2">
+<br><br>	
+	<div class="div-container">
+		<div class="category">
+			<h1>마이페이지</h1>
+			<a href="myinfo">내 정보</a><br> 
+			<a href="myinfoModify" style="color: #ff8c00;">회원 정보 수정</a><br>
+			<a href="personalleave" >회원 탈퇴</a><br>
+		</div>
+
+		<div class="qna">
+					<div class="container2">
 			<h1 class="login_title">회원 정보 수정</h1>
 			<form action="personalModifysave" method="post" id="myForm">
 				<br> 아이디<input type="text" id="personalid" class="textbox"
@@ -307,6 +341,9 @@
 				<br>
 			</form>
 		</div>
+		</div>
 	</div>
+	
+	
 </body>
 </html>
