@@ -53,7 +53,6 @@
     text-align: center;
     border: 1px solid #fff;
     border-spacing: 1px;
-  	
 }
 
 table td {
@@ -76,8 +75,8 @@ h1{
 .tbl-content table {
     width: 100%;
     table-layout: fixed;
-    overflow-y: scroll; /* 테이블 내부에 수직 스크롤을 나타내는 스타일을 추가합니다. */
-} */
+    overflow-y: scroll;
+}
 
 .flex-container {
 	display: flex;
@@ -170,6 +169,7 @@ font-size:25px;
 .cafe {
     text-align: left;
     width: 90%;
+    margin-top: 30px;
 }
 .region {
 font-size: 15px;
@@ -189,12 +189,12 @@ font-size: 20px;
 }
 </style>
 
-<script>
+<!-- <script>
 $(window).on("load resize ", function() {
 	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
 	  $('.tbl-header').css({'padding-right':scrollWidth});
 	}).resize();
-</script>
+</script> -->
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

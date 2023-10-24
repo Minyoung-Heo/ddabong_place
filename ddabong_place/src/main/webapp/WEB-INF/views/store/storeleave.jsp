@@ -38,6 +38,7 @@ a {
 }
 
 a:hover {
+	color: #2698cb;
 }
 
 /* 폰트 스타일 초기화 */
@@ -197,22 +198,21 @@ p1 {
 }
 </style>
 <meta charset="UTF-8">
-<title>회원 로그인</title>
+<title>매장 삭제</title>
 </head>
 <body>
 	<div class="BZ">
-		<h1 class="login_title">업체 정보 관리</h1>
-		<h4>비밀번호를 입력해주세요.</h4>
 		<div class="container2">
-			<form class="login_form" action="storepwchecking" method="get">
+			<h1 class="login_title">매장 삭제</h1>
+			<h4>삭제하시려면 비밀번호를 입력해주세요.</h4>
+			<form class="login_form" action="storeleavechecking" method="post">
 				<div class="pswd_area">
-					<span class="pswd_input"> 
-					<input type="hidden" name="storeid" value="${store.id}"> 
-					<input type="password" id="storepw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="storepw" maxlength="16">
+					<span class="pswd_input">
+					<input type="hidden" name="storeid" value="${store.id}">
+					 <input type="password" id="storepw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="storepw" maxlength="16">
 					</span>
 				</div>
-				<button id="loginButton" class="btn_login" value="완료" type="submit"
-					disabled>완료</button>
+				<button id="loginButton" class="btn_login" type="submit" disabled>삭제</button>
 				<br>
 			</form>
 		</div>
