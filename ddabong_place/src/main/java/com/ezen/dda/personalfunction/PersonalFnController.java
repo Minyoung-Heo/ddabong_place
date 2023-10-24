@@ -108,7 +108,9 @@ public class PersonalFnController {
 		}
 		CafeService cafeService = sqlSession.getMapper(CafeService.class);
 		ArrayList<CafeDTO> reviewstarList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		ArrayList<CafeDTO> waitingList = cafeService.waiting_num(); // 현재 대기 인원
 		mo.addAttribute("reviewstarList", reviewstarList);
+		mo.addAttribute("waitingList", waitingList);
 		mo.addAttribute("reviewlist", reviewlist);
 		mo.addAttribute("ddabonglist", ddabonglist);
 		mo.addAttribute("registrationlist", registrationlist);

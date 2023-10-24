@@ -22,8 +22,11 @@ public class CafeController {
 		CafeService cafeService = sqlSession.getMapper(CafeService.class);
 		ArrayList<CafeDTO> cafeList = cafeService.cafeOut(); // 카페 리스트
 		ArrayList<CafeDTO> reviewList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		ArrayList<CafeDTO> waitingList = cafeService.waiting_num(); // 현재 대기 인원
+		
 		model.addAttribute("cafeList", cafeList);
 		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("waitingList", waitingList);
 		return "cafeOut";
 	}
 		
@@ -34,8 +37,11 @@ public class CafeController {
 		CafeService cafeService = sqlSession.getMapper(CafeService.class);
 		ArrayList<CafeDTO> cafeList = cafeService.cafeRegion(region_name); // 지역별 카페 리스트
 		ArrayList<CafeDTO> reviewList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		ArrayList<CafeDTO> waitingList = cafeService.waiting_num(); // 현재 대기 인원
+		
 		model.addAttribute("cafeList", cafeList);
 		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("waitingList", waitingList);
 		model.addAttribute("region", region_name);
 		return "cafeOut";
 	}
@@ -47,8 +53,11 @@ public class CafeController {
 			CafeService cafeService = sqlSession.getMapper(CafeService.class);
 			ArrayList<CafeDTO> cafeList = cafeService.cafeDessert(dessert); // 지역별 카페 리스트
 			ArrayList<CafeDTO> reviewList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+			ArrayList<CafeDTO> waitingList = cafeService.waiting_num(); // 현재 대기 인원
+			
 			model.addAttribute("cafeList", cafeList);
 			model.addAttribute("reviewList", reviewList);
+			model.addAttribute("waitingList", waitingList);
 			model.addAttribute("dessert", dessert);
 			return "cafeOut";
 		}

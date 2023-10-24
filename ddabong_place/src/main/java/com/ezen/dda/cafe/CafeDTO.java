@@ -4,7 +4,16 @@ public class CafeDTO {
 	String store_id, storename, tel, address, intro, image, main_menu, main_image, lineintro,
 	region_name, feature, dessert;
 	String star_score, review_count;
+	String waiting_num;
 	
+	public String getWaiting_num() {
+		return waiting_num;
+	}
+
+	public void setWaiting_num(String waiting_num) {
+		this.waiting_num = waiting_num;
+	}
+
 	public String getStar_score() {
 		return star_score;
 	}

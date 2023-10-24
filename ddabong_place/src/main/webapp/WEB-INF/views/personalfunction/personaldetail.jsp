@@ -278,6 +278,47 @@ width:420px;
 .btn:hover {
     background-color:#ffba66;
 }
+.modal {
+width:250px;
+height:70px;
+      display: none; 
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      z-index: 1000; 
+    }
+
+    .modal-background {
+      display: none; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); 
+      z-index: 999; 
+    }
+
+    .modal-close {
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+      float: right;
+    }
+    .wait img {
+width:15px;
+margin-right:0px;
+margin-bottom:5px;
+}
+.wait {
+float:right;
+font-size: 15px;
+margin-right:20px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -295,7 +336,16 @@ width:420px;
 					<tr>
 						<td style="text-align: left;">
 						<img src="/dda/image/pin.png" width="21px" style="margin-bottom:5px;
-						margin-left:21px;"> ${regi.region_name}<br>
+						margin-left:21px;"> ${regi.region_name}
+						<c:forEach items="${waitingList}" var="w">
+						<c:if test="${regi.store_id == w.store_id}">
+						<span class="wait">
+						<img src="/dda/image/user.png">
+						현재 대기 인원: 
+						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span> 
+						</c:if>
+						</c:forEach>
+						<br>
 						<h1 class="storetitle">${regi.storename}</h1>
 						<span class="review">
 						<c:forEach items="${reviewstarList}" var="re">
@@ -330,16 +380,38 @@ width:420px;
 								<button class="btn" onclick="goToScroll()">
 								<img src="/dda/image/map.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 위치 보기
 								</button>
-								<button class="btn">
+								<button class="btn" id="openModalBtn">
 								<img src="/dda/image/call.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 전화 걸기
 								</button>
+								<div id="myModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span><br>
+    <p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
+  </div>
+  <div id="modalBackground" class="modal-background" onclick="closeModal()"></div>
+
+  <script>
+    // 모달 열기
+    function openModal() {
+      document.getElementById('myModal').style.display = 'block';
+      document.getElementById('modalBackground').style.display = 'block';
+    }
+
+    // 모달 닫기
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+      document.getElementById('modalBackground').style.display = 'none';
+    }
+
+    // 전화걸기 버튼에 이벤트 리스너 추가
+    document.getElementById('openModalBtn').addEventListener('click', openModal);
+  </script>
+								
 							</td>
 					</tr>
 					<tr><td><hr></td></tr>
 					<tr>
 					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
 					<h1 style="margin-top:30px;">매장 소개</h1>
-					<img src="/dda/image/tel.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> ${regi.tel}<br>
 					<br>
 					<h4>${regi.intro}</h4><br>
 					</td>
