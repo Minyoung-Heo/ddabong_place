@@ -142,10 +142,22 @@ border-radius: 10px;
 }
 
 .reservbtn {
-	width: 250px;
-	height: 100px;
-	border-radius: 14px;
-	border: 1px solid #b3b3b3;
+text-decoration:none;
+color:black;
+font-size:15px;
+	width: 130px;
+	padding:15px;
+text-align:center;
+    float: right;	
+	border-radius: 10px;
+	border:0px;
+	background-color: #ffe8cc;
+	outline: none;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.reservbtn:hover {
+ background-color:#ffba66;
 }
 
 .reviewfile {
@@ -232,6 +244,10 @@ margin-bottom:5px;
 .reviewstar {
 font-size: 15px;
 }
+.review {
+margin-top:0px;
+float:left;
+}
 .starout
 {
 position: relative;
@@ -256,6 +272,7 @@ width: 550px;
 height: 150px;
 }
 .storetitle {
+float:left;
 font-size: 40px;
 margin-top:2px;
 margin-bottom:10px;
@@ -319,6 +336,9 @@ float:right;
 font-size: 15px;
 margin-right:20px;
 }
+.flex-btn {
+margin-right:20px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -342,11 +362,26 @@ margin-right:20px;
 						<span class="wait">
 						<img src="/dda/image/user.png">
 						현재 대기 인원: 
-						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span> 
+						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span><br>
 						</c:if>
 						</c:forEach>
-						<br>
-						<h1 class="storetitle">${regi.storename}</h1>
+						</td>
+						</tr>
+						
+						<tr><td>
+						<span class="storetitle">${regi.storename}</span>
+						<div class="flex-btn">						
+						<button class="reservbtn" onclick="location.href='waitingInput?store_id=${regi.store_id}'">
+						웨이팅</button>
+						<form action="reserv" method="POST">
+								<input type="hidden" name="storename" value="${regi.storename}">
+								<input type="hidden" name="storeID" value="${regi.store_id}">
+								<input type="submit" value="예약하기" class="reservbtn">
+							</form>
+							</div></td>
+						</tr>
+						
+						<tr><td>
 						<span class="review">
 						<c:forEach items="${reviewstarList}" var="re">
 						<c:if test="${regi.store_id == re.store_id}">
@@ -476,16 +511,6 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 });    
 </script>
 					</td>
-					</tr>
-					<tr>
-						<td class="table-bottom"><form action="reserv" method="POST">
-								<input type="hidden" name="storename" value="${regi.storename}">
-								<input type="hidden" name="storeID" value="${regi.store_id}">
-								<button class="reservbtn" type="submit">
-									<h1>예약하기</h1>
-								</button>
-							</form></td>
-						<a href="waitingInput?store_id=${regi.store_id}">웨이팅</a>
 					</tr>
 				</table>
 			</div>
