@@ -27,7 +27,7 @@ public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
 
-	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+	static String imagepath = "C:\\Users\\Brother_zin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")

@@ -118,7 +118,7 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 			<h4 class="title">따봉플레이스 공지사항</h4>
 			<div class="cont">
 				<p>
-					<img src="/dda/image/메인공지.png" style="width: 350px; height:500px;"
+					<img src="/dda/image/메인공지.png" style="width: 350px; height:350px;"
 						usemap="#popup" alt="event page">
 				</p>
 			</div>
