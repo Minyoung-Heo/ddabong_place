@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.ezen.dda.personalfunction.ReservationDTO;
+
 
 @Controller
 public class StoreController {
@@ -167,15 +169,26 @@ public class StoreController {
 		return "redirect:/storeoutput?store_id=" + store_id;
 	}
 	
-	//storestatus 캘린더
-	@RequestMapping(value = "/storestatus")
+	// 회원 예약 현황
+	@RequestMapping(value = "/storeStatus", method = RequestMethod.GET)
+	public String storeStatus(HttpServletRequest request, Model mo) {
+		String store_id = request.getParameter("store_id");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+
+		ArrayList<StoreDTO> ReservationList = ss.storeStatus(store_id);
+		mo.addAttribute("ReservationList", ReservationList);
+		
+		return "storeStatus";
+	}
+	// 캘린더
+	@RequestMapping(value = "/storecalendar")
 	public String store6() {
-			
+		
 		return "calendar";
 	}
 	
 	//업체용 회원가입
-	@RequestMapping(value = "/storeJoin")
+	@RequestMapping(value = "/storeJoin")	
 	public String storeJoin() {
 				
 		return "storeJoin";
