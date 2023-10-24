@@ -240,7 +240,7 @@ option {
             <input class="input_store" value="${store.dessert}" readonly>
           </div>
             <div class="submit">
-            <a href="storemodifyview?store_id=${store.id}">수정하기</a>
+            <a href="storemodifyview?store_id=${store.store_id}">수정하기</a>
             <a href="storeleave?id=${store.store_id}">삭제하기</a>
             </div>
 			</c:forEach>
