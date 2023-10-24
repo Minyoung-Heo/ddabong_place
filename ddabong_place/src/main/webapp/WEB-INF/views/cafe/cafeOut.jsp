@@ -116,7 +116,7 @@ font-size: 20px;
 }
 .wait img {
 width:15px;
-margin-right:0px;
+margin-top:2px;
 margin-bottom:5px;
 }
 .wait {
@@ -125,14 +125,6 @@ font-size: 15px;
 </style>
 
 <script type="text/javascript">
-    function insertPw(pw, num) {
-        var password = prompt("비밀번호를 입력하세요.");
-        if (password == pw) {
-			location.href = "qnadetail?question_num="+num;            
-        } else {
-        	alert("비밀번호가 올바르지 않습니다!");
-        }
-    }
     $(function () {
         var region = "${region}";
         if (region === "강남") {
@@ -242,8 +234,8 @@ font-size: 15px;
 					
 					<div class="intro" style="width:60%;">
 					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
-						<h3>${dto.storename}</h3>
-						${dto.lineintro}<br>
+						<h3 style="margin-bottom: 5px;">${dto.storename}</h3>
+						<span style="font-size:21px;">${dto.lineintro}</span><br>
 						<c:forEach items="${waitingList}" var="w">
 						<c:if test="${dto.store_id == w.store_id}">
 						<span class="wait">
@@ -264,7 +256,6 @@ font-size: 15px;
 				</div>
 				<hr>
 			</c:forEach>
-
 		</div>
 	</div>   
             

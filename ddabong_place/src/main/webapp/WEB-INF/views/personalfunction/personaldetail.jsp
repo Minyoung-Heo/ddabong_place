@@ -328,7 +328,7 @@ height:70px;
     }
     .wait img {
 width:15px;
-margin-right:0px;
+margin-top:3px;
 margin-bottom:5px;
 }
 .wait {
