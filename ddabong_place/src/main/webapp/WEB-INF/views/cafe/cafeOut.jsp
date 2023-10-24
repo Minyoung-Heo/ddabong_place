@@ -114,6 +114,14 @@ margin-bottom:5px;
 .review {
 font-size: 20px;
 }
+.wait img {
+width:15px;
+margin-right:0px;
+margin-bottom:5px;
+}
+.wait {
+font-size: 15px;
+}
 </style>
 
 <script type="text/javascript">
@@ -235,8 +243,16 @@ font-size: 20px;
 					<div class="intro" style="width:60%;">
 					<span class="region"><img src="/dda/image/pin.png" width="21px">${dto.region_name}<br></span>
 						<h3>${dto.storename}</h3>
-						${dto.lineintro}
-						<br><br><br>
+						${dto.lineintro}<br>
+						<c:forEach items="${waitingList}" var="w">
+						<c:if test="${dto.store_id == w.store_id}">
+						<span class="wait">
+						<img src="/dda/image/user.png">
+						현재 대기 인원: 
+						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span> 
+						</c:if>
+						</c:forEach>
+						<br><br>
 						<c:forEach items="${reviewList}" var="re">
 						<c:if test="${dto.store_id == re.store_id}">
 						<span class="review">

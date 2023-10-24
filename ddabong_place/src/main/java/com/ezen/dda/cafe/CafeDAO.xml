@@ -10,9 +10,14 @@ SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
 main_menu, main_image, region_name, feature, dessert 
 from registration
 </select>
+
 <select id="reviewStar" resultType="com.ezen.dda.cafe.CafeDTO">
-select a.store_id, sum(b.star)/count(*) as star_score, count(*) as review_count from 
+select a.store_id, round(sum(b.star)/count(*),2) as star_score, count(*) as review_count from 
 reservation a join review b on a.reservation_num = b.reservation_num group by a.store_id
+</select>
+
+<select id="waiting_num" resultType="com.ezen.dda.cafe.CafeDTO">
+select store_id, count(*) as waiting_num from waiting group by store_id
 </select>
 
 <select id="cafeRegion" resultType="com.ezen.dda.cafe.CafeDTO">
