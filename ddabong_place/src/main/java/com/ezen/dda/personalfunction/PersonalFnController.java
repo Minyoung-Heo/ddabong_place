@@ -33,7 +33,10 @@ public class PersonalFnController {
 	@RequestMapping(value = "/detailview")
 	public String detailview(HttpServletRequest request, Model mo) {
 		String storeID = request.getParameter("store_id");
-
+	if(storeID == null)
+	{
+		storeID=request.getParameter("storeID");
+	}
 		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
 		String month; // 문자 월
 		switch (mon) { // 숫자 월을 문자 월로 변환
@@ -149,9 +152,9 @@ public class PersonalFnController {
 
 	// 리뷰 데이터를 저장.
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public String reviewsave(MultipartHttpServletRequest mul) {
+	public String reviewsave(MultipartHttpServletRequest mul,Model mo,HttpServletRequest request) {
 		List<MultipartFile> filelist = mul.getFiles("reviewfile");
-		String content = mul.getParameter("reviewcontent");
+		String content = mul.getParameter("reviewcontent").replace("\n", "<br>");
 		double star = Double.parseDouble(mul.getParameter("star"));
 		String storeid = mul.getParameter("storeid");
 		String customerid = mul.getParameter("customerid");
@@ -177,7 +180,8 @@ public class PersonalFnController {
 		Double reservnum = (double) reservnumlist.get(0).getReservation_num();
 		ss.reviewsave(reservnum, content, imagesname, star, dateString);
 
-		return "redirect:/main";
+		
+		return "redirect:/detailview?storeID=" + storeid;
 	}
 	
 	// 리뷰 작성전 예약이력 체크
@@ -223,12 +227,13 @@ public class PersonalFnController {
 	}
 
 	// 예약 삭제
-	@RequestMapping(value = "/ReservationDelete")
+	@RequestMapping(value = "/ReservationDelete", method = RequestMethod.GET)
 	public String ReservationDelete(HttpServletRequest request) {
+		String customer_id = request.getParameter("customer_id");
 		String reservation_num = request.getParameter("reservation_num");
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		ss.reservationDelete(reservation_num);
 
-		return "myStatus";
+		return "redirect:/myStatus?customer_id="+customer_id;
 	}
 }

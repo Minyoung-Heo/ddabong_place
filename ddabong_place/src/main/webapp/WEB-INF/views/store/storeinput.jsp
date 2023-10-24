@@ -170,7 +170,13 @@ option {
 	border-radius: 40px;
 	outline: none;
 }
-
+.flexbox {
+display: flex;
+}
+.feature_box1,.feature_box2,.feature_box3 {
+text-align: left;
+margin-left: 30px;
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -238,15 +244,15 @@ function check(){
     var f = document.store;
 
     var cstorename = f.storename.value;
-    var vstorename = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
+    var vstorename = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
 
     if(cstorename== "" || cstorename==" "){
-        alert("매장명 공백은 안돼요");
+        alert("매장명을 입력해주세요.");
         f.storename.select();
         return false;
     }
     if(!vstorename.test(cstorename)){
-        alert("매장명을 제대로 입력해주세요");
+        alert("매장명을 제대로 입력해주세요.");
 		f.storename.select();
 		return false;
     }
@@ -254,21 +260,21 @@ function check(){
     var caddr3 = f.addr3.value;
 
     if(caddr3== "" || caddr3==" "){
-        alert("매장 주소 공백은 안돼요");
+        alert("매장 주소 공백은 안 돼요.");
         f.addr3.select();
         return false;
     }
 
     var cmain_menu = f.main_menu.value;
-    var vmain_menu = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
+    var vmain_menu = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
 
     if(cmain_menu== "" || cmain_menu==" "){
-        alert("매장 대표 메뉴 이름 공백은 안돼요");
+        alert("매장 대표 메뉴 이름 공백은 안 돼요.");
         f.main_menu.select();
         return false;
     }
     if(!vmain_menu.test(cmain_menu)){
-        alert("매장 대표 메뉴 이름을 제대로 입력해주세요");
+        alert("매장 대표 메뉴 이름을 제대로 입력해주세요.");
 		f.main_menu.select();
 		return false;
     }
@@ -375,12 +381,12 @@ textarea.addEventListener("input", function () {
             
             <div class="lineintro">
               <h4>매장 한줄 소개</h4>
-              <textarea rows="4" cols="40" name="lineintro" placeholder="매장 소개를 적어주세요"></textarea>
+              <textarea rows="4" cols="40" name="lineintro" placeholder="매장 소개를 적어주세요!"></textarea>
           	</div>
           	
            	<div class="intro">
             	<h4>매장 소개글</h4>
-            	<textarea id="introTextarea" rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일은 꼭 적어주세요"></textarea>
+            	<textarea id="introTextarea" rows="8" cols="40" name="intro" placeholder="운영시간, 휴무일을 꼭 적어주세요!"></textarea>
           	</div>
           	
           	<div class="mae_image">
@@ -413,15 +419,23 @@ textarea.addEventListener("input", function () {
           
           	<div class="feature">
             <h4>특징</h4>
-            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"><label for="feature1">노키즈존</label>
-	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"><label for="feature2">반려견 동반 입장 O</label>
-	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"><label for="feature3">반려견 동반 입장 X</label><br>
-	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"><label for="feature4">주차장 O</label>
-	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"><label for="feature5">주차장 X</label>
-	        	<input type="checkbox" name="feature" value="루프탑" id="feature6"><label for="feature6">루프탑</label><br>
-	        	<input type="checkbox" name="feature" value="테라스" id="feature7"><label for="feature7">테라스</label>
+            <div class="flexbox">
+            <div class="feature_box1">
+	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"><label for="feature4">주차장 O</label><br>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"><label for="feature2">반려견 동반 입장 O</label><br>
 	        	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"><label for="feature8">노트북 사용 O</label>
+			</div>
+				<div class="feature_box2">
+	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"><label for="feature5">주차장 X</label><br>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"><label for="feature3">반려견 동반 입장 X</label><br>
 	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"><label for="feature9">노트북 사용 X</label>
+			</div>		
+			<div class="feature_box3">
+            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"><label for="feature1">노키즈존</label><br>
+			    <input type="checkbox" name="feature" value="루프탑" id="feature6"><label for="feature6">루프탑</label><br>
+	        	<input type="checkbox" name="feature" value="테라스" id="feature7"><label for="feature7">테라스</label><br>
+			</div>	
+			</div>	
           	</div>
           
           	<div class="dessert">
@@ -431,9 +445,9 @@ textarea.addEventListener("input", function () {
             	<input type="checkbox" name="dessert" value="스콘" id="dessert3"><label for="dessert3">스콘</label>
             	<input type="checkbox" name="dessert" value="마카롱" id="dessert4"><label for="dessert4">마카롱</label><br>
             	<input type="checkbox" name="dessert" value="크로플" id="dessert5"><label for="dessert5">크로플</label>
-            	<input type="checkbox" name="dessert" value="푸딩" id="dessert6"><label for="dessert6">푸딩</label>
+            	<input type="checkbox" name="dessert" value="푸딩" id="dessert6"><label for="dessert6">푸딩&emsp;</label>
             	<input type="checkbox" name="dessert" value="쿠키" id="dessert7"><label for="dessert7">쿠키</label>
-            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"><label for="dessert8">빙수</label>
+            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"><label for="dessert8">빙수&emsp;</label>
            	</div>
           
            	<div class="submit">

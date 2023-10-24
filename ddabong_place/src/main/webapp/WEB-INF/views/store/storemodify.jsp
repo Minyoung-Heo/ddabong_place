@@ -10,9 +10,8 @@
 
 h1 {
   color: black;
-  font-size: 2em;
   position: relative;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .wrap{
@@ -25,7 +24,7 @@ h1 {
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 60px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -169,7 +168,38 @@ option {
 	border-radius: 40px;
 	outline: none;
 }
+.div-container {
+	margin-top: 30px;
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
+}
 
+.category {
+	margin-top: 70px;
+	width: 30%;
+	margin-left: 40px;
+	text-align: left;
+}
+
+.category a {
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFBE1C;
+	text-decoration: none;
+}
+
+.category a:hover {
+	color: #ff8c00;
+}
+.qna {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 15px;
+	width: 100%;
+	margin-right:230px;
+	
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -237,7 +267,7 @@ function check(){
     var f = document.store;
 
     var cstorename = f.storename.value;
-    var vstorename = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
+    var vstorename = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
 
     if(cstorename== "" || cstorename==" "){
         alert("매장명 공백은 안돼요");
@@ -251,21 +281,15 @@ function check(){
     }
 
     var caddr3 = f.addr3.value;
-    var vaddr3 = /^[~!@#$%^&*(),_+|<>?:{}가-힣0-9\s]{1,50}$/;
 
     if(caddr3== "" || caddr3==" "){
         alert("매장 주소 공백은 안돼요");
         f.addr3.select();
         return false;
     }
-    if(!vaddr3.test(caddr3)){
-        alert("매장 주소는 숫자나 한글만 입력해주세요");
-		f.addr3.select();
-		return false;
-    }
 
     var cmain_menu = f.main_menu.value;
-    var vmain_menu = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
+    var vmain_menu = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
 
     if(cmain_menu== "" || cmain_menu==" "){
         alert("매장 대표 메뉴 이름 공백은 안돼요");
@@ -314,16 +338,20 @@ function check(){
 </script>
 </head>
 <body>
+<br><br>	
+	<div class="div-container">
+		<div class="category">
+			<h1>마이페이지</h1>
+			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}" style="color: #ff8c00;">매장 정보 수정</a><br>
+			<a href="">매장 삭제</a><br>
+		</div>
 
-<br>
-<br>
-<br>
-<br>
-
-<form action="storemodifysave" method="post" enctype="multipart/form-data" name="store">
+		<div class="qna">
+		<form action="storemodifysave" method="post" enctype="multipart/form-data" name="store">
 <div class="wrap">
         <div class="storemodify">
-            <h1>매장 등록 수정</h1>
+            <h1 style="margin-bottom: 50px;">매장 등록 수정</h1>
             
             <c:forEach items="${list}" var="store">
             <div class="store_id">
@@ -442,6 +470,8 @@ function check(){
         </div>
     </div>
 </form>
+		</div>
+	</div>
 
 </body>
 </html>

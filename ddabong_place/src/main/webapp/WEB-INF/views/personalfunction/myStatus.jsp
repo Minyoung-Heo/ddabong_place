@@ -6,6 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+function cancelReserv(reservation_num){
+	if(confirm("예약을 정말 취소하시겠습니까?")){
+		location.href="ReservationDelete?reservation_num="+reservation_num+"&customer_id=${personal.id}";
+	}
+}
+</script>
 <style type="text/css">
 .maint1 {
 	border: 1px solid #FF8C00;
@@ -57,6 +64,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
+		margin-right: 20px;
 }
 
 .buttons input[type="button"] {
@@ -100,7 +108,7 @@ h5 {
 .horizontal-line {
 	border-top: 1px solid #FF8C00;
 	margin: 0 auto;
-	margin-top: 37px;
+	margin-top: 20px;
 	margin-bottom: 50px;
 	width: 40%;
 }
@@ -113,7 +121,7 @@ h5 {
 }
 
 .category {
-	margin-top: 70px;
+	margin-top: 60px;
 	width: 30%;
 	margin-left: 40px;
 	text-align: left;
@@ -144,18 +152,37 @@ h5 {
 .side-map {
 	margin-top: 150px;
 }
+.img-wrapper {
+margin:25px;
+	margin-right: 15px;
+	width: 230px;
+	height: 230px;
+	position: relative;
+}
+
+.img-wrapper img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 </style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<br><br>
 	<div class="div-container">
 		<div class="category">
 			<h1>예약 / 웨이팅</h1>
-			<a href="myStatus?customer_id=${personal.id}">예약 현황</a><br> <a
+			<a href="myStatus?customer_id=${personal.id}" style="color:#ff8c00;">예약 현황</a><br> <a
 				href="mywaiting?customer_id=${personal.id}">웨이팅
-				현황</a><br>
+				현황</a>
 		</div>
 
 		<div class="qna">
@@ -168,9 +195,11 @@ h5 {
 							<table class="maint1" align="center">
 								<tr>
 									<th>
-										<div class="timg">
-											<img src="/dda/image/${dto.image}" alt="매장 이미지">
-										</div>
+										<div class="img-wrapper">
+								<a href="detailview?store_id=${dto.store_id}"> <img alt=""
+									src="/dda/image/${dto.image}" width="200px"></a>
+							</div>
+										
 									</th>
 									<th>
 										<h1 class="cname">${dto.storename}</h1>
@@ -197,7 +226,7 @@ h5 {
 												onclick="location.href='detailview?store_id=${dto.store_id}'">
 											<input type="button" value="지도 보기" class="btn2"> <input
 												type="button" value="예약 취소" class="btn2"
-												onclick="location.href='ReservationDelete?reservation_num=${dto.reservation_num}'">
+												onclick="cancelReserv(${dto.reservation_num})">
 										</div>
 									</th>
 								</tr>
@@ -209,7 +238,7 @@ h5 {
 								<h5>상세 주소 : ${dto.address }</h5>
 							</div>
 							<script type="text/javascript"
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8fc3585ad5a21392e7cb628332db3e4c&libraries=services"></script>
+								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
 
 							<script>
 								var mapVisible = false;

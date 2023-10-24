@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 .tt {
-	margin-top: 140px;
+	margin-top: 80px;
 }
 
 .btn2, .btn3 {
@@ -21,8 +21,8 @@
 	background-color: gray;
 	color: white;
 	transition: background-color 0.3s, color 0.3s; /* 트랜지션 추가 */
-
-	margin-top: 40px;
+	border:0px;
+	margin-top: 25px;
 }
 
 .btn2:hover, .btn3:hover {
@@ -38,7 +38,7 @@
 	<c:choose>
 		<c:when test="${not empty list}">
 			<c:forEach items="${list}" var="a">
-				<h1 class="tt">${a.ceo }대표님의 비밀번호는</h1>
+				<h1 class="tt">${a.ceo} 대표님의 비밀번호는</h1>
 				<h1>[ ${a.pw} ]</h1>
 				<h1>입니다.</h1>
 				<button class="btn3" value="창 닫기" type="button"

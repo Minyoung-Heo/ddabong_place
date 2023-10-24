@@ -38,90 +38,220 @@
 	margin: auto;
 }
 
-.slide_div_wrap {
-	padding: 15px 0 15px 0;
-	background: #ffffff;
-	height: 500px;
+.tb{
+	margin-top: 70px;
 }
 
-.image_wrap img {
-	max-width: 85%;
-	height: auto;
-	display: block;
-	margin: auto;
-}
-.tb{
-margin-top: 50px;
-}
 .nulldata
 {
-margin-top: 150px;
+	margin-top: 150px;
 }
 
+.tbl-header table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #fff;
+    border-spacing: 1px;
+}
 
-table {
-border-style:solid;
-	border-width: 10px;
-	border-color:black;
-	background-color: #FF8C00;
+table td {
+    padding: 10px;
+    background-color: rgb(254,252,250);
+    font-size: 17px;
 }
-tr{
-border-style:solid;
-	border-width: 6px;
-	border-color:black;
-	background-color: #FF8C00;
+
+table th {
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 10px;
+    font-size: 17px;
 }
-td{
-border-style:solid;
-	border-width: 6px;
-	border-color:black;
-	background-color: #FF8C00;
+h1{
+	font-size: 50px;
+	margin-top: 100px;
 }
-.quiztitle{
-font: bold;
-font-size: 55px;
-margin-top: 2em;
+
+.tbl-content table {
+    width: 100%;
+    table-layout: fixed;
+    overflow-y: scroll;
+}
+
+.flex-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.flex-container-inner {
+	display: flex;
+}
+
+.flex-item img {
+	max-width: 100%;
+}
+
+.flex-item hr{
+background : #ffddb3;
+border:0;
+height:1px;
+}
+.flex-item h3 {
+font-size:30px;
+margin-top: 3px;
+margin-bottom:20px;
+}
+.flex-item {
+width:100%;
+font-size:25px;
+}
+
+.img-wrapper {
+	margin-right: 40px;
+	width: 260px;
+	height: 260px;
+	position: relative;
+}
+
+.img-wrapper img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.intro {
+	text-align: left;
+}
+
+.btn {
+	position:relative;
+	float:left;
+	background-color: #ffe8cc;
+	outline: none;
+	margin-right:15px;
+}
+
+.btn:hover {
+	background-color: #ffba66;
+}
+
+.div-container {
+    margin-top: 30px;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.category {
+    margin-top:10px;
+    width:30%;
+    margin-left:40px;
+    text-align: left;
+}
+
+.category a {
+    line-height:40px;
+    font-size:20px;
+    color:#FFBE1C;
+    text-decoration: none;
+}
+
+.category a:hover {
+    color:#ff8c00;
+}
+
+.cafe {
+    text-align: left;
+    width: 90%;
+    margin-top: 30px;
+}
+.region {
+font-size: 15px;
+color:gray;
+}
+.region img {
+margin-right: 3px;
+margin-bottom:4px;
+}
+.review img {
+width:25px;
+margin-right:5px;
+margin-bottom:5px;
+}
+.review {
+font-size: 20px;
 }
 </style>
 
+<!-- <script>
+$(window).on("load resize ", function() {
+	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+	  $('.tbl-header').css({'padding-right':scrollWidth});
+	}).resize();
+</script> -->
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<div class="quiztitle">당신에게 딱 맞는 카페를 추천드립니다.</div>
-	<br>
-	<br>
-	<br>
-	<div class="slide_div_wrap">
-		<div class="slide_div">
-			<c:choose>
-				<c:when test="${list.size()>=1 }">
-					<c:forEach items="${ list}" var="aa">
-						<div class="tb">
-							<table border="1" align="center" heigt="500px" width="600px">
-								<tr>
-									<td><img src="/dda/image/${ aa.image}" width="300px"
-										height="300px"></td>
-								</tr>
-								<tr>
-									<td>${aa.storename }</td>
-									<td>${aa.region_name }</td>
-									<td>${aa.dessert }</td>
-								</tr>
-							</table>
-						</div>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="nulldata">
-					<h1>검색 결과가 존재하지 않습니다</h1>
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
-	<br>
 
+<body>
+<br><br>
+<h1>당신에게 딱 맞는 카페를 추천드립니다.</h1>
+    <div class="div-container">
+        <div class="category">
+            <h1 style="margin-bottom: 11px;">카페 보러가기</h1>
+            <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
+            <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
+            <a href="godessert?dessert=케이크">디저트별 카페 보기</a><br>
+        </div>
+
+        <div class="cafe">
+            <h3 style="color:gray;">퀴즈 결과</h3>
+            <!-- 퀴즈 결과 시작 -->
+       <div class="flex-container">
+		<div class="flex-item">
+			<hr>
+			<c:choose>
+                <c:when test="${list.size()>=1}">
+                <div class="tbl-header">
+                    <table border="1">
+                        <tr>
+                            <th>가게 이름</th>
+                            <th>매장 이미지</th>
+                            <th>지역</th>
+                            <th>디저트</th>
+                        </tr>
+                    </div>
+                    
+                    <div class="tbl-content">
+                        <c:forEach items="${list}" var="aa">
+                            <tr>
+                                <td>${aa.storename}</td>
+                                <td><img src="/dda/image/${aa.image}" width="300px" height="300px"></td>
+                                <td>${aa.region_name}</td>
+                                <td>${aa.dessert}</td>
+                            </tr>
+                        </c:forEach>
+                   </div>
+                   </table>
+                </c:when>
+                <c:otherwise>
+                    <div class="nulldata">
+                        <h1>검색 결과가 존재하지 않습니다</h1>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+            </div>
+	</div>   
+	<br><br><br>
+        </div>
+    </div>
 
 </body>
+
 </html>
