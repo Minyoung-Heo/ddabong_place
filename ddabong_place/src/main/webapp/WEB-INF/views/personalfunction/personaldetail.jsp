@@ -223,6 +223,7 @@ border-radius: 10px;
 	height: 40px;
 	pointer-events: none;
 }
+
 .reviewstar img {
 width:18px;
 margin-left:21px;
@@ -479,54 +480,67 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-		<div class="reviewtable">
-			<table width="100%" height="100%" align="center">
-				<tr style="text-align: left;">
-					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
-				</tr>
-				<tr>
-					<td class="starout">
-					<div class="startRadio">
-							<label class="startRadio__box"> <input type="radio"
-								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 0.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 1.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 1.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 2.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 2.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 3.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 3.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 4.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 4.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 5.0개</span></span>
-							</label>
-						</div><div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div></td>
-				</tr>
-				<tr>
-					<td><div class="rev-img">
-							<img src="image/${rev.imageList[0]}" width="200px" height="150px">
-						</div><div class="contentout">${rev.content }</div></td>
-				</tr>
-			</table>
-		</div>
-	</c:forEach>
+		  <div class="reviewtable">
+        <table width="100%" height="100%" align="center">
+            <tr style="text-align: left;">
+                <td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
+            </tr>
+            <tr>
+                <td class="starout">
+                    <div class="startRadio">
+                        <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 0.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 1개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 1.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 2개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 2.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 3개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 3.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 4개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 4.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 5개</span></span>
+                        </label>
+                    </div>
+                    <div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="rev-img">
+                        <img src="image/${rev.imageList[0]}" width="200px" height="150px">
+                    </div>
+                    <div class="contentout">${rev.content }&emsp;${rev.star}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</c:forEach>
 </body>
 </html>
