@@ -11,7 +11,7 @@
 var alertMessage = "${alertMessage}";
 if (alertMessage) {
 	alert(alertMessage);
-	window.location.replace("storepwcheck");
+	window.location.replace("storeLogin");
 }
 </script>
 </body>
