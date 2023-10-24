@@ -179,6 +179,7 @@ body {
 	box-sizing: border-box;
 	font-size: 15px;
 	border-radius: 40px;
+	outline: none;
 }
 
 .btn_login {
@@ -199,7 +200,6 @@ p1 {
 <title>회원 로그인</title>
 </head>
 <body>
-
 	<div class="BZ">
 		<h1 class="login_title">업체 정보 관리</h1>
 		<h4>비밀번호를 입력해주세요.</h4>
