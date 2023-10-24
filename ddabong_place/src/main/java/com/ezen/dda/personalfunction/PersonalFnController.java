@@ -227,12 +227,13 @@ public class PersonalFnController {
 	}
 
 	// 예약 삭제
-	@RequestMapping(value = "/ReservationDelete")
+	@RequestMapping(value = "/ReservationDelete", method = RequestMethod.GET)
 	public String ReservationDelete(HttpServletRequest request) {
+		String customer_id = request.getParameter("customer_id");
 		String reservation_num = request.getParameter("reservation_num");
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		ss.reservationDelete(reservation_num);
 
-		return "myStatus";
+		return "redirect:/myStatus?customer_id="+customer_id;
 	}
 }

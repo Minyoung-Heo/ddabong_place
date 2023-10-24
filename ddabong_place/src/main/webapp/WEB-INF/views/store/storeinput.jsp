@@ -238,7 +238,7 @@ function check(){
     var f = document.store;
 
     var cstorename = f.storename.value;
-    var vstorename = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
+    var vstorename = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z가-힣0-9\s]{1,9}$/;
 
     if(cstorename== "" || cstorename==" "){
         alert("매장명 공백은 안돼요");
@@ -260,7 +260,7 @@ function check(){
     }
 
     var cmain_menu = f.main_menu.value;
-    var vmain_menu = /^[~!@#$%^&*(),_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
+    var vmain_menu = /^[~!@#$%^&*().,_+|<>?:{}a-zA-Z0-9가-힣\s]{1,15}$/;
 
     if(cmain_menu== "" || cmain_menu==" "){
         alert("매장 대표 메뉴 이름 공백은 안돼요");
