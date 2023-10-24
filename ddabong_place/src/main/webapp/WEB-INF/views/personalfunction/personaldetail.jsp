@@ -633,7 +633,7 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
                 <td><div class="rev-img">
                         <img src="image/${rev.imageList[0]}" width="200px" height="150px">
                     </div>
-                    <div class="contentout">${rev.content }&emsp;${rev.star}</div>
+                    <div class="contentout">${rev.content }</div>
                 </td>
             </tr>
         </table>
