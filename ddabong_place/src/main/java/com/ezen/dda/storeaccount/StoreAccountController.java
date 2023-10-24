@@ -10,8 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ezen.dda.personal.PersonalDTO;
-import com.ezen.dda.personal.PersonalService;
+import com.ezen.dda.store.StoreService;
 
 
 @Controller
@@ -75,12 +74,12 @@ public class StoreAccountController {
 			String alertMessage = "비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
 
-			return "storeloginerr";
+			return "storeaccloginerr";
 		}
 	}
 	// 회원 탈퇴 마지막 질문
 	@RequestMapping(value = "/confirmLeaveacc")
-	public String confirmLeave() {
+	public String confirmLeaveacc() {
 		return "confirmLeaveacc";
 	}
 		
@@ -88,16 +87,20 @@ public class StoreAccountController {
 	@RequestMapping(value = "/storeaccountdelete")
 	public String del(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		StoreAccountService sas = sqlSession.getMapper(StoreAccountService.class);
-		
-		
-		sas.storeaccountdelete(id); // 업체 계정 삭제
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+		ss.stardelete(id); // 즐겨찾기 삭제
+		ss.waitingdelete(id); // 웨이팅 삭제
+		ss.ddabongdelete(id); //따봉 삭제
+		ss.reservationdelete(id); 
+		// 예약 삭제 인데 이거 수정해야 됨 예약테이블에서 업체아이디 갖는 레코드 찾아서 예약번호 가져오고 예약번호 해당하는 리뷰 테이블 삭제하고 그다음 예약테이블 다시 삭제
+		ss.registrationdelete(id); //업체 계정 삭제
+		ss.storedelete(id); //매장 등록 삭제
 		
 		HttpSession hs = request.getSession();
 		hs.removeAttribute("store");
 		hs.setAttribute("storeloginstate", false);
 
-		return "redirect:/main";
+		return "redirect:/";
 	}
 
 }

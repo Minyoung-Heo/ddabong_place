@@ -34,19 +34,19 @@
 	<!-- 매장 삭제 -->
 	<!-- 업체 아이디를 외래키로 갖는 테이블의 데이터 삭제 -->
 	<delete id="registrationdelete">
-		delete from registration store_id=#{param1}
+		delete from registration where store_id=#{param1}
 	</delete>
 	<delete id="ddabongdelete">
-		delete from ddabong store_id=#{param1}
+		delete from ddabong where store_id=#{param1}
 	</delete>
 	<delete id="stardelete">
-		delete from star store_id=#{param1}
+		delete from star where store_id=#{param1}
 	</delete>
 	<delete id="waitingdelete">
-		delete from waiting store_id=#{param1}
+		delete from waiting where store_id=#{param1}
 	</delete>
 	<delete id="reservationdelete">
-		delete from reservation store_id=#{param1}
+		delete from reservation where store_id=#{param1}
 	</delete>
 	
 	<!-- 마지막으로 업체 계정 삭제 -->

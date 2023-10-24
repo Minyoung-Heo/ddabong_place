@@ -31,7 +31,6 @@
 
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 a {
 	color: #222;
 	text-decoration: none;
@@ -48,11 +47,6 @@ em, address {
 /* 블릿기호 초기화 */
 ul, li, ol {
 	list-style: none;
-}
-/* 제목 태그 초기화 */
-h1, h2, h3, h4, h5, h6 {
-	font-size: 13px;
-	font-weight: normal;
 }
 /* 테두리 초기화 */
 img, fieldset {
@@ -151,12 +145,6 @@ input:checked[type=checkbox] {
 	height: 36px;
 	padding: 0 10px;
 }
-
-body {
-	font-family: 'Open Sans', sans-serif;
-	background: white;
-}
-
 .container2 {
 	width: 460px;
 	margin: auto;
@@ -164,7 +152,7 @@ body {
 }
 
 .login_title {
-	font-size: 50px;
+	font-size: 35px;
 	color: black;
 	font-weight: bold;
 	margin-bottom: 30px;
@@ -196,13 +184,59 @@ body {
 p1 {
 	margin-top: 20%;
 }
+.div-container {
+	margin-top: 30px;
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
+}
+
+.category {
+	margin-top: 70px;
+	width: 30%;
+	margin-left: 40px;
+	text-align: left;
+}
+
+.category a {
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFBE1C;
+	text-decoration: none;
+}
+
+.category a:hover {
+	color: #ff8c00;
+}
+.qna {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 15px;
+	width: 85%;
+	margin-right:260px;
+	
+}
 </style>
 <meta charset="UTF-8">
 <title>매장 삭제</title>
 </head>
 <body>
-	<div class="BZ">
-		<div class="container2">
+<br><br>	
+		<div class="div-container">
+		<div class="category">
+			<h1>마이페이지</h1>
+			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+			<a href="storeinput">매장 등록</a><br>
+			<a href="storeleave?id=${store.id}" style="color: #ff8c00;">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
+		</div>
+
+		<div class="qna">
+					<div class="container2">
 			<h1 class="login_title">매장 삭제</h1>
 			<h4>삭제하시려면 비밀번호를 입력해주세요.</h4>
 			<form class="login_form" action="storeleavechecking" method="post">
@@ -216,6 +250,10 @@ p1 {
 				<br>
 			</form>
 		</div>
+		</div>
 	</div>
+	
+	
+		
 </body>
 </html>

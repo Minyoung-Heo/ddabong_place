@@ -20,7 +20,7 @@
 }
 
 .store_id, .storename, .tel, .address, .lineintro, .intro, .mae_image, .main_menu, .main_image, .region_name, .feature, .dessert, .submit{
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -156,26 +156,22 @@ option {
 	<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
-			<c:forEach items="${list}" var="store">
-<c:url var="url1" value="storemodifyview">
-          	<c:param name="store_id" value="${store.store_id}"></c:param>
-          </c:url>
-			<a href="storeoutput?store_id=${store.store_id}" style="color: #ff8c00;">나의 매장 정보</a><br> 
-			<a href="${url1}">매장 정보 수정</a><br>
+			<a href="storeoutput?store_id=${store.id}" style="color: #ff8c00;">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
 			<a href="storeinput">매장 등록</a><br>
-			<a href="">매장 삭제</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
 			<hr style="width:190px; text-align: left; margin-left:0;">			
-			<a href="storeaccountinfo?id=${store.store_id}">나의 회원 정보</a><br>
-			<a href="storeaccountmodify?id=${store.store_id}">회원 정보 수정</a><br>
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
 			<a href="storeaccountleave">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">
 		<form action="storemodifyview" method="post">
 		<div class="wrap">
+			<c:forEach items="${list}" var="store">
         <div class="storeinput">
             <h1 style="margin-bottom: 50px;">나의 매장 정보</h1>
-            
            
             <div class="store_id">
                 <h4>업체 아이디</h4>
@@ -243,24 +239,14 @@ option {
             <h4>디저트</h4>
             <input class="input_store" value="${store.dessert}" readonly>
           </div>
-          
-          <c:url var="url1" value="storemodifyview">
-          	<c:param name="store_id" value="${store.store_id}"></c:param>
-          </c:url>
-          
-          <c:url var="url2" value="storeleave">
-          	<c:param name="id" value="${store.store_id}"></c:param>
-          </c:url>
-          
             <div class="submit">
-            <a href="${url1}">수정하기</a>
-            <a href="${url2}">삭제하기</a>
+            <a href="storemodifyview?store_id=${store.id}">수정하기</a>
+            <a href="storeleave?id=${store.store_id}">삭제하기</a>
             </div>
 			</c:forEach>
-        </div>
-    </div>
+        </div></div>
 </form>
+    </div>
 		</div>
-	</div>
 </body>
 </html>

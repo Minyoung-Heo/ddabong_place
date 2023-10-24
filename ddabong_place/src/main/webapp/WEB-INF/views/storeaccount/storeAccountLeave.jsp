@@ -146,12 +146,6 @@ input:checked[type=checkbox] {
 	height: 36px;
 	padding: 0 10px;
 }
-
-body {
-	font-family: 'Open Sans', sans-serif;
-	background: white;
-}
-
 .container2 {
 	width: 460px;
 	margin: auto;
@@ -229,14 +223,13 @@ p1 {
 </head>
 <body>
 	<br><br>	
-	<div class="div-container">
 		<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
 			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
 			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
 			<a href="storeinput">매장 등록</a><br>
-			<a href="">매장 삭제</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
 			<hr style="width:190px; text-align: left; margin-left:0;">			
 			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
 			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>

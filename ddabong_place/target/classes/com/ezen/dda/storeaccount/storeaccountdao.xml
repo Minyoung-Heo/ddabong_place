@@ -13,16 +13,8 @@ select * from store where id = #{param1}
 update store set pw=#{param2}, ceo=#{param3}, phone=#{param4}, email=#{param5} where id=#{param1}
 </update>
 
-<select id="storeAccountOut" resultType="com.ezen.dda.storeaccount.StoreAccountDTO">
-select * from store where id = #{param1}
-</select>
-
 <select id="storeaccountleavechecking" resultType="com.ezen.dda.storeaccount.StoreAccountDTO">
 select * from store where id =#{param1} and pw =#{param2}
 </select>
-
-<delete id="storeaccountdelete">
-delete from store where id = #{param1}
-</delete>
 
 </mapper>

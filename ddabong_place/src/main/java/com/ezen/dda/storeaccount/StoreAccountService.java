@@ -6,5 +6,4 @@ public interface StoreAccountService {
 			String ceo, String phone, String email); // 업체 계정 정보 수정
 	public StoreAccountDTO storeaccountleavechecking(String id, String pw); // 업체 계정 삭제 전 확인
 	
-	public void storeaccountdelete(String id); // 업체 계정 삭제
 }

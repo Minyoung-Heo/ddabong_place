@@ -338,7 +338,7 @@ function check(){
 			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
 			<a href="storemodifyview?store_id=${store.id}" style="color: #ff8c00;">매장 정보 수정</a><br>
 			<a href="storeinput">매장 등록</a><br>
-			<a href="">매장 삭제</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
 			<hr style="width:190px; text-align: left; margin-left:0;">			
 			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
 			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>

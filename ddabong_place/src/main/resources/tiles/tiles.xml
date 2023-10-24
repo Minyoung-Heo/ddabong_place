@@ -420,4 +420,11 @@
 			value="/WEB-INF/views/storeaccount/confirmLeaveacc.jsp" />
 	</definition>
 	
+	<!-- 매장 계정 삭제 확인 오류메시지 -->
+	<definition name="storeaccloginerr" extends="baseLayout">
+		<put-attribute name="title" value="업체회원 로그인 오류" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeaccloginerr.jsp" />
+	</definition>
+	
 </tiles-definitions>
