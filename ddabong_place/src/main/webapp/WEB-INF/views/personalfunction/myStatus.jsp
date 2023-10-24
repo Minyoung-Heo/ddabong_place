@@ -143,6 +143,7 @@ h5 {
 	text-align: left;
 	font-size: 15px;
 	width: 85%;
+	margin-right: 230px;
 }
 
 .asd {

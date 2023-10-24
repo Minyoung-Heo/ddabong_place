@@ -391,4 +391,33 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/calendar.jsp" />
 	</definition>
+	
+	<!-- 매장 계정 정보 보기 -->
+	<definition name="storeAccountInfo" extends="baseLayout">
+		<put-attribute name="title" value="나의 회원 정보" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountInfo.jsp" />
+	</definition>
+	
+		<!-- 매장 계정 정보 수정 -->
+	<definition name="storeAccountModify" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountModify.jsp" />
+	</definition>
+	
+	<!-- 매장 계정 삭제 -->
+	<definition name="storeAccountLeave" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 삭제" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/storeAccountLeave.jsp" />
+	</definition>
+
+	<!-- 매장 계정 삭제 확인-->
+	<definition name="confirmLeaveacc" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 삭제 확인" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/storeaccount/confirmLeaveacc.jsp" />
+	</definition>
+	
 </tiles-definitions>
