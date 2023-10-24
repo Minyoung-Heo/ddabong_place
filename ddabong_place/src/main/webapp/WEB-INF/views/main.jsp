@@ -27,15 +27,6 @@
 h1{
 margin: 30px;
 }
-.slick-prev {
-	left: 750px;
-	z-index: 1;
-}
-
-.slick-next {
-	right: 750px;
-	z-index: 1;
-}
 
 .slide_div img {
 	margin: auto;
@@ -141,14 +132,21 @@ width: 1200px;
 height: 500px;
 margin-top: 70px;
 margin-left: 17%;
+margin-bottom: 50px;
 }
 </style>
 </head>
 <body>
-<div class="main-banner2">
-<a  href=""><img alt="메인배너1" src="/dda/image/main_banner.png"></a>
-</div>
-<h1>디저트별 카페 추천</h1>
+	<div class="main-banner2">
+		<div class="slide_div_wrap">
+			<div class="slide_div">
+				<a href=""><img alt="메인배너1" src="/dda/image/메인배너.png"></a>
+				<a href=""><img alt="mainLogo2" src="/dda/image/mainLogo2.png"></a>
+				<a href=""><img alt="mainLogo3" src="/dda/image/mainLogo3.png"></a>
+			</div>
+		</div>
+	</div>
+	<h1>디저트별 카페 추천</h1>
 <div class="dessertIcon">
 <a href="godessert?dessert=케이크"><img src="/dda/image/케이크.png" width="140px"></a>
 <a href="godessert?dessert=마카롱"><img src="/dda/image/마카롱.png" width="140px"></a>

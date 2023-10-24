@@ -142,10 +142,22 @@ border-radius: 10px;
 }
 
 .reservbtn {
-	width: 250px;
-	height: 100px;
-	border-radius: 14px;
-	border: 1px solid #b3b3b3;
+text-decoration:none;
+color:black;
+font-size:15px;
+	width: 130px;
+	padding:15px;
+text-align:center;
+    float: right;	
+	border-radius: 10px;
+	border:0px;
+	background-color: #ffe8cc;
+	outline: none;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.reservbtn:hover {
+ background-color:#ffba66;
 }
 
 .reviewfile {
@@ -223,6 +235,7 @@ border-radius: 10px;
 	height: 40px;
 	pointer-events: none;
 }
+
 .reviewstar img {
 width:18px;
 margin-left:21px;
@@ -232,6 +245,10 @@ margin-bottom:5px;
 .reviewstar {
 font-size: 15px;
 }
+.review {
+margin-top:0px;
+float:left;
+}
 .starout
 {
 position: relative;
@@ -240,7 +257,7 @@ padding-top: 10px;
 }
 .dateCreated
 {position:relative;
-left:240px;
+left:310px;
 width: 100px;
 bottom: 35px;
 color: #8c8c8c;
@@ -256,6 +273,7 @@ width: 550px;
 height: 150px;
 }
 .storetitle {
+float:left;
 font-size: 40px;
 margin-top:2px;
 margin-bottom:10px;
@@ -278,6 +296,50 @@ width:420px;
 .btn:hover {
     background-color:#ffba66;
 }
+.modal {
+width:250px;
+height:70px;
+      display: none; 
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      z-index: 1000; 
+    }
+
+    .modal-background {
+      display: none; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); 
+      z-index: 999; 
+    }
+
+    .modal-close {
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+      float: right;
+    }
+    .wait img {
+width:15px;
+margin-top:3px;
+margin-bottom:5px;
+}
+.wait {
+float:right;
+font-size: 15px;
+margin-right:20px;
+}
+.flex-btn {
+margin-right:20px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -295,8 +357,32 @@ width:420px;
 					<tr>
 						<td style="text-align: left;">
 						<img src="/dda/image/pin.png" width="21px" style="margin-bottom:5px;
-						margin-left:21px;"> ${regi.region_name}<br>
-						<h1 class="storetitle">${regi.storename}</h1>
+						margin-left:21px;"> ${regi.region_name}
+						<c:forEach items="${waitingList}" var="w">
+						<c:if test="${regi.store_id == w.store_id}">
+						<span class="wait">
+						<img src="/dda/image/user.png">
+						현재 대기 인원: 
+						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span><br>
+						</c:if>
+						</c:forEach>
+						</td>
+						</tr>
+						
+						<tr><td>
+						<span class="storetitle">${regi.storename}</span>
+						<div class="flex-btn">						
+						<button class="reservbtn" onclick="location.href='waitingInput?store_id=${regi.store_id}'">
+						웨이팅</button>
+						<form action="reserv" method="POST">
+								<input type="hidden" name="storename" value="${regi.storename}">
+								<input type="hidden" name="storeID" value="${regi.store_id}">
+								<input type="submit" value="예약하기" class="reservbtn">
+							</form>
+							</div></td>
+						</tr>
+						
+						<tr><td>
 						<span class="review">
 						<c:forEach items="${reviewstarList}" var="re">
 						<c:if test="${regi.store_id == re.store_id}">
@@ -330,16 +416,38 @@ width:420px;
 								<button class="btn" onclick="goToScroll()">
 								<img src="/dda/image/map.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 위치 보기
 								</button>
-								<button class="btn">
+								<button class="btn" id="openModalBtn">
 								<img src="/dda/image/call.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 전화 걸기
 								</button>
+								<div id="myModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span><br>
+    <p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
+  </div>
+  <div id="modalBackground" class="modal-background" onclick="closeModal()"></div>
+
+  <script>
+    // 모달 열기
+    function openModal() {
+      document.getElementById('myModal').style.display = 'block';
+      document.getElementById('modalBackground').style.display = 'block';
+    }
+
+    // 모달 닫기
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+      document.getElementById('modalBackground').style.display = 'none';
+    }
+
+    // 전화걸기 버튼에 이벤트 리스너 추가
+    document.getElementById('openModalBtn').addEventListener('click', openModal);
+  </script>
+								
 							</td>
 					</tr>
 					<tr><td><hr></td></tr>
 					<tr>
 					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
 					<h1 style="margin-top:30px;">매장 소개</h1>
-					<img src="/dda/image/tel.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> ${regi.tel}<br>
 					<br>
 					<h4>${regi.intro}</h4><br>
 					</td>
@@ -405,16 +513,6 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 </script>
 					</td>
 					</tr>
-					<tr>
-						<td class="table-bottom"><form action="reserv" method="POST">
-								<input type="hidden" name="storename" value="${regi.storename}">
-								<input type="hidden" name="storeID" value="${regi.store_id}">
-								<button class="reservbtn" type="submit">
-									<h1>예약하기</h1>
-								</button>
-							</form></td>
-						<a href="waitingInput?store_id=${regi.store_id}">웨이팅</a>
-					</tr>
 				</table>
 			</div>
 		</c:forEach>
@@ -479,54 +577,67 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-		<div class="reviewtable">
-			<table width="100%" height="100%" align="center">
-				<tr style="text-align: left;">
-					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
-				</tr>
-				<tr>
-					<td class="starout">
-					<div class="startRadio">
-							<label class="startRadio__box"> <input type="radio"
-								name="star" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 0.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 1.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 1.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 2.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 2.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 3.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 3.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 4.0개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 4.5개</span></span>
-							</label> <label class="startRadio__box"> <input type="radio"
-								name="star" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-									class="blind">별 5.0개</span></span>
-							</label>
-						</div><div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div></td>
-				</tr>
-				<tr>
-					<td><div class="rev-img">
-							<img src="image/${rev.imageList[0]}" width="200px" height="150px">
-						</div><div class="contentout">${rev.content }</div></td>
-				</tr>
-			</table>
-		</div>
-	</c:forEach>
+		  <div class="reviewtable">
+        <table width="100%" height="100%" align="center">
+            <tr style="text-align: left;">
+                <td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
+            </tr>
+            <tr>
+                <td class="starout">
+                    <div class="startRadio">
+                        <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 0.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 1개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 1.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 2개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 2.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 3개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 3.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 4개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 4.5개</span></span>
+                        </label>
+                         <label class="startRadio__box"> <input type="radio"
+                            name="star-${loop.index}" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
+                                class="blind">별 5개</span></span>
+                        </label>
+                    </div>
+                    <div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="rev-img">
+                        <img src="image/${rev.imageList[0]}" width="200px" height="150px">
+                    </div>
+                    <div class="contentout">${rev.content }&emsp;${rev.star}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</c:forEach>
 </body>
 </html>

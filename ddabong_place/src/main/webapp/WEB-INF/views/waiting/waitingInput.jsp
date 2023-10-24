@@ -71,6 +71,7 @@ $(function() {
 <center>
 	<br>
 	<br>
+	<br><br><br>
 	<h1>웨이팅 등록</h1>
 	<form action="waitingSave" method="post">
 	<table class="wait">

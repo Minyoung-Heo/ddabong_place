@@ -108,7 +108,9 @@ public class PersonalFnController {
 		}
 		CafeService cafeService = sqlSession.getMapper(CafeService.class);
 		ArrayList<CafeDTO> reviewstarList = cafeService.reviewStar(); // 리뷰 별점 평균, 리뷰 수
+		ArrayList<CafeDTO> waitingList = cafeService.waiting_num(); // 현재 대기 인원
 		mo.addAttribute("reviewstarList", reviewstarList);
+		mo.addAttribute("waitingList", waitingList);
 		mo.addAttribute("reviewlist", reviewlist);
 		mo.addAttribute("ddabonglist", ddabonglist);
 		mo.addAttribute("registrationlist", registrationlist);
@@ -221,12 +223,13 @@ public class PersonalFnController {
 	}
 
 	// 예약 삭제
-	@RequestMapping(value = "/ReservationDelete")
+	@RequestMapping(value = "/ReservationDelete", method = RequestMethod.GET)
 	public String ReservationDelete(HttpServletRequest request) {
+		String customer_id = request.getParameter("customer_id");
 		String reservation_num = request.getParameter("reservation_num");
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		ss.reservationDelete(reservation_num);
 
-		return "myStatus";
+		return "redirect:/myStatus?customer_id="+customer_id;
 	}
 }
