@@ -170,7 +170,13 @@ option {
 	border-radius: 40px;
 	outline: none;
 }
-
+.flexbox {
+display: flex;
+}
+.feature_box1,.feature_box2,.feature_box3 {
+text-align: left;
+margin-left: 30px;
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -413,15 +419,23 @@ textarea.addEventListener("input", function () {
           
           	<div class="feature">
             <h4>특징</h4>
-            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"><label for="feature1">노키즈존</label>
-	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"><label for="feature2">반려견 동반 입장 O</label>
-	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"><label for="feature3">반려견 동반 입장 X</label><br>
-	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"><label for="feature4">주차장 O</label>
-	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"><label for="feature5">주차장 X</label>
-	        	<input type="checkbox" name="feature" value="루프탑" id="feature6"><label for="feature6">루프탑</label><br>
-	        	<input type="checkbox" name="feature" value="테라스" id="feature7"><label for="feature7">테라스</label>
+            <div class="flexbox">
+            <div class="feature_box1">
+	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"><label for="feature4">주차장 O</label><br>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"><label for="feature2">반려견 동반 입장 O</label><br>
 	        	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"><label for="feature8">노트북 사용 O</label>
+			</div>
+				<div class="feature_box2">
+	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"><label for="feature5">주차장 X</label><br>
+	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"><label for="feature3">반려견 동반 입장 X</label><br>
 	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"><label for="feature9">노트북 사용 X</label>
+			</div>		
+			<div class="feature_box3">
+            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"><label for="feature1">노키즈존</label><br>
+			    <input type="checkbox" name="feature" value="루프탑" id="feature6"><label for="feature6">루프탑</label><br>
+	        	<input type="checkbox" name="feature" value="테라스" id="feature7"><label for="feature7">테라스</label><br>
+			</div>	
+			</div>	
           	</div>
           
           	<div class="dessert">
@@ -431,9 +445,9 @@ textarea.addEventListener("input", function () {
             	<input type="checkbox" name="dessert" value="스콘" id="dessert3"><label for="dessert3">스콘</label>
             	<input type="checkbox" name="dessert" value="마카롱" id="dessert4"><label for="dessert4">마카롱</label><br>
             	<input type="checkbox" name="dessert" value="크로플" id="dessert5"><label for="dessert5">크로플</label>
-            	<input type="checkbox" name="dessert" value="푸딩" id="dessert6"><label for="dessert6">푸딩</label>
+            	<input type="checkbox" name="dessert" value="푸딩" id="dessert6"><label for="dessert6">푸딩&emsp;</label>
             	<input type="checkbox" name="dessert" value="쿠키" id="dessert7"><label for="dessert7">쿠키</label>
-            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"><label for="dessert8">빙수</label>
+            	<input type="checkbox" name="dessert" value="빙수" id="dessert8"><label for="dessert8">빙수&emsp;</label>
            	</div>
           
            	<div class="submit">
