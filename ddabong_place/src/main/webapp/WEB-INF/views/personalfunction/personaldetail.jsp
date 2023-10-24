@@ -406,7 +406,7 @@ margin-right:20px;
 						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
 								<div class="flex_image">
 						<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
-								<c:if test="${loop.index >= 1 && loop.index < 7}">
+								<c:if test="${loop.index >= 1 && loop.index < 5}">
 									<div class="mini_image">
 									<img src="image/${img}" >
 									</div>
@@ -633,7 +633,7 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
                 <td><div class="rev-img">
                         <img src="image/${rev.imageList[0]}" width="200px" height="150px">
                     </div>
-                    <div class="contentout">${rev.content }&emsp;${rev.star}</div>
+                    <div class="contentout">${rev.content }</div>
                 </td>
             </tr>
         </table>
