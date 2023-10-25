@@ -19,7 +19,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/image/**" location="/image/" />
 	<resources mapping="/fullcalendar/**" location="/fullcalendar/" />
-	<resources mapping="/js/**" location="/js/" />
+	<resources mapping="/images/**" location="/images/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
