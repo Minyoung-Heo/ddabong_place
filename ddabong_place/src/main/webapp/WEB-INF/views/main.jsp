@@ -78,11 +78,6 @@ h1 {
 	object-fit: cover;
 }
 
-.medal {
-	margin-top: 20px;
-	width: 3vw;
-}
-
 .flex-container {
 	margin-top: 30px;
 	display: flex;
@@ -188,7 +183,54 @@ h1 {
 	max-width: 100%; /* 이미지의 최대 너비 설정 */
 	height: auto; /* 높이 자동 조정 */
 }
+
+.award_image{
+	position: relative;
+	top: -300px;
+	z-index: -1;
+}
+
+.award-item1{
+	position: relative;
+	top: 133px;
+	left: 534px;
+	z-index: 1;
+}
+
+
+.award-item2{
+	position: relative;
+	top: 350px;
+	left: -395px;
+	z-index: 1;
+}
+
+.award-item3{
+	position: relative;
+	top: 413px;
+	right: 140px;
+	z-index: 1;
+}
+
+.crown{
+	width: 80px;
+	z-index: 1;
+}
+
+.medal1, .medal2, .medal3 {
+	position: relative;
+	width: 2vw;
+	right: 17px;
+	top: -15px;
+}
+
+span{
+	position: relative;
+	right: 8px;
+	bottom: 16px;
+}
 </style>
+
 </head>
 <body>
 	<div class="main-banner2">
@@ -230,21 +272,41 @@ h1 {
 			width="100px"></a> <a href="goregion?region_name=혜화"><img
 			src="/dda/image/혜화아이콘.png" width="100px"></a>
 	</div>
-	<h1 class="ddadda" align="center">따봉 어워드</h1>
-	<div class="award-container">
-		<c:forEach items="${awardList}" var="awardDDA" varStatus="loop">
-			<div>
-				<img class="medal" src="/dda/image/${loop.index + 1}위.png"
-					alt="${loop.index + 1}위">
-				<div class="award-img-wrapper">
-					<a href="detailview?store_id=${awardDDA.store_id}"> <img alt=""
-						src="/dda/image/${awardDDA.image}"></a>
-				</div>
 
-				<h3>${awardDDA.storeName}</h3>
+	<h1 class="ddadda" align="center">따봉 어워드</h1>
+	<div class="award-container" id="award-container">
+		<div class="award-item1">
+			<img class="crown" src="/dda/image/crown.png" alt="1위">
+			<div class="award-img-wrapper">
+				<a href="detailview?store_id=${awardList[0].store_id}">
+				<img class="award_img1" alt="" src="/dda/image/${awardList[0].image}">
+				</a>
 			</div>
-		</c:forEach>
+			<h3><img class="medal1" src="/dda/image/1위.png" alt="1위"><span>${awardList[0].storeName}</span></h3>
+		</div>
+		<div class="award-item2">
+			<div class="award-img-wrapper">
+				<a href="detailview?store_id=${awardList[1].store_id}"> 
+				<img class="award_img2" alt="" src="/dda/image/${awardList[1].image}">
+				</a>
+			</div>
+			<h3><img class="medal2" src="/dda/image/2위.png" alt="2위"><span>${awardList[1].storeName}</span></h3>
+		</div>
+		<div class="award-item3">
+			<div class="award-img-wrapper">
+				<a href="detailview?store_id=${awardList[2].store_id}"> 
+				<img class="award_img3" alt="" src="/dda/image/${awardList[2].image}">
+				</a>
+			</div>
+			<h3><img class="medal3" src="/dda/image/3위.png" alt="3위"><span>${awardList[2].storeName}</span></h3>
+		</div>
 	</div>
+
+
+	<div class="award_image">
+		<img alt="" src="/dda/image/award.png">
+	</div>
+	
 	<div class="mondda">
 		<h1>이달의 따봉왕</h1>
 		<div class="slide_div_wrap">
@@ -299,5 +361,6 @@ h1 {
 	<br>
 	<br>
 	<br>
+
 </body>
 </html>
