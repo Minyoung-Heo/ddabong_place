@@ -25,6 +25,8 @@ public interface PersonalFnService {
 	
 	public int duplicatecheck(String customer_id, String reservation_date);
 
+	public void ddaplus(String month, String store_id);
+
 
 
 }

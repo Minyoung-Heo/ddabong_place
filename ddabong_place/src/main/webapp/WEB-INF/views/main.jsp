@@ -44,6 +44,7 @@ h1 {
 	margin-bottom: 50px;
 	margin-top: 20px;
 }
+
 .slide_div2 img {
 	margin: auto;
 }
@@ -184,6 +185,10 @@ h1 {
 	height: auto; /* 높이 자동 조정 */
 }
 
+.cakecake {
+	display: inline-block;
+	width: 400px;
+	
 .award_image{
 	position: relative;
 	top: -300px;
@@ -309,14 +314,14 @@ span{
 	
 	<div class="mondda">
 		<h1>이달의 따봉왕</h1>
-		<div class="slide_div_wrap">
+		<div class="slide_div2wrap">
 			<div class="slide_div2">
 				<c:forEach items="${rankList}" var="monthDDA" varStatus="loop">
 					<div class="item">
 						<h2>${loop.index + 1}등</h2>
-						<a href="detailview?store_id=${monthDDA.store_id}" width="400px">
-							<img alt="" src="/dda/image/${monthDDA.image}" width="500px"
-							height="500px">
+						<a href="detailview?store_id=${monthDDA.store_id}"
+							class="cakecake"> <img alt=""
+							src="/dda/image/${monthDDA.image}" width="500px" height="500px">
 						</a>
 						<h3>${monthDDA.storeName}</h3>
 					</div>
@@ -351,8 +356,7 @@ span{
 
 
 			<div class="flex-item">
-				<h1>Quiz</h1>
-				<a href="quiz"><img src="/dda/image/quiz.png" width="560px"></a>
+				<a href="quiz"><img src="/dda/image/quizLogo.png" width="560px"></a>
 			</div>
 		</div>
 	</div>

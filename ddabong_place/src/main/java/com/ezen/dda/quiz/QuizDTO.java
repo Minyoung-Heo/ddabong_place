@@ -1,11 +1,22 @@
 package com.ezen.dda.quiz;
 
+import java.util.List;
+
 public class QuizDTO {
 String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
 String sql;
+List<String> imageList;
 
 public String getSql() {
 	return sql;
+}
+
+public List<String> getImageList() {
+	return imageList;
+}
+
+public void setImageList(List<String> imageList) {
+	this.imageList = imageList;
 }
 
 public void setSql(String sql) {
@@ -15,7 +26,7 @@ public void setSql(String sql) {
 public QuizDTO() {}
 
 public QuizDTO(String store_id,String storename, String tel, String address, String intro, String image, String main_menu,
-		String main_image, String region_name, String feature, String dessert) {
+		String main_image, String region_name, String feature, String dessert, List<String> imageList) {
 	super();
 	this.store_id = store_id;
 	this.storename = storename;
@@ -28,6 +39,7 @@ public QuizDTO(String store_id,String storename, String tel, String address, Str
 	this.region_name = region_name;
 	this.feature = feature;
 	this.dessert = dessert;
+	this.imageList = imageList;
 }
 
 public String getStore_id() {

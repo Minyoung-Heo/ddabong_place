@@ -9,13 +9,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-function goToScroll() {
-    var location = document.querySelector(".scroll").offsetTop;
-    window.scrollTo({top: location, behavior: 'smooth'});
-}
+	function goToScroll() {
+		var location = document.querySelector(".scroll").offsetTop;
+		window.scrollTo({
+			top : location,
+			behavior : 'smooth'
+		});
+	}
 	$(function() {
-		
-		
+
 		$(".reviewsubmit").click(function(event) {
 			var f = document.reviewform;
 			var content = f.reviewcontent.value;
@@ -50,12 +52,22 @@ function goToScroll() {
 		});
 	});
 
-	  document.addEventListener("DOMContentLoaded", function() {
-		    var starInputs = document.querySelectorAll("input.outstar");
-		    starInputs.forEach(function(input) {
-		      input.disabled = true; // 모든 별점 input 요소를 비활성화
-		    });
-		  });
+	document.addEventListener("DOMContentLoaded", function() {
+		var starInputs = document.querySelectorAll("input.outstar");
+		starInputs.forEach(function(input) {
+			input.disabled = true; // 모든 별점 input 요소를 비활성화
+		});
+	});
+	
+	function changeImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/ddabonghover.png';
+	}
+
+	function restoreImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/dddabong.png';
+	}
 </script>
 <style type="text/css">
 .detailtable {
@@ -66,9 +78,11 @@ function goToScroll() {
 	border-left-color: #e6e6e6;
 	border-right-color: #e6e6e6;
 }
+
 .storeshow {
-margin:40px;
+	margin: 40px;
 }
+
 .reviewtable {
 	width: 55%;
 	height: 300px;
@@ -81,8 +95,14 @@ margin:40px;
 
 .reviewsubmit {
 	position: relative;
-	right: 25px;
+	right: 50px;
 	top: 60px;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	background-color: #ffe8cc;
+	border: none;
+	border-radius: 15px;
 }
 
 .reviewcontent {
@@ -95,11 +115,13 @@ margin:40px;
 	left: 200px;
 	bottom: 50px;
 }
-.flex_image{
-display:flex;
-	margin-bottom:30px;
-justify-content: space-evenly;
+
+.flex_image {
+	display: flex;
+	margin-bottom: 30px;
+	justify-content: space-evenly;
 }
+
 .center_image {
 	width: 890px;
 	height: 600px;
@@ -108,8 +130,9 @@ justify-content: space-evenly;
 	vertical-align: top;
 	margin: 20px;
 }
+
 .center_image img {
-border-radius: 10px;
+	border-radius: 10px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -118,6 +141,7 @@ border-radius: 10px;
 	height: 100%;
 	object-fit: cover;
 }
+
 .mini_image {
 	width: 200px;
 	height: 140px;
@@ -126,8 +150,9 @@ border-radius: 10px;
 	vertical-align: top;
 	margin: 10px;
 }
+
 .mini_image img {
-border-radius: 10px;
+	border-radius: 10px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -142,22 +167,23 @@ border-radius: 10px;
 }
 
 .reservbtn {
-text-decoration:none;
-color:black;
-font-size:15px;
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
 	width: 130px;
-	padding:15px;
-text-align:center;
-    float: right;	
+	padding: 15px;
+	text-align: center;
+	float: right;
 	border-radius: 10px;
-	border:0px;
+	border: 0px;
 	background-color: #ffe8cc;
 	outline: none;
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 .reservbtn:hover {
- background-color:#ffba66;
+	background-color: #ffba66;
 }
 
 .reviewfile {
@@ -237,108 +263,144 @@ text-align:center;
 }
 
 .reviewstar img {
-width:18px;
-margin-left:21px;
-margin-right:2px;
-margin-bottom:5px;
+	width: 18px;
+	margin-left: 21px;
+	margin-right: 2px;
+	margin-bottom: 5px;
 }
+
 .reviewstar {
-font-size: 15px;
+	font-size: 15px;
 }
+
 .review {
-margin-top:0px;
-float:left;
+	margin-top: 0px;
+	float: left;
 }
-.starout
+
+.starout {
+	position: relative;
+	padding-right: 350px;
+	padding-top: 10px;
+}
+
+.dateCreated {
+	position: relative;
+	left: 240px;
+	width: 100px;
+	bottom: 35px;
+	color: #8c8c8c;
+}
+
+.contentout {
+	position: relative;
+	bottom: 270px;
+	left: 250px;
+	text-align: left;
+	font-size: 25px;
+	width: 550px;
+	height: 150px;
+}
+
+.storetitle {
+	float: left;
+	font-size: 40px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	margin-left: 21px;
+}
+
+.monthdda {
+	float: left;
+	font-size: 20px;
+	padding-left: 400px;
+	padding-top: 20px;
+}
+
+.ddabtn {
+border-style:solid;
+border-width:2.8px;
+padding:10px;
+border-radius:30px;
+	border-color:#ff8c00;
+	background-size: cover;
+	background-color: white;
+	width: 100px;
+	height: 100px;
+}
+.ddabtn:hover {
+background-color: #fff4e6;
+}
+.dda-container
 {
 position: relative;
-padding-right: 190px;
-padding-top: 10px;
+padding-left: 415px;
 }
-.dateCreated
-{position:relative;
-left:310px;
-width: 100px;
-bottom: 35px;
-color: #8c8c8c;
-}
-.contentout
-{
-position:relative;
-bottom: 270px;
-left:250px;
-text-align: left;
-font-size:25px;
-width: 550px;
-height: 150px;
-}
-.storetitle {
-float:left;
-font-size: 40px;
-margin-top:2px;
-margin-bottom:10px;
-margin-left:21px;
-}
-.btn {	
-width:420px;
-	text-align:center;
-    float: right;
-    margin-right: 30px;
-    margin-left: 10px;
-    background-color: #ffe8cc;
-    padding:8px;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-bottom: 30px;
-    outline: none;
+
+.btn {
+	width: 420px;
+	text-align: center;
+	float: right;
+	margin-right: 30px;
+	margin-left: 10px;
+	background-color: #ffe8cc;
+	padding: 8px;
+	padding-left: 40px;
+	padding-right: 40px;
+	margin-bottom: 30px;
+	outline: none;
 }
 
 .btn:hover {
-    background-color:#ffba66;
+	background-color: #ffba66;
 }
+
 .modal {
-width:250px;
-height:70px;
-      display: none; 
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      z-index: 1000; 
-    }
-
-    .modal-background {
-      display: none; 
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7); 
-      z-index: 999; 
-    }
-
-    .modal-close {
-      cursor: pointer;
-      font-size: 18px;
-      color: #333;
-      float: right;
-    }
-    .wait img {
-width:15px;
-margin-top:3px;
-margin-bottom:5px;
+	width: 250px;
+	height: 70px;
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	z-index: 1000;
 }
+
+.modal-background {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+}
+
+.modal-close {
+	cursor: pointer;
+	font-size: 18px;
+	color: #333;
+	float: right;
+}
+
+.wait img {
+	width: 15px;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
 .wait {
-float:right;
-font-size: 15px;
-margin-right:20px;
+	float: right;
+	font-size: 15px;
+	margin-right: 20px;
 }
+
 .flex-btn {
-margin-right:20px;
+	margin-right: 20px;
 }
 </style>
 <title>Insert title here</title>
@@ -355,163 +417,200 @@ margin-right:20px;
 			<div class="detailtable">
 				<table class="storeshow">
 					<tr>
-						<td style="text-align: left;">
-						<img src="/dda/image/pin.png" width="21px" style="margin-bottom:5px;
-						margin-left:21px;"> ${regi.region_name}
-						<c:forEach items="${waitingList}" var="w">
-						<c:if test="${regi.store_id == w.store_id}">
-						<span class="wait">
-						<img src="/dda/image/user.png">
-						현재 대기 인원: 
-						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span><br>
-						</c:if>
-						</c:forEach>
-						</td>
-						</tr>
-						
-						<tr><td>
-						<span class="storetitle">${regi.storename}</span>
-						<div class="flex-btn">						
-						<button class="reservbtn" onclick="location.href='waitingInput?store_id=${regi.store_id}'">
-						웨이팅</button>
-						<form action="reserv" method="POST">
-								<input type="hidden" name="storename" value="${regi.storename}">
-								<input type="hidden" name="storeID" value="${regi.store_id}">
-								<input type="submit" value="예약하기" class="reservbtn">
-							</form>
-							</div></td>
-						</tr>
-						
-						<tr><td>
-						<span class="review">
-						<c:forEach items="${reviewstarList}" var="re">
-						<c:if test="${regi.store_id == re.store_id}">
-						<span class="reviewstar">
-						<img src="/dda/image/star.png">
-						${re.star_score} (${re.review_count})</span> 
-						</c:if>
-						</c:forEach>
-					</td>
+						<td style="text-align: left;"><img src="/dda/image/pin.png"
+							width="21px" style="margin-bottom: 5px; margin-left: 21px;">
+							${regi.region_name} <c:forEach items="${waitingList}" var="w">
+								<c:if test="${regi.store_id == w.store_id}">
+									<span class="wait"> <img src="/dda/image/user.png">
+										현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
+									</span>명
+									</span>
+									<br>
+								</c:if>
+							</c:forEach></td>
 					</tr>
-				
+
+					<tr>
+						<td><span class="storetitle">${regi.storename}</span>
+							<div class="flex-btn">
+								<button class="reservbtn"
+									onclick="location.href='waitingInput?store_id=${regi.store_id}'">
+									웨이팅</button>
+								<form action="reserv" method="POST">
+									<input type="hidden" name="storename" value="${regi.storename}">
+									<input type="hidden" name="storeID" value="${regi.store_id}">
+									<input type="submit" value="예약하기" class="reservbtn">
+								</form>
+							</div></td>
+					</tr>
+
+					<tr>
+						<td><span class="review"> <c:forEach
+									items="${reviewstarList}" var="re">
+									<c:if test="${regi.store_id == re.store_id}">
+										<span class="reviewstar"> <img
+											src="/dda/image/star.png"> ${re.star_score}
+											(${re.review_count})
+										</span>
+									</c:if>
+								</c:forEach></td>
+					</tr>
 					<tr>
 						<td>
-						<div class="center_image">
-						<img src="image/${regi.imageList[0]}" width="100px">
-						</div>
+							<div class="center_image">
+								<img src="image/${regi.imageList[0]}" width="100px">
+							</div>
 						</td>
 					</tr>
 					<tr>
 
 						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
-								<div class="flex_image">
-						<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
-								<c:if test="${loop.index >= 1 && loop.index < 5}">
-									<div class="mini_image">
-									<img src="image/${img}" >
-									</div>
-								</c:if>
-							</c:forEach>
-									</div>
-								<button class="btn" onclick="goToScroll()">
-								<img src="/dda/image/map.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 위치 보기
-								</button>
-								<button class="btn" id="openModalBtn">
-								<img src="/dda/image/call.png" width="13px" style="margin-bottom:3px; margin-right:2px;"> 전화 걸기
-								</button>
-								<div id="myModal" class="modal">
-    <span class="modal-close" onclick="closeModal()">&times;</span><br>
-    <p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
-  </div>
-  <div id="modalBackground" class="modal-background" onclick="closeModal()"></div>
+							<div class="flex_image">
+								<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
+									<c:if test="${loop.index >= 1 && loop.index < 5}">
+										<div class="mini_image">
+											<img src="image/${img}">
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+							<button class="btn" onclick="goToScroll()">
+								<img src="/dda/image/map.png" width="13px"
+									style="margin-bottom: 3px; margin-right: 2px;"> 위치 보기
+							</button>
+							<button class="btn" id="openModalBtn">
+								<img src="/dda/image/call.png" width="13px"
+									style="margin-bottom: 3px; margin-right: 2px;"> 전화 걸기
+							</button>
+							<div id="myModal" class="modal">
+								<span class="modal-close" onclick="closeModal()">&times;</span><br>
+								<p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
+							</div>
+							<div id="modalBackground" class="modal-background"
+								onclick="closeModal()"></div> <script>
+									// 모달 열기
+									function openModal() {
+										document.getElementById('myModal').style.display = 'block';
+										document
+												.getElementById('modalBackground').style.display = 'block';
+									}
 
-  <script>
-    // 모달 열기
-    function openModal() {
-      document.getElementById('myModal').style.display = 'block';
-      document.getElementById('modalBackground').style.display = 'block';
-    }
+									// 모달 닫기
+									function closeModal() {
+										document.getElementById('myModal').style.display = 'none';
+										document
+												.getElementById('modalBackground').style.display = 'none';
+									}
 
-    // 모달 닫기
-    function closeModal() {
-      document.getElementById('myModal').style.display = 'none';
-      document.getElementById('modalBackground').style.display = 'none';
-    }
+									// 전화걸기 버튼에 이벤트 리스너 추가
+									document.getElementById('openModalBtn')
+											.addEventListener('click',
+													openModal);
+								</script>
 
-    // 전화걸기 버튼에 이벤트 리스너 추가
-    document.getElementById('openModalBtn').addEventListener('click', openModal);
-  </script>
-								
-							</td>
+						</td>
 					</tr>
-					<tr><td><hr></td></tr>
 					<tr>
-					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
-					<h1 style="margin-top:30px;">매장 소개</h1>
-					<br>
-					<h4>${regi.intro}</h4><br>
-					</td>
+						<td><hr></td>
 					</tr>
-					<tr><td><hr></td></tr>
-					
-					<tr>
-					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
-					<h1 style="margin-top:30px;">대표메뉴</h1>
-					<div class="mini_image" style="margin-top:40px; margin-bottom: 20px; margin-left:0px;
-					width:550px; height:300px;">
-									<img src="image/${regi.main_image}">
-									</div>
-									<h4>${regi.main_menu}</h4>
-					</td>
+						<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">따봉지수</h1> <br><div class="dda-container">
+							<button class="ddabtn" onmouseover="changeImage()" onmouseout="restoreImage()"
+									onclick="location.href='ddainput?store_id=${regi.store_id}'">
+									<img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
+									${dda.totaldda}
+									</button></div>
+									<span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
 					</tr>
-					<tr class="scroll"><td><hr></td></tr>
 					<tr>
-					<td style="text-align: left; padding-left:30px; padding-bottom:30px;">
-					<h1 style="margin-top:30px;">위치 정보</h1>
-					<br>
-					<h4>${regi.address}</h4><br>
-					<div id="map" style="width:100%;height:350px;"></div>
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
+							<h4>${regi.intro}</h4> <br>
+						</td>
+					</tr>
+					<tr>
+						<td><hr></td>
+					</tr>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-mapOption = {
-    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-    level: 3 // 지도의 확대 레벨
-};  
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">대표메뉴</h1>
+							<div class="mini_image"
+								style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px; width: 550px; height: 300px;">
+								<img src="image/${regi.main_image}">
+							</div>
+							<h4>${regi.main_menu}</h4>
+						</td>
+					</tr>
+					<tr class="scroll">
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">위치 정보</h1> <br>
+							<h4>${regi.address}</h4> <br>
+							<div id="map" style="width: 100%; height: 350px;"></div> <script
+								type="text/javascript"
+								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+							<script>
+								var mapContainer = document
+										.getElementById('map'), // 지도를 표시할 div 
+								mapOption = {
+									center : new kakao.maps.LatLng(33.450701,
+											126.570667), // 지도의 중심좌표
+									level : 3
+								// 지도의 확대 레벨
+								};
 
-//지도를 생성합니다    
-var map = new kakao.maps.Map(mapContainer, mapOption); 
+								//지도를 생성합니다    
+								var map = new kakao.maps.Map(mapContainer,
+										mapOption);
 
-//주소-좌표 변환 객체를 생성합니다
-var geocoder = new kakao.maps.services.Geocoder();
+								//주소-좌표 변환 객체를 생성합니다
+								var geocoder = new kakao.maps.services.Geocoder();
 
-//주소로 좌표를 검색합니다
-geocoder.addressSearch('${regi.address}', function(result, status) {
+								//주소로 좌표를 검색합니다
+								geocoder
+										.addressSearch(
+												'${regi.address}',
+												function(result, status) {
 
-// 정상적으로 검색이 완료됐으면 
- if (status === kakao.maps.services.Status.OK) {
+													// 정상적으로 검색이 완료됐으면 
+													if (status === kakao.maps.services.Status.OK) {
 
-    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+														var coords = new kakao.maps.LatLng(
+																result[0].y,
+																result[0].x);
 
-    // 결과값으로 받은 위치를 마커로 표시합니다
-    var marker = new kakao.maps.Marker({
-        map: map,
-        position: coords
-    });
+														// 결과값으로 받은 위치를 마커로 표시합니다
+														var marker = new kakao.maps.Marker(
+																{
+																	map : map,
+																	position : coords
+																});
 
-    // 인포윈도우로 장소에 대한 설명을 표시합니다
-    var infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="width:150px;text-align:center;padding:6px 0;">${regi.storename}</div>'
-    });
-    infowindow.open(map, marker);
+														// 인포윈도우로 장소에 대한 설명을 표시합니다
+														var infowindow = new kakao.maps.InfoWindow(
+																{
+																	content : '<div style="width:150px;text-align:center;padding:6px 0;">${regi.storename}</div>'
+																});
+														infowindow.open(map,
+																marker);
 
-    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-    map.setCenter(coords);
-} 
-});    
-</script>
-					</td>
+														// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+														map.setCenter(coords);
+													}
+												});
+							</script>
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -565,8 +664,7 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 						</div> <textarea class="reviewcontent" rows="5" cols="80"
 							name="reviewcontent"></textarea>
 					</td>
-					<td><input class="reviewsubmit" type="submit"
-						style="width: 100px; height: 100px;" value="작성하기"></td>
+					<td><input class="reviewsubmit" type="submit" value="작성하기"></td>
 				</tr>
 			</table>
 		</form>
@@ -577,67 +675,67 @@ geocoder.addressSearch('${regi.address}', function(result, status) {
 		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-		  <div class="reviewtable">
-        <table width="100%" height="100%" align="center">
-            <tr style="text-align: left;">
-                <td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
-            </tr>
-            <tr>
-                <td class="starout">
-                    <div class="startRadio">
-                        <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="0.5" ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 0.5개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="1" ${rev.star == 1 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 1개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="1.5" ${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 1.5개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="2" ${rev.star == 2 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 2개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="2.5" ${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 2.5개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="3" ${rev.star == 3 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 3개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="3.5" ${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 3.5개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="4" ${rev.star == 4 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 4개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="4.5" ${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 4.5개</span></span>
-                        </label>
-                         <label class="startRadio__box"> <input type="radio"
-                            name="star-${loop.index}" value="5" ${rev.star == 5 ? 'checked' : ''} class="outstar"> <span class="startRadio__img"><span
-                                class="blind">별 5개</span></span>
-                        </label>
-                    </div>
-                    <div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
-                </td>
-            </tr>
-            <tr>
-                <td><div class="rev-img">
-                        <img src="image/${rev.imageList[0]}" width="200px" height="150px">
-                    </div>
-                    <div class="contentout">${rev.content }</div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</c:forEach>
+		<div class="reviewtable">
+			<table width="100%" height="100%" align="center">
+				<tr style="text-align: left;">
+					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
+				</tr>
+				<tr>
+					<td class="starout">
+						<div class="startRadio">
+							<label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="0.5"
+								${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 0.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="1"
+								${rev.star == 1 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 1개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="1.5"
+								${rev.star == 1.5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 1.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="2"
+								${rev.star == 2 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 2개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="2.5"
+								${rev.star == 2.5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 2.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="3"
+								${rev.star == 3 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 3개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="3.5"
+								${rev.star == 3.5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 3.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="4"
+								${rev.star == 4 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 4개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="4.5"
+								${rev.star == 4.5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 4.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star-${loop.index}" value="5"
+								${rev.star == 5 ? 'checked' : ''} class="outstar"> <span
+								class="startRadio__img"><span class="blind">별 5개</span></span>
+							</label>
+						</div>
+						<div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
+					</td>
+				</tr>
+				<tr>
+					<td><div class="rev-img">
+							<img src="image/${rev.imageList[0]}" width="200px" height="150px">
+						</div>
+						<div class="contentout">${rev.content }</div></td>
+				</tr>
+			</table>
+		</div>
+	</c:forEach>
 </body>
 </html>

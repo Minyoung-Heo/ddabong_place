@@ -4,44 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.slide_div').slick({
-			  infinite: true,
-			  slidesToShow: 3,
-			  slidesToScroll: 3
-			});
-	});
-	
-</script>
 <style type="text/css">
-.slick-prev {
-	left: 160px;
-	z-index: 1;
-	background-color: red;
-}
-
-.slick-next {
-	right: 160px;
-	z-index: 1;
-	background-color: red;
-}
-.slide_div img {
-	margin: auto;
-}
-
 .tb{
 	margin-top: 70px;
 }
-
 .nulldata
 {
 	margin-top: 150px;
@@ -67,11 +35,6 @@ table th {
     padding: 10px;
     font-size: 17px;
 }
-h1{
-	font-size: 50px;
-	margin-top: 100px;
-}
-
 .tbl-content table {
     width: 100%;
     table-layout: fixed;
@@ -149,7 +112,7 @@ font-size:25px;
 }
 
 .category {
-    margin-top:10px;
+    margin-top:70px;
     width:30%;
     margin-left:40px;
     text-align: left;
@@ -187,6 +150,22 @@ margin-bottom:5px;
 .review {
 font-size: 20px;
 }
+.img-wrapper {
+	width: 300px;
+	height: 300px;
+	position: relative;
+}
+
+.img-wrapper img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 </style>
 
 <!-- <script>
@@ -196,21 +175,19 @@ $(window).on("load resize ", function() {
 	}).resize();
 </script> -->
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
-
 <body>
 <br><br>
-<h1>당신에게 딱 맞는 카페를 추천드립니다.</h1>
     <div class="div-container">
         <div class="category">
-            <h1 style="margin-bottom: 11px;">카페 보러가기</h1>
+            <h1 style="margin-bottom: 10px;">카페 보러가기</h1>
             <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
             <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
             <a href="godessert?dessert=케이크">디저트별 카페 보기</a><br>
         </div>
 
         <div class="cafe">
+        <h1>당신에게 딱 맞는 카페를 추천드립니다!</h1>
             <h3 style="color:gray;">퀴즈 결과</h3>
             <!-- 퀴즈 결과 시작 -->
        <div class="flex-container">
@@ -232,7 +209,11 @@ $(window).on("load resize ", function() {
                         <c:forEach items="${list}" var="aa">
                             <tr>
                                 <td>${aa.storename}</td>
-                                <td><img src="/dda/image/${aa.image}" width="300px" height="300px"></td>
+                                 <td>
+                                <div class="img-wrapper">
+						<a href="detailview?store_id=${aa.store_id}"> <img alt=""
+							src="/dda/image/${aa.imageList[0]}"></a>
+					</div></td>
                                 <td>${aa.region_name}</td>
                                 <td>${aa.dessert}</td>
                             </tr>
@@ -242,7 +223,7 @@ $(window).on("load resize ", function() {
                 </c:when>
                 <c:otherwise>
                     <div class="nulldata">
-                        <h1>검색 결과가 존재하지 않습니다</h1>
+                        <h1>검색 결과가 존재하지 않습니다.</h1>
                     </div>
                 </c:otherwise>
             </c:choose>
@@ -251,7 +232,6 @@ $(window).on("load resize ", function() {
 	<br><br><br>
         </div>
     </div>
-
+    </div>
 </body>
-
 </html>

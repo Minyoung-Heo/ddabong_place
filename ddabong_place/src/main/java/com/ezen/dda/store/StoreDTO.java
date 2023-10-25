@@ -6,9 +6,60 @@ public class StoreDTO {
 	String main_menu;
 	String main_image;
 	String region_name, feature, dessert;
-	
+	String store_img,reservation_date,reservation_time;
+	int person_num;
+	String reservation_num;
+	String reservation_name;
 	public StoreDTO() {
 		super();
+	}
+
+	public String getStore_img() {
+		return store_img;
+	}
+
+	public void setStore_img(String store_img) {
+		this.store_img = store_img;
+	}
+
+	public String getReservation_date() {
+		return reservation_date;
+	}
+
+	public void setReservation_date(String reservation_date) {
+		this.reservation_date = reservation_date;
+	}
+
+	public String getReservation_time() {
+		return reservation_time;
+	}
+
+	public void setReservation_time(String reservation_time) {
+		this.reservation_time = reservation_time;
+	}
+
+	public int getPerson_num() {
+		return person_num;
+	}
+
+	public void setPerson_num(int person_num) {
+		this.person_num = person_num;
+	}
+
+	public String getReservation_num() {
+		return reservation_num;
+	}
+
+	public void setReservation_num(String reservation_num) {
+		this.reservation_num = reservation_num;
+	}
+
+	public String getReservation_name() {
+		return reservation_name;
+	}
+
+	public void setReservation_name(String reservation_name) {
+		this.reservation_name = reservation_name;
 	}
 
 	public StoreDTO(String store_id, String storename, String tel, String address, String lineintro, String intro,

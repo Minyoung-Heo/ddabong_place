@@ -7,13 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-h1 {
-  color: black;
-  position: relative;
-  font-size: 35px;
-}
-
 .wrap{
 	width: 100%;
     align-items: center;
@@ -344,14 +337,19 @@ function check(){
 			<h1>마이페이지</h1>
 			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
 			<a href="storemodifyview?store_id=${store.id}" style="color: #ff8c00;">매장 정보 수정</a><br>
-			<a href="">매장 삭제</a><br>
+			<a href="storeinput">매장 등록</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">
 		<form action="storemodifysave" method="post" enctype="multipart/form-data" name="store">
-<div class="wrap">
+	<div class="wrap">
         <div class="storemodify">
-            <h1 style="margin-bottom: 50px;">매장 등록 수정</h1>
+            <h1 style="margin-bottom: 50px;">매장 정보 수정</h1>
             
             <c:forEach items="${list}" var="store">
             <div class="store_id">

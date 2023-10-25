@@ -169,7 +169,7 @@ label {
 			</div>
 			
 			<div class="notebook">
-			<h1>노트북을 갖고계신가요?</h1>
+			<h1>노트북을 사용하실 예정인가요?</h1>
 			<input type="radio" name="notebook" value="노트북 사용 O" id="notebook1"><label for="notebook1"> 네 </label>
 			<input type="radio" name="notebook" value="노트북 사용 X" id="notebook2"><label for="notebook2"> 아니요 </label>
 			</div>
