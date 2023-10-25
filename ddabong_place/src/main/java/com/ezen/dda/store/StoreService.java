@@ -52,8 +52,10 @@ public interface StoreService {
 	public StoreDTO storepwchecking(String id, String pw);
 	public void storepwcheck(String store_id);
 	
-	// 예약 현황
+	// 예정 예약 현황
 	public ArrayList<StoreDTO> storeStatus(String store_id);
+	// 지난 예약 현황
+	public ArrayList<StoreDTO> storeStatusPass(String store_id);
 	
 	// 예약 삭제
 	public void storeReservationDelete(String reservation_num); 

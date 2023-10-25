@@ -10,7 +10,7 @@
 	function cancelReserv(reservation_num) {
 		if (confirm("예약을 정말 취소하시겠습니까?")) {
 			location.href = "storeReservationDelete?reservation_num="
-					+ reservation_num + "&store_id=${store_id}";
+					+ reservation_num + "&store_id=${store.id}";
 		}
 	}
 </script>
@@ -211,15 +211,26 @@
 		<div class="category">
 			<h1>예약 / 웨이팅 관리</h1>
 			<a href="storeStatus?store_id=${store.id}" style="color: #ff8c00;">예약
-				현황</a><br> <a href="waitinglist?store_id=${store.id}">웨이팅 현황</a>
+				리스트</a><br> 
+				<a
+				href="waitinglist?store_id=${store.id}">웨이팅 리스트</a>
 		</div>
 		<div class="qna">
 
 			<h1 style="text-align: left;">예약 리스트</h1>
 			<br>
 			<div style="text-align: left;">
-				<a href="" class="qweqwe"><h3>예정 예약현황</h3></a> <a href=""
-					class="qweqwe2"><h3>지난 예약현황</h3></a>
+			<c:choose>
+			<c:when test="${pass != null}">
+				<a href="storeStatus?store_id=${store.id}" class="qweqwe"><h3>예정 예약현황</h3></a> 
+				<a href="storeStatusPass?store_id=${store.id}" class="qweqwe2" style="color:#ff8c00;"><h3>지난 예약현황</h3></a>
+			</c:when>
+			<c:otherwise>
+				<a href="storeStatus?store_id=${store.id}" class="qweqwe" style="color:#ff8c00;"><h3>예정 예약현황</h3></a> 
+				<a href="storeStatusPass?store_id=${store.id}" class="qweqwe2"><h3>지난 예약현황</h3></a>
+			</c:otherwise>
+			</c:choose>
+			
 			</div>
 			<table class="question" align="center" style="margin-top: 25px;">
 				<tr style="background-color: #ffd199;">
@@ -229,7 +240,9 @@
 					<th>예약시간</th>
 					<th>인원수</th>
 					<th>전화번호</th>
+					<c:if test="${pass==null}">
 					<th>예약 취소</th>
+					</c:if>
 				</tr>
 				<c:forEach items="${ReservationList}" var="dto">
 					<tr>
@@ -240,8 +253,10 @@
 						<td>${dto.reservation_time}</td>
 						<td>${dto.person_num}</td>
 						<td>${dto.tel}</td>
-						<td><input type="button" value="예약 취소" class="btn2"
+						<c:if test="${pass==null}">
+					<td><input type="button" value="예약 취소" class="btn2"
 							onclick="cancelReserv(${dto.reservation_num})"></td>
+					</c:if>
 					</tr>
 				</c:forEach>
 			</table>

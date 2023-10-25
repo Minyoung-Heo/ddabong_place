@@ -214,7 +214,7 @@ public class StoreController {
 	}
 	
 
-	// 매장측 예약 현황
+	// 매장측 예정 예약 현황
 	@RequestMapping(value = "/storeStatus", method = RequestMethod.GET)
 	public String storeStatus(HttpServletRequest request, Model mo) {
 		String store_id = request.getParameter("store_id");
@@ -222,7 +222,18 @@ public class StoreController {
 
 		ArrayList<StoreDTO> ReservationList = ss.storeStatus(store_id);
 		mo.addAttribute("ReservationList", ReservationList);
+		mo.addAttribute("pass", null);
+		return "storeStatus";
+	}
+	// 매장측 지난 예약 현황
+	@RequestMapping(value = "/storeStatusPass", method = RequestMethod.GET)
+	public String storeStatuspass(HttpServletRequest request, Model mo) {
+		String store_id = request.getParameter("store_id");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
 		
+		ArrayList<StoreDTO> ReservationList = ss.storeStatusPass(store_id);
+		mo.addAttribute("ReservationList", ReservationList);
+		mo.addAttribute("pass", "pass");
 		return "storeStatus";
 	}
 	
@@ -230,12 +241,13 @@ public class StoreController {
 	@RequestMapping(value = "/storeReservationDelete")
 	public String storeReservationDelete(HttpServletRequest request) {
 		String reservation_num = request.getParameter("reservation_num");
+		String store_id = request.getParameter("store_id");
 		StoreService ss = sqlSession.getMapper(StoreService.class);
 
-		ss.storeReservationDelete(reservation_num);
 		ss.storeReviewDelete(reservation_num);
+		ss.storeReservationDelete(reservation_num);
 		
-		return "storeStatus";
+		return "redirect:/storeStatus?store_id="+store_id;
 	}
 	
 	// 캘린더
