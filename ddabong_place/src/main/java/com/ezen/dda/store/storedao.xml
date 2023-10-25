@@ -125,19 +125,23 @@
 		rg.ADDRESS,
 		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
 		rs.RESERVATION_NAME
-		FROM
-		RESERVATION rs
+		FROM RESERVATION rs
 		JOIN registration rg ON
 		rs.STORE_ID = rg.STORE_ID
 		WHERE
 		rs.store_id = #{param1}
-	</select>
+		
+		AND rs.RESERVATION_DATE >= sysdate
+		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 	
+	
+	</select>
+
 	<!-- 스토어 예약 삭제 -->
 	<delete id="storeReservationDelete">
 		delete RESERVATION where reservation_num=#{param1}
 	</delete>
-	
+
 	<!-- 스토어 예약 삭제 하면 리뷰도 삭제해야하니까 -->
 	<delete id="storeReviewDelete">
 		delete review where reservation_num=#{param1}
