@@ -169,7 +169,7 @@
 	background-color: #ffe8cc;
 	outline: none;
 	margin-left: 10px;
-	margin-top: 10px;
+	margin-top: -20px;
 }
 
 .reservbtn:hover {
@@ -300,6 +300,38 @@
 	margin-left: 21px;
 }
 
+.subscribestar img {
+	width: 37px;
+	height: 37px;
+	margin-left : 21px;
+	margin-right: 2px;
+	margin-bottom: 5px;
+}
+
+.subscribe-div {
+	position: relative;
+	top: 130px;
+	right: 93px;
+}
+
+.subscribebtn {
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	width: 200px;
+	height:60px;
+	padding: 15px;
+	text-align: left;
+	vertical-align:top;
+	float: right;
+	border-radius: 10px;
+	border: 0px;
+	background-color: #ffe8cc;
+	outline: none;
+	margin-left: 10px;
+	margin-top: -20px;
+}
+
 .monthdda {
 	float: left;
 	font-size: 20px;
@@ -308,19 +340,19 @@
 }
 
 .ddabtn {
-border-style:solid;
-border-radius:15px;
-	border-color:#ffc680;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: #ffc680;
 	background-image: url("/dda/image/dddabong.png");
 	background-size: cover;
 	background-color: white;
 	width: 100px;
 	height: 100px;
 }
-.dda-container
-{
-position: relative;
-padding-left: 415px;
+
+.dda-container {
+	position: relative;
+	padding-left: 415px;
 }
 
 .btn {
@@ -429,7 +461,15 @@ padding-left: 415px;
 								</form>
 							</div></td>
 					</tr>
-
+					<tr>
+						<div class="subscribe-div">
+							<button class="subscribebtn"
+								onclick="location.href='addsubscribe?store_id=${storeid}&customer_id=${personal.id }'">
+								<span class="subscribestar"> <img
+									src="/dda/image/star.png"></span>&emsp;즐겨찾기
+							</button>
+						</div>
+					</tr>
 					<tr>
 						<td><span class="review"> <c:forEach
 									items="${reviewstarList}" var="re">
@@ -499,12 +539,16 @@ padding-left: 415px;
 					<tr>
 						<td><hr></td>
 					</tr>
-						<tr>
+					<tr>
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-							<h1 style="margin-top: 30px;">매장 소개</h1> <br><div class="dda-container"><button class="ddabtn"
+							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
+							<div class="dda-container">
+								<button class="ddabtn"
 									onclick="location.href='ddainput?store_id=${regi.store_id}'">
-									</button></div><span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
+								</button>
+							</div> <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span>
+						</td>
 					</tr>
 					<tr>
 						<td><hr></td>
