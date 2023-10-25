@@ -80,7 +80,7 @@ h1 {
 }
 
 .flex-container {
-	margin-top: 30px;
+	margin-top: -450px;
 	display: flex;
 	width: 100%;
 	justify-content: space-evenly;
@@ -154,13 +154,13 @@ h1 {
 }
 
 .mondda {
-	width: 1000px;
-	margin-left: 22%;
+	width: 500px;
 	text-align: center;
 }
 
 .ddadda {
-	margin-top: 80px;
+	position: relative;
+	top: 130px;
 }
 /* 가로로 배열할 요소를 감싸는 부모 컨테이너에 대한 스타일 */
 .row {
@@ -188,6 +188,7 @@ h1 {
 .cakecake {
 	display: inline-block;
 	width: 400px;
+	}
 	
 .award_image{
 	position: relative;
@@ -234,6 +235,27 @@ span{
 	right: 8px;
 	bottom: 16px;
 }
+
+.monthi {
+	width: 400px;
+	height: 340px;
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	margin: 10px;
+}
+
+.monthi img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 </style>
 
 </head>
@@ -312,23 +334,6 @@ span{
 		<img alt="" src="/dda/image/award.png">
 	</div>
 	
-	<div class="mondda">
-		<h1>이달의 따봉왕</h1>
-		<div class="slide_div2wrap">
-			<div class="slide_div2">
-				<c:forEach items="${rankList}" var="monthDDA" varStatus="loop">
-					<div class="item">
-						<h2>${loop.index + 1}등</h2>
-						<a href="detailview?store_id=${monthDDA.store_id}"
-							class="cakecake"> <img alt=""
-							src="/dda/image/${monthDDA.image}" width="500px" height="500px">
-						</a>
-						<h3>${monthDDA.storeName}</h3>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
 	<div class="row">
 		<div class="flex-container">
 			<div class="flex-item">
@@ -352,17 +357,28 @@ span{
 				</c:forEach>
 			</div>
 
-
-
-
-			<div class="flex-item">
-				<a href="quiz"><img src="/dda/image/quizLogo.png" width="560px"></a>
+	<div class="mondda">
+		<h1>이달의 따봉왕</h1>
+		<div class="slide_div2wrap">
+			<div class="slide_div2">
+				<c:forEach items="${rankList}" var="monthDDA" varStatus="loop">
+					<div class="item">
+						<h2>${loop.index + 1}등</h2>
+						<a href="detailview?store_id=${monthDDA.store_id}"
+							class="cakecake">
+							<div class="monthi">
+							<img alt="" src="/dda/image/${monthDDA.image}">
+							</div>
+						</a>
+						<h3>${monthDDA.storeName}</h3>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
-
-
-	<br>
+		</div>
+	</div>
+	
 	<br>
 	<br>
 
