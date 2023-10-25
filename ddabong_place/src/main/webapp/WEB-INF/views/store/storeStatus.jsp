@@ -171,9 +171,33 @@
 	text-align: left;
 	font-size: 20px;
 }
-.qweqwe{
-margin-top: 20px;
-margin-bottom: 20px;
+
+.qweqwe {
+	display: inline-block;
+	color: gray;
+	transition: color 0.3s;
+	text-decoration: none;
+	text-align: left;
+	margin-right: 50px;
+	text-decoration: none !important;
+}
+
+.qweqwe:hover {
+	color: #ff8c00;
+	text-decoration: none !important;
+}
+
+.qweqwe2 {
+	display: inline-block;
+	color: gray;
+	transition: color 0.3s;
+	text-decoration: none !important;
+	text-align: right;
+}
+
+.qweqwe2:hover {
+	color: #ff8c00;
+	text-decoration: none !important;
 }
 </style>
 
@@ -194,31 +218,28 @@ margin-bottom: 20px;
 			<h1 style="text-align: left;">예약 리스트</h1>
 			<br>
 			<div style="text-align: left;">
-				<h3
-					style="text-align: left; display: inline-block; margin-right: 50px;">예정
-					예약현황</h3>
-				<h3 style="text-align: right; display: inline-block;">지난 예약현황</h3>
+				<a href="" class="qweqwe"><h3>예정 예약현황</h3></a> <a href=""
+					class="qweqwe2"><h3>지난 예약현황</h3></a>
 			</div>
-
 			<table class="question" align="center" style="margin-top: 25px;">
 				<tr style="background-color: #ffd199;">
+					<th>예약 번호</th>
 					<th>예약자명</th>
 					<th>예약날짜</th>
 					<th>예약시간</th>
-					<th>전화번호</th>
 					<th>인원수</th>
-					<th>예약 번호</th>
+					<th>전화번호</th>
 					<th>예약 취소</th>
 				</tr>
 				<c:forEach items="${ReservationList}" var="dto">
-					<tr class="qweqwe">
+					<tr>
+						<td>${dto.reservation_num }</td>
 						<td>${dto.reservation_name}</td>
 						<c:set var="date" value="${dto.reservation_date}" />
 						<td>${fn:substring(date,0,10)}</td>
 						<td>${dto.reservation_time}</td>
-						<td>${dto.tel}</td>
 						<td>${dto.person_num}</td>
-						<td>${dto.reservation_num }</td>
+						<td>${dto.tel}</td>
 						<td><input type="button" value="예약 취소" class="btn2"
 							onclick="cancelReserv(${dto.reservation_num})"></td>
 					</tr>

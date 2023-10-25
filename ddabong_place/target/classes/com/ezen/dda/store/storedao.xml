@@ -130,13 +130,10 @@
 		rs.STORE_ID = rg.STORE_ID
 		WHERE
 		rs.store_id = #{param1}
-		
 		AND rs.RESERVATION_DATE >= sysdate
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
-	
-	
 	</select>
-
+	
 	<!-- 스토어 예약 삭제 -->
 	<delete id="storeReservationDelete">
 		delete RESERVATION where reservation_num=#{param1}
