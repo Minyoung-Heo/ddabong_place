@@ -29,7 +29,7 @@
 		});
 	});
 </script>
-<%-- <jsp:include page="main_popup.jsp"/> --%>
+ <jsp:include page="main_popup.jsp"/> 
 <style type="text/css">
 h1 {
 	margin: 30px;
@@ -350,13 +350,6 @@ span{
 					</div>
 					<hr>
 				</c:forEach>
-			</div>
-
-
-
-
-			<div class="flex-item">
-				<a href="quiz"><img src="/dda/image/quizLogo.png" width="560px"></a>
 			</div>
 		</div>
 	</div>
