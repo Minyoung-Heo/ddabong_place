@@ -584,24 +584,6 @@ padding-left: 415px;
 						<td><hr></td>
 					</tr>
 					<tr>
-						<td
-							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-							<h1 style="margin-top: 30px;">따봉지수</h1> <br><div class="dda-container">
-							<button class="ddabtn" onmouseover="changeImage()" onmouseout="restoreImage()"
-									onclick="location.href='ddainput?store_id=${regi.store_id}'">
-									<img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
-									${dda.totaldda}
-									</button></div>
-									<span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
-							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
-							<div class="dda-container">
-								<button class="ddabtn"
-									onclick="location.href='ddainput?store_id=${regi.store_id}'">
-								</button>
-							</div> <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span>
-						</td>
-					</tr>
-					<tr>
 						<td><hr></td>
 					</tr>
 					<tr>
