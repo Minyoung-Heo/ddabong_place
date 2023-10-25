@@ -188,8 +188,7 @@ h1 {
 .cakecake {
 	display: inline-block;
 	width: 400px;
-	}
-	
+}	
 .award_image{
 	position: relative;
 	top: -300px;
