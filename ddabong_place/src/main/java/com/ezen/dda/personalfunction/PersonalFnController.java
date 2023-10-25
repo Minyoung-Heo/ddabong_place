@@ -236,4 +236,56 @@ public class PersonalFnController {
 
 		return "redirect:/myStatus?customer_id="+customer_id;
 	}
+	
+	//따봉 클릭
+	@RequestMapping(value = "/ddainput", method = RequestMethod.GET)
+	public String ddainput(HttpServletRequest request) {
+		
+		String store_id = request.getParameter("store_id");
+		
+		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
+		String month; // 문자 월
+		switch (mon) { // 숫자 월을 문자 월로 변환
+		case 1:
+			month = "jan";
+			break;
+		case 2:
+			month = "feb";
+			break;
+		case 3:
+			month = "mar";
+			break;
+		case 4:
+			month = "apr";
+			break;
+		case 5:
+			month = "may";
+			break;
+		case 6:
+			month = "jun";
+			break;
+		case 7:
+			month = "jul";
+			break;
+		case 8:
+			month = "aug";
+			break;
+		case 9:
+			month = "sep";
+			break;
+		case 10:
+			month = "oct";
+			break;
+		case 11:
+			month = "nov";
+			break;
+		default:
+			month = "dcb";
+		}
+
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		ss.ddaplus(month,store_id);
+		
+		return "redirect:/detailview?storeID=" + store_id;
+	}
 }

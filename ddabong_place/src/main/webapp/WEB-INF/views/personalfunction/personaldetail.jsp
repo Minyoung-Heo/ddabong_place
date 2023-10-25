@@ -503,7 +503,7 @@ padding-left: 415px;
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
 							<h1 style="margin-top: 30px;">매장 소개</h1> <br><div class="dda-container"><button class="ddabtn"
-									onclick="location.href='waitingInput?store_id=${regi.store_id}'">
+									onclick="location.href='ddainput?store_id=${regi.store_id}'">
 									</button></div><span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
 					</tr>
 					<tr>
