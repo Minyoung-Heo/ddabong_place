@@ -288,4 +288,44 @@ public class PersonalFnController {
 		
 		return "redirect:/detailview?storeID=" + store_id;
 	}
+	
+	//즐겨찾기 등록
+	@RequestMapping(value = "/addsubscribe", method = RequestMethod.GET)
+	public String addsubscribe(HttpServletRequest request) {
+		String store_id=request.getParameter("store_id");
+		String customer_id=request.getParameter("customer_id");
+		
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		ss.addsubscribe(customer_id,store_id);
+		
+		return "redirect:/detailview?storeID=" + store_id;
+	}
+	
+	// 즐겨찾기 여부 확인
+	@ResponseBody
+	@RequestMapping(value = "/subscribecheck")
+	public String subscribecheck(String storeid, String customerid) {
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		int cnt = ss.subscribecheck(customerid, storeid);
+		
+		String bb = null;
+		if (cnt == 0) { //즐겨찾기 미등록.
+			bb = "ok"; 
+		} else {
+			bb = ""; 
+		}
+		return bb;
+	}
+	
+	//즐겨찾기 삭제
+	@RequestMapping(value = "/canclesubscribe", method = RequestMethod.GET)
+	public String canclesubscribe(HttpServletRequest request) {
+		String store_id=request.getParameter("store_id");
+		String customer_id=request.getParameter("customer_id");
+		
+		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
+		ss.canclesubscribe(customer_id,store_id);
+		
+		return "redirect:/detailview?storeID=" + store_id;
+	}
 }

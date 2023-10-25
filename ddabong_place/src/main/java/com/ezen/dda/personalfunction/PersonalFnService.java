@@ -27,6 +27,12 @@ public interface PersonalFnService {
 
 	public void ddaplus(String month, String store_id);
 
+	public void addsubscribe(String store_id, String customer_id);
+
+	public int subscribecheck(String customerid, String storeid);
+
+	public void canclesubscribe(String customer_id, String store_id);
+
 
 
 }
