@@ -15,7 +15,7 @@
 				alert("정상적으로 매장 삭제되었습니다. 이용해주셔서 감사합니다.");
 				window.location.href = "storedelete?id=${store.id}";
 			} else {
-				window.location.href = "/dda/";
+				window.location.href = "/dda/main";
 			}
 		}
 		window.onload = storeconfirmLeave;
