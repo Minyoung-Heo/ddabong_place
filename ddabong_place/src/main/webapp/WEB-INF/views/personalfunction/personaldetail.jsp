@@ -58,6 +58,16 @@
 			input.disabled = true; // 모든 별점 input 요소를 비활성화
 		});
 	});
+	
+	function changeImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/ddabonghover.png';
+	}
+
+	function restoreImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/dddabong.png';
+	}
 </script>
 <style type="text/css">
 .detailtable {
@@ -309,13 +319,17 @@
 
 .ddabtn {
 border-style:solid;
-border-radius:15px;
-	border-color:#ffc680;
-	background-image: url("/dda/image/dddabong.png");
+border-width:2.8px;
+padding:10px;
+border-radius:30px;
+	border-color:#ff8c00;
 	background-size: cover;
 	background-color: white;
 	width: 100px;
 	height: 100px;
+}
+.ddabtn:hover {
+background-color: #fff4e6;
 }
 .dda-container
 {
@@ -502,9 +516,13 @@ padding-left: 415px;
 						<tr>
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-							<h1 style="margin-top: 30px;">매장 소개</h1> <br><div class="dda-container"><button class="ddabtn"
+							<h1 style="margin-top: 30px;">따봉지수</h1> <br><div class="dda-container">
+							<button class="ddabtn" onmouseover="changeImage()" onmouseout="restoreImage()"
 									onclick="location.href='waitingInput?store_id=${regi.store_id}'">
-									</button></div><span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
+									<img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
+									${dda.totaldda}
+									</button></div>
+									<span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
 					</tr>
 					<tr>
 						<td><hr></td>
