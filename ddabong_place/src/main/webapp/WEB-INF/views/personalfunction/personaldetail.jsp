@@ -58,15 +58,23 @@
 			input.disabled = true; // 모든 별점 input 요소를 비활성화
 		});
 	});
+	
+	function changeImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/ddabonghover.png';
+	}
+
+	function restoreImage() {
+	    var image = document.getElementById('ddaImage');
+	    image.src = '/dda/image/dddabong.png';
+	}
 </script>
 <style type="text/css">
 .detailtable {
 	width: 55%;
 	margin: 0 auto;
-	border: 1px solid #b3b3b3;
+	border: 1px solid #e6e6e6;
 	border-radius: 20px;
-	border-left-color: #e6e6e6;
-	border-right-color: #e6e6e6;
 }
 
 .storeshow {
@@ -75,18 +83,15 @@
 
 .reviewtable {
 	width: 55%;
-	height: 300px;
 	margin: 0 auto;
-	border: 1px solid #b3b3b3;
+	border: 1px solid #e6e6e6;
 	border-radius: 20px;
-	border-left-color: #e6e6e6;
-	border-right-color: #e6e6e6;
 }
 
 .reviewsubmit {
 	position: relative;
-	right: 50px;
-	top: 60px;
+	right: 100px;
+	top: 74px;
 	width: 100px;
 	height: 100px;
 	text-align: center;
@@ -94,16 +99,27 @@
 	border: none;
 	border-radius: 15px;
 }
+.reviewsubmit:hover {
+background-color: #ffba66;
+}
 
 .reviewcontent {
+float:left;
 	position: relative;
 	bottom: 20px;
+	margin-left:30px;
+	border-radius: 20px;
+	border-color: #e6e6e6;
+	padding: 20px;
+	font-size: 15px;
 }
 
 .reviewattach {
+text-align:right;
 	position: relative;
-	left: 200px;
+	left: 20px;
 	bottom: 50px;
+	color:gray;
 }
 
 .flex_image {
@@ -122,6 +138,24 @@
 }
 
 .center_image img {
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.review_image{
+	width: 200px;
+	height: 200px;
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	margin: 10px;
+}
+.review_image img {
 	border-radius: 10px;
 	position: absolute;
 	top: 0;
@@ -178,16 +212,19 @@
 
 .reviewfile {
 	position: relative;
-	left: 270px;
+	text-align:right;
+	left: 78%;
+	margin-top:10px;
 }
 
 /* 리뷰출력 */
 .rev-img {
+margin-left:12px;
 	margin-right: 48px;
 	margin-top: 10px;
-	width: 260px;
-	height: 260px;
+	margin-bottom:30px;
 	position: relative;
+		float:left;
 }
 
 /* 끝 */
@@ -207,7 +244,7 @@
 	overflow: hidden;
 	height: 40px;
 	position: relative;
-	right: 200px;
+	right:310px;
 }
 
 .startRadio:after {
@@ -275,21 +312,16 @@
 }
 
 .dateCreated {
-	position: relative;
-	left: 240px;
-	width: 100px;
-	bottom: 35px;
+margin-right:120px;
+	float:right;
 	color: #8c8c8c;
 }
 
 .contentout {
 	position: relative;
-	bottom: 270px;
-	left: 250px;
 	text-align: left;
 	font-size: 25px;
-	width: 550px;
-	height: 150px;
+	margin:30px;
 }
 
 .storetitle {
@@ -340,6 +372,11 @@
 }
 
 .ddabtn {
+border-style:solid;
+border-width:2.8px;
+padding:10px;
+border-radius:30px;
+	border-color:#ff8c00;
 	border-style: solid;
 	border-radius: 15px;
 	border-color: #ffc680;
@@ -349,6 +386,13 @@
 	width: 100px;
 	height: 100px;
 }
+.ddabtn:hover {
+background-color: #fff4e6;
+}
+.dda-container
+{
+position: relative;
+padding-left: 415px;
 
 .dda-container {
 	position: relative;
@@ -426,7 +470,7 @@
 <body>
 	<br>
 	<br>
-	<br>
+	<br><br><br>
 	<c:set var="storeid" value="" scope="page" />
 	<c:forEach items="${registrationlist}" var="regi" varStatus="loop">
 		<c:forEach items="${ddabonglist}" var="dda">
@@ -542,6 +586,13 @@
 					<tr>
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">따봉지수</h1> <br><div class="dda-container">
+							<button class="ddabtn" onmouseover="changeImage()" onmouseout="restoreImage()"
+									onclick="location.href='ddainput?store_id=${regi.store_id}'">
+									<img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
+									${dda.totaldda}
+									</button></div>
+									<span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
 							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
 							<div class="dda-container">
 								<button class="ddabtn"
@@ -583,7 +634,7 @@
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
 							<h1 style="margin-top: 30px;">위치 정보</h1> <br>
 							<h4>${regi.address}</h4> <br>
-							<div id="map" style="width: 100%; height: 350px;"></div> <script
+							<div id="map" style="width: 850px; height: 350px;"></div> <script
 								type="text/javascript"
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
 							<script>
@@ -647,7 +698,7 @@
 			enctype="multipart/form-data">
 			<input type="hidden" name="storeid" value="${storeid }"> <input
 				type="hidden" name="customerid" value="${personal.id }">
-			<table width="100%" height="100%">
+			<table width="100%" height="100%" style="margin:35px;">
 				<tr>
 					<td>
 						<h2 style="text-align: left;">&emsp;리뷰 작성하기</h2> <br>
@@ -686,8 +737,8 @@
 						</div>
 						<div class="reviewattach">
 							리뷰할 사진을 모두 선택해 주세요. <input class="reviewfile" name="reviewfile"
-								type="file" multiple="multiple">
-						</div> <textarea class="reviewcontent" rows="5" cols="80"
+								type="file" multiple="multiple"></div> 
+								<textarea class="reviewcontent" rows="3" cols="80"
 							name="reviewcontent"></textarea>
 					</td>
 					<td><input class="reviewsubmit" type="submit" value="작성하기"></td>
@@ -702,13 +753,14 @@
 		<c:set var="id"
 			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
 		<div class="reviewtable">
-			<table width="100%" height="100%" align="center">
+			<table width="100%" height="100%" align="center" style="margin:40px;">
 				<tr style="text-align: left;">
-					<td><br>&emsp;&emsp;${rev.nickname}(${id})</td>
+					<td style="padding-left:23px; font-size: 17px;">${rev.nickname}(${id})
+					<div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div></td>
 				</tr>
 				<tr>
 					<td class="starout">
-						<div class="startRadio">
+						<div class="startRadio" style="margin-left:200px;">
 							<label class="startRadio__box"> <input type="radio"
 								name="star-${loop.index}" value="0.5"
 								${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span
@@ -751,12 +803,20 @@
 								class="startRadio__img"><span class="blind">별 5개</span></span>
 							</label>
 						</div>
-						<div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
+						
 					</td>
 				</tr>
 				<tr>
 					<td><div class="rev-img">
-							<img src="image/${rev.imageList[0]}" width="200px" height="150px">
+							<div class="flex_image">
+<%-- 								<c:forEach items="${regi.imageList}" var="img" varStatus="loop"> --%>
+<%-- 									<c:if test="${loop.index >= 1 && loop.index < 5}"> --%>
+										<div class="review_image">
+											<img src="image/${rev.imageList[0]}">
+										</div>
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+							</div>
 						</div>
 						<div class="contentout">${rev.content }</div></td>
 				</tr>

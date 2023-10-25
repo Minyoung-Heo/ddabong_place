@@ -27,7 +27,7 @@ public class StoreController {
 	@Autowired
 	SqlSession sqlSession;
 	//각자 이미지 폴더 위치 넣기		
-		static String imagepath = "C:\\Users\\BrotherZin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+		static String imagepath = "C:\\Users\\pyo66\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 	ArrayList<StoreDTO> list = new ArrayList<StoreDTO>();
 	
 	//매장 입력창
@@ -216,7 +216,7 @@ public class StoreController {
 	}
 	
 
-	// 회원 예약 현황
+	// 매장측 예약 현황
 	@RequestMapping(value = "/storeStatus", method = RequestMethod.GET)
 	public String storeStatus(HttpServletRequest request, Model mo) {
 		String store_id = request.getParameter("store_id");
@@ -227,6 +227,19 @@ public class StoreController {
 		
 		return "storeStatus";
 	}
+	
+	//매장측 예약 삭제
+	@RequestMapping(value = "/storeReservationDelete")
+	public String storeReservationDelete(HttpServletRequest request) {
+		String reservation_num = request.getParameter("reservation_num");
+		StoreService ss = sqlSession.getMapper(StoreService.class);
+
+		ss.storeReservationDelete(reservation_num);
+		ss.storeReviewDelete(reservation_num);
+		
+		return "storeStatus";
+	}
+	
 	// 캘린더
 	@RequestMapping(value = "/storecalendar")
 	public String store6() {

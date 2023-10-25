@@ -6,31 +6,42 @@
 <mapper namespace="com.ezen.dda.store.StoreService">
 
 	<!-- 매장 등록 -->
-	<insert id="storeinput" parameterType="com.ezen.dda.store.StoreDTO">
-		insert into registration(store_id, storename, tel, address, lineintro, intro, image, main_menu, main_image, region_name, feature, dessert)
-    	values (#{store_id},#{storename},#{tel},#{address},#{lineintro},#{intro},#{image},#{main_menu},#{main_image},#{region_name},#{feature},#{dessert})
+	<insert id="storeinput"
+		parameterType="com.ezen.dda.store.StoreDTO">
+		insert into registration(store_id, storename, tel,
+		address, lineintro, intro, image, main_menu, main_image, region_name,
+		feature, dessert)
+		values
+		(#{store_id},#{storename},#{tel},#{address},#{lineintro},#{intro},#{image},#{main_menu},#{main_image},#{region_name},#{feature},#{dessert})
 	</insert>
-	
-	<!--  매장 등록 시 따봉수 테이블 추가 -->
+
+	<!-- 매장 등록 시 따봉수 테이블 추가 -->
 	<insert id="insertDDA">
-	insert into ddabong(store_id) values(#{param1})
+		insert into ddabong(store_id) values(#{param1})
 	</insert>
 
 	<!-- 매장 출력 -->
-	<select id="storeoutput" resultType="com.ezen.dda.store.StoreDTO">
+	<select id="storeoutput"
+		resultType="com.ezen.dda.store.StoreDTO">
 		select * from registration where store_id=#{param1}
 	</select>
 
 	<!-- 매장 수정 -->
-	<select id="storemodifyview" resultType="com.ezen.dda.store.StoreDTO">
+	<select id="storemodifyview"
+		resultType="com.ezen.dda.store.StoreDTO">
 		select * from registration where store_id=#{param1}
 	</select>
-	
+
 	<!-- 매장 수정 -->
-	<update id="storemodifyfinal" parameterType="com.ezen.dda.store.StoreDTO">
-		update registration set storename=#{storename}, tel=#{tel}, address=#{address}, lineintro=#{lineintro}, intro=#{intro}, image=#{image}, main_menu=#{main_menu}, main_image=#{main_image}, region_name=#{region_name}, feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
+	<update id="storemodifyfinal"
+		parameterType="com.ezen.dda.store.StoreDTO">
+		update registration set storename=#{storename},
+		tel=#{tel}, address=#{address}, lineintro=#{lineintro},
+		intro=#{intro}, image=#{image}, main_menu=#{main_menu},
+		main_image=#{main_image}, region_name=#{region_name},
+		feature=#{feature}, dessert=#{dessert} where store_id=#{store_id}
 	</update>
-	
+
 	<!-- 매장 삭제 -->
 	<!-- 업체 아이디를 외래키로 갖는 테이블의 데이터 삭제 -->
 	<delete id="registrationdelete">
@@ -48,17 +59,18 @@
 	<delete id="reservationdelete">
 		delete from reservation where store_id=#{param1}
 	</delete>
-	
+
 	<!-- 마지막으로 업체 계정 삭제 -->
 	<delete id="storedelete">
 		delete from store where id=#{param1}
 	</delete>
-	
+
 	<!-- 매장 예약 현황 -->
-	<select id="storestatus" resultType="com.ezen.dda.calendar.CalendarDTO">
+	<select id="storestatus"
+		resultType="com.ezen.dda.calendar.CalendarDTO">
 		select * from reservation
 	</select>
-	
+
 	<!-- 업체 가입 -->
 	<insert id="storejoin">
 		insert into store values
@@ -78,37 +90,56 @@
 		select * from store
 		where id =#{param1} and pw =#{param2}
 	</select>
-	
+
 	<!-- 마이페이지 비밀번호 인증 -->
 	<select id="storepwchecking"
 		resultType="com.ezen.dda.store.StoreDTO">
 		select * from store where id=#{param1} and pw=#{param2}
 	</select>
-	
+
 	<!-- 업체 삭제 비밀번호 인증 -->
 	<select id="storeleavechecking"
 		resultType="com.ezen.dda.store.StoreDTO">
 		select * from store where id =#{param1} and pw =#{param2}
 	</select>
-	
+
 	<!-- 업체 아이디 찾기 -->
-	<select id="storeidResult" resultType="com.ezen.dda.store.StoreDTO">
-		select * from store where ceo =#{param1} and email=#{param2}
+	<select id="storeidResult"
+		resultType="com.ezen.dda.store.StoreDTO">
+		select * from store where ceo =#{param1} and
+		email=#{param2}
 	</select>
 
 	<!-- 업체 비번 찾기 -->
-	<select id="storepwResult" resultType="com.ezen.dda.store.StoreDTO">
+	<select id="storepwResult"
+		resultType="com.ezen.dda.store.StoreDTO">
 		select * from store where ceo =#{param1} and id=#{param2}
 	</select>
 
-<!-- 스토어 예약 현황 -->
-<select id="storeStatus"
+	<!-- 스토어 예약 현황 -->
+	<select id="storeStatus"
 		resultType="com.ezen.dda.store.StoreDTO">
-		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE, rs.RESERVATION_TIME,
-		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL, rg.ADDRESS, 
-		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image, rs.RESERVATION_NAME
-		FROM RESERVATION rs
-		JOIN registration rg ON rs.STORE_ID = rg.STORE_ID
-		WHERE rs.store_id = #{param1}
+		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE,
+		rs.RESERVATION_TIME,
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL,
+		rg.ADDRESS,
+		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
+		rs.RESERVATION_NAME
+		FROM
+		RESERVATION rs
+		JOIN registration rg ON
+		rs.STORE_ID = rg.STORE_ID
+		WHERE
+		rs.store_id = #{param1}
 	</select>
+	
+	<!-- 스토어 예약 삭제 -->
+	<delete id="storeReservationDelete">
+		delete RESERVATION where reservation_num=#{param1}
+	</delete>
+	
+	<!-- 스토어 예약 삭제 하면 리뷰도 삭제해야하니까 -->
+	<delete id="storeReviewDelete">
+		delete review where reservation_num=#{param1}
+	</delete>
 </mapper>
