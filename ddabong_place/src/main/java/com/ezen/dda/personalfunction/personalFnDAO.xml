@@ -83,8 +83,21 @@ WHERE a.store_id = #{param1}
 		delete RESERVATION where reservation_num=#{param1}
 	</delete>
 	
+<!-- 	따봉 수 추가 -->
 	<update id="ddaplus">
 	update ddabong set ${param1} = ${param1} + 1 where store_id = #{param2}
 	</update>
 	
+<!-- 	즐겨찾기 추가 -->
+	<insert id="addsubscribe">
+	insert into star values(#{param1},#{param2})
+	</insert>
+	
+<!-- 	즐겨찾기 여부 확인 -->
+	<select id="subscribecheck" resultType="int">
+	select count(*) from star where customer_id = #{param1} and store_id = #{param2}
+</select>
+	<delete id="canclesubscribe">
+	delete from star where customer_id = #{param1} and store_id = #{param2}
+	</delete>
 </mapper>
