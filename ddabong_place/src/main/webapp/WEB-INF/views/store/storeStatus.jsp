@@ -9,7 +9,7 @@
 <script type="text/javascript">
 function cancelReserv(reservation_num){
 	if(confirm("예약을 정말 취소하시겠습니까?")){
-		location.href="ReservationDelete?reservation_num="+reservation_num+"&customer_id=${personal.id}";
+		location.href="ReservationDelete?reservation_num="+reservation_num+"&store_id=${store_id}";
 	}
 }
 </script>
@@ -143,7 +143,6 @@ h5 {
 	text-align: left;
 	font-size: 15px;
 	width: 85%;
-	margin-right: 230px;
 }
 
 .asd {
@@ -225,115 +224,16 @@ margin:25px;
 										<div class="buttons">
 											<input type="button" value="매장 보기"
 												onclick="location.href='detailview?store_id=${dto.store_id}'">
-											<input type="button" value="지도 보기" class="btn2"> <input
+											<input
 												type="button" value="예약 취소" class="btn2"
 												onclick="cancelReserv(${dto.reservation_num})">
 										</div>
 									</th>
 								</tr>
 							</table>
-							<div id="map-container">
-								<h2>매장 위치</h2>
-								<div id="map"
-									style="width: 500px; height: 400px; display: none;"></div>
-								<h5>상세 주소 : ${dto.address }</h5>
-							</div>
-							<script type="text/javascript"
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
-
-							<script>
-								var mapVisible = false;
-								var map;
-								function toggleMap() {
-									var mapContainer = document
-											.getElementById('map');
-									var h2 = document.querySelector('h2');
-									var h5 = document.querySelector('h5');
-									if (!mapVisible) {
-										mapContainer.style.display = 'block';
-										h2.style.display = 'block';
-										h5.style.display = 'block';
-										mapVisible = true;
-										initMap();
-									} else {
-										mapContainer.style.display = 'none';
-										h2.style.display = 'none';
-										h5.style.display = 'none';
-										mapVisible = false;
-									}
-								}
-
-								var findStoreButton = document
-										.querySelector('input.btn2[value="지도 보기"]');
-								findStoreButton.addEventListener('click',
-										toggleMap);
-
-								var infowindow = new kakao.maps.InfoWindow({
-									zIndex : 1
-								});
-
-								var mapContainer = document
-										.getElementById('map');
-								var mapOption = {
-									center : new kakao.maps.LatLng(37.566826,
-											126.9786567),
-									level : 3
-								};
-
-								function initMap() {
-									map = new kakao.maps.Map(mapContainer,
-											mapOption);
-									var ps = new kakao.maps.services.Places();
-
-									ps.keywordSearch('${dto.storename}',
-											placesSearchCB);
-								}
-
-								function placesSearchCB(data, status,
-										pagination) {
-									if (status === kakao.maps.services.Status.OK) {
-										var bounds = new kakao.maps.LatLngBounds();
-
-										for (var i = 0; i < data.length; i++) {
-											displayMarker(data[i]);
-											bounds
-													.extend(new kakao.maps.LatLng(
-															data[i].y,
-															data[i].x));
-										}
-
-										map.setBounds(bounds);
-									}
-								}
-
-								function displayMarker(place) {
-									var marker = new kakao.maps.Marker({
-										map : map,
-										position : new kakao.maps.LatLng(
-												place.y, place.x)
-									});
-
-									kakao.maps.event
-											.addListener(
-													marker,
-													'click',
-													function() {
-														infowindow
-																.setContent('<div style="padding:5px;font-size:12px;">'
-																		+ place.place_name
-																		+ '</div>');
-														infowindow.open(map,
-																marker);
-													});
-								}
-
-								initMap();
-							</script>
 						</div>
 					</c:forEach>
-
 				</div>
-
 			</div>
 		</div>
 		<c:forEach items="${ReservationList2}" var="dto2">

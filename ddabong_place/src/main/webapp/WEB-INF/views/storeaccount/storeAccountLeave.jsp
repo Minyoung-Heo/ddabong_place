@@ -6,7 +6,7 @@
 <head>
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-		const pw = document.getElementById("storepw");
+		const pw = document.getElementById("personalpw");
 		const btn = document.getElementById("loginButton");
 
 		// 초기에 로그인 버튼을 비활성화
@@ -31,6 +31,7 @@
 
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 a {
 	color: #222;
 	text-decoration: none;
@@ -218,42 +219,42 @@ p1 {
 }
 </style>
 <meta charset="UTF-8">
-<title>매장 삭제</title>
+<title>회원 로그인</title>
 </head>
 <body>
-<br><br>	
+	<br><br>	
 		<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
 			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
 			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
 			<a href="storeinput">매장 등록</a><br>
-			<a href="storeleave?id=${store.id}" style="color: #ff8c00;">매장 삭제</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
 			<hr style="width:190px; text-align: left; margin-left:0;">			
 			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
 			<a href="storeaccountmodify?id=${store.id}">회원 정보 수정</a><br>
-			<a href="storeaccountleave">회원 탈퇴</a><br>
+			<a href="storeaccountleave" style="color: #ff8c00;">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">
 					<div class="container2">
-			<h1 class="login_title">매장 삭제</h1>
-			<h4>삭제하시려면 비밀번호를 입력해주세요.</h4>
-			<form class="login_form" action="storeleavechecking" method="post">
+			<h1 class="login_title">회원 탈퇴</h1>
+			<h4 style="font-size: 16px;">탈퇴하시려면 비밀번호를 입력해주세요.</h4>
+			<form class="login_form" action="storeaccountleavechecking" method="post">
 				<div class="pswd_area">
 					<span class="pswd_input">
-					<input type="hidden" name="storeid" value="${store.id}">
-					 <input type="password" id="storepw" class="pswd" placeholder="비밀번호를 입력하세요 !" name="storepw" maxlength="16">
+					<input type="hidden" name="personalid" value="${store.id}">
+					 <input type="password"
+						id="personalpw" class="pswd" placeholder="비밀번호를 입력하세요 !"
+						name="personalpw" maxlength="16">
 					</span>
 				</div>
-				<button id="loginButton" class="btn_login" type="submit" disabled>삭제</button>
+				<button id="loginButton" class="btn_login" value="완료" type="submit"
+					disabled>완료</button>
 				<br>
 			</form>
 		</div>
 		</div>
 	</div>
-	
-	
-		
 </body>
 </html>

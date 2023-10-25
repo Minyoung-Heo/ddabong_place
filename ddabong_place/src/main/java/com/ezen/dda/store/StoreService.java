@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.dda.personalfunction.ReservationDTO;
+
 public interface StoreService {
 
 	// 매장 등록
@@ -49,4 +51,7 @@ public interface StoreService {
 	//마이페이지 들어가기 전 비밀번호 인증
 	public StoreDTO storepwchecking(String id, String pw);
 	public void storepwcheck(String store_id);
+	
+	// 예약 현황
+	public ArrayList<StoreDTO> storeStatus(String store_id);
 }

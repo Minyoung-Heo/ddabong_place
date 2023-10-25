@@ -165,25 +165,6 @@
 						}
 					}, 1000);
 				});
-		// 닉네임 유효성 검사
-		$("#personalnickname").on(
-				'input',
-				function() {
-					clearTimeout(uTimer);
-					uTimer = setTimeout(function() {
-						var nickname = $("#personalnickname").val();
-						var nicknameErrorMessage = $("#nicknameErrorMessage");
-
-						if (/^[A-Za-z가-힣0-9]+$/.test(nickname)) {
-							nicknameErrorMessage.text("").removeClass(
-									"success-message");
-						} else {
-							nicknameErrorMessage.text(
-									"✘ 닉네임은 한글,영어,숫자로만 입력 가능합니다.").removeClass(
-									"success-message").css("color", "red");
-						}
-					}, 1000);
-				});
 		// 전화번호 유효성 검사
 		$("#personalphone").on(
 				'input',
@@ -232,43 +213,6 @@
 
 	});
 </script>
-
-<!-- 주소 api -->
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-<script type="text/javascript">
-	function execPostCode() {
-		new daum.Postcode({
-			oncomplete : function(data) {
-
-				var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-				var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-
-				if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-					extraRoadAddr += data.bname;
-				}
-				if (data.buildingName !== '' && data.apartment === 'Y') {
-					extraRoadAddr += (extraRoadAddr !== '' ? ', '
-							+ data.buildingName : data.buildingName);
-				}
-				if (extraRoadAddr !== '') {
-					extraRoadAddr = ' (' + extraRoadAddr + ')';
-				}
-				if (fullRoadAddr !== '') {
-					fullRoadAddr += extraRoadAddr;
-				}
-
-				console.log(data.zonecode);
-				console.log(fullRoadAddr);
-
-				$("[name=addr1]").val(data.zonecode);
-				$("[name=addr2]").val(fullRoadAddr);
-
-			}
-		}).open();
-	}
-</script>
 <script>
 	$(document).ready(function() {
 		$("#loginButton").click(function() {
@@ -281,60 +225,45 @@
 	<div class="div-container">
 		<div class="category">
 			<h1>마이페이지</h1>
-			<a href="myinfo">내 정보</a><br> 
-			<a href="myinfoModify" style="color: #ff8c00;">회원 정보 수정</a><br>
-			<a href="personalleave" >회원 탈퇴</a><br>
+			<a href="storeoutput?store_id=${store.id}">나의 매장 정보</a><br> 
+			<a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+			<a href="storeinput">매장 등록</a><br>
+			<a href="storeleave?id=${store.id}">매장 삭제</a><br>
+			<hr style="width:190px; text-align: left; margin-left:0;">			
+			<a href="storeaccountinfo?id=${store.id}">나의 회원 정보</a><br>
+			<a href="storeaccountmodify?id=${store.id}" style="color: #ff8c00;">회원 정보 수정</a><br>
+			<a href="storeaccountleave">회원 탈퇴</a><br>
 		</div>
 
 		<div class="qna">
 					<div class="container2">
 			<h1 class="login_title">회원 정보 수정</h1>
-			<form action="personalModifysave" method="post" id="myForm">
+			<form action="storeAccountModifySave" method="post" id="myForm">
 				<br> 아이디<input type="text" id="personalid" class="textbox"
-					name="personalid" maxlength="20" value="${personal.id}"
+					name="storeAccountid" maxlength="20" value="${dto.id}"
 					readonly="readonly">
 				<div class="error-message" id="idErrorMessage"></div>
 
 				비밀번호<input type="password" id="personalpw" class="textbox"
-					placeholder="비밀번호" name="personalpw" maxlength="20"> 
+					placeholder="비밀번호" name="storeAccountpw" maxlength="20"> 
 					비밀번호확인<input type="password"
 					id="personalpw_confirm" class="textbox" placeholder="비밀번호 확인"
 					maxlength="20">
 				<div class="error-message" id="passwordErrorMessage"></div>
 
 				이름<input type="text" id="personalname" class="textbox"
-					placeholder="이름" name="personalname" value="${personal.name }">
+					placeholder="이름" name="storeAccountceo" value="${dto.ceo}">
 				<div class="error-message" id="nameErrorMessage"></div>
 
-				닉네임<input type="text" id="personalnickname" class="textbox"
-					placeholder="닉네임" name="personalnickname"
-					value="${personal.nickname }">
-				<div class="error-message" id="nicknameErrorMessage"></div>
-
-				전화번호<input type="text" id="personalphone" name="personalphone"
+				전화번호<input type="text" id="personalphone" name="storeAccountphone"
 					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx "
-					value="${personal.phone }">
+					value="${dto.phone}">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
-
-				주소<br> <input class="textbox"
-					style="width: 70%; height: 50%; background-color: #d9d9d9; display: inline; margin-right: 18px;" 
-					placeholder="우편번호" name="addr1" id="addr1" type="text"
-					readonly="readonly">
-				<button type="button" class="btn btn-default"
-					onclick="execPostCode();">
-					<i class="fa fa-search"></i> 우편번호 찾기
-				</button>
-				
-
-
-				<input class="textbox" style="background-color: #d9d9d9"
-					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
-					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
-					name="addr3" id="addr3" type="text" /> 이메일<input type="text"
-					id="personalemail" class="textbox" name="personalemail"
+				이메일<input type="text"
+					id="personalemail" class="textbox" name="storeAccountemail"
 					placeholder="이메일 ex)user@ddabongplace.com"
-					value="${personal.email }">
+					value="${dto.email}">
 				<div class="error-message" id="emailErrorMessage"></div>
 				<button id="loginButton" class="btn_login" type="submit">수정
 					완료</button>
