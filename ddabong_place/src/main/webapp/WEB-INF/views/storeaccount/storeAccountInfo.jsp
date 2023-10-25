@@ -140,7 +140,7 @@
 				</tr>
 			</table>
 	<button class="btn" onclick="location.href='storeaccountmodify?id=${store.id}'">회원 수정</button>
-	<button class="btn" onclick="storeaccountleave'">회원 탈퇴</button>
+	<button class="btn" onclick="location.href='storeaccountleave'">회원 탈퇴</button>
 		</div>
 		</div>
 </body>

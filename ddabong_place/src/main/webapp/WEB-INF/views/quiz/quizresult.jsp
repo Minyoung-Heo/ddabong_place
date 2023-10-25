@@ -6,39 +6,36 @@
 <head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style type="text/css">
-.tb{
-	margin-top: 70px;
-}
 .nulldata
 {
 	margin-top: 150px;
 }
 
-.tbl-header table {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    border: 1px solid #fff;
-    border-spacing: 1px;
+table {
+	margin: auto;
+	width: 100%;
 }
 
 table td {
     padding: 10px;
+    border-color: #fff;
     background-color: rgb(254,252,250);
     font-size: 17px;
 }
 
 table th {
     background-color: #ff8c00;
+    border-color: #fff;
     color: #fff;
     padding: 10px;
     font-size: 17px;
 }
-.tbl-content table {
-    width: 100%;
-    table-layout: fixed;
-    overflow-y: scroll;
+
+.tscroll{
+	overflow-y: scroll;
+	max-height: 800px;
 }
 
 .flex-container {
@@ -68,24 +65,6 @@ margin-bottom:20px;
 .flex-item {
 width:100%;
 font-size:25px;
-}
-
-.img-wrapper {
-	margin-right: 40px;
-	width: 260px;
-	height: 260px;
-	position: relative;
-}
-
-.img-wrapper img {
-	border-radius: 10px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	transform: translate(50, 50);
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
 }
 
 .intro {
@@ -158,22 +137,22 @@ font-size: 20px;
 
 .img-wrapper img {
 	border-radius: 10px;
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
 	left: 0;
-	transform: translate(50, 50);
+	/* transform: translate(50, 50); */
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	text-align: center;
+	margin: auto;
+}
+
+.tbl-content table{
+	overflow: auto;
 }
 </style>
 
-<!-- <script>
-$(window).on("load resize ", function() {
-	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-	  $('.tbl-header').css({'padding-right':scrollWidth});
-	}).resize();
-</script> -->
 <meta charset="UTF-8">
 </head>
 <body>
@@ -193,33 +172,33 @@ $(window).on("load resize ", function() {
        <div class="flex-container">
 		<div class="flex-item">
 			<hr>
+			<div class="tscroll">
+			<table border="1">
 			<c:choose>
                 <c:when test="${list.size()>=1}">
-                <div class="tbl-header">
-                    <table border="1">
+                    <thead>
                         <tr>
                             <th>가게 이름</th>
                             <th>매장 이미지</th>
                             <th>지역</th>
                             <th>디저트</th>
                         </tr>
-                    </div>
+                        </thead>
                     
-                    <div class="tbl-content">
+                    <tbody>
                         <c:forEach items="${list}" var="aa">
                             <tr>
                                 <td>${aa.storename}</td>
                                  <td>
-                                <div class="img-wrapper">
-						<a href="detailview?store_id=${aa.store_id}"> <img alt=""
-							src="/dda/image/${aa.imageList[0]}"></a>
-					</div></td>
+                        <div class="img-wrapper">
+						<a href="detailview?store_id=${aa.store_id}"> 
+						<img class="imgsize" alt="" src="/dda/image/${aa.imageList[0]}"></a>
+						</div></td>
                                 <td>${aa.region_name}</td>
                                 <td>${aa.dessert}</td>
                             </tr>
                         </c:forEach>
-                   </div>
-                   </table>
+                    </tbody>
                 </c:when>
                 <c:otherwise>
                     <div class="nulldata">
@@ -227,11 +206,12 @@ $(window).on("load resize ", function() {
                     </div>
                 </c:otherwise>
             </c:choose>
+            </table>
             </div>
-	</div>   
+            </div>
+		</div>
 	<br><br><br>
         </div>
-    </div>
     </div>
 </body>
 </html>

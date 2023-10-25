@@ -10,7 +10,7 @@
 	function cancelReserv(reservation_num) {
 		if (confirm("예약을 정말 취소하시겠습니까?")) {
 			location.href = "storeReservationDelete?reservation_num="
-					+ reservation_num + "&store_id=${store_id}";
+					+ reservation_num + "&store_id=${store.id}";
 		}
 	}
 </script>
@@ -75,16 +75,6 @@
 	display: none;
 	margin: 20px auto;
 	margin-top: 20px;
-}
-
-h2 {
-	margin-top: 20px;
-	display: none;
-}
-
-h5 {
-	margin-top: 20px;
-	display: none;
 }
 
 .horizontal-line {
@@ -181,6 +171,34 @@ h5 {
 	text-align: left;
 	font-size: 20px;
 }
+
+.qweqwe {
+	display: inline-block;
+	color: gray;
+	transition: color 0.3s;
+	text-decoration: none;
+	text-align: left;
+	margin-right: 50px;
+	text-decoration: none !important;
+}
+
+.qweqwe:hover {
+	color: #ff8c00;
+	text-decoration: none !important;
+}
+
+.qweqwe2 {
+	display: inline-block;
+	color: gray;
+	transition: color 0.3s;
+	text-decoration: none !important;
+	text-align: right;
+}
+
+.qweqwe2:hover {
+	color: #ff8c00;
+	text-decoration: none !important;
+}
 </style>
 
 <meta charset="UTF-8">
@@ -193,30 +211,55 @@ h5 {
 		<div class="category">
 			<h1>예약 / 웨이팅 관리</h1>
 			<a href="storeStatus?store_id=${store.id}" style="color: #ff8c00;">예약
-				현황</a><br> <a href="waitinglist?store_id=${store.id}">웨이팅 현황</a>
+				리스트</a><br> 
+				<a
+				href="waitinglist?store_id=${store.id}">웨이팅 리스트</a>
 		</div>
 		<div class="qna">
-			<c:forEach items="${ReservationList}" var="dto">
-				<h1 style="text-align: left;">예약 리스트</h1>
-				<br>
-				<table class="question" align="center">
-					<tr style="background-color: #ffd199;">
-						<th>예약자명</th>
-						<th>전화번호</th>
-						<th>인원수</th>
-						<th>예약 번호</th>
-						<th>예약 취소</th>
-					</tr>
+
+			<h1 style="text-align: left;">예약 리스트</h1>
+			<br>
+			<div style="text-align: left;">
+			<c:choose>
+			<c:when test="${pass != null}">
+				<a href="storeStatus?store_id=${store.id}" class="qweqwe"><h3>예정 예약현황</h3></a> 
+				<a href="storeStatusPass?store_id=${store.id}" class="qweqwe2" style="color:#ff8c00;"><h3>지난 예약현황</h3></a>
+			</c:when>
+			<c:otherwise>
+				<a href="storeStatus?store_id=${store.id}" class="qweqwe" style="color:#ff8c00;"><h3>예정 예약현황</h3></a> 
+				<a href="storeStatusPass?store_id=${store.id}" class="qweqwe2"><h3>지난 예약현황</h3></a>
+			</c:otherwise>
+			</c:choose>
+			
+			</div>
+			<table class="question" align="center" style="margin-top: 25px;">
+				<tr style="background-color: #ffd199;">
+					<th>예약 번호</th>
+					<th>예약자명</th>
+					<th>예약날짜</th>
+					<th>예약시간</th>
+					<th>인원수</th>
+					<th>전화번호</th>
+					<c:if test="${pass==null}">
+					<th>예약 취소</th>
+					</c:if>
+				</tr>
+				<c:forEach items="${ReservationList}" var="dto">
 					<tr>
-						<td>${dto.reservation_name}</td>
-						<td>${dto.tel}</td>
-						<td>${dto.person_num}</td>
 						<td>${dto.reservation_num }</td>
-						<td><input type="button" value="예약 취소" class="btn2"
+						<td>${dto.reservation_name}</td>
+						<c:set var="date" value="${dto.reservation_date}" />
+						<td>${fn:substring(date,0,10)}</td>
+						<td>${dto.reservation_time}</td>
+						<td>${dto.person_num}</td>
+						<td>${dto.tel}</td>
+						<c:if test="${pass==null}">
+					<td><input type="button" value="예약 취소" class="btn2"
 							onclick="cancelReserv(${dto.reservation_num})"></td>
+					</c:if>
 					</tr>
-				</table>
-			</c:forEach>
+				</c:forEach>
+			</table>
 		</div>
 	</div>
 </body>

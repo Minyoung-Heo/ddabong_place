@@ -116,28 +116,51 @@
 		select * from store where ceo =#{param1} and id=#{param2}
 	</select>
 
-	<!-- 스토어 예약 현황 -->
+	<!-- 스토어 예정 예약 현황 -->
 	<select id="storeStatus"
 		resultType="com.ezen.dda.store.StoreDTO">
+		<![CDATA[
 		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE,
 		rs.RESERVATION_TIME,
 		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL,
 		rg.ADDRESS,
 		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
 		rs.RESERVATION_NAME
-		FROM
-		RESERVATION rs
+		FROM RESERVATION rs
 		JOIN registration rg ON
 		rs.STORE_ID = rg.STORE_ID
 		WHERE
 		rs.store_id = #{param1}
+		AND rs.RESERVATION_DATE >= sysdate
+		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
+		]]>
+	</select>
+	
+		<!-- 스토어 지난 예약 현황 -->
+	<select id="storeStatusPass"
+		resultType="com.ezen.dda.store.StoreDTO">
+		<![CDATA[
+		SELECT rs.STORE_ID, rg.STORENAME, rs.RESERVATION_DATE,
+		rs.RESERVATION_TIME,
+		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL,
+		rg.ADDRESS,
+		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
+		rs.RESERVATION_NAME
+		FROM RESERVATION rs
+		JOIN registration rg ON
+		rs.STORE_ID = rg.STORE_ID
+		WHERE
+		rs.store_id = #{param1}
+		AND rs.RESERVATION_DATE < sysdate
+		ORDER BY rs.RESERVATION_DATE DESC, rs.RESERVATION_TIME DESC
+		]]>
 	</select>
 	
 	<!-- 스토어 예약 삭제 -->
 	<delete id="storeReservationDelete">
 		delete RESERVATION where reservation_num=#{param1}
 	</delete>
-	
+
 	<!-- 스토어 예약 삭제 하면 리뷰도 삭제해야하니까 -->
 	<delete id="storeReviewDelete">
 		delete review where reservation_num=#{param1}
