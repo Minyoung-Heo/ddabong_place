@@ -7,11 +7,12 @@
 <html>
 <head>
 <script type="text/javascript">
-function cancelReserv(reservation_num){
-	if(confirm("예약을 정말 취소하시겠습니까?")){
-		location.href="ReservationDelete?reservation_num="+reservation_num+"&store_id=${store_id}";
+	function cancelReserv(reservation_num) {
+		if (confirm("예약을 정말 취소하시겠습니까?")) {
+			location.href = "storeReservationDelete?reservation_num="
+					+ reservation_num + "&store_id=${store_id}";
+		}
 	}
-}
 </script>
 <style type="text/css">
 .maint1 {
@@ -56,31 +57,12 @@ function cancelReserv(reservation_num){
 }
 
 .btn2 {
-	margin-top: 20px;
+	background-color: #ffe8cc;
+	border: 0;
 }
 
-.buttons {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 10px;
-		margin-right: 20px;
-}
-
-.buttons input[type="button"] {
-	background-color: gray;
-	border: none;
-	border-radius: 5px;
-	color: white;
-	padding: 10px 20px;
-	cursor: pointer;
-	font-weight: bold;
-	width: 100px;
-	margin-right: 10px;
-}
-
-.buttons input[type="button"]:hover {
-	background-color: #FF8C00;
+.btn2:hover {
+	background-color: #ffba66;
 }
 
 #map-container {
@@ -140,9 +122,31 @@ h5 {
 
 .qna {
 	margin-top: 20px;
-	text-align: left;
-	font-size: 15px;
+	text-align: center;
+	font-size: 25px;
 	width: 85%;
+}
+
+.question a {
+	text-decoration: none;
+	color: black;
+}
+
+.question th {
+	border-top: 2px solid #ff8c00;
+	border-bottom: 2px solid #ff8c00;
+	padding: 15px;
+	text-align: center;
+}
+
+.question td {
+	padding: 15px;
+	border-bottom: 2px solid #ffba66;
+	text-align: center;
+}
+
+.question tr:hover {
+	background-color: #ffe8cc;
 }
 
 .asd {
@@ -152,8 +156,9 @@ h5 {
 .side-map {
 	margin-top: 150px;
 }
+
 .img-wrapper {
-margin:25px;
+	margin: 25px;
 	margin-right: 15px;
 	width: 230px;
 	height: 230px;
@@ -170,75 +175,49 @@ margin:25px;
 	height: 100%;
 	object-fit: cover;
 }
+
+.question {
+	width: 100%;
+	text-align: left;
+	font-size: 20px;
+}
 </style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<br><br>
+	<br>
+	<br>
 	<div class="div-container">
 		<div class="category">
-			<h1>예약 / 웨이팅</h1>
-			<a href="myStatus?customer_id=${personal.id}" style="color:#ff8c00;">예약 현황</a><br> <a
-				href="mywaiting?customer_id=${personal.id}">웨이팅
-				현황</a>
+			<h1>예약 / 웨이팅 관리</h1>
+			<a href="storeStatus?store_id=${store.id}" style="color: #ff8c00;">예약
+				현황</a><br> <a href="waitinglist?store_id=${store.id}">웨이팅 현황</a>
 		</div>
-
 		<div class="qna">
-			<div class="flex-container">
-				<div class="flex-item">
-					<h1 class="asd">예약 현황</h1>
-					<div class="horizontal-line"></div>
-					<c:forEach items="${ReservationList}" var="dto">
-						<div class="flex-container-inner">
-							<table class="maint1" align="center">
-								<tr>
-									<th>
-										<div class="img-wrapper">
-								<a href="detailview?store_id=${dto.store_id}"> <img alt=""
-									src="/dda/image/${dto.image}" width="200px"></a>
-							</div>
-										
-									</th>
-									<th>
-										<h1 class="cname">${dto.storename}</h1>
-										<table class="cont">
-											<tr>
-												<c:set var="date" value="${dto.reservation_date}" />
-												<th class="cdate">${fn:substring(date,0,10)}·
-													${dto.reservation_time} · ${dto.person_num}명</th>
-											</tr>
-											<tr>
-												<th>예약 번호 : [${dto.reservation_num}]번</th>
-											</tr>
-											<tr>
-												<th>예약자명 : ${dto.reservation_name}</th>
-											</tr>
-											<tr>
-												<th>매장 전화번호 : ${dto.tel}</th>
-											</tr>
-										</table>
-									</th>
-									<th>
-										<div class="buttons">
-											<input type="button" value="매장 보기"
-												onclick="location.href='detailview?store_id=${dto.store_id}'">
-											<input
-												type="button" value="예약 취소" class="btn2"
-												onclick="cancelReserv(${dto.reservation_num})">
-										</div>
-									</th>
-								</tr>
-							</table>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
+			<c:forEach items="${ReservationList}" var="dto">
+				<h1 style="text-align: left;">예약 리스트</h1>
+				<br>
+				<table class="question" align="center">
+					<tr style="background-color: #ffd199;">
+						<th>예약자명</th>
+						<th>전화번호</th>
+						<th>인원수</th>
+						<th>예약 번호</th>
+						<th>예약 취소</th>
+					</tr>
+					<tr>
+						<td>${dto.reservation_name}</td>
+						<td>${dto.tel}</td>
+						<td>${dto.person_num}</td>
+						<td>${dto.reservation_num }</td>
+						<td><input type="button" value="예약 취소" class="btn2"
+							onclick="cancelReserv(${dto.reservation_num})"></td>
+					</tr>
+				</table>
+			</c:forEach>
 		</div>
-		<c:forEach items="${ReservationList2}" var="dto2">
-			<div class="side-map"></div>
-		</c:forEach>
 	</div>
 </body>
 </html>

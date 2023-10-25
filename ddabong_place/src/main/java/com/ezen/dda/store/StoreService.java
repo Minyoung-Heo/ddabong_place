@@ -54,4 +54,8 @@ public interface StoreService {
 	
 	// 예약 현황
 	public ArrayList<StoreDTO> storeStatus(String store_id);
+	
+	// 예약 삭제
+	public void storeReservationDelete(String reservation_num); 
+	public void storeReviewDelete(String reservation_num); 
 }
