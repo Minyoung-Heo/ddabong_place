@@ -134,6 +134,7 @@ h1 {
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	margin-bottom: 150px;
 }
 
 .regionIcon img {
@@ -150,7 +151,7 @@ h1 {
 	height: 500px;
 	margin-top: 70px;
 	margin-left: 17%;
-	margin-bottom: 50px;
+	margin-bottom: 150px;
 }
 
 .mondda {
@@ -268,6 +269,20 @@ span{
 			</div>
 		</div>
 	</div>
+	
+	<h1>어디로 갈까요?</h1>
+	<div class="regionIcon">
+		<a href="goregion?region_name=강남"><img src="/dda/image/강남아이콘.png"
+			width="100px"></a> <a href="goregion?region_name=성수"><img
+			src="/dda/image/성수아이콘.png" width="100px"></a> <a
+			href="goregion?region_name=연남"><img src="/dda/image/연남아이콘.png"
+			width="100px"></a> <a href="goregion?region_name=을지로"><img
+			src="/dda/image/을지로아이콘.png" width="100px"></a> <a
+			href="goregion?region_name=잠실"><img src="/dda/image/잠실아이콘.png"
+			width="100px"></a> <a href="goregion?region_name=혜화"><img
+			src="/dda/image/혜화아이콘.png" width="100px"></a>
+	</div>
+	
 	<h1>디저트별 카페 추천</h1>
 	<div class="dessertIcon">
 		<a href="godessert?dessert=케이크"><img src="/dda/image/케이크.png"
@@ -286,18 +301,7 @@ span{
 			src="/dda/image/빙수.png" width="140px"></a>
 	</div>
 
-	<h1>어디로 갈까요?</h1>
-	<div class="regionIcon">
-		<a href="goregion?region_name=강남"><img src="/dda/image/강남아이콘.png"
-			width="100px"></a> <a href="goregion?region_name=성수"><img
-			src="/dda/image/성수아이콘.png" width="100px"></a> <a
-			href="goregion?region_name=연남"><img src="/dda/image/연남아이콘.png"
-			width="100px"></a> <a href="goregion?region_name=을지로"><img
-			src="/dda/image/을지로아이콘.png" width="100px"></a> <a
-			href="goregion?region_name=잠실"><img src="/dda/image/잠실아이콘.png"
-			width="100px"></a> <a href="goregion?region_name=혜화"><img
-			src="/dda/image/혜화아이콘.png" width="100px"></a>
-	</div>
+	
 
 	<h1 class="ddadda" align="center">따봉 어워드</h1>
 	<div class="award-container" id="award-container">
@@ -336,9 +340,7 @@ span{
 	<div class="row">
 		<div class="flex-container">
 			<div class="flex-item">
-				<h1>
-					예약 <span style="color: #ff4d00;">HOT</span> 랭킹
-				</h1>
+				<h1>예약 <b style="color:#ff3300;">HOT</b> 랭킹</h1>
 				<hr>
 				<c:forEach items="${hotList}" var="rank" varStatus="loop">
 					<div class="flex-container-inner">
