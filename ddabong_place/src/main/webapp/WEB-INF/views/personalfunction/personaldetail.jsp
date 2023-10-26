@@ -91,7 +91,7 @@
 .reviewsubmit {
 	position: relative;
 	right: 100px;
-	top: 74px;
+	top: 84px;
 	width: 100px;
 	height: 100px;
 	text-align: center;
@@ -482,7 +482,14 @@ height:20px;
 .flex-btn {
 	margin-right: 20px;
 }
+.reviewmenu {
+font-size: 30px; 
+margin-top:10px;
+margin-left:30px; 
+color:black;
+cursor:pointer;
 
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -810,7 +817,10 @@ height:20px;
 				style="margin: 40px;">
 				<tr style="text-align: left;">
 					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
-						<div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
+						<div class="dateCreated">
+						${fn:substring((rev.review_date),0,10) } 
+						<b class="reviewmenu">⋯</b>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -862,17 +872,16 @@ height:20px;
 					</td>
 				</tr>
 				<tr>
-					<td><div class="rev-img">
+					<td>
+							<c:if test="${rev.imageList[0]!=null}">
+							<div class="rev-img">
 							<div class="flex_image">
-								<%--                         <c:forEach items="${regi.imageList}" var="img" varStatus="loop"> --%>
-								<%--                            <c:if test="${loop.index >= 1 && loop.index < 5}"> --%>
 								<div class="review_image">
 									<img src="image/${rev.imageList[0]}">
 								</div>
-								<%--                            </c:if> --%>
-								<%--                         </c:forEach> --%>
 							</div>
 						</div>
+								</c:if>
 						<div class="contentout">${rev.content }</div></td>
 				</tr>
 			</table>
