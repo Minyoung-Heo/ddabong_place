@@ -32,7 +32,8 @@ public interface PersonalFnService {
 	public int subscribecheck(String customerid, String storeid);
 
 	public void canclesubscribe(String customer_id, String store_id);
-
+	
+	public void reviewDelete(int review_num);
 
 
 }

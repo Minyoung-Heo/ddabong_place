@@ -2,8 +2,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper
-	namespace="com.ezen.dda.personalfunction.PersonalFnService">
+<mapper namespace="com.ezen.dda.personalfunction.PersonalFnService">
 
 	<!-- 리뷰와 예약 작성,출력에 필요한 reservation,customer,review 조인하여 출력 -->
 	<select id="review"
@@ -100,4 +99,9 @@ WHERE a.store_id = #{param1}
 	<delete id="canclesubscribe">
 	delete from star where customer_id = #{param1} and store_id = #{param2}
 	</delete>
+	
+<!-- 	리뷰 삭제 -->
+<delete id="reviewDelete">
+delete from review where review_num = #{param1}
+</delete>
 </mapper>

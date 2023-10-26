@@ -86,29 +86,31 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 	height: 40px;
 }
 </style>
-<script language="JavaScript">
-	//head 태그 안에 스크립트 선언
+
+<script type="text/javascript">
 	function setCookie(name, value, expiredays) {
 		var todayDate = new Date();
 		todayDate.setDate(todayDate.getDate() + expiredays);
-		document.cookie = name + "=" + escape(value) + "; path=/; expires="
-				+ todayDate.toGMTString() + ";"
+		document.cookie = name + "=" + escape(value) + "; expires="
+				+ todayDate.toUTCString() + "; path=/; domain=yourdomain.com"; // 경로와 도메인 설정
 	}
+
 	function closePop() {
-		if (document.pop_form.chkbox.checked) {
+		if (document.getElementById('chkbox').checked) {
 			setCookie("maindiv", "done", 1);
 		}
-		document.all['layer_popup'].style.visibility = "hidden";
+		document.getElementById('layer_popup').style.display = "none";
+	}
+
+	window.onload = function() {
+		cookiedata = document.cookie;
+		if (cookiedata.indexOf("maindiv=done") < 0) {
+		    document.getElementById('layer_popup').style.display = "block";
+		}
 	}
 </script>
-<script language="Javascript">
-	cookiedata = document.cookie;
-	if (cookiedata.indexOf("maindiv=done") < 0) {
-		document.all['layer_popup'].style.visibility = "visible";
-	} else {
-		document.all['layer_popup'].style.visibility = "hidden";
-	}
-</script>
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -131,6 +133,7 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 				<div id="close">
 					<a href="javascript:closePop();">닫기</a>
 				</div>
+
 			</form>
 		</div>
 	</div>
