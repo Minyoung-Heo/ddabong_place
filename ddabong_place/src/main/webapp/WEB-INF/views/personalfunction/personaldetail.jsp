@@ -434,7 +434,6 @@ height:20px;
 .btn:hover {
 	background-color: #ffba66;
 }
-
 .modal {
 	width: 250px;
 	height: 70px;
@@ -488,7 +487,26 @@ margin-top:10px;
 margin-left:30px; 
 color:black;
 cursor:pointer;
-
+}
+.menudiv {
+display: none;
+width:100px;
+z-index: 200;
+border: 1px solid #e6e6e6;
+float:right;
+background-color: white;
+padding:15px;
+position:absolute;
+margin-left:810px;
+text-align: center;
+margin-top: 40px;
+}
+.menudiv a {
+text-decoration: none;
+color:gray;
+}
+.menudiv a:hover {
+color:black;
 }
 </style>
 <title>Insert title here</title>
@@ -621,7 +639,8 @@ cursor:pointer;
 								<p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
 							</div>
 							<div id="modalBackground" class="modal-background"
-								onclick="closeModal()"></div> <script>
+								onclick="closeModal()"></div> 
+								<script>
 									// 모달 열기
 									function openModal() {
 										document.getElementById('myModal').style.display = 'block';
@@ -819,8 +838,23 @@ cursor:pointer;
 					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
 						<div class="dateCreated">
 						${fn:substring((rev.review_date),0,10) } 
-						<b class="reviewmenu">⋯</b>
+						 <b class="reviewmenu" onclick="toggleMenu(${loop.index})">⋯</b>
 						</div>
+						 <div id="menu${loop.index}" class="menudiv">
+           					 <a href="">수정</a><hr><a href="">삭제</a>
+        					</div>
+        <script>
+    function toggleMenu(index) {
+        var menu = document.getElementById("menu" + index);
+        menu.style.display = (menu.style.display === "none") ? "block" : "none";
+    }
+
+    function editReview(index) {
+    }
+
+    function deleteReview(index) {
+    }
+</script>
 					</td>
 				</tr>
 				<tr>
@@ -868,7 +902,6 @@ cursor:pointer;
 								class="startRadio__img"><span class="blind">별 5개</span></span>
 							</label>
 						</div>
-
 					</td>
 				</tr>
 				<tr>
@@ -882,7 +915,8 @@ cursor:pointer;
 							</div>
 						</div>
 								</c:if>
-						<div class="contentout">${rev.content }</div></td>
+						<div class="contentout">${rev.content }</div>
+        					</td>
 				</tr>
 			</table>
 		</div>
