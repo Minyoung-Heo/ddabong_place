@@ -29,7 +29,7 @@
 		});
 	});
 </script>
- <jsp:include page="main_popup.jsp"/> 
+<%-- <jsp:include page="main_popup.jsp"/>  --%>
 <style type="text/css">
 h1 {
 	margin: 30px;
@@ -250,8 +250,8 @@ span{
 	top: 0;
 	left: 0;
 	transform: translate(50, 50);
-	width: 100%;
-	height: 100%;
+	width: 400px;
+	height: 340px;
 	object-fit: cover;
 }
 
@@ -363,10 +363,10 @@ span{
 				<c:forEach items="${rankList}" var="monthDDA" varStatus="loop">
 					<div class="item">
 						<h2>${loop.index + 1}등</h2>
-						<a href="detailview?store_id=${monthDDA.store_id}"
+						<a href="detailview?store_id=${monthDDA.store_id}" style="outline:none;"
 							class="cakecake">
 							<div class="monthi">
-							<img alt="" src="/dda/image/${monthDDA.image}">
+							<img alt="" src="/dda/image/${monthDDA.image}" >
 							</div>
 						</a>
 						<h3>${monthDDA.storeName}</h3>

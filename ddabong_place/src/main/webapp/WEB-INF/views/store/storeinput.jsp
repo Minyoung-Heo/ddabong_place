@@ -370,7 +370,7 @@ textarea.addEventListener("input", function () {
 <form action="storeinputsave" method="post" enctype="multipart/form-data" name="store">
 <div class="wrap">
         <div class="storeinput">
-            <h1 style="margin-bottom: 30px;">매장 등록</h1>
+            <h1 style="margin-bottom: 50px;">매장 등록</h1>
             
             <div class="store_id">
                 <h4>업체 아이디</h4>
@@ -425,7 +425,7 @@ textarea.addEventListener("input", function () {
           	
           	<div class="mae_image">
            		<h4>매장 이미지</h4>
-            	<input type="file" style="outline:none;"name="image" id="file" multiple="multiple">
+            	<input type="file" style="outline:none;" name="image" id="file" multiple="multiple">
           	</div>
           	
           	<div class="main_menu">

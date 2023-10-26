@@ -118,10 +118,37 @@
 .reviewattach {
 	text-align: right;
 	position: relative;
-	left: 20px;
-	bottom: 50px;
+	bottom: 75px;
 	color: gray;
+	border: none;
+  	outline: none;
+  	left: 30px;
+  	width: 100%;
 }
+
+.reviewfile {
+	position: relative;
+	left: 77%;
+	margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+input[type=file]::file-selector-button {
+  width: 90px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #ff8c00;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  left: -5px;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: rgb(254,163,72);
+  color: #fff;
+  }
 
 .flex_image {
 	display: flex;
@@ -211,13 +238,6 @@
 
 .reservbtn:hover {
 	background-color: #ffba66;
-}
-
-.reviewfile {
-	position: relative;
-	text-align: right;
-	left: 78%;
-	margin-top: 10px;
 }
 
 /* 리뷰출력 */
@@ -462,6 +482,7 @@ height:20px;
 .flex-btn {
 	margin-right: 20px;
 }
+
 </style>
 <title>Insert title here</title>
 </head>
@@ -768,7 +789,7 @@ height:20px;
 							</label>
 						</div>
 						<div class="reviewattach">
-							리뷰할 사진을 모두 선택해 주세요. <input class="reviewfile" name="reviewfile"
+							리뷰할 사진을 모두 선택해 주세요.<input class="reviewfile" name="reviewfile"
 								type="file" multiple="multiple">
 						</div> <textarea class="reviewcontent" rows="3" cols="80"
 							name="reviewcontent"></textarea>
