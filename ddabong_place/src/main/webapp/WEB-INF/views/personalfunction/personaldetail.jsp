@@ -70,15 +70,18 @@
 	border: 1px solid #e6e6e6;
 	border-radius: 20px;
 }
+
 .storeshow {
 	margin: 40px;
 }
+
 .reviewtable {
 	width: 55%;
 	margin: 0 auto;
 	border: 1px solid #e6e6e6;
 	border-radius: 20px;
 }
+
 .reviewsubmit {
 	position: relative;
 	right: 100px;
@@ -90,9 +93,11 @@
 	border: none;
 	border-radius: 15px;
 }
+
 .reviewsubmit:hover {
 	background-color: #ffba66;
 }
+
 .reviewcontent {
 	float: left;
 	position: relative;
@@ -103,42 +108,48 @@
 	padding: 20px;
 	font-size: 15px;
 }
+
 .reviewattach {
 	text-align: right;
 	position: relative;
 	bottom: 75px;
 	color: gray;
 	border: none;
-  	outline: none;
-  	left: 30px;
-  	width: 100%;
+	outline: none;
+	left: 30px;
+	width: 100%;
 }
+
 .reviewfile {
 	position: relative;
 	left: 77%;
 	margin-top: 10px;
-    padding: 10px;
-    box-sizing: border-box;
+	padding: 10px;
+	box-sizing: border-box;
 }
+
 input[type=file]::file-selector-button {
-  width: 90px;
-  height: 30px;
-  background: #fff;
-  border: 1px solid #ff8c00;
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-  left: -5px;
+	width: 90px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #ff8c00;
+	border-radius: 10px;
+	cursor: pointer;
+	position: relative;
+	left: -5px;
 }
+
 input[type=file]::file-selector-button:hover {
-  background: rgb(254,163,72);
-  color: #fff;
-  }
+	background: rgb(254, 163, 72);
+	color: #fff;
+}
+
 .flex_image {
 	display: flex;
 	margin-bottom: 30px;
 	justify-content: space-evenly;
 }
+
 .center_image {
 	width: 890px;
 	height: 600px;
@@ -147,10 +158,11 @@ input[type=file]::file-selector-button:hover {
 	vertical-align: top;
 	margin: 20px;
 }
+
 .center_image img {
 	border-radius: 10px;
 	position: absolute;
-	top: 0;
+	top: -25px;
 	left: 0;
 	transform: translate(50, 50);
 	width: 100%;
@@ -165,6 +177,7 @@ input[type=file]::file-selector-button:hover {
 	vertical-align: top;
 	margin: 10px;
 }
+
 .review_image img {
 	border-radius: 10px;
 	position: absolute;
@@ -175,6 +188,7 @@ input[type=file]::file-selector-button:hover {
 	height: 100%;
 	object-fit: cover;
 }
+
 .mini_image {
 	width: 200px;
 	height: 140px;
@@ -183,6 +197,7 @@ input[type=file]::file-selector-button:hover {
 	vertical-align: top;
 	margin: 10px;
 }
+
 .mini_image img {
 	border-radius: 10px;
 	position: absolute;
@@ -193,9 +208,11 @@ input[type=file]::file-selector-button:hover {
 	height: 100%;
 	object-fit: cover;
 }
+
 .table-bottom {
 	padding-bottom: 14px;
 }
+
 .reservbtn {
 	text-decoration: none;
 	color: black;
@@ -211,6 +228,7 @@ input[type=file]::file-selector-button:hover {
 	margin-left: 10px;
 	margin-top: 80px;
 }
+
 .reservbtn:hover {
 	background-color: #ffba66;
 }
@@ -234,6 +252,7 @@ input[type=file]::file-selector-button:hover {
 	border: none;
 	clip: rect(0, 0, 0, 0);
 }
+
 .startRadio {
 	display: inline-block;
 	overflow: hidden;
@@ -241,6 +260,7 @@ input[type=file]::file-selector-button:hover {
 	position: relative;
 	right: 310px;
 }
+
 .startRadio:after {
 	content: "";
 	display: block;
@@ -253,6 +273,7 @@ input[type=file]::file-selector-button:hover {
 	background-size: contain;
 	pointer-events: none;
 }
+
 .startRadio__box {
 	position: relative;
 	z-index: 1;
@@ -261,15 +282,18 @@ input[type=file]::file-selector-button:hover {
 	height: 40px;
 	cursor: pointer;
 }
+
 .startRadio__box input {
 	opacity: 0 !important;
 	height: 0 !important;
 	width: 0 !important;
 	position: absolute !important;
 }
+
 .startRadio__box input:checked+.startRadio__img {
 	background-color: #0084ff;
 }
+
 .startRadio__img {
 	display: block;
 	position: absolute;
@@ -278,50 +302,69 @@ input[type=file]::file-selector-button:hover {
 	height: 40px;
 	pointer-events: none;
 }
+
 .reviewstar img {
 	width: 18px;
 	margin-left: 21px;
 	margin-right: 2px;
 	margin-bottom: 5px;
 }
+
 .reviewstar {
 	font-size: 15px;
+	position: relative;
+	top: -15px;
 }
+
 .review {
 	margin-top: 0px;
 	float: left;
 }
+
 .starout {
 	position: relative;
 	padding-right: 350px;
 	padding-top: 10px;
 }
+
 .dateCreated {
 	margin-right: 120px;
 	float: right;
 	color: #8c8c8c;
 }
+
 .contentout {
 	position: relative;
 	text-align: left;
 	font-size: 25px;
 	margin: 30px;
 }
+
+.regionmark {
+	position: relative;
+	top: 80px;
+}
+
 .storetitle {
+	position: relative;
 	float: left;
 	font-size: 40px;
-	margin-top: 50px;
+	/* margin-top: 50px; */
+	padding-top: 55px;
 	margin-bottom: 10px;
 	margin-left: 21px;
+	margin-bottom: 10px;
 }
+
 .subscribe-div {
 	position: relative;
-	top: 150px;
-	right: 93px;
+	top: 80px;
+	right: 45px;
 }
+
 .prevsubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -332,9 +375,10 @@ height:20px;
 	margin-left: 10px;
 	margin-top: -47px;
 }
+
 .aftersubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -344,13 +388,16 @@ height:20px;
 	background-color: white;
 	margin-left: 10px;
 	margin-top: -47px;
+	height: 40px;
 }
+
 .monthdda {
 	float: left;
 	font-size: 20px;
 	padding-left: 400px;
 	padding-top: 20px;
 }
+
 .ddabtn {
 	border-style: solid;
 	border-width: 2.8px;
@@ -362,13 +409,16 @@ height:20px;
 	width: 100px;
 	height: 100px;
 }
+
 .ddabtn:hover {
 	background-color: #fff4e6;
 }
+
 .dda-container {
 	position: relative;
 	padding-left: 415px;
 }
+
 .btn {
 	width: 420px;
 	text-align: center;
@@ -382,9 +432,11 @@ height:20px;
 	margin-bottom: 30px;
 	outline: none;
 }
+
 .btn:hover {
 	background-color: #ffba66;
 }
+
 .modal {
 	width: 250px;
 	height: 70px;
@@ -398,6 +450,7 @@ height:20px;
 	border: 1px solid #ccc;
 	z-index: 1000;
 }
+
 .modal-background {
 	display: none;
 	position: fixed;
@@ -408,51 +461,63 @@ height:20px;
 	background: rgba(0, 0, 0, 0.7);
 	z-index: 999;
 }
+
 .modal-close {
 	cursor: pointer;
 	font-size: 18px;
 	color: #333;
 	float: right;
 }
+
 .wait img {
 	width: 15px;
 	margin-top: 3px;
 	margin-bottom: 5px;
 }
+
 .wait {
 	float: right;
 	font-size: 15px;
 	margin-right: 20px;
 }
+.waiting-num {
+	position: relative;
+	top: 73px;
+}
+
 .flex-btn {
 	margin-right: 20px;
 }
+
 .reviewmenu {
-font-size: 30px; 
-margin-top:10px;
-margin-left:30px; 
-color:black;
-cursor:pointer;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-left: 30px;
+	color: black;
+	cursor: pointer;
 }
+
 .menudiv {
-display: none;
-width:100px;
-z-index: 200;
-border: 1px solid #e6e6e6;
-float:right;
-background-color: white;
-padding:15px;
-position:absolute;
-margin-left:810px;
-text-align: center;
-margin-top: 40px;
+	display: none;
+	width: 100px;
+	z-index: 200;
+	border: 1px solid #e6e6e6;
+	float: right;
+	background-color: white;
+	padding: 15px;
+	position: absolute;
+	margin-left: 810px;
+	text-align: center;
+	margin-top: 40px;
 }
+
 .menudiv a {
-text-decoration: none;
-color:gray;
+	text-decoration: none;
+	color: gray;
 }
+
 .menudiv a:hover {
-color:#ff8c00;
+	color: #ff8c00;
 }
 </style>
 <title>Insert title here</title>
@@ -471,18 +536,23 @@ color:#ff8c00;
 			<div class="detailtable">
 				<table class="storeshow">
 					<tr>
-						<td style="text-align: left;"><img src="/dda/image/pin.png"
-							width="21px" style="margin-bottom: 5px; margin-left: 21px;">
-							${regi.region_name} <c:forEach items="${waitingList}" var="w">
+						<td style="text-align: left;"><span class="regionmark"><img
+								src="/dda/image/pin.png" width="21px"
+								style="margin-bottom: 5px; margin-left: 21px;">
+								${regi.region_name}</span> <c:forEach items="${waitingList}" var="w">
 								<c:if test="${regi.store_id == w.store_id}">
-									<span class="wait"> <img src="/dda/image/user.png">
-										현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
-									</span>명
-									</span>
+									<div class="waiting-num">
+										<span class="wait"> <img src="/dda/image/user.png">
+											현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
+										</span>명
+										</span>
+									</div>
 									<br>
 								</c:if>
 							</c:forEach></td>
+
 					</tr>
+
 					<tr>
 						<td><span class="storetitle">${regi.storename}</span>
 							<div class="flex-btn">
@@ -496,42 +566,51 @@ color:#ff8c00;
 								</form>
 							</div></td>
 					</tr>
+
 					<tr>
 						<div class="subscribe-div">
 							<script>
-								$(document)
-										.ready(
-												function() {
-													$
-															.ajax({
-																type : "POST",
-																async : true,
-																url : "subscribecheck",
-																data : {
-																	storeid : "${storeid}",
-																	customerid : "${personal.id}"
-																},
-																success : function(
-																		result) {
-																	if (result === "ok") {
-																		// ok일시 즐겨찾기 미등록 => 빈 책갈피 버튼 생성
-																		var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	} else {
-																		// ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
-																		var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	}
-																}
-															});
-												});
-							</script>
+$(document).ready(function() {
+	
+    // prevsubscribebtn 버튼을 처음부터 보이게 함
+    var subscribeButton = '<button class="prevsubscribebtn"></button>';
+    $('.subscribe-container').html(subscribeButton);
+   
+
+    // 클릭 이벤트를 처리할 함수를 정의
+    $('.prevsubscribebtn').on('click', function(event) {
+        // 즉시 로그인 검사를 실행
+        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+            alert("로그인이 필요합니다.");
+            location.href = 'selectLogin';
+        } else {
+            // 즐겨찾기 버튼 동작을 수행
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "subscribecheck",
+                data: {
+                    storeid: "${storeid}",
+                    customerid: "${personal.id}"
+                },
+                success: function(result) {
+                    if (result === "ok") {
+                        // 조건이 충족되면 페이지 이동을 처리
+                        location.href = 'addsubscribe?store_id=${storeid}&customer_id=${personal.id}';
+                    } else {
+                        // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
+                        var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                        $('.subscribe-container').html(subscribeButton);
+                        
+
+                        
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
 							<div class="subscribe-container">
 								<!-- 버튼이 여기에 동적으로 추가됩니다. -->
 							</div>
@@ -542,8 +621,8 @@ color:#ff8c00;
 									items="${reviewstarList}" var="re">
 									<c:if test="${regi.store_id == re.store_id}">
 										<span class="reviewstar"> <img
-											src="/dda/image/star.png"> ${re.star_score}
-											<b style="color: #999999;">(${re.review_count})</b>
+											src="/dda/image/star.png"> ${re.star_score} <b
+											style="color: #999999;">(${re.review_count})</b>
 										</span>
 									</c:if>
 								</c:forEach></td>
@@ -579,8 +658,7 @@ color:#ff8c00;
 								<p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
 							</div>
 							<div id="modalBackground" class="modal-background"
-								onclick="closeModal()"></div> 
-								<script>
+								onclick="closeModal()"></div> <script>
 									// 모달 열기
 									function openModal() {
 										document.getElementById('myModal').style.display = 'block';
@@ -765,29 +843,28 @@ color:#ff8c00;
 				<tr style="text-align: left;">
 					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
 						<div class="dateCreated">
-						${fn:substring((rev.review_date),0,10) } 
-						 <b class="reviewmenu" onclick="toggleMenu(${loop.index})">⋯</b>
-						</div>
-						<c:choose>
-						<c:when test="${rev.id == personal.id}">
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">수정</a><hr>
-           					 <a href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
-        					</div>
-						</c:when>
-						<c:when test="${store.id == storeid}">
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">삭제</a>
-        					</div>
-						</c:when>
-						<c:otherwise>
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">신고</a>
-        					</div>
-						</c:otherwise>
-						</c:choose>
-
-        <script>
+							${fn:substring((rev.review_date),0,10) } <b class="reviewmenu"
+								onclick="toggleMenu(${loop.index})">⋯</b>
+						</div> <c:choose>
+							<c:when test="${rev.id == personal.id}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">수정</a>
+									<hr>
+									<a
+										href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
+								</div>
+							</c:when>
+							<c:when test="${store.id == storeid}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">삭제</a>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">신고</a>
+								</div>
+							</c:otherwise>
+						</c:choose> <script>
     function toggleMenu(index) {
         var menu = document.getElementById("menu" + index);
         menu.style.display = (menu.style.display === "none") ? "block" : "none";
@@ -847,18 +924,16 @@ color:#ff8c00;
 					</td>
 				</tr>
 				<tr>
-					<td>
-							<c:if test="${rev.imageList[0]!=null}">
+					<td><c:if test="${rev.imageList[0]!=null}">
 							<div class="rev-img">
-							<div class="flex_image">
-								<div class="review_image">
-									<img src="image/${rev.imageList[0]}">
+								<div class="flex_image">
+									<div class="review_image">
+										<img src="image/${rev.imageList[0]}">
+									</div>
 								</div>
 							</div>
-						</div>
-								</c:if>
-						<div class="contentout">${rev.content }</div>
-        					</td>
+						</c:if>
+						<div class="contentout">${rev.content }</div></td>
 				</tr>
 			</table>
 		</div>
