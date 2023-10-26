@@ -91,7 +91,7 @@
 .reviewsubmit {
 	position: relative;
 	right: 100px;
-	top: 84px;
+	top: 74px;
 	width: 100px;
 	height: 100px;
 	text-align: center;
@@ -118,37 +118,10 @@
 .reviewattach {
 	text-align: right;
 	position: relative;
-	bottom: 75px;
+	left: 20px;
+	bottom: 50px;
 	color: gray;
-	border: none;
-  	outline: none;
-  	left: 30px;
-  	width: 100%;
 }
-
-.reviewfile {
-	position: relative;
-	left: 77%;
-	margin-top: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-input[type=file]::file-selector-button {
-  width: 90px;
-  height: 30px;
-  background: #fff;
-  border: 1px solid #ff8c00;
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-  left: -5px;
-}
-
-input[type=file]::file-selector-button:hover {
-  background: rgb(254,163,72);
-  color: #fff;
-  }
 
 .flex_image {
 	display: flex;
@@ -238,6 +211,13 @@ input[type=file]::file-selector-button:hover {
 
 .reservbtn:hover {
 	background-color: #ffba66;
+}
+
+.reviewfile {
+	position: relative;
+	text-align: right;
+	left: 78%;
+	margin-top: 10px;
 }
 
 /* 리뷰출력 */
@@ -450,6 +430,7 @@ input[type=file]::file-selector-button:hover {
 .btn:hover {
 	background-color: #ffba66;
 }
+
 .modal {
 	width: 250px;
 	height: 70px;
@@ -496,33 +477,6 @@ input[type=file]::file-selector-button:hover {
 
 .flex-btn {
 	margin-right: 20px;
-}
-.reviewmenu {
-font-size: 30px; 
-margin-top:10px;
-margin-left:30px; 
-color:black;
-cursor:pointer;
-}
-.menudiv {
-display: none;
-width:100px;
-z-index: 200;
-border: 1px solid #e6e6e6;
-float:right;
-background-color: white;
-padding:15px;
-position:absolute;
-margin-left:810px;
-text-align: center;
-margin-top: 40px;
-}
-.menudiv a {
-text-decoration: none;
-color:gray;
-}
-.menudiv a:hover {
-color:#ff8c00;
 }
 </style>
 <title>Insert title here</title>
@@ -606,6 +560,7 @@ $(document).ready(function() {
                         // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
                         var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
                         $('.subscribe-container').html(subscribeButton);
+                        
 
                         
                     }
@@ -631,7 +586,7 @@ $(document).ready(function() {
 									<c:if test="${regi.store_id == re.store_id}">
 										<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score}
-											<b style="color: #999999;">(${re.review_count})</b>
+											(${re.review_count})
 										</span>
 									</c:if>
 								</c:forEach></td>
@@ -668,8 +623,7 @@ $(document).ready(function() {
 								<p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
 							</div>
 							<div id="modalBackground" class="modal-background"
-								onclick="closeModal()"></div> 
-								<script>
+								onclick="closeModal()"></div> <script>
 									// 모달 열기
 									function openModal() {
 										document.getElementById('myModal').style.display = 'block';
@@ -844,7 +798,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="reviewattach">
-							리뷰할 사진을 모두 선택해 주세요.<input class="reviewfile" name="reviewfile"
+							리뷰할 사진을 모두 선택해 주세요. <input class="reviewfile" name="reviewfile"
 								type="file" multiple="multiple">
 						</div> <textarea class="reviewcontent" rows="3" cols="80"
 							name="reviewcontent"></textarea>
@@ -865,41 +819,7 @@ $(document).ready(function() {
 				style="margin: 40px;">
 				<tr style="text-align: left;">
 					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
-						<div class="dateCreated">
-						${fn:substring((rev.review_date),0,10) } 
-						 <b class="reviewmenu" onclick="toggleMenu(${loop.index})">⋯</b>
-						</div>
-						<c:choose>
-						<c:when test="${rev.id == personal.id}">
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">수정</a><hr>
-           					 <a href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
-        					</div>
-						</c:when>
-						<c:when test="${store.id == storeid}">
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">삭제</a>
-        					</div>
-						</c:when>
-						<c:otherwise>
-						<div id="menu${loop.index}" class="menudiv">
-           					 <a href="">신고</a>
-        					</div>
-						</c:otherwise>
-						</c:choose>
-						 
-        <script>
-    function toggleMenu(index) {
-        var menu = document.getElementById("menu" + index);
-        menu.style.display = (menu.style.display === "none") ? "block" : "none";
-    }
-
-    function editReview(index) {
-    }
-
-    function deleteReview(index) {
-    }
-</script>
+						<div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div>
 					</td>
 				</tr>
 				<tr>
@@ -947,21 +867,22 @@ $(document).ready(function() {
 								class="startRadio__img"><span class="blind">별 5개</span></span>
 							</label>
 						</div>
+
 					</td>
 				</tr>
 				<tr>
-					<td>
-							<c:if test="${rev.imageList[0]!=null}">
-							<div class="rev-img">
+					<td><div class="rev-img">
 							<div class="flex_image">
+								<%--                         <c:forEach items="${regi.imageList}" var="img" varStatus="loop"> --%>
+								<%--                            <c:if test="${loop.index >= 1 && loop.index < 5}"> --%>
 								<div class="review_image">
 									<img src="image/${rev.imageList[0]}">
 								</div>
+								<%--                            </c:if> --%>
+								<%--                         </c:forEach> --%>
 							</div>
 						</div>
-								</c:if>
-						<div class="contentout">${rev.content }</div>
-        					</td>
+						<div class="contentout">${rev.content }</div></td>
 				</tr>
 			</table>
 		</div>
