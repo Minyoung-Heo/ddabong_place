@@ -18,15 +18,15 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, .5);
+ 	background: rgba(0, 0, 0, .5);
 	z-index: 9000
 }
 
 .layerPopup .layerBox {
 	z-index: 10000;
 	position: fixed;
-	left: 20%;
-	top: 40%;
+	left: 70%;
+	top: 50%;
 	transform: translate(-50%, -50%);
 	padding: 30px;
 	background: #fff;
@@ -115,10 +115,10 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 <body>
 	<div class="layerPopup" id="layer_popup" style="visibility: visible;">
 		<div class="layerBox">
-			<h4 class="title">따봉플레이스 공지사항</h4>
+			<h4 class="title">따봉플레이스 리뷰 이벤트</h4>
 			<div class="cont">
 				<p>
-					<img src="/dda/image/메인공지.png" style="width: 350px; height:350px;"
+					<img src="/dda/image/quizLogo.png" style="width: 400px; height:600px;"
 						usemap="#popup" alt="event page">
 				</p>
 			</div>
