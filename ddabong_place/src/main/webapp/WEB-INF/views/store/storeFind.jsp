@@ -12,8 +12,8 @@
 		// 팝업을 열기 위한 윈도우의 크기와 위치를 설정합니다.
 		var width = 600;
 		var height = 400;
-		var left = 2200;
-		var top = 60;
+		var left = (screen.width - width) / 2;
+		var top = (screen.height - height) / 2;
 
 		// 팝업을 열기 위한 윈도우 속성들을 설정합니다.
 		var popupOptions = 'width=' + width + ',height=' + height + ',left='
@@ -33,8 +33,8 @@
 		// 팝업을 열기 위한 윈도우의 크기와 위치를 설정합니다.
 		var width = 600;
 		var height = 400;
-		var left = 2200;
-		var top = 60;
+		var left = (screen.width - width) / 2;
+		var top = (screen.height - height) / 2;
 
 		// 팝업을 열기 위한 윈도우 속성들을 설정합니다.
 		var popupOptions = 'width=' + width + ',height=' + height + ',left='
