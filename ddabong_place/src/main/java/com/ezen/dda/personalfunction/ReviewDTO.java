@@ -8,7 +8,8 @@ public class ReviewDTO {
 	int reservation_num;
 	String customer_id,store_id,reservation_date,reservation_time,reservation_name;
 	int person_num,review_num;
-	String content,image,review_date;List<String> imageList;
+	String content,image,review_date;
+	List<String> imageList;
 	double star;
 	
 	public ReviewDTO() {
