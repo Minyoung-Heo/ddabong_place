@@ -556,7 +556,7 @@ height:20px;
 									<c:if test="${regi.store_id == re.store_id}">
 										<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score}
-											(${re.review_count})
+											<b style="color: #999999;">(${re.review_count})</b>
 										</span>
 									</c:if>
 								</c:forEach></td>
