@@ -118,8 +118,9 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 			<h4 class="title">따봉플레이스 리뷰 이벤트</h4>
 			<div class="cont">
 				<p>
+				<a href="quiz">
 					<img src="/dda/image/quizLogo.png" style="width: 400px; height:600px;"
-						usemap="#popup" alt="event page">
+						usemap="#popup" alt="event page"></a>
 				</p>
 			</div>
 			<form name="pop_form">
