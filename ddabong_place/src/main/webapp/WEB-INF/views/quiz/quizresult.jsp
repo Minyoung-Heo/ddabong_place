@@ -14,28 +14,32 @@
 }
 
 table {
-	margin: auto;
+	margin: 0;
 	width: 100%;
+	border-collapse: collapse; /* 테이블 간격 제거 */
 }
 
-table td {
+td {
     padding: 10px;
     border-color: #fff;
     background-color: rgb(254,252,250);
     font-size: 17px;
 }
 
-table th {
+th {
     background-color: #ff8c00;
     border-color: #fff;
     color: #fff;
     padding: 10px;
     font-size: 17px;
+    position: sticky;
+    top: -0.5px;
+    z-index: 1;
 }
 
 .tscroll{
 	overflow-y: scroll;
-	max-height: 800px;
+	max-height: 600px;
 }
 
 .flex-container {
@@ -65,6 +69,7 @@ margin-bottom:20px;
 .flex-item {
 width:100%;
 font-size:25px;
+overflow-y: auto;
 }
 
 .intro {
@@ -148,9 +153,6 @@ font-size: 20px;
 	margin: auto;
 }
 
-.tbl-content table{
-	overflow: auto;
-}
 </style>
 
 <meta charset="UTF-8">
@@ -177,7 +179,7 @@ font-size: 20px;
 			<c:choose>
                 <c:when test="${list.size()>=1}">
                     <thead>
-                        <tr>
+                        <tr class="tr1">
                             <th>가게 이름</th>
                             <th>매장 이미지</th>
                             <th>지역</th>
