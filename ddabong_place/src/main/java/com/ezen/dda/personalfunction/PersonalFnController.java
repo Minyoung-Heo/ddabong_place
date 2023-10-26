@@ -132,7 +132,18 @@ public class PersonalFnController {
 
 		return "reservation";
 	}
-
+	
+	// 리뷰 삭제
+	@RequestMapping(value = "/reviewdelete")
+	public String reviewdelete(HttpServletRequest request, Model mo) {
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
+		String store_id = request.getParameter("store_id");
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.reviewDelete(review_num);
+		
+		return "redirect:/detailview?store_id="+store_id;
+	}
+	
 	// 예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {

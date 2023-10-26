@@ -506,7 +506,7 @@ text-decoration: none;
 color:gray;
 }
 .menudiv a:hover {
-color:black;
+color:#ff8c00;
 }
 </style>
 <title>Insert title here</title>
@@ -840,9 +840,25 @@ color:black;
 						${fn:substring((rev.review_date),0,10) } 
 						 <b class="reviewmenu" onclick="toggleMenu(${loop.index})">⋯</b>
 						</div>
-						 <div id="menu${loop.index}" class="menudiv">
-           					 <a href="">수정</a><hr><a href="">삭제</a>
+						<c:choose>
+						<c:when test="${rev.id == personal.id}">
+						<div id="menu${loop.index}" class="menudiv">
+           					 <a href="">수정</a><hr>
+           					 <a href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
         					</div>
+						</c:when>
+						<c:when test="${store.id == storeid}">
+						<div id="menu${loop.index}" class="menudiv">
+           					 <a href="">삭제</a>
+        					</div>
+						</c:when>
+						<c:otherwise>
+						<div id="menu${loop.index}" class="menudiv">
+           					 <a href="">신고</a>
+        					</div>
+						</c:otherwise>
+						</c:choose>
+						 
         <script>
     function toggleMenu(index) {
         var menu = document.getElementById("menu" + index);
