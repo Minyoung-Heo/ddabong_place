@@ -141,7 +141,7 @@
 .center_image img {
 	border-radius: 10px;
 	position: absolute;
-	top: 0;
+	top: -25px;
 	left: 0;
 	transform: translate(50, 50);
 	width: 100%;
@@ -301,6 +301,8 @@
 
 .reviewstar {
 	font-size: 15px;
+	position: relative;
+	top: -15px;
 }
 
 .review {
@@ -327,23 +329,36 @@
 	margin: 30px;
 }
 
+.regionmark {
+	position: relative;
+	top: 80px;
+}
+
 .storetitle {
+	position: relative;
 	float: left;
 	font-size: 40px;
-	margin-top: 50px;
+	/* margin-top: 50px; */
+	padding-top: 55px;
 	margin-bottom: 10px;
 	margin-left: 21px;
+	margin-bottom: 10px;
+}
+
+.waiting-num {
+	position: relative;
+	top: 73px;
 }
 
 .subscribe-div {
 	position: relative;
-	top: 150px;
-	right: 93px;
+	top: 80px;
+	right: 45px;
 }
 
 .prevsubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -356,8 +371,8 @@ height:20px;
 }
 
 .aftersubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -367,6 +382,7 @@ height:20px;
 	background-color: white;
 	margin-left: 10px;
 	margin-top: -47px;
+	height: 40px;
 }
 
 .monthdda {
@@ -479,17 +495,21 @@ height:20px;
 			<div class="detailtable">
 				<table class="storeshow">
 					<tr>
-						<td style="text-align: left;"><img src="/dda/image/pin.png"
-							width="21px" style="margin-bottom: 5px; margin-left: 21px;">
-							${regi.region_name} <c:forEach items="${waitingList}" var="w">
+						<td style="text-align: left;"><span class="regionmark"><img
+								src="/dda/image/pin.png" width="21px"
+								style="margin-bottom: 5px; margin-left: 21px;">
+								${regi.region_name}</span> <c:forEach items="${waitingList}" var="w">
 								<c:if test="${regi.store_id == w.store_id}">
-									<span class="wait"> <img src="/dda/image/user.png">
-										현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
-									</span>명
-									</span>
+									<div class="waiting-num">
+										<span class="wait"> <img src="/dda/image/user.png">
+											현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
+										</span>명
+										</span>
+									</div>
 									<br>
 								</c:if>
 							</c:forEach></td>
+
 					</tr>
 
 					<tr>
@@ -508,40 +528,49 @@ height:20px;
 
 					<tr>
 						<div class="subscribe-div">
-							<script>
-								$(document)
-										.ready(
-												function() {
-													$
-															.ajax({
-																type : "POST",
-																async : true,
-																url : "subscribecheck",
-																data : {
-																	storeid : "${storeid}",
-																	customerid : "${personal.id}"
-																},
-																success : function(
-																		result) {
-																	if (result === "ok") {
-																		// ok일시 즐겨찾기 미등록 => 빈 책갈피 버튼 생성
-																		var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	} else {
-																		// ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
-																		var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	}
-																}
-															});
-												});
-							</script>
+					<script>
+$(document).ready(function() {
+	
+    // prevsubscribebtn 버튼을 처음부터 보이게 함
+    var subscribeButton = '<button class="prevsubscribebtn"></button>';
+    $('.subscribe-container').html(subscribeButton);
+   
+
+    // 클릭 이벤트를 처리할 함수를 정의
+    $('.prevsubscribebtn').on('click', function(event) {
+        // 즉시 로그인 검사를 실행
+        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+            alert("로그인이 필요합니다.");
+            location.href = 'selectLogin';
+        } else {
+            // 즐겨찾기 버튼 동작을 수행
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "subscribecheck",
+                data: {
+                    storeid: "${storeid}",
+                    customerid: "${personal.id}"
+                },
+                success: function(result) {
+                    if (result === "ok") {
+                        // 조건이 충족되면 페이지 이동을 처리
+                        location.href = 'addsubscribe?store_id=${storeid}&customer_id=${personal.id}';
+                    } else {
+                        // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
+                        var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                        $('.subscribe-container').html(subscribeButton);
+
+                        
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+
+
 
 
 							<div class="subscribe-container">

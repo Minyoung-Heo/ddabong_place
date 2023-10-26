@@ -29,7 +29,7 @@
 		});
 	});
 </script>
- <jsp:include page="main_popup.jsp"/> 
+<%--  <jsp:include page="main_popup.jsp"/>  --%>
 <style type="text/css">
 h1 {
 	margin: 30px;
