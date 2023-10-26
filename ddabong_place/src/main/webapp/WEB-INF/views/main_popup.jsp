@@ -98,68 +98,63 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 	display: none;
 }
 </style>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <script type="text/javascript">
-	// 쿠키 설정 함수
-	function setCookie(name, value, expiredays) {
-		var today = new Date();
-		today.setDate(today.getDate() + expiredays);
-		var cookieString = name + "=" + encodeURIComponent(value)
-				+ "; expires=" + today.toUTCString() + "; path=/";
-		document.cookie = cookieString;
-	}
+    // 쿠키 설정 함수
+    function setCookie(name, value, expiredays) {
+        var today = new Date();
+        today.setDate(today.getDate() + expiredays);
+        var cookieString = name + "=" + encodeURIComponent(value) + "; expires=" + today.toUTCString() + "; path=/";
+        document.cookie = cookieString;
+    }
 
-	// 쿠키 가져오기 함수
-	function getCookie(name) {
-		var cookies = document.cookie.split("; ");
-		for (var i = 0; i < cookies.length; i++) {
-			var cookie = cookies[i].split("=");
-			if (cookie[0] === name) {
-				return decodeURIComponent(cookie[1]);
-			}
-		}
-		return null;
-	}
+    // 쿠키 가져오기 함수
+    function getCookie(name) {
+        var cookies = document.cookie.split("; ");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].split("=");
+            if (cookie[0] === name) {
+                return decodeURIComponent(cookie[1]);
+            }
+        }
+        return null;
+    }
 
-	// 닫기 버튼 클릭시
-	function closePopup() {
-		var checkbox = document.getElementById('chkbox');
-		if (checkbox.checked) {
-			setCookie('popupClosed', 'true', 1); // 1일 동안 쿠키 유지
-		}
-		$('#layer_popup').hide();
-	}
+    // 닫기 버튼 클릭시
+    function closePopup() {
+        var checkbox = document.getElementById('chkbox');
+        if (checkbox.checked) {
+            setCookie('popupClosed', 'true', 1); // 1일 동안 쿠키 유지
+        }
+        $('#layer_popup').hide();
+    }
 
-	$(document).ready(function() {
-		var popupClosed = getCookie('popupClosed');
-		if (!popupClosed) {
-			$('#layer_popup').show();
-		}
-	});
+    $(document).ready(function() {
+        var popupClosed = getCookie('popupClosed');
+        if (!popupClosed) {
+            $('#layer_popup').show();
+        }
+    });
 </script>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-	<div class="layerPopup" id="layer_popup" style="display: none;">
-		<div class="layerBox">
-			<h4 class="title">따봉플레이스 리뷰 이벤트</h4>
-			<div class="cont">
-				<p>
-					<a href="quiz"> <img src="/dda/image/quizLogo.png"
-						style="width: 400px; height: 600px;" usemap="#popup"
-						alt="event page">
-					</a>
-				</p>
-			</div>
-			<form name="pop_form">
-				<div class="divpop1" id="divpop">
-					<input type="checkbox" name="chkbox" id="chkbox" value="Y">
-					오늘 하루 동안 보지 않기 <a href="javascript:closePopup();"><B>[닫기]</B></a>
-				</div>
-			</form>
-		</div>
-	</div>
+    <div class="layerPopup" id="layer_popup" style="display: none;">
+        <div class="layerBox">
+            <h4 class="title">따봉플레이스 리뷰 이벤트</h4>
+            <div class="cont">
+                <p>
+                    <a href="quiz">
+                        <img src="/dda/image/quizLogo.png" style="width: 400px; height: 600px;" alt="event page">
+                    </a>
+                </p>
+            </div>
+            <form name="pop_form">
+                <div class="divpop" id="divpop">
+                    <input type="checkbox" name="chkbox" id="chkbox" value="Y">
+                    오늘 하루 동안 보지 않기 <a href="javascript:closePopup();"><B>[닫기]</B></a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
