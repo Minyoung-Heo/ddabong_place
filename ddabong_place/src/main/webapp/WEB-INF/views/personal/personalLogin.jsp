@@ -294,7 +294,7 @@ p1 {
 	<h3 class="snslogin">SNS 아이디로 로그인하기</h3>
 	<br>
 	<%
-	String clientId = "aXkj6_wya2onatcykcxa"; // 애플리케이션 클라이언트 아이디값
+	String clientId = "aXkj6_wya1onatcykcxa"; // 애플리케이션 클라이언트 아이디값
 	String redirectURI = URLEncoder.encode("http://localhost:8421/dda/personalLogin", "UTF-8");
 	SecureRandom random = new SecureRandom();
 	String state = new BigInteger(130, random).toString();
@@ -331,9 +331,7 @@ p1 {
 			var height = 600;
 			var left = (screen.width - width) / 2;
 			var top = (screen.height - height) / 2;
-			window
-					.open(
-							"https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D52%26category%3D166%26locale%3Dko#login",
+			window.open("kakao_login.ajax",
 							"NaverPopup", "width=" + width + ", height="
 									+ height + ", left=" + left + ", top="
 									+ top);

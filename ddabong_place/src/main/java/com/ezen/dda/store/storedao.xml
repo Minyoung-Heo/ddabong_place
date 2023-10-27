@@ -133,7 +133,7 @@
         cs.id = rs.customer_id
 		WHERE
 		rs.store_id = #{param1}
-		AND rs.RESERVATION_DATE >= sysdate
+		AND rs.RESERVATION_DATE >= sysdate-1
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
 	</select>
@@ -155,7 +155,7 @@
         cs.id = rs.customer_id
 		WHERE
 		rs.store_id = #{param1}
-		AND rs.RESERVATION_DATE < sysdate
+		AND rs.RESERVATION_DATE < (sysdate-1)
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
 	</select>
