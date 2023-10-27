@@ -23,7 +23,7 @@ public interface PersonalFnService {
 
 	public void reservationDelete(String reservation_num);
 	
-	public int duplicatecheck(String customer_id, String reservation_date);
+	public int duplicatecheck(String customer_id, String reservation_date, String store_id);
 
 	public void ddaplus(String month, String store_id);
 
