@@ -9,59 +9,73 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	function goToScroll() {
-		var location = document.querySelector(".scroll").offsetTop;
-		window.scrollTo({
-			top : location,
-			behavior : 'smooth'
-		});
-	}
-	$(function() {
-		$(".reviewsubmit").click(function(event) {
-			var f = document.reviewform;
-			var content = f.reviewcontent.value;
-			var id = "${personal.id}";
-			if (content === null || content === "") {
-				alert("리뷰 내용을 입력하세요.");
-				event.preventDefault(); // submit 막음
-			} else if (id === null || id.trim() === "") {
-				alert("로그인이 필요합니다.");
-				event.preventDefault(); // submit 막음
-			} else {
-				// AJAX로 reviewcheck 메소드 호출
-				$.ajax({
-					type : "POST",
-					async : true,
-					url : "reviewcheck",
-					data : {
-						storeid : "${storeid}",
-						customerid : "${customerid}"
-					},
-					success : function(result) {
-						if (result === "ok") {
-						} else {
-							alert("예약 이력이 없습니다.");
-							event.preventDefault(); // submit 막음
-						}
-					}
-				});
-			}
-		});
+   function goToScroll() {
+      var location = document.querySelector(".scroll").offsetTop;
+      window.scrollTo({
+         top : location,
+         behavior : 'smooth'
+      });
+   }
+   $(function() {
+      $(".reviewsubmit").click(function(event) {
+         var f = document.reviewform;
+         var content = f.reviewcontent.value;
+         var id = "${personal.id}";
+         if (content === null || content === "") {
+            alert("리뷰 내용을 입력하세요.");
+            event.preventDefault(); // submit 막음
+         } else if (id === null || id.trim() === "") {
+            alert("로그인이 필요합니다.");
+            event.preventDefault(); // submit 막음
+         } else {
+            // AJAX로 reviewcheck 메소드 호출
+            $.ajax({
+               type : "POST",
+               async : true,
+               url : "reviewcheck",
+               data : {
+                  storeid : "${storeid}",
+                  customerid : "${customerid}"
+               },
+               success : function(result) {
+                  if (result === "ok") {
+                  } else {
+                     alert("예약 이력이 없습니다.");
+                     event.preventDefault(); // submit 막음
+                  }
+               }
+            });
+         }
+      });
+   });
+   
+   //별점 출력 고정
+   document.addEventListener("DOMContentLoaded", function() {
+      var starInputs = document.querySelectorAll("input.outstar");
+      starInputs.forEach(function(input) {
+         input.disabled = true; // 모든 별점 input 요소를 비활성화
+      });
+   });
+   //별점 고정 끝
+   
+   //즐겨찾기 로그인 검사
+	$('.prevsubscribebtn').on('click', function(event) {
+        // 즉시 로그인 검사를 실행
+        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+            alert("로그인이 필요합니다.");
+            location.href = 'selectLogin';
+        }
 	});
-	document.addEventListener("DOMContentLoaded", function() {
-		var starInputs = document.querySelectorAll("input.outstar");
-		starInputs.forEach(function(input) {
-			input.disabled = true; // 모든 별점 input 요소를 비활성화
-		});
-	});
-	function changeImage() {
-		var image = document.getElementById('ddaImage');
-		image.src = '/dda/image/ddabonghover.png';
-	}
-	function restoreImage() {
-		var image = document.getElementById('ddaImage');
-		image.src = '/dda/image/dddabong.png';
-	}
+   //즐찾로그인검사 끝
+   
+   function changeImage() {
+      var image = document.getElementById('ddaImage');
+      image.src = '/dda/image/ddabonghover.png';
+   }
+   function restoreImage() {
+      var image = document.getElementById('ddaImage');
+      image.src = '/dda/image/dddabong.png';
+   }
 </script>
 <style type="text/css">
 .detailtable {
@@ -169,6 +183,7 @@ input[type=file]::file-selector-button:hover {
 	height: 100%;
 	object-fit: cover;
 }
+
 .review_image {
 	width: 200px;
 	height: 200px;
@@ -480,6 +495,7 @@ input[type=file]::file-selector-button:hover {
 	font-size: 15px;
 	margin-right: 20px;
 }
+
 .waiting-num {
 	position: relative;
 	top: 73px;
@@ -571,7 +587,7 @@ input[type=file]::file-selector-button:hover {
 						<div class="subscribe-div">
 							<script>
 $(document).ready(function() {
-	
+   
     // prevsubscribebtn 버튼을 처음부터 보이게 함
     var subscribeButton = '<button class="prevsubscribebtn"></button>';
     $('.subscribe-container').html(subscribeButton);
@@ -619,13 +635,18 @@ $(document).ready(function() {
 					<tr>
 						<td><span class="review"> <c:forEach
 									items="${reviewstarList}" var="re">
-									<c:if test="${regi.store_id == re.store_id}">
-										<span class="reviewstar"> <img
-											src="/dda/image/star.png"> ${re.star_score} <b
-											style="color: #999999;">(${re.review_count})</b>
-										</span>
-									</c:if>
-								</c:forEach></td>
+									<c:choose>
+										<c:when test="${regi.store_id == re.store_id}">
+											<span class="reviewstar"> <img
+												src="/dda/image/star.png"> ${re.star_score} <b
+												style="color: #999999;">(${re.review_count})</b>
+											</span>
+										</c:when>
+										<c:otherwise>
+											&emsp;
+										</c:otherwise>
+									</c:choose>
+								</c:forEach></span></td>
 					</tr>
 					<tr>
 						<td>
@@ -659,23 +680,23 @@ $(document).ready(function() {
 							</div>
 							<div id="modalBackground" class="modal-background"
 								onclick="closeModal()"></div> <script>
-									// 모달 열기
-									function openModal() {
-										document.getElementById('myModal').style.display = 'block';
-										document
-												.getElementById('modalBackground').style.display = 'block';
-									}
-									// 모달 닫기
-									function closeModal() {
-										document.getElementById('myModal').style.display = 'none';
-										document
-												.getElementById('modalBackground').style.display = 'none';
-									}
-									// 전화걸기 버튼에 이벤트 리스너 추가
-									document.getElementById('openModalBtn')
-											.addEventListener('click',
-													openModal);
-								</script>
+                           // 모달 열기
+                           function openModal() {
+                              document.getElementById('myModal').style.display = 'block';
+                              document
+                                    .getElementById('modalBackground').style.display = 'block';
+                           }
+                           // 모달 닫기
+                           function closeModal() {
+                              document.getElementById('myModal').style.display = 'none';
+                              document
+                                    .getElementById('modalBackground').style.display = 'none';
+                           }
+                           // 전화걸기 버튼에 이벤트 리스너 추가
+                           document.getElementById('openModalBtn')
+                                 .addEventListener('click',
+                                       openModal);
+                        </script>
 						</td>
 					</tr>
 					<tr>
@@ -731,47 +752,47 @@ $(document).ready(function() {
 								type="text/javascript"
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
 							<script>
-								var mapContainer = document
-										.getElementById('map'), // 지도를 표시할 div 
-								mapOption = {
-									center : new kakao.maps.LatLng(33.450701,
-											126.570667), // 지도의 중심좌표
-									level : 3
-								// 지도의 확대 레벨
-								};
-								//지도를 생성합니다    
-								var map = new kakao.maps.Map(mapContainer,
-										mapOption);
-								//주소-좌표 변환 객체를 생성합니다
-								var geocoder = new kakao.maps.services.Geocoder();
-								//주소로 좌표를 검색합니다
-								geocoder
-										.addressSearch(
-												'${regi.address}',
-												function(result, status) {
-													// 정상적으로 검색이 완료됐으면 
-													if (status === kakao.maps.services.Status.OK) {
-														var coords = new kakao.maps.LatLng(
-																result[0].y,
-																result[0].x);
-														// 결과값으로 받은 위치를 마커로 표시합니다
-														var marker = new kakao.maps.Marker(
-																{
-																	map : map,
-																	position : coords
-																});
-														// 인포윈도우로 장소에 대한 설명을 표시합니다
-														var infowindow = new kakao.maps.InfoWindow(
-																{
-																	content : '<div style="width:150px;text-align:center;padding:6px 0;">${regi.storename}</div>'
-																});
-														infowindow.open(map,
-																marker);
-														// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-														map.setCenter(coords);
-													}
-												});
-							</script>
+                        var mapContainer = document
+                              .getElementById('map'), // 지도를 표시할 div 
+                        mapOption = {
+                           center : new kakao.maps.LatLng(33.450701,
+                                 126.570667), // 지도의 중심좌표
+                           level : 3
+                        // 지도의 확대 레벨
+                        };
+                        //지도를 생성합니다    
+                        var map = new kakao.maps.Map(mapContainer,
+                              mapOption);
+                        //주소-좌표 변환 객체를 생성합니다
+                        var geocoder = new kakao.maps.services.Geocoder();
+                        //주소로 좌표를 검색합니다
+                        geocoder
+                              .addressSearch(
+                                    '${regi.address}',
+                                    function(result, status) {
+                                       // 정상적으로 검색이 완료됐으면 
+                                       if (status === kakao.maps.services.Status.OK) {
+                                          var coords = new kakao.maps.LatLng(
+                                                result[0].y,
+                                                result[0].x);
+                                          // 결과값으로 받은 위치를 마커로 표시합니다
+                                          var marker = new kakao.maps.Marker(
+                                                {
+                                                   map : map,
+                                                   position : coords
+                                                });
+                                          // 인포윈도우로 장소에 대한 설명을 표시합니다
+                                          var infowindow = new kakao.maps.InfoWindow(
+                                                {
+                                                   content : '<div style="width:150px;text-align:center;padding:6px 0;">${regi.storename}</div>'
+                                                });
+                                          infowindow.open(map,
+                                                marker);
+                                          // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                          map.setCenter(coords);
+                                       }
+                                    });
+                     </script>
 						</td>
 					</tr>
 				</table>
@@ -850,14 +871,31 @@ $(document).ready(function() {
 								<div id="menu${loop.index}" class="menudiv">
 									<a href="">수정</a>
 									<hr>
-									<a
-										href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
+									<a href="javascript:void(0);"
+										onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
+								<script>
+    function confirmDelete(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
 							</c:when>
 							<c:when test="${store.id == storeid}">
 								<div id="menu${loop.index}" class="menudiv">
-									<a href="">삭제</a>
+									<a href="javascript:void(0);"
+										onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
+								<script>
+    function confirmDeletestore(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
 							</c:when>
 							<c:otherwise>
 								<div id="menu${loop.index}" class="menudiv">
