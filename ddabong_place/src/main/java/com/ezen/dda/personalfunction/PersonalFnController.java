@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.dda.cafe.CafeDTO;
 import com.ezen.dda.cafe.CafeService;
+import com.ezen.dda.quiz.QuizDTO;
 
 @Controller
 public class PersonalFnController {
@@ -132,18 +133,7 @@ public class PersonalFnController {
 
 		return "reservation";
 	}
-	
-	// 리뷰 삭제
-	@RequestMapping(value = "/reviewdelete")
-	public String reviewdelete(HttpServletRequest request, Model mo) {
-		int review_num = Integer.parseInt(request.getParameter("review_num"));
-		String store_id = request.getParameter("store_id");
-		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reviewDelete(review_num);
-		
-		return "redirect:/detailview?store_id="+store_id;
-	}
-	
+
 	// 예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
@@ -339,4 +329,27 @@ public class PersonalFnController {
 		
 		return "redirect:/detailview?storeID=" + store_id;
 	}
+	
+	// 즐겨찾기 출력
+	@RequestMapping(value = "/starlist")
+	public String starlist(HttpServletRequest request, Model md) {
+		String customer_id = request.getParameter("customer_id");
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ArrayList<SubscribeDTO> list = ss.starlist(customer_id);
+		
+		for (SubscribeDTO image1 : list) {
+			String image = image1.getImage();
+
+			if (image != null && !image.isEmpty()) {
+				String[] imageFileNames = image.split("[,\\s]+");
+
+				List<String> imageList = new ArrayList<>(Arrays.asList(imageFileNames));
+				image1.setImageList(imageList);
+			}
+		}
+		md.addAttribute("list", list);
+
+		return "starlist";
+		}
 }

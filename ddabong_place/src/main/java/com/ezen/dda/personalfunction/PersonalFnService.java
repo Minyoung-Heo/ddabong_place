@@ -29,9 +29,11 @@ public interface PersonalFnService {
 
 	public void addsubscribe(String store_id, String customer_id);
 
-	public int subscribecheck(String customerid, String storeid);
+	public int subscribecheck(String customer_id, String store_id);
 
 	public void canclesubscribe(String customer_id, String store_id);
+
+	public ArrayList<SubscribeDTO> starlist(String customer_id); //즐겨찾기 출력
 	
 	public void reviewDelete(int review_num);
 
