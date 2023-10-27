@@ -10,7 +10,7 @@
 <body>
 	<script language="javascript">
 		function confirmLeaveacc() {
-			var confirmflag = confirm("정말 회원 탈퇴하시겠습니까?");
+			var confirmflag = confirm("정말 탈퇴하시겠습니까?");
 			if (confirmflag) {
 				 alert("정상적으로 회원 탈퇴되었습니다. 이용해주셔서 감사합니다.");
 				window.location.href = "storeaccountdelete?id=${store.id}";
