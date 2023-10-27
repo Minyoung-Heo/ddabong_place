@@ -305,7 +305,7 @@ input[type=file]::file-selector-button:hover {
 
 .reviewstar img {
 	width: 18px;
-	margin-left: 21px;
+	margin-left:21px;
 	margin-right: 2px;
 	margin-bottom: 5px;
 }
@@ -619,17 +619,12 @@ $(document).ready(function() {
 					<tr>
 						<td><span class="review"> 
 						<c:forEach items="${reviewstarList}" var="re">
-						<c:choose>
-						<c:when test="${regi.store_id == re.store_id}">
+						<c:if test="${regi.store_id == re.store_id}">
 						<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score} <b
 											style="color: #999999;">(${re.review_count})</b>
 										</span>
-						</c:when>
-						<c:otherwise>
-						&emsp;
-						</c:otherwise>
-						</c:choose>
+						</c:if>
 								</c:forEach></span></td>
 					</tr>
 					<tr>
