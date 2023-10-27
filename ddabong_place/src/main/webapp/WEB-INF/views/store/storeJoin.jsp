@@ -207,7 +207,7 @@
 						var phone = $("#storephone").val();
 						var phoneErrorMessage = $("#phoneErrorMessage");
 
-						if (/^\d{11}$/.test(phone)) {
+						if (/^\d+$/.test(phone)) {
 							phoneErrorMessage.text("").removeClass(
 									"success-message");
 						} else {

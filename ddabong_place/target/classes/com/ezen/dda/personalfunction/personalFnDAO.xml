@@ -64,6 +64,7 @@ WHERE a.store_id = #{param1}
 	<select id="duplicatecheck" resultType="int">
 	select count(*) from RESERVATION where customer_id = #{param1} 
 	and TO_DATE(reservation_date, 'YY-MM-DD') = TO_DATE(#{param2}, 'YY-MM-DD')
+	and store_id = #{param3}
 </select>
 
 	
@@ -99,6 +100,14 @@ WHERE a.store_id = #{param1}
 	<delete id="canclesubscribe">
 	delete from star where customer_id = #{param1} and store_id = #{param2}
 	</delete>
+
+<!-- 	즐겨찾기 출력 -->
+	<select id="starlist" resultType="com.ezen.dda.personalfunction.SubscribeDTO">
+		select r.storename, r.image, s.store_id
+		from star s join registration r on s.store_id = r.store_id 
+		where customer_id=#{param1}
+	</select>
+
 	
 <!-- 	리뷰 삭제 -->
 <delete id="reviewDelete">
