@@ -24,6 +24,7 @@ td {
     border-color: #fff;
     background-color: rgb(254,252,250);
     font-size: 17px;
+    width: 5%;
 }
 
 th {
@@ -169,7 +170,7 @@ font-size: 20px;
 
         <div class="cafe">
         <h1>즐겨찾기 목록⭐</h1>
-            <!-- 즐겨찾기 결과 시작 -->
+            <!-- 퀴즈 결과 시작 -->
        <div class="flex-container">
 		<div class="flex-item">
 			<hr>
@@ -180,22 +181,20 @@ font-size: 20px;
                     <thead>
                         <tr class="tr1">
                             <th>가게 이름</th>
-                            <th>지역</th>
-                            <th>디저트</th>
+                            <th>매장 이미지</th>
                         </tr>
                         </thead>
                     
                     <tbody>
                         <c:forEach items="${list}" var="aa">
-                    	<tr>
-                           <td>
-                        	<div class="img-wrapper">
-							<a href="detailview?store_id=${aa.store_id}"> 
-							${aa.storename}</a>
-							</div></td>
-                                <td>${aa.region_name}</td>
-                                <td>${aa.dessert}</td>
-                        </tr>
+                            <tr>
+                                <td>${aa.storename}</td>
+                                 <td>
+                        <div class="img-wrapper">
+						<a href="detailview?store_id=${aa.store_id}"> 
+						<img class="imgsize" alt="" src="/dda/image/${aa.imageList[0]}"></a>
+						</div></td>
+                            </tr>
                         </c:forEach>
                     </tbody>
                 </c:when>

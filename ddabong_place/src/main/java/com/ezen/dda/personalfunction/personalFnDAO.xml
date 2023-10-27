@@ -89,7 +89,7 @@ WHERE a.store_id = #{param1}
 	
 <!-- 	즐겨찾기 추가 -->
 	<insert id="addsubscribe">
-	insert into star(customer_id, store_id) values(#{param1},#{param2})
+	insert into star values(#{param1},#{param2})
 	</insert>
 	
 <!-- 	즐겨찾기 여부 확인 -->
@@ -102,7 +102,9 @@ WHERE a.store_id = #{param1}
 
 <!-- 	즐겨찾기 출력 -->
 	<select id="starlist" resultType="com.ezen.dda.personalfunction.SubscribeDTO">
-		select * from star where customer_id=#{param1}
+		select r.storename, r.image, s.store_id
+		from star s join registration r on s.store_id = r.store_id 
+		where customer_id=#{param1}
 	</select>
 
 	

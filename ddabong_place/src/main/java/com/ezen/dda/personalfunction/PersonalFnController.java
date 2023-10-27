@@ -15,13 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.dda.cafe.CafeDTO;
 import com.ezen.dda.cafe.CafeService;
+import com.ezen.dda.quiz.QuizDTO;
 
 @Controller
 public class PersonalFnController {
@@ -133,18 +133,7 @@ public class PersonalFnController {
 
 		return "reservation";
 	}
-	
-	// 리뷰 삭제
-	@RequestMapping(value = "/reviewdelete")
-	public String reviewdelete(HttpServletRequest request, Model mo) {
-		int review_num = Integer.parseInt(request.getParameter("review_num"));
-		String store_id = request.getParameter("store_id");
-		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ss.reviewDelete(review_num);
-		
-		return "redirect:/detailview?store_id="+store_id;
-	}
-	
+
 	// 예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
@@ -316,9 +305,9 @@ public class PersonalFnController {
 	// 즐겨찾기 여부 확인
 	@ResponseBody
 	@RequestMapping(value = "/subscribecheck")
-	public String subscribecheck(String store_id, String customer_id) {
+	public String subscribecheck(String storeid, String customerid) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		int cnt = ss.subscribecheck(customer_id, store_id);
+		int cnt = ss.subscribecheck(customerid, storeid);
 		
 		String bb = null;
 		if (cnt == 0) { //즐겨찾기 미등록.
@@ -345,16 +334,22 @@ public class PersonalFnController {
 	@RequestMapping(value = "/starlist")
 	public String starlist(HttpServletRequest request, Model md) {
 		String customer_id = request.getParameter("customer_id");
-		
-//		if (customer_id == null) {
-//	        // customer_id가 null일 때 처리
-//	        return "redirect:/main"; // 또는 다른 오류 처리
-//	    }
-	
+
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		ArrayList<SubscribeDTO> list = ss.starlist(customer_id);
+		
+		for (SubscribeDTO image1 : list) {
+			String image = image1.getImage();
+
+			if (image != null && !image.isEmpty()) {
+				String[] imageFileNames = image.split("[,\\s]+");
+
+				List<String> imageList = new ArrayList<>(Arrays.asList(imageFileNames));
+				image1.setImageList(imageList);
+			}
+		}
 		md.addAttribute("list", list);
 
 		return "starlist";
-	}
+		}
 }

@@ -170,7 +170,7 @@
 	</definition>
 	
 	<!-- 유저 회원 즐겨찾기 결과 -->
-	<definition name="starlist" extends="popupLayout">
+	<definition name="starlist" extends="baseLayout">
 		<put-attribute name="title" value="즐겨찾기 목록" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personalfunction/starlist.jsp" />

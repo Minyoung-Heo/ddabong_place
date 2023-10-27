@@ -1,15 +1,18 @@
 package com.ezen.dda.personalfunction;
 
+import java.util.List;
+
 public class SubscribeDTO {
 	String store_id,storename,tel,address,intro,image,main_menu,main_image,region_name,feature,dessert;
 	String customer_id;
+	List<String> imageList;
 
 	public SubscribeDTO() {
 	}
 
 	public SubscribeDTO(String store_id, String storename, String tel, String address, String intro, String image,
-			String main_menu, String main_image, String region_name, String feature, String dessert,
-			String customer_id) {
+			String main_menu, String main_image, String region_name, String feature, String dessert, String customer_id,
+			List<String> imageList) {
 		super();
 		this.store_id = store_id;
 		this.storename = storename;
@@ -23,6 +26,7 @@ public class SubscribeDTO {
 		this.feature = feature;
 		this.dessert = dessert;
 		this.customer_id = customer_id;
+		this.imageList = imageList;
 	}
 
 	public String getCustomer_id() {
@@ -119,6 +123,14 @@ public class SubscribeDTO {
 
 	public void setDessert(String dessert) {
 		this.dessert = dessert;
+	}
+
+	public List<String> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
 	
 }
