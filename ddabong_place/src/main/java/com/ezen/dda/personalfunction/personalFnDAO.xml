@@ -64,6 +64,7 @@ WHERE a.store_id = #{param1}
 	<select id="duplicatecheck" resultType="int">
 	select count(*) from RESERVATION where customer_id = #{param1} 
 	and TO_DATE(reservation_date, 'YY-MM-DD') = TO_DATE(#{param2}, 'YY-MM-DD')
+	and store_id = #{param3}
 </select>
 
 	
