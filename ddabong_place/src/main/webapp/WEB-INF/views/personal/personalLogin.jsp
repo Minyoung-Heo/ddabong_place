@@ -54,6 +54,7 @@ a2 {
 	text-decoration: none;
 	margin-left: 20px;
 	color: #222;
+	cursor: pointer;
 }
 
 a2:hover {

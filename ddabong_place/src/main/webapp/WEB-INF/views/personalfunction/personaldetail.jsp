@@ -320,7 +320,7 @@ input[type=file]::file-selector-button:hover {
 
 .reviewstar img {
 	width: 18px;
-	margin-left: 21px;
+	margin-left:21px;
 	margin-right: 2px;
 	margin-bottom: 5px;
 }
@@ -633,19 +633,14 @@ $(document).ready(function() {
 						</div>
 					</tr>
 					<tr>
-						<td><span class="review"> <c:forEach
-									items="${reviewstarList}" var="re">
-									<c:choose>
-										<c:when test="${regi.store_id == re.store_id}">
-											<span class="reviewstar"> <img
-												src="/dda/image/star.png"> ${re.star_score} <b
-												style="color: #999999;">(${re.review_count})</b>
-											</span>
-										</c:when>
-										<c:otherwise>
-											&emsp;
-										</c:otherwise>
-									</c:choose>
+						<td><span class="review"> 
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:if test="${regi.store_id == re.store_id}">
+						<span class="reviewstar"> <img
+											src="/dda/image/star.png"> ${re.star_score} <b
+											style="color: #999999;">(${re.review_count})</b>
+										</span>
+						</c:if>
 								</c:forEach></span></td>
 					</tr>
 					<tr>
@@ -871,8 +866,7 @@ $(document).ready(function() {
 								<div id="menu${loop.index}" class="menudiv">
 									<a href="">수정</a>
 									<hr>
-									<a href="javascript:void(0);"
-										onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
+									 <a href="javascript:void(0);" onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
 								<script>
     function confirmDelete(reviewNum, storeId) {
@@ -885,8 +879,7 @@ $(document).ready(function() {
 							</c:when>
 							<c:when test="${store.id == storeid}">
 								<div id="menu${loop.index}" class="menudiv">
-									<a href="javascript:void(0);"
-										onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
+									<a href="javascript:void(0);" onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
 								<script>
     function confirmDeletestore(reviewNum, storeId) {

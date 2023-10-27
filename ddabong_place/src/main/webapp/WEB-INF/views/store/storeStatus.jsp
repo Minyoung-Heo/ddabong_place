@@ -123,8 +123,6 @@
 }
 
 .question th {
-	border-top: 2px solid #ff8c00;
-	border-bottom: 2px solid #ff8c00;
 	padding: 15px;
 	text-align: center;
 }
@@ -252,7 +250,7 @@
 						<td>${fn:substring(date,0,10)}</td>
 						<td>${dto.reservation_time}</td>
 						<td>${dto.person_num}</td>
-						<td>${dto.tel}</td>
+						<td>${dto.phone}</td>
 						<c:if test="${pass==null}">
 					<td><input type="button" value="예약 취소" class="btn2"
 							onclick="cancelReserv(${dto.reservation_num})"></td>

@@ -67,9 +67,13 @@
 
 <script type="text/javascript">
 	$(function() {
+		// 각 입력 필드의 타이머 변수를 개별적으로 설정
 		var idInputTimer;
 		var passwordTimer;
-		var uTimer;
+		var nameTimer;
+		var nicknameTimer;
+		var phoneTimer;
+		var emailTimer;
 
 		// 아이디 입력란의 유효성 검사 및 중복 체크
 		$("#personalid")
@@ -152,40 +156,12 @@
 					}, 1000);
 				});
 
-		// 비밀번호 확인 체크 및 유효성
-		$("#personalpw_confirm").on(
-				'input',
-				function() {
-					clearTimeout(passwordTimer);
-					passwordTimer = setTimeout(function() {
-						var password = $("#personalpw").val();
-						var confirmPassword = $("#personalpw_confirm").val();
-						var passwordErrorMessage = $("#passwordErrorMessage");
-
-						if (/^[A-Za-z0-9]{5,16}$/.test(password)) {
-							if (password !== confirmPassword) {
-								passwordErrorMessage.text("✘ 비밀번호를 다시 확인해주세요.")
-										.removeClass("success-message").css(
-												"color", "red");
-							} else {
-								passwordErrorMessage.text("✔ 비밀번호가 일치합니다.")
-										.addClass("success-message").css(
-												"color", "#00e600");
-							}
-						} else {
-							passwordErrorMessage.text(
-									"✘ 비밀번호는 영어와 숫자로 5~16글자만 입력 가능합니다.")
-									.removeClass("success-message").css(
-											"color", "red");
-						}
-					}, 1000);
-				});
 		// 이름 유효성 검사
 		$("#personalname").on(
 				'input',
 				function() {
-					clearTimeout(uTimer);
-					uTimer = setTimeout(function() {
+					clearTimeout(nameTimer);
+					nameTimer = setTimeout(function() {
 						var name = $("#personalname").val();
 						var nameErrorMessage = $("#nameErrorMessage");
 
@@ -199,12 +175,13 @@
 						}
 					}, 1000);
 				});
+
 		// 닉네임 유효성 검사
 		$("#personalnickname").on(
 				'input',
 				function() {
-					clearTimeout(uTimer);
-					uTimer = setTimeout(function() {
+					clearTimeout(nicknameTimer);
+					nicknameTimer = setTimeout(function() {
 						var nickname = $("#personalnickname").val();
 						var nicknameErrorMessage = $("#nicknameErrorMessage");
 
@@ -213,17 +190,19 @@
 									"success-message");
 						} else {
 							nicknameErrorMessage.text(
-									"✘ 닉네임은 한글,영어,숫자로만 입력 가능합니다.").removeClass(
-									"success-message").css("color", "red");
+									"✘ 닉네임은 한글, 영어, 숫자로만 입력 가능합니다.")
+									.removeClass("success-message").css(
+											"color", "red");
 						}
 					}, 1000);
 				});
+
 		// 전화번호 유효성 검사
 		$("#personalphone").on(
 				'input',
 				function() {
-					clearTimeout(uTimer);
-					uTimer = setTimeout(function() {
+					clearTimeout(phoneTimer);
+					phoneTimer = setTimeout(function() {
 						var phone = $("#personalphone").val();
 						var phoneErrorMessage = $("#phoneErrorMessage");
 
@@ -237,32 +216,27 @@
 						}
 					}, 1000);
 				});
-		// 이메일 유효성 검사
-		$("#personalemail")
-				.on(
-						'input',
-						function() {
-							clearTimeout(uTimer);
-							uTimer = setTimeout(
-									function() {
-										var name = $("#personalemail").val();
-										var emailErrorMessage = $("#emailErrorMessage");
 
-										if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/
-												.test(name)) {
-											emailErrorMessage.text("")
-													.removeClass(
-															"success-message");
-										} else {
-											emailErrorMessage
-													.text(
-															"✘ 이메일은 영문,숫자,특수문자(@ 또는.)로만 입력 가능합니다.")
-													.removeClass(
-															"success-message")
-													.css("color", "red");
-										}
-									}, 1000);
-						});
+		// 이메일 유효성 검사
+		$("#personalemail").on(
+				'input',
+				function() {
+					clearTimeout(emailTimer);
+					emailTimer = setTimeout(function() {
+						var email = $("#personalemail").val();
+						var emailErrorMessage = $("#emailErrorMessage");
+
+						if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/
+								.test(email)) {
+							emailErrorMessage.text("").removeClass(
+									"success-message");
+						} else {
+							emailErrorMessage.text("✘ 이메일 형식이 올바르지 않습니다.")
+									.removeClass("success-message").css(
+											"color", "red");
+						}
+					}, 1000);
+				});
 
 	});
 </script>
@@ -308,13 +282,9 @@
 				$("[name=addr1]").val(data.zonecode);
 				$("[name=addr2]").val(fullRoadAddr);
 
-				/* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
-				document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
-				document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
 			}
 		}).open();
 	}
-
 </script>
 </head>
 <body>
@@ -322,8 +292,7 @@
 		<div class="container2">
 			<h1 class="login_title">회원 가입</h1>
 			<form action="personalsave" method="post" id="myForm">
-				<br>
-				아이디<input type="text" id="personalid" class="textbox"
+				<br> 아이디<input type="text" id="personalid" class="textbox"
 					placeholder="아이디" name="personalid" maxlength="20">
 				<div class="error-message" id="idErrorMessage"></div>
 
@@ -341,12 +310,12 @@
 					placeholder="닉네임" name="personalnickname">
 				<div class="error-message" id="nicknameErrorMessage"></div>
 
-				전화번호<input type="text" id="personalphone" name="personalphone" class="textbox"
-					placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
+				전화번호<input type="text" id="personalphone" name="personalphone"
+					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 				주소<br> <input class="textbox"
-					style="width: 70%; height: 50%; background-color: #d9d9d9; display: inline; margin-right: 18px;" 
+					style="width: 70%; height: 50%; background-color: #d9d9d9; display: inline; margin-right: 18px;"
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
 				<button type="button" class="btn btn-default"
@@ -356,9 +325,8 @@
 				<input class="textbox" style="background-color: #d9d9d9"
 					placeholder="도로명 주소" name="addr2" id="addr2" type="text"
 					readonly="readonly" /> <input class="textbox" placeholder="상세주소"
-					name="addr3" id="addr3" type="text" /> 
-					
-				이메일<input type="text" id="personalemail" class="textbox" name="personalemail"
+					name="addr3" id="addr3" type="text" /> 이메일<input type="text"
+					id="personalemail" class="textbox" name="personalemail"
 					placeholder="이메일 ex)user@ddabongplace.com">
 				<div class="error-message" id="emailErrorMessage"></div>
 				<button id="loginButton" class="btn_login" type="submit">회원가입</button>
