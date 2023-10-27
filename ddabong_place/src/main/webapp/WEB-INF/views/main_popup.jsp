@@ -86,19 +86,8 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 	height: 40px;
 }
 
-.divpop {
-	position: absolute;
-	z-index: 999;
-	top: 50px;
-	left: 50px;
-	width: 350px;
-	height: 500px;
-	border: 1px solid black;
-	background-color: yellow;
-	display: none;
-}
 </style>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.5w.1.min.js"></script> -->
 <script type="text/javascript">
     // 쿠키 설정 함수
     function setCookie(name, value, expiredays) {
@@ -140,7 +129,7 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 <body>
     <div class="layerPopup" id="layer_popup" style="display: none;">
         <div class="layerBox">
-            <h4 class="title">따봉플레이스 리뷰 이벤트</h4>
+            <h4 class="title">따봉플레이스 Quiz</h4>
             <div class="cont">
                 <p>
                     <a href="quiz">
