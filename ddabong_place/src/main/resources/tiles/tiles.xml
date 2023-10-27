@@ -171,7 +171,7 @@
 	
 	<!-- 유저 회원 즐겨찾기 결과 -->
 	<definition name="starlist" extends="popupLayout">
-		<put-attribute name="title" value="개인회원 비번찾기 결과" />
+		<put-attribute name="title" value="즐겨찾기 목록" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personalfunction/starlist.jsp" />
 	</definition>

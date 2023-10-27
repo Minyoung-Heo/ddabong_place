@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -315,9 +316,9 @@ public class PersonalFnController {
 	// 즐겨찾기 여부 확인
 	@ResponseBody
 	@RequestMapping(value = "/subscribecheck")
-	public String subscribecheck(String storeid, String customerid) {
+	public String subscribecheck(String store_id, String customer_id) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		int cnt = ss.subscribecheck(customerid, storeid);
+		int cnt = ss.subscribecheck(customer_id, store_id);
 		
 		String bb = null;
 		if (cnt == 0) { //즐겨찾기 미등록.
@@ -344,10 +345,14 @@ public class PersonalFnController {
 	@RequestMapping(value = "/starlist")
 	public String starlist(HttpServletRequest request, Model md) {
 		String customer_id = request.getParameter("customer_id");
-		String store_id = request.getParameter("store_id");
-
+		
+//		if (customer_id == null) {
+//	        // customer_id가 null일 때 처리
+//	        return "redirect:/main"; // 또는 다른 오류 처리
+//	    }
+	
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ArrayList<SubscribeDTO> list = ss.starlist(customer_id, store_id);
+		ArrayList<SubscribeDTO> list = ss.starlist(customer_id);
 		md.addAttribute("list", list);
 
 		return "starlist";

@@ -160,16 +160,15 @@ font-size: 20px;
 <body>
 <br><br>
     <div class="div-container">
-        <!-- <div class="category">
+        <div class="category">
             <h1 style="margin-bottom: 10px;">카페 보러가기</h1>
             <a href="gocafe" style="color:#ff8c00;">전체 목록 보기</a><br>
             <a href="goregion?region_name=강남">지역별 카페 보기</a><br>
             <a href="godessert?dessert=케이크">디저트별 카페 보기</a><br>
-        </div> -->
+        </div>
 
         <div class="cafe">
-        <h1>당신의 즐겨찾기</h1>
-            <!-- <h3 style="color:gray;">즐겨찾기 결과</h3> -->
+        <h1>즐겨찾기 목록⭐</h1>
             <!-- 즐겨찾기 결과 시작 -->
        <div class="flex-container">
 		<div class="flex-item">
@@ -179,23 +178,24 @@ font-size: 20px;
 			<c:choose>
                 <c:when test="${list.size()>=1}">
                     <thead>
-                        <tr>
-                            <th>손님 아이디</th>
+                        <tr class="tr1">
                             <th>가게 이름</th>
+                            <th>지역</th>
+                            <th>디저트</th>
                         </tr>
                         </thead>
                     
                     <tbody>
                         <c:forEach items="${list}" var="aa">
-                            <tr>
-                                <td>${aa.customer_id}</td>
-                                <td>
-                        		<div class="img-wrapper">
-								<a href="detailview?store_id=${aa.store_id}">
-								${aa.store_id}
-								</a>
-								</div></td>
-                           	</tr>
+                    	<tr>
+                           <td>
+                        	<div class="img-wrapper">
+							<a href="detailview?store_id=${aa.store_id}"> 
+							${aa.storename}</a>
+							</div></td>
+                                <td>${aa.region_name}</td>
+                                <td>${aa.dessert}</td>
+                        </tr>
                         </c:forEach>
                     </tbody>
                 </c:when>
