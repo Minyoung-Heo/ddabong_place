@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ezen.dda.cafe.CafeDTO;
+import com.ezen.dda.cafe.CafeService;
 import com.ezen.dda.rank.RankDTO;
 import com.ezen.dda.rank.RankService;
 
@@ -60,6 +62,11 @@ public class HomeController {
 				// 예약 HOT 랭킹
 				ArrayList<RankDTO> hotList = rankService.hotRank();
 				model.addAttribute("hotList", hotList);
+				
+				// 리뷰 별점 평균, 리뷰 수
+				CafeService cafeService = sqlSession.getMapper(CafeService.class);
+				ArrayList<CafeDTO> reviewstarList = cafeService.reviewStar(); 
+				model.addAttribute("reviewstarList", reviewstarList);
 		
 		return "main";
 	}
