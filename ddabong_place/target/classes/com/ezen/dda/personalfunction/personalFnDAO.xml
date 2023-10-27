@@ -100,4 +100,10 @@ WHERE a.store_id = #{param1}
 	<delete id="canclesubscribe">
 	delete from star where customer_id = #{param1} and store_id = #{param2}
 	</delete>
+
+	<!-- 즐겨찾기 출력 -->
+	<select id="starlist" resultType="com.ezen.dda.personalfunction.StarDTO">
+		select * from star where customer_id=#{param1} and store_id=#{param2}
+	</select>
+
 </mapper>

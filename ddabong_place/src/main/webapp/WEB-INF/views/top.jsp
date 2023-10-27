@@ -160,7 +160,7 @@ width="44px" height="52px" style="margin-left:200px; margin-top:40px;">
       <p class="menu_div">
 				<a href="personalpwcheck" >마이페이지</a><br>
 				<a href="gocafe">카페 보러가기</a><br>
-      <a href="">즐겨찾기</a><br>
+      <a href="starlist?customer_id=${personal.id}">즐겨찾기</a><br>
       <a href="myStatus?customer_id=${personal.id}">예약 현황</a><br>
       <a href="mywaiting?customer_id=${personal.id}">웨이팅 현황</a><br>
       <a href="qnaform">Q&A</a><br>

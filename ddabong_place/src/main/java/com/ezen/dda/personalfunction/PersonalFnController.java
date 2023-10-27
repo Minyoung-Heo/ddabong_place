@@ -328,4 +328,17 @@ public class PersonalFnController {
 		
 		return "redirect:/detailview?storeID=" + store_id;
 	}
+	
+	// 즐겨찾기 출력
+	@RequestMapping(value = "/starlist")
+	public String starlist(HttpServletRequest request, Model md) {
+		String customer_id = request.getParameter("customer_id");
+		String store_id = request.getParameter("store_id");
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ArrayList<SubscribeDTO> list = ss.starlist(customer_id, store_id);
+		md.addAttribute("list", list);
+
+		return "starlist";
+	}
 }

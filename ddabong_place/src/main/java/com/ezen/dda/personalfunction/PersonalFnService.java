@@ -33,6 +33,6 @@ public interface PersonalFnService {
 
 	public void canclesubscribe(String customer_id, String store_id);
 
-
+	public ArrayList<SubscribeDTO> starlist(String customer_id, String store_id); //즐겨찾기 출력
 
 }
