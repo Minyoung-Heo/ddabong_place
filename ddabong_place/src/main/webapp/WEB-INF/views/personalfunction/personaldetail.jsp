@@ -617,14 +617,19 @@ $(document).ready(function() {
 						</div>
 					</tr>
 					<tr>
-						<td><span class="review"> <c:forEach
-									items="${reviewstarList}" var="re">
-									<c:if test="${regi.store_id == re.store_id}">
-										<span class="reviewstar"> <img
+						<td><span class="review"> 
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:choose>
+						<c:when test="${regi.store_id == re.store_id}">
+						<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score} <b
 											style="color: #999999;">(${re.review_count})</b>
 										</span>
-									</c:if>
+						</c:when>
+						<c:otherwise>
+						<br>
+						</c:otherwise>
+						</c:choose>
 								</c:forEach></td>
 					</tr>
 					<tr>
