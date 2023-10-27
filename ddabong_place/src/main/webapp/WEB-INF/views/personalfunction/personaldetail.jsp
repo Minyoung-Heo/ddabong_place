@@ -58,15 +58,6 @@
    });
    //별점 고정 끝
    
-   //즐겨찾기 로그인 검사
-	$('.prevsubscribebtn').on('click', function(event) {
-        // 즉시 로그인 검사를 실행
-        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
-            alert("로그인이 필요합니다.");
-            location.href = 'selectLogin';
-        }
-	});
-   //즐찾로그인검사 끝
    
    function changeImage() {
       var image = document.getElementById('ddaImage');
@@ -320,7 +311,7 @@ input[type=file]::file-selector-button:hover {
 
 .reviewstar img {
 	width: 18px;
-	margin-left:21px;
+	margin-left: 21px;
 	margin-right: 2px;
 	margin-bottom: 5px;
 }
@@ -587,60 +578,53 @@ input[type=file]::file-selector-button:hover {
 						<div class="subscribe-div">
 							<script>
 $(document).ready(function() {
-   
-    // prevsubscribebtn 버튼을 처음부터 보이게 함
-    var subscribeButton = '<button class="prevsubscribebtn"></button>';
-    $('.subscribe-container').html(subscribeButton);
-   
-
-    // 클릭 이벤트를 처리할 함수를 정의
-    $('.prevsubscribebtn').on('click', function(event) {
-        // 즉시 로그인 검사를 실행
-        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
-            alert("로그인이 필요합니다.");
-            location.href = 'selectLogin';
-        } else {
-            // 즐겨찾기 버튼 동작을 수행
-            $.ajax({
-                type: "POST",
-                async: true,
-                url: "subscribecheck",
-                data: {
-                    storeid: "${storeid}",
-                    customerid: "${personal.id}"
-                },
-                success: function(result) {
-                    if (result === "ok") {
-                        // 조건이 충족되면 페이지 이동을 처리
-                        location.href = 'addsubscribe?store_id=${storeid}&customer_id=${personal.id}';
-                    } else {
-                        // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
-                        var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
-                        $('.subscribe-container').html(subscribeButton);
-                        
-
-                        
+    // 바로 페이지가 열릴 때 Ajax 요청을 실행
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "subscribecheck",
+        data: {
+            storeid: "${storeid}",
+            customerid: "${personal.id}"
+        },
+        success: function(result) {
+            if (result === "ok") {
+                var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+                //즐겨찾기 로그인 검사
+                $('.prevsubscribebtn').on('click', function(event) {
+                    if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+                        alert("로그인이 필요합니다.");
+                        event.preventDefault(); // 버튼 클릭 기본 동작 막음
+                        window.location.href = "selectLogin";
                     }
-                }
-            });
+                });
+               //즐찾로그인검사 끝
+            } else {
+                var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+            }
         }
     });
 });
 </script>
-							<div class="subscribe-container">
-								<!-- 버튼이 여기에 동적으로 추가됩니다. -->
-							</div>
+<div class="subscribe-container">
+    <!-- 버튼이 여기에 동적으로 추가됩니다. -->
+</div>
+
+
+
 						</div>
 					</tr>
 					<tr>
-						<td><span class="review"> 
-						<c:forEach items="${reviewstarList}" var="re">
-						<c:if test="${regi.store_id == re.store_id}">
-						<span class="reviewstar"> <img
+						<td><span class="review"> <c:forEach
+									items="${reviewstarList}" var="re">
+									<c:if test="${regi.store_id == re.store_id}">
+										<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score} <b
 											style="color: #999999;">(${re.review_count})</b>
 										</span>
-						</c:if>
+									</c:if>
 								</c:forEach></span></td>
 					</tr>
 					<tr>
@@ -866,7 +850,8 @@ $(document).ready(function() {
 								<div id="menu${loop.index}" class="menudiv">
 									<a href="">수정</a>
 									<hr>
-									 <a href="javascript:void(0);" onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
+									<a href="javascript:void(0);"
+										onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
 								<script>
     function confirmDelete(reviewNum, storeId) {
@@ -879,7 +864,8 @@ $(document).ready(function() {
 							</c:when>
 							<c:when test="${store.id == storeid}">
 								<div id="menu${loop.index}" class="menudiv">
-									<a href="javascript:void(0);" onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
+									<a href="javascript:void(0);"
+										onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
 								<script>
     function confirmDeletestore(reviewNum, storeId) {
