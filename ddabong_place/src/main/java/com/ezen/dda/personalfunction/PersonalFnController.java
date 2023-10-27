@@ -212,9 +212,9 @@ public class PersonalFnController {
 	// 예약 중복 확인
 	@ResponseBody
 	@RequestMapping(value = "/duplicatecheck")
-	public String duplicatecheck(String customer_id, String reservation_date) {
+	public String duplicatecheck(String customer_id, String reservation_date, String storeidid) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		int cnt = ss.duplicatecheck(customer_id, reservation_date);
+		int cnt = ss.duplicatecheck(customer_id, reservation_date, storeidid);
 		String bb = null;
 		if (cnt == 0) {
 			bb = "ok";
