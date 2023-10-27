@@ -626,9 +626,6 @@ $(document).ready(function() {
                                  style="color: #999999;">(${re.review_count})</b>
                               </span>
                   </c:when>
-                  <c:otherwise>
-                  &emsp;
-                  </c:otherwise>
                   </c:choose>
                         </c:forEach></span></td>
                </tr>
