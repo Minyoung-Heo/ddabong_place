@@ -295,7 +295,7 @@ p1 {
 	<br>
 	<%
 	String clientId = "aXkj6_wya2onatcykcxa"; // 애플리케이션 클라이언트 아이디값
-	String redirectURI = URLEncoder.encode("http://localhost:8421/api/login", "UTF-8");
+	String redirectURI = URLEncoder.encode("http://localhost:8421/dda/personalLogin", "UTF-8");
 	SecureRandom random = new SecureRandom();
 	String state = new BigInteger(130, random).toString();
 	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code" + "&client_id=" + clientId

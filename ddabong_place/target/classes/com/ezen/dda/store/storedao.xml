@@ -132,7 +132,7 @@
         JOIN customer cs ON
         cs.id = rs.customer_id
 		WHERE
-		rs.store_id = '0123456789'
+		rs.store_id = #{param1}
 		AND rs.RESERVATION_DATE >= sysdate
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
@@ -154,7 +154,7 @@
         JOIN customer cs ON
         cs.id = rs.customer_id
 		WHERE
-		rs.store_id = '0123456789'
+		rs.store_id = #{param1}
 		AND rs.RESERVATION_DATE < sysdate
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
