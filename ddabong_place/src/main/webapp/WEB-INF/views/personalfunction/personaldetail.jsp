@@ -868,8 +868,16 @@ $(document).ready(function() {
 							</c:when>
 							<c:when test="${store.id == storeid}">
 								<div id="menu${loop.index}" class="menudiv">
-									<a href="">삭제</a>
+									<a href="javascript:void(0);" onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
+								<script>
+    function confirmDeletestore(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
 							</c:when>
 							<c:otherwise>
 								<div id="menu${loop.index}" class="menudiv">
