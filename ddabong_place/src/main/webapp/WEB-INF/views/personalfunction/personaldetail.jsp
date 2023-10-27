@@ -17,12 +17,10 @@
 		});
 	}
 	$(function() {
-
 		$(".reviewsubmit").click(function(event) {
 			var f = document.reviewform;
 			var content = f.reviewcontent.value;
 			var id = "${personal.id}";
-
 			if (content === null || content === "") {
 				alert("리뷰 내용을 입력하세요.");
 				event.preventDefault(); // submit 막음
@@ -41,7 +39,6 @@
 					},
 					success : function(result) {
 						if (result === "ok") {
-
 						} else {
 							alert("예약 이력이 없습니다.");
 							event.preventDefault(); // submit 막음
@@ -51,19 +48,16 @@
 			}
 		});
 	});
-
 	document.addEventListener("DOMContentLoaded", function() {
 		var starInputs = document.querySelectorAll("input.outstar");
 		starInputs.forEach(function(input) {
 			input.disabled = true; // 모든 별점 input 요소를 비활성화
 		});
 	});
-
 	function changeImage() {
 		var image = document.getElementById('ddaImage');
 		image.src = '/dda/image/ddabonghover.png';
 	}
-
 	function restoreImage() {
 		var image = document.getElementById('ddaImage');
 		image.src = '/dda/image/dddabong.png';
@@ -121,34 +115,34 @@
 	bottom: 75px;
 	color: gray;
 	border: none;
-  	outline: none;
-  	left: 30px;
-  	width: 100%;
+	outline: none;
+	left: 30px;
+	width: 100%;
 }
 
 .reviewfile {
 	position: relative;
 	left: 77%;
 	margin-top: 10px;
-    padding: 10px;
-    box-sizing: border-box;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
 input[type=file]::file-selector-button {
-  width: 90px;
-  height: 30px;
-  background: #fff;
-  border: 1px solid #ff8c00;
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-  left: -5px;
+	width: 90px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #ff8c00;
+	border-radius: 10px;
+	cursor: pointer;
+	position: relative;
+	left: -5px;
 }
 
 input[type=file]::file-selector-button:hover {
-  background: rgb(254,163,72);
-  color: #fff;
-  }
+	background: rgb(254, 163, 72);
+	color: #fff;
+}
 
 .flex_image {
 	display: flex;
@@ -168,14 +162,13 @@ input[type=file]::file-selector-button:hover {
 .center_image img {
 	border-radius: 10px;
 	position: absolute;
-	top: 0;
+	top: -25px;
 	left: 0;
 	transform: translate(50, 50);
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
-
 .review_image {
 	width: 200px;
 	height: 200px;
@@ -239,7 +232,6 @@ input[type=file]::file-selector-button:hover {
 .reservbtn:hover {
 	background-color: #ffba66;
 }
-
 /* 리뷰출력 */
 .rev-img {
 	margin-left: 12px;
@@ -249,7 +241,6 @@ input[type=file]::file-selector-button:hover {
 	position: relative;
 	float: left;
 }
-
 /* 끝 */
 .blind {
 	position: absolute;
@@ -321,6 +312,8 @@ input[type=file]::file-selector-button:hover {
 
 .reviewstar {
 	font-size: 15px;
+	position: relative;
+	top: -15px;
 }
 
 .review {
@@ -347,23 +340,31 @@ input[type=file]::file-selector-button:hover {
 	margin: 30px;
 }
 
+.regionmark {
+	position: relative;
+	top: 80px;
+}
+
 .storetitle {
+	position: relative;
 	float: left;
 	font-size: 40px;
-	margin-top: 50px;
+	/* margin-top: 50px; */
+	padding-top: 55px;
 	margin-bottom: 10px;
 	margin-left: 21px;
+	margin-bottom: 10px;
 }
 
 .subscribe-div {
 	position: relative;
-	top: 150px;
-	right: 93px;
+	top: 80px;
+	right: 45px;
 }
 
 .prevsubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -376,8 +377,8 @@ height:20px;
 }
 
 .aftersubscribebtn {
-width:20px;
-height:20px;
+	width: 40px;
+	height: 40px;
 	padding: 15px;
 	text-align: left;
 	float: right;
@@ -387,6 +388,7 @@ height:20px;
 	background-color: white;
 	margin-left: 10px;
 	margin-top: -47px;
+	height: 40px;
 }
 
 .monthdda {
@@ -478,17 +480,44 @@ height:20px;
 	font-size: 15px;
 	margin-right: 20px;
 }
+.waiting-num {
+	position: relative;
+	top: 73px;
+}
 
 .flex-btn {
 	margin-right: 20px;
 }
-.reviewmenu {
-font-size: 30px; 
-margin-top:10px;
-margin-left:30px; 
-color:black;
-cursor:pointer;
 
+.reviewmenu {
+	font-size: 30px;
+	margin-top: 10px;
+	margin-left: 30px;
+	color: black;
+	cursor: pointer;
+}
+
+.menudiv {
+	display: none;
+	width: 100px;
+	z-index: 200;
+	border: 1px solid #e6e6e6;
+	float: right;
+	background-color: white;
+	padding: 15px;
+	position: absolute;
+	margin-left: 810px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.menudiv a {
+	text-decoration: none;
+	color: gray;
+}
+
+.menudiv a:hover {
+	color: #ff8c00;
 }
 </style>
 <title>Insert title here</title>
@@ -507,17 +536,21 @@ cursor:pointer;
 			<div class="detailtable">
 				<table class="storeshow">
 					<tr>
-						<td style="text-align: left;"><img src="/dda/image/pin.png"
-							width="21px" style="margin-bottom: 5px; margin-left: 21px;">
-							${regi.region_name} <c:forEach items="${waitingList}" var="w">
+						<td style="text-align: left;"><span class="regionmark"><img
+								src="/dda/image/pin.png" width="21px"
+								style="margin-bottom: 5px; margin-left: 21px;">
+								${regi.region_name}</span> <c:forEach items="${waitingList}" var="w">
 								<c:if test="${regi.store_id == w.store_id}">
-									<span class="wait"> <img src="/dda/image/user.png">
-										현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
-									</span>명
-									</span>
+									<div class="waiting-num">
+										<span class="wait"> <img src="/dda/image/user.png">
+											현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
+										</span>명
+										</span>
+									</div>
 									<br>
 								</c:if>
 							</c:forEach></td>
+
 					</tr>
 
 					<tr>
@@ -537,45 +570,50 @@ cursor:pointer;
 					<tr>
 						<div class="subscribe-div">
 							<script>
-								$(document)
-										.ready(
-												function() {
-													$
-															.ajax({
-																type : "POST",
-																async : true,
-																url : "subscribecheck",
-																data : {
-																	storeid : "${storeid}",
-																	customerid : "${personal.id}"
-																},
-																success : function(
-																		result) {
-																	if (result === "ok") {
-																		// ok일시 즐겨찾기 미등록 => 빈 책갈피 버튼 생성
-																		var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	} else {
-																		// ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
-																		var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id }\'"></button>';
-																		$(
-																				'.subscribe-container')
-																				.html(
-																						subscribeButton);
-																	}
-																}
-															});
-												});
-							</script>
+$(document).ready(function() {
+	
+    // prevsubscribebtn 버튼을 처음부터 보이게 함
+    var subscribeButton = '<button class="prevsubscribebtn"></button>';
+    $('.subscribe-container').html(subscribeButton);
+   
 
+    // 클릭 이벤트를 처리할 함수를 정의
+    $('.prevsubscribebtn').on('click', function(event) {
+        // 즉시 로그인 검사를 실행
+        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+            alert("로그인이 필요합니다.");
+            location.href = 'selectLogin';
+        } else {
+            // 즐겨찾기 버튼 동작을 수행
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "subscribecheck",
+                data: {
+                    storeid: "${storeid}",
+                    customerid: "${personal.id}"
+                },
+                success: function(result) {
+                    if (result === "ok") {
+                        // 조건이 충족되면 페이지 이동을 처리
+                        location.href = 'addsubscribe?store_id=${storeid}&customer_id=${personal.id}';
+                    } else {
+                        // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
+                        var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                        $('.subscribe-container').html(subscribeButton);
+                        
 
+                        
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
 							<div class="subscribe-container">
 								<!-- 버튼이 여기에 동적으로 추가됩니다. -->
 							</div>
-
 						</div>
 					</tr>
 					<tr>
@@ -583,8 +621,8 @@ cursor:pointer;
 									items="${reviewstarList}" var="re">
 									<c:if test="${regi.store_id == re.store_id}">
 										<span class="reviewstar"> <img
-											src="/dda/image/star.png"> ${re.star_score}
-											<b style="color: #999999;">(${re.review_count})</b>
+											src="/dda/image/star.png"> ${re.star_score} <b
+											style="color: #999999;">(${re.review_count})</b>
 										</span>
 									</c:if>
 								</c:forEach></td>
@@ -597,7 +635,6 @@ cursor:pointer;
 						</td>
 					</tr>
 					<tr>
-
 						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
 							<div class="flex_image">
 								<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
@@ -628,20 +665,17 @@ cursor:pointer;
 										document
 												.getElementById('modalBackground').style.display = 'block';
 									}
-
 									// 모달 닫기
 									function closeModal() {
 										document.getElementById('myModal').style.display = 'none';
 										document
 												.getElementById('modalBackground').style.display = 'none';
 									}
-
 									// 전화걸기 버튼에 이벤트 리스너 추가
 									document.getElementById('openModalBtn')
 											.addEventListener('click',
 													openModal);
 								</script>
-
 						</td>
 					</tr>
 					<tr>
@@ -674,7 +708,6 @@ cursor:pointer;
 					<tr>
 						<td><hr></td>
 					</tr>
-
 					<tr>
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
@@ -706,34 +739,27 @@ cursor:pointer;
 									level : 3
 								// 지도의 확대 레벨
 								};
-
 								//지도를 생성합니다    
 								var map = new kakao.maps.Map(mapContainer,
 										mapOption);
-
 								//주소-좌표 변환 객체를 생성합니다
 								var geocoder = new kakao.maps.services.Geocoder();
-
 								//주소로 좌표를 검색합니다
 								geocoder
 										.addressSearch(
 												'${regi.address}',
 												function(result, status) {
-
 													// 정상적으로 검색이 완료됐으면 
 													if (status === kakao.maps.services.Status.OK) {
-
 														var coords = new kakao.maps.LatLng(
 																result[0].y,
 																result[0].x);
-
 														// 결과값으로 받은 위치를 마커로 표시합니다
 														var marker = new kakao.maps.Marker(
 																{
 																	map : map,
 																	position : coords
 																});
-
 														// 인포윈도우로 장소에 대한 설명을 표시합니다
 														var infowindow = new kakao.maps.InfoWindow(
 																{
@@ -741,7 +767,6 @@ cursor:pointer;
 																});
 														infowindow.open(map,
 																marker);
-
 														// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 														map.setCenter(coords);
 													}
@@ -818,9 +843,37 @@ cursor:pointer;
 				<tr style="text-align: left;">
 					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
 						<div class="dateCreated">
-						${fn:substring((rev.review_date),0,10) } 
-						<b class="reviewmenu">⋯</b>
-						</div>
+							${fn:substring((rev.review_date),0,10) } <b class="reviewmenu"
+								onclick="toggleMenu(${loop.index})">⋯</b>
+						</div> <c:choose>
+							<c:when test="${rev.id == personal.id}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">수정</a>
+									<hr>
+									<a
+										href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
+								</div>
+							</c:when>
+							<c:when test="${store.id == storeid}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">삭제</a>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">신고</a>
+								</div>
+							</c:otherwise>
+						</c:choose> <script>
+    function toggleMenu(index) {
+        var menu = document.getElementById("menu" + index);
+        menu.style.display = (menu.style.display === "none") ? "block" : "none";
+    }
+    function editReview(index) {
+    }
+    function deleteReview(index) {
+    }
+</script>
 					</td>
 				</tr>
 				<tr>
@@ -868,20 +921,18 @@ cursor:pointer;
 								class="startRadio__img"><span class="blind">별 5개</span></span>
 							</label>
 						</div>
-
 					</td>
 				</tr>
 				<tr>
-					<td>
-							<c:if test="${rev.imageList[0]!=null}">
+					<td><c:if test="${rev.imageList[0]!=null}">
 							<div class="rev-img">
-							<div class="flex_image">
-								<div class="review_image">
-									<img src="image/${rev.imageList[0]}">
+								<div class="flex_image">
+									<div class="review_image">
+										<img src="image/${rev.imageList[0]}">
+									</div>
 								</div>
 							</div>
-						</div>
-								</c:if>
+						</c:if>
 						<div class="contentout">${rev.content }</div></td>
 				</tr>
 			</table>
