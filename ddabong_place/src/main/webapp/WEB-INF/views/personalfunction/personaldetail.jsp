@@ -627,7 +627,7 @@ $(document).ready(function() {
 										</span>
 						</c:when>
 						<c:otherwise>
-						<br>
+						&emsp;
 						</c:otherwise>
 						</c:choose>
 								</c:forEach></span></td>
