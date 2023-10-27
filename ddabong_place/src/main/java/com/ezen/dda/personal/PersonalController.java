@@ -25,6 +25,11 @@ public class PersonalController {
 	public String selectLogin() {
 		return "selectLogin";
 	}
+	// 회원가입후 축하인사
+	@RequestMapping(value = "/joinmessage")
+	public String joinmessage() {
+		return "joinmessage";
+	}
 
 	// 마이페이지
 	@RequestMapping(value = "/myinfo")
@@ -225,7 +230,7 @@ public class PersonalController {
 		PersonalService ss = sqlSession.getMapper(PersonalService.class);
 		ss.personaljoin(id, pw, name, nickname, phone, address, email);
 
-		return "main";
+		return "joinmessage";
 	}
 
 //  회원정보 수정
