@@ -40,7 +40,21 @@ th {
 
 .tscroll{
 	overflow-y: scroll;
-	max-height: 600px;
+	max-height: 700px;
+}
+
+/* 스크롤바의 폭 너비 */
+.tscroll::-webkit-scrollbar {
+    width: 10px;  
+}
+
+.tscroll::-webkit-scrollbar-thumb {
+    background: rgb(254,167,62); /* 스크롤바 색상 */
+    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+
+.tscroll::-webkit-scrollbar-track {
+    background: rgb(253,241,230);  /*스크롤바 뒷 배경 색상*/
 }
 
 .flex-container {
@@ -183,7 +197,7 @@ font-size: 20px;
                             <th>가게 이름</th>
                             <th>매장 이미지</th>
                         </tr>
-                        </thead>
+                     </thead>
                     
                     <tbody>
                         <c:forEach items="${list}" var="aa">
