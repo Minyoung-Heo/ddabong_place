@@ -48,12 +48,17 @@
          }
       });
    });
+   
+   //별점 출력 고정
    document.addEventListener("DOMContentLoaded", function() {
       var starInputs = document.querySelectorAll("input.outstar");
       starInputs.forEach(function(input) {
          input.disabled = true; // 모든 별점 input 요소를 비활성화
       });
    });
+   //별점 고정 끝
+   
+   
    function changeImage() {
       var image = document.getElementById('ddaImage');
       image.src = '/dda/image/ddabonghover.png';
@@ -169,6 +174,7 @@ input[type=file]::file-selector-button:hover {
    height: 100%;
    object-fit: cover;
 }
+
 .review_image {
    width: 200px;
    height: 200px;
@@ -304,10 +310,10 @@ input[type=file]::file-selector-button:hover {
 }
 
 .reviewstar img {
-   width: 18px;
-   margin-left: 21px;
-   margin-right: 2px;
-   margin-bottom: 5px;
+	width: 18px;
+	margin-left: 21px;
+	margin-right: 2px;
+	margin-bottom: 5px;
 }
 
 .reviewstar {
@@ -480,6 +486,7 @@ input[type=file]::file-selector-button:hover {
    font-size: 15px;
    margin-right: 20px;
 }
+
 .waiting-num {
    position: relative;
    top: 73px;
@@ -571,96 +578,87 @@ input[type=file]::file-selector-button:hover {
                   <div class="subscribe-div">
                      <script>
 $(document).ready(function() {
-   
-    // prevsubscribebtn 버튼을 처음부터 보이게 함
-    var subscribeButton = '<button class="prevsubscribebtn"></button>';
-    $('.subscribe-container').html(subscribeButton);
-   
-
-    // 클릭 이벤트를 처리할 함수를 정의
-    $('.prevsubscribebtn').on('click', function(event) {
-        // 즉시 로그인 검사를 실행
-        if ("${personal.id}" === null || "${personal.id}".trim() === "") {
-            alert("로그인이 필요합니다.");
-            location.href = 'selectLogin';
-        } else {
-            // 즐겨찾기 버튼 동작을 수행
-            $.ajax({
-                type: "POST",
-                async: true,
-                url: "subscribecheck",
-                data: {
-                    storeid: "${storeid}",
-                    customerid: "${personal.id}"
-                },
-                success: function(result) {
-                    if (result === "ok") {
-                        // 조건이 충족되면 페이지 이동을 처리
-                        location.href = 'addsubscribe?store_id=${storeid}&customer_id=${personal.id}';
-                    } else {
-                        // ok가 아닌 경우 이미 즐겨찾기 등록 => 꽉찬 책갈피 버튼 생성 및 onclick 명령어 변경
-                        var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
-                        $('.subscribe-container').html(subscribeButton);
-                        
-
-                        
+    // 바로 페이지가 열릴 때 Ajax 요청을 실행
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "subscribecheck",
+        data: {
+            storeid: "${storeid}",
+            customerid: "${personal.id}"
+        },
+        success: function(result) {
+            if (result === "ok") {
+                var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+                //즐겨찾기 로그인 검사
+                $('.prevsubscribebtn').on('click', function(event) {
+                    if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+                        alert("로그인이 필요합니다.");
+                        event.preventDefault(); // 버튼 클릭 기본 동작 막음
+                        window.location.href = "selectLogin";
                     }
-                }
-            });
+                });
+               //즐찾로그인검사 끝
+            } else {
+                var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+            }
         }
     });
 });
 </script>
-                     <div class="subscribe-container">
-                        <!-- 버튼이 여기에 동적으로 추가됩니다. -->
-                     </div>
-                  </div>
-               </tr>
-               <tr>
-                  <td><span class="review"> 
-                  <c:forEach items="${reviewstarList}" var="re">
-                  <c:choose>
-                  <c:when test="${regi.store_id == re.store_id}">
-                  <span class="reviewstar"> <img
-                                 src="/dda/image/star.png"> ${re.star_score} <b
-                                 style="color: #999999;">(${re.review_count})</b>
-                              </span>
-                  </c:when>
-                  </c:choose>
-                        </c:forEach></span></td>
-               </tr>
-               <tr>
-                  <td>
-                     <div class="center_image">
-                        <img src="image/${regi.imageList[0]}" width="100px">
-                     </div>
-                  </td>
-               </tr>
-               <tr>
-                  <td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
-                     <div class="flex_image">
-                        <c:forEach items="${regi.imageList}" var="img" varStatus="loop">
-                           <c:if test="${loop.index >= 1 && loop.index < 5}">
-                              <div class="mini_image">
-                                 <img src="image/${img}">
-                              </div>
-                           </c:if>
-                        </c:forEach>
-                     </div>
-                     <button class="btn" onclick="goToScroll()">
-                        <img src="/dda/image/map.png" width="13px"
-                           style="margin-bottom: 3px; margin-right: 2px;"> 위치 보기
-                     </button>
-                     <button class="btn" id="openModalBtn">
-                        <img src="/dda/image/call.png" width="13px"
-                           style="margin-bottom: 3px; margin-right: 2px;"> 전화 걸기
-                     </button>
-                     <div id="myModal" class="modal">
-                        <span class="modal-close" onclick="closeModal()">&times;</span><br>
-                        <p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
-                     </div>
-                     <div id="modalBackground" class="modal-background"
-                        onclick="closeModal()"></div> <script>
+<div class="subscribe-container">
+    <!-- 버튼이 여기에 동적으로 추가됩니다. -->
+</div>
+
+
+
+						</div>
+					</tr>
+					<tr>
+						<td><span class="review"> <c:forEach
+									items="${reviewstarList}" var="re">
+									<c:if test="${regi.store_id == re.store_id}">
+										<span class="reviewstar"> <img
+											src="/dda/image/star.png"> ${re.star_score} <b
+											style="color: #999999;">(${re.review_count})</b>
+										</span>
+									</c:if>
+								</c:forEach></span></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_image">
+								<img src="image/${regi.imageList[0]}" width="100px">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
+							<div class="flex_image">
+								<c:forEach items="${regi.imageList}" var="img" varStatus="loop">
+									<c:if test="${loop.index >= 1 && loop.index < 5}">
+										<div class="mini_image">
+											<img src="image/${img}">
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+							<button class="btn" onclick="goToScroll()">
+								<img src="/dda/image/map.png" width="13px"
+									style="margin-bottom: 3px; margin-right: 2px;"> 위치 보기
+							</button>
+							<button class="btn" id="openModalBtn">
+								<img src="/dda/image/call.png" width="13px"
+									style="margin-bottom: 3px; margin-right: 2px;"> 전화 걸기
+							</button>
+							<div id="myModal" class="modal">
+								<span class="modal-close" onclick="closeModal()">&times;</span><br>
+								<p style="margin-bottom: 30px;">전화번호: ${regi.tel}</p>
+							</div>
+							<div id="modalBackground" class="modal-background"
+								onclick="closeModal()"></div> <script>
                            // 모달 열기
                            function openModal() {
                               document.getElementById('myModal').style.display = 'block';
@@ -678,61 +676,61 @@ $(document).ready(function() {
                                  .addEventListener('click',
                                        openModal);
                         </script>
-                  </td>
-               </tr>
-               <tr>
-                  <td><hr></td>
-               </tr>
-               <tr>
-                  <td
-                     style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-                     <h1 style="margin-top: 30px;">따봉지수</h1> <br>
-                     <div class="dda-container">
-                        <button class="ddabtn" onmouseover="changeImage()"
-                           onmouseout="restoreImage()"
-                           onclick="location.href='ddainput?store_id=${regi.store_id}'">
-                           <img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
-                           ${dda.totaldda}
-                        </button>
-                     </div> <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td><hr></td>
-               </tr>
-               <tr>
-                  <td
-                     style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-                     <h1 style="margin-top: 30px;">매장 소개</h1> <br>
-                     <h4>${regi.intro}</h4> <br>
-                  </td>
-               </tr>
-               <tr>
-                  <td><hr></td>
-               </tr>
-               <tr>
-                  <td
-                     style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-                     <h1 style="margin-top: 30px;">대표메뉴</h1>
-                     <div class="mini_image"
-                        style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px; width: 550px; height: 300px;">
-                        <img src="image/${regi.main_image}">
-                     </div>
-                     <h4>${regi.main_menu}</h4>
-                  </td>
-               </tr>
-               <tr class="scroll">
-                  <td><hr></td>
-               </tr>
-               <tr>
-                  <td
-                     style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-                     <h1 style="margin-top: 30px;">위치 정보</h1> <br>
-                     <h4>${regi.address}</h4> <br>
-                     <div id="map" style="width: 850px; height: 350px;"></div> <script
-                        type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
-                     <script>
+						</td>
+					</tr>
+					<tr>
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">따봉지수</h1> <br>
+							<div class="dda-container">
+								<button class="ddabtn" onmouseover="changeImage()"
+									onmouseout="restoreImage()"
+									onclick="location.href='ddainput?store_id=${regi.store_id}'">
+									<img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
+									${dda.totaldda}
+								</button>
+							</div> <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span>
+						</td>
+					</tr>
+					<tr>
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
+							<h4>${regi.intro}</h4> <br>
+						</td>
+					</tr>
+					<tr>
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">대표메뉴</h1>
+							<div class="mini_image"
+								style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px; width: 550px; height: 300px;">
+								<img src="image/${regi.main_image}">
+							</div>
+							<h4>${regi.main_menu}</h4>
+						</td>
+					</tr>
+					<tr class="scroll">
+						<td><hr></td>
+					</tr>
+					<tr>
+						<td
+							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
+							<h1 style="margin-top: 30px;">위치 정보</h1> <br>
+							<h4>${regi.address}</h4> <br>
+							<div id="map" style="width: 850px; height: 350px;"></div> <script
+								type="text/javascript"
+								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+							<script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 
                         mapOption = {
@@ -774,87 +772,88 @@ $(document).ready(function() {
                                        }
                                     });
                      </script>
-                  </td>
-               </tr>
-            </table>
-         </div>
-      </c:forEach>
-   </c:forEach>
-   <div class="detailtable">
-      <form action="review" method="post" name="reviewform"
-         enctype="multipart/form-data">
-         <input type="hidden" name="storeid" value="${storeid }"> <input
-            type="hidden" name="customerid" value="${personal.id }">
-         <table width="100%" height="100%" style="margin: 35px;">
-            <tr>
-               <td>
-                  <h2 style="text-align: left;">&emsp;리뷰 작성하기</h2> <br>
-                  <div class="startRadio">
-                     <label class="startRadio__box"> <input type="radio"
-                        name="star" value="0.5"> <span class="startRadio__img"><span
-                           class="blind">별 0.5개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="1"> <span class="startRadio__img"><span
-                           class="blind">별 1.0개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="1.5"> <span class="startRadio__img"><span
-                           class="blind">별 1.5개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="2"> <span class="startRadio__img"><span
-                           class="blind">별 2.0개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="2.5"> <span class="startRadio__img"><span
-                           class="blind">별 2.5개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="3"> <span class="startRadio__img"><span
-                           class="blind">별 3.0개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="3.5"> <span class="startRadio__img"><span
-                           class="blind">별 3.5개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="4"> <span class="startRadio__img"><span
-                           class="blind">별 4.0개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="4.5"> <span class="startRadio__img"><span
-                           class="blind">별 4.5개</span></span>
-                     </label> <label class="startRadio__box"> <input type="radio"
-                        name="star" value="5"> <span class="startRadio__img"><span
-                           class="blind">별 5.0개</span></span>
-                     </label>
-                  </div>
-                  <div class="reviewattach">
-                     리뷰할 사진을 모두 선택해 주세요.<input class="reviewfile" name="reviewfile"
-                        type="file" multiple="multiple">
-                  </div> <textarea class="reviewcontent" rows="3" cols="80"
-                     name="reviewcontent"></textarea>
-               </td>
-               <td><input class="reviewsubmit" type="submit" value="작성하기"></td>
-            </tr>
-         </table>
-      </form>
-   </div>
-   <c:forEach items="${reviewlist}" var="rev" varStatus="loop">
-      <c:set var="uid" value="${rev.id}" />
-      <c:set var="length" value="${fn:length(uid)}" />
-      <c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
-      <c:set var="id"
-         value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
-      <div class="reviewtable">
-         <table width="100%" height="100%" align="center"
-            style="margin: 40px;">
-            <tr style="text-align: left;">
-               <td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
-                  <div class="dateCreated">
-                     ${fn:substring((rev.review_date),0,10) } <b class="reviewmenu"
-                        onclick="toggleMenu(${loop.index})">⋯</b>
-                  </div> <c:choose>
-                     <c:when test="${rev.id == personal.id}">
-                        <div id="menu${loop.index}" class="menudiv">
-                           <a href="">수정</a>
-                           <hr>
-                            <a href="javascript:void(0);" onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
-                        </div>
-                        <script>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</c:forEach>
+	</c:forEach>
+	<div class="detailtable">
+		<form action="review" method="post" name="reviewform"
+			enctype="multipart/form-data">
+			<input type="hidden" name="storeid" value="${storeid }"> <input
+				type="hidden" name="customerid" value="${personal.id }">
+			<table width="100%" height="100%" style="margin: 35px;">
+				<tr>
+					<td>
+						<h2 style="text-align: left;">&emsp;리뷰 작성하기</h2> <br>
+						<div class="startRadio">
+							<label class="startRadio__box"> <input type="radio"
+								name="star" value="0.5"> <span class="startRadio__img"><span
+									class="blind">별 0.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="1"> <span class="startRadio__img"><span
+									class="blind">별 1.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="1.5"> <span class="startRadio__img"><span
+									class="blind">별 1.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="2"> <span class="startRadio__img"><span
+									class="blind">별 2.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="2.5"> <span class="startRadio__img"><span
+									class="blind">별 2.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="3"> <span class="startRadio__img"><span
+									class="blind">별 3.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="3.5"> <span class="startRadio__img"><span
+									class="blind">별 3.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="4"> <span class="startRadio__img"><span
+									class="blind">별 4.0개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="4.5"> <span class="startRadio__img"><span
+									class="blind">별 4.5개</span></span>
+							</label> <label class="startRadio__box"> <input type="radio"
+								name="star" value="5"> <span class="startRadio__img"><span
+									class="blind">별 5.0개</span></span>
+							</label>
+						</div>
+						<div class="reviewattach">
+							리뷰할 사진을 모두 선택해 주세요.<input class="reviewfile" name="reviewfile"
+								type="file" multiple="multiple">
+						</div> <textarea class="reviewcontent" rows="3" cols="80"
+							name="reviewcontent"></textarea>
+					</td>
+					<td><input class="reviewsubmit" type="submit" value="작성하기"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<c:forEach items="${reviewlist}" var="rev" varStatus="loop">
+		<c:set var="uid" value="${rev.id}" />
+		<c:set var="length" value="${fn:length(uid)}" />
+		<c:set var="replaceid" value="${fn:substring(uid, 3, length)}" />
+		<c:set var="id"
+			value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
+		<div class="reviewtable">
+			<table width="100%" height="100%" align="center"
+				style="margin: 40px;">
+				<tr style="text-align: left;">
+					<td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
+						<div class="dateCreated">
+							${fn:substring((rev.review_date),0,10) } <b class="reviewmenu"
+								onclick="toggleMenu(${loop.index})">⋯</b>
+						</div> <c:choose>
+							<c:when test="${rev.id == personal.id}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="">수정</a>
+									<hr>
+									<a href="javascript:void(0);"
+										onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
+								</div>
+								<script>
     function confirmDelete(reviewNum, storeId) {
         var confirmation = confirm("정말 삭제하시겠습니까?");
         if (confirmation) {
@@ -862,12 +861,13 @@ $(document).ready(function() {
         }
     }
 </script>
-                     </c:when>
-                     <c:when test="${store.id == storeid}">
-                        <div id="menu${loop.index}" class="menudiv">
-                           <a href="javascript:void(0);" onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
-                        </div>
-                        <script>
+							</c:when>
+							<c:when test="${store.id == storeid}">
+								<div id="menu${loop.index}" class="menudiv">
+									<a href="javascript:void(0);"
+										onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
+								</div>
+								<script>
     function confirmDeletestore(reviewNum, storeId) {
         var confirmation = confirm("정말 삭제하시겠습니까?");
         if (confirmation) {

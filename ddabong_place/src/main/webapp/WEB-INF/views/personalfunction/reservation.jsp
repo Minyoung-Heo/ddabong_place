@@ -58,7 +58,8 @@ $(function() {
 					url : "duplicatecheck",
 					data : {
 						customer_id : "${personal.id}",
-						reservation_date : reservation_date
+						reservation_date : reservation_date,
+						storeidid : "${storeID}"
 					},
 					success : function(result) {
 						if (result === "ok") {
