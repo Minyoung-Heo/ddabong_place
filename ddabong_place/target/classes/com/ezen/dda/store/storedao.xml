@@ -125,12 +125,14 @@
 		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL,
 		rg.ADDRESS,
 		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
-		rs.RESERVATION_NAME
+		rs.RESERVATION_NAME, cs.phone
 		FROM RESERVATION rs
 		JOIN registration rg ON
 		rs.STORE_ID = rg.STORE_ID
+        JOIN customer cs ON
+        cs.id = rs.customer_id
 		WHERE
-		rs.store_id = #{param1}
+		rs.store_id = '0123456789'
 		AND rs.RESERVATION_DATE >= sysdate
 		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
@@ -145,14 +147,16 @@
 		rs.PERSON_NUM, rs.RESERVATION_NUM, rg.TEL,
 		rg.ADDRESS,
 		SUBSTR(rg.image, 1, INSTR(rg.image, ' ') - 1) as image,
-		rs.RESERVATION_NAME
+		rs.RESERVATION_NAME, cs.phone
 		FROM RESERVATION rs
 		JOIN registration rg ON
 		rs.STORE_ID = rg.STORE_ID
+        JOIN customer cs ON
+        cs.id = rs.customer_id
 		WHERE
-		rs.store_id = #{param1}
+		rs.store_id = '0123456789'
 		AND rs.RESERVATION_DATE < sysdate
-		ORDER BY rs.RESERVATION_DATE DESC, rs.RESERVATION_TIME DESC
+		ORDER BY rs.RESERVATION_DATE ASC, rs.RESERVATION_TIME asc
 		]]>
 	</select>
 	

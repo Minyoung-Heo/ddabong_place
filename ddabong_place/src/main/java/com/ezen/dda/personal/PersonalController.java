@@ -225,7 +225,7 @@ public class PersonalController {
 		PersonalService ss = sqlSession.getMapper(PersonalService.class);
 		ss.personaljoin(id, pw, name, nickname, phone, address, email);
 
-		return "main";
+		return "personalLogin";
 	}
 
 //  회원정보 수정
