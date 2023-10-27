@@ -12,6 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	
 <meta charset="UTF-8">
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -21,6 +22,7 @@
 			autoplaySpeed : 2000
 		});
 	});
+	
 	$(document).ready(function() {
 		$('.slide_div2').slick({
 			dots : false,
