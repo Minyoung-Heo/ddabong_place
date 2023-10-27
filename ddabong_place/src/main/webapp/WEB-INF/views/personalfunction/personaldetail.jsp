@@ -630,7 +630,7 @@ $(document).ready(function() {
 						<br>
 						</c:otherwise>
 						</c:choose>
-								</c:forEach></td>
+								</c:forEach></span></td>
 					</tr>
 					<tr>
 						<td>
