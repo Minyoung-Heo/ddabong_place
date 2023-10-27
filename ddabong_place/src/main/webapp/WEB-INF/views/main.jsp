@@ -257,7 +257,16 @@ span{
 	height: 340px;
 	object-fit: cover;
 }
+.reviewstar img {
+	width: 18px;
+	margin-right: 2px;
+	margin-bottom: 5px;
+}
 
+.reviewstar {
+	font-size: 13.5px;
+	position: relative;
+}
 </style>
 
 </head>
@@ -352,8 +361,18 @@ span{
 							</a>
 						</div>
 						<div class="intro">
-							<h3>${loop.index + 1}.${rank.storeName}</h3>
+							<h3 style="margin-top:15px;">${loop.index + 1}.${rank.storeName}</h3>
 							${rank.lineIntro}
+						<br><br>
+						<b class="review"> 
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:if test="${rank.store_id == re.store_id}">
+						<b class="reviewstar"> <img
+											src="/dda/image/star.png"> ${re.star_score} <b
+											style="color: #999999;">(${re.review_count})</b>
+										</b>
+						</c:if>
+								</c:forEach></b>
 						</div>
 					</div>
 					<hr>

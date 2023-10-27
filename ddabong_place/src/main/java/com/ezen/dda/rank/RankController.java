@@ -4,13 +4,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ezen.dda.cafe.CafeDTO;
+import com.ezen.dda.cafe.CafeService;
 
 @Controller
 public class RankController {
@@ -49,6 +51,11 @@ public class RankController {
 		// 예약 HOT 랭킹
 		ArrayList<RankDTO> hotList = rankService.hotRank();
 		model.addAttribute("hotList", hotList);
+		
+		// 리뷰 별점 평균, 리뷰 수
+		CafeService cafeService = sqlSession.getMapper(CafeService.class);
+		ArrayList<CafeDTO> reviewstarList = cafeService.reviewStar(); 
+		model.addAttribute("reviewstarList", reviewstarList);
 		
 		return "main";
 		

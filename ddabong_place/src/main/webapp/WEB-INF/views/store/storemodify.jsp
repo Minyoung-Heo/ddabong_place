@@ -384,7 +384,7 @@ function check(){
 					style="width: 45%; height: 51px; background-color: #d9d9d9; display: inline;"
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
-				<button type="button" class="btn btn-default" onclick="execPostCode();">
+				<button type="button" class="btn btn-default" onclick="execPostCode();" style="margin-left:15px; margin-right: 10px;">
 					<i class="fa fa-search"></i> 우편번호 찾기
 				</button><br>
 				<input class="textbox" style="background-color: #d9d9d9"

@@ -305,7 +305,7 @@ input[type=file]::file-selector-button:hover {
 
 .reviewstar img {
 	width: 18px;
-	margin-left: 21px;
+	margin-left:21px;
 	margin-right: 2px;
 	margin-bottom: 5px;
 }
@@ -617,15 +617,15 @@ $(document).ready(function() {
 						</div>
 					</tr>
 					<tr>
-						<td><span class="review"> <c:forEach
-									items="${reviewstarList}" var="re">
-									<c:if test="${regi.store_id == re.store_id}">
-										<span class="reviewstar"> <img
+						<td><span class="review"> 
+						<c:forEach items="${reviewstarList}" var="re">
+						<c:if test="${regi.store_id == re.store_id}">
+						<span class="reviewstar"> <img
 											src="/dda/image/star.png"> ${re.star_score} <b
 											style="color: #999999;">(${re.review_count})</b>
 										</span>
-									</c:if>
-								</c:forEach></td>
+						</c:if>
+								</c:forEach></span></td>
 					</tr>
 					<tr>
 						<td>
@@ -850,14 +850,29 @@ $(document).ready(function() {
 								<div id="menu${loop.index}" class="menudiv">
 									<a href="">수정</a>
 									<hr>
-									<a
-										href="reviewdelete?review_num=${rev.review_num}&store_id=${storeid}">삭제</a>
+									 <a href="javascript:void(0);" onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
+								<script>
+    function confirmDelete(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
 							</c:when>
 							<c:when test="${store.id == storeid}">
 								<div id="menu${loop.index}" class="menudiv">
-									<a href="">삭제</a>
+									<a href="javascript:void(0);" onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
 								</div>
+								<script>
+    function confirmDeletestore(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
 							</c:when>
 							<c:otherwise>
 								<div id="menu${loop.index}" class="menudiv">
