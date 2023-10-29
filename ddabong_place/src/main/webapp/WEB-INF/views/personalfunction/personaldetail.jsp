@@ -709,7 +709,7 @@ $(document).ready(function() {
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
 							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
-							<h4>${regi.intro}</h4> <br>
+							<h4 style="line-height: 30px;">${regi.intro}</h4> <br>
 						</td>
 					</tr>
 					<tr>
