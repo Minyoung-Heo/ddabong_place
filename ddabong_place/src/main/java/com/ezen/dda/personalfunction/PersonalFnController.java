@@ -214,7 +214,7 @@ public class PersonalFnController {
 	@RequestMapping(value = "/duplicatecheck")
 	public String duplicatecheck(String customer_id, String reservation_date, String storeidid) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		int cnt = ss.duplicatecheck(customer_id, reservation_date, storeidid);
+		int cnt = ss.duplicatecheck(customer_id , reservation_date , storeidid);
 		String bb = null;
 		if (cnt == 0) {
 			bb = "ok";
@@ -318,9 +318,16 @@ public class PersonalFnController {
 		int cnt = ss.subscribecheck(customerid, storeid);
 
 		String bb = null;
-		if (cnt == 0) { // 즐겨찾기 미등록.
+		if(customerid == null || customerid.equals(""))
+		{
+			bb= "idnull";
+		}
+		
+		else if (cnt == 0) { // 즐겨찾기 미등록.
 			bb = "ok";
-		} else {
+		} 
+		
+		else{
 			bb = "";
 		}
 		return bb;
