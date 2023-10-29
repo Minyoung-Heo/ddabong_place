@@ -43,7 +43,7 @@ public class StoreController {
 		String tel = mul.getParameter("tel");
 		String address = mul.getParameter("addr2") +" "+ mul.getParameter("addr3");
 		String lineintro = mul.getParameter("lineintro");
-		String intro = mul.getParameter("intro");
+		String intro = mul.getParameter("intro").replace("\n", "<br>");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
 		MultipartFile mf2 = mul.getFile("main_image");
@@ -121,7 +121,7 @@ public class StoreController {
 		String tel = mul.getParameter("tel");
 		String address = mul.getParameter("addr2") +" "+ mul.getParameter("addr3");
 		String lineintro = mul.getParameter("lineintro");
-		String intro = mul.getParameter("intro");
+		String intro = mul.getParameter("intro").replace("\n", "<br>");
 		List<MultipartFile> filelist1 = mul.getFiles("image"); // 이미지 다중 파일 업로드
 		String main_menu = mul.getParameter("main_menu");
 		MultipartFile mf2 = mul.getFile("main_image");
