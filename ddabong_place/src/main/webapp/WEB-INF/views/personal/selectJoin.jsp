@@ -45,7 +45,7 @@ p {
 		<!-- 		사용자 유형 설정 -->
 		<div class="box" onclick="location.href='personalJoin'">
 			<img class="imga" alt="사용자" src="/dda/image/user.png"><br>
-			<p1>회원용 회원가입</p1>
+			<p1>손님용 회원가입</p1>
 			<br> <br> <br>
 			<p>일반 회원으로 회원가입을 합니다.</p>
 		</div>

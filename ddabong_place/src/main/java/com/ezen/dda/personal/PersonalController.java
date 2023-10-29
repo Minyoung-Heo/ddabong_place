@@ -1,6 +1,8 @@
 package com.ezen.dda.personal;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -20,11 +23,26 @@ public class PersonalController {
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
 
+	// 카카오 로그인 api
+	@RequestMapping(value = "kakao_login.ajax")
+	public String kakaoLogin() {
+		StringBuffer loginUrl = new StringBuffer();
+		loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
+		loginUrl.append("8074824403228e71f7f7b5fa9bd0a519");
+		loginUrl.append("&redirect_uri=");
+		loginUrl.append("http://localhost:8421/dda/main");
+		loginUrl.append("&response_type=code");
+
+		return "redirect:" + loginUrl.toString();
+	}
+
+
 	// 로그인 선택 화면
 	@RequestMapping(value = "/selectLogin")
 	public String selectLogin() {
 		return "selectLogin";
 	}
+
 	// 회원가입후 축하인사
 	@RequestMapping(value = "/joinmessage")
 	public String joinmessage() {
@@ -66,7 +84,6 @@ public class PersonalController {
 	public String personalidFind() {
 		return "personalidFind";
 	}
-
 
 	// 회원용 아이디찾기 검색결과
 	@RequestMapping(value = "/personalidResult", method = RequestMethod.POST)
@@ -113,7 +130,7 @@ public class PersonalController {
 
 			return "redirect:/main";
 		} else {
-			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
+			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
 
 			return "personalloginerr";
