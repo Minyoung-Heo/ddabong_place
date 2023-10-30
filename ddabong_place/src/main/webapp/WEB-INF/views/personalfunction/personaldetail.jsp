@@ -214,7 +214,10 @@ input[type=file]::file-selector-button:hover {
 	height: 100%;
 	object-fit: cover;
 }
-
+.mainmenu_image {
+	border-radius: 10px;
+	max-width: 550px;
+}
 .table-bottom {
 	padding-bottom: 14px;
 }
@@ -709,7 +712,7 @@ $(document).ready(function() {
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
 							<h1 style="margin-top: 30px;">매장 소개</h1> <br>
-							<h4>${regi.intro}</h4> <br>
+							<h4 style="line-height: 30px;">${regi.intro}</h4> <br>
 						</td>
 					</tr>
 					<tr>
@@ -719,10 +722,8 @@ $(document).ready(function() {
 						<td
 							style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
 							<h1 style="margin-top: 30px;">대표메뉴</h1>
-							<div class="mini_image"
-								style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px; width: 550px; height: 300px;">
-								<img src="image/${regi.main_image}">
-							</div>
+								<img src="image/${regi.main_image}" class="mainmenu_image"
+								style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px;">
 							<h4>${regi.main_menu}</h4>
 						</td>
 					</tr>
