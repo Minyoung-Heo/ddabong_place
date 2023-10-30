@@ -30,7 +30,7 @@
 
 ### 📙  Database ERD
 
-![GOING (3).png](GOING%20-%20SPRING%2065d55764fa834e57b754e36919143cd1/GOING_(3).png)
+![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/a729fc07-061a-4697-b11c-ea97c8793a51)
 
 사진을 저장하는 BUSINESS(사업자)와 ROOM(객실) 테이블은 동일하고 중복되지 않는 시퀀스(pic_num)를 공유해 사진의 위치를 저장하도록 했습니다.   
 
