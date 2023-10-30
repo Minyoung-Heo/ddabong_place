@@ -21,7 +21,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.dda.cafe.CafeDTO;
 import com.ezen.dda.cafe.CafeService;
-import com.ezen.dda.quiz.QuizDTO;
 
 @Controller
 public class PersonalFnController {
