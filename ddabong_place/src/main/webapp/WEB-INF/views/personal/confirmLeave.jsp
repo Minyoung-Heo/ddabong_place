@@ -15,7 +15,7 @@
 				 alert("정상적으로 회원 탈퇴되었습니다. 이용해주셔서 감사합니다.");
 				window.location.href = "personaldelete?id=${personal.id}";
 			} else {
-				window.location.href = "/dda/";
+				window.location.href = "/dda/main";
 			}
 		}
 		window.onload = confirmLeave;
