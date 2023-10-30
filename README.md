@@ -6,12 +6,12 @@
 
 
 ### 👨‍👩‍👧‍👦 프로젝트 팀 구성
-팀장 : 
+**팀장**
 
 허민영 - ERD 작성, 이달의 따봉왕, 따봉어워드, 예약HOT랭킹, 메인화면 기능 및 CSS, Q&A, 웨이팅, 카페 리스트, 전반적인 CSS 및 코드 관리, 업체측 회원 정보 관리, 리뷰 CSS 및 삭제 담당
 
 
-팀원 : 
+**팀원**
 
 박정빈
 
@@ -24,17 +24,17 @@
 
 # 📝 프로젝트 구성 및 설계
 
-### 📙  Site Map
+### 📌  유스케이스 다이어그램 (Use Case Diagram)
 
-![사이트맵 (2).png](GOING%20-%20SPRING%2065d55764fa834e57b754e36919143cd1/sitemap.png)
+![다이어그램 drawio](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/ad64f151-b7cc-46e4-a454-ceeb92305c8e)
 
-### 📙  Database ERD
+### 📌  Database ERD (Entity Relation Diagram)
 
 ![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/a729fc07-061a-4697-b11c-ea97c8793a51)
 
-사진을 저장하는 BUSINESS(사업자)와 ROOM(객실) 테이블은 동일하고 중복되지 않는 시퀀스(pic_num)를 공유해 사진의 위치를 저장하도록 했습니다.   
 
-### 📙  사용 기술
+
+### 📌 사용 기술
 
 **백앤드**
 
@@ -46,8 +46,8 @@
 
 **DB & WAS**
 
-- Oracle
-- Tomcat 9
+- Oracle(Oracle Database 11g Express Edition Release 11.2.0.2.0)
+- Tomcat 9(9.0.64)
 
 **프론트**
 
@@ -58,19 +58,25 @@
 **Environment & Tool**
 
 - Windows 11
-- Eclipse
+- Eclipse(2022-12)
 - GitHub
 - Oracle SQL Developer
-
-# ⚡️ 프로젝트 키워드
-
-# ⚡️ [프로젝트 주요 기능](https://www.notion.so/GOING-31fb2f99c5c84a098a448b423d1e98b8#a6e8329d5b594dd19cb9417d02a9b8c8)
-
+- 
+# ⚡️ 프로젝트 주요 기능
+**예약**
 
 
-이에 **객실 번호 - 예약 날짜**를 저장하는 RESERVED 테이블을 만들었고 객실을 예약할 때는 예약 된 날짜 하루하루를 저장할 수 있도록 하여 간단하게 BETWEEN을 이용해 중복 여부를 확인할 수 있도록 했습니다.
+**웨이팅**
 
-<aside>
-💡 1월 1일 ~ 1월 3일 예약할 시 테이블에 1일, 2일, 3일 저장
 
-</aside>
+**이달의 따봉왕**
+
+
+**따봉 어워드**
+
+
+**예약 HOT 랭킹**
+
+
+**리뷰**
+
