@@ -24,10 +24,8 @@
          if (content === null || content === "") {
             alert("리뷰 내용을 입력하세요.");
             event.preventDefault(); // submit 막음
-         } else if (id === null || id.trim() === "") {
-            alert("로그인이 필요합니다.");
-            event.preventDefault(); // submit 막음
-         } else {
+         } 
+         else if{
             // AJAX로 reviewcheck 메소드 호출
             $.ajax({
                type : "POST",
@@ -46,6 +44,12 @@
                }
             });
          }
+         
+         
+         else (id === null || id.trim() === "") {
+            alert("로그인이 필요합니다.");
+            event.preventDefault(); // submit 막음
+         } 
       });
    });
    
