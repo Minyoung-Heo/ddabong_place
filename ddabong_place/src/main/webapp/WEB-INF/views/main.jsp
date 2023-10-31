@@ -276,8 +276,8 @@ span {
 		<div class="slide_div_wrap">
 			<div class="slide_div">
 				<img alt="메인배너1" src="/dda/image/메인배너.png"> <img
-					alt="mainLogo2" src="/dda/image/mainLogo2.png"> <img
-					alt="mainLogo3" src="/dda/image/mainLogo3.png">
+					alt="mainLogo2" src="/dda/image/mainLogo2.png"> <a href="event?nickname=${personal.nickname}"><img
+					alt="mainLogo3" src="/dda/image/mainLogo3.png"></a>
 			</div>
 		</div>
 	</div>
@@ -371,8 +371,7 @@ span {
 						</div>
 						<div class="intro">
 							<h3 style="margin-top: 15px;">${loop.index + 1}.${rank.storeName}</h3>
-							${rank.lineIntro} <br>
-							<br> <b class="review"> <c:forEach
+							${rank.lineIntro} <br> <br> <b class="review"> <c:forEach
 									items="${reviewstarList}" var="re">
 									<c:if test="${rank.store_id == re.store_id}">
 										<b class="reviewstar"> <img src="/dda/image/star.png">
