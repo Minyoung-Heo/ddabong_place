@@ -139,8 +139,8 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
             </div>
             <form name="pop_form">
                 <div class="divpop" id="divpop">
-                    <input type="checkbox" name="chkbox" id="chkbox" value="Y">
-                    오늘 하루 동안 보지 않기 <a href="javascript:closePopup();"><B>[닫기]</B></a>
+                    <label><input type="checkbox" name="chkbox" id="chkbox" value="Y">
+                    오늘 하루 동안 보지 않기</label> <a href="javascript:closePopup();"><B>[닫기]</B></a>
                 </div>
             </form>
         </div>

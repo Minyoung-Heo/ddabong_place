@@ -8,7 +8,7 @@
 select store_id, storename, tel, address, lineintro, intro, 
 SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
 main_menu, main_image, region_name, feature, dessert 
-from registration
+from registration order by storename
 </select>
 
 <select id="reviewStar" resultType="com.ezen.dda.cafe.CafeDTO">
@@ -24,14 +24,14 @@ select store_id, count(*) as waiting_num from waiting group by store_id
 select store_id, storename, tel, address, lineintro, intro, 
 SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
 main_menu, main_image, region_name, feature, dessert 
-from registration where region_name = #{param1}
+from registration where region_name = #{param1}  order by storename
 </select>
 
 <select id="cafeDessert" resultType="com.ezen.dda.cafe.CafeDTO">
 select store_id, storename, tel, address, lineintro, intro, 
 SUBSTR(image, 1, INSTR(image, ' ') - 1) as image,
 main_menu, main_image, region_name, feature, dessert 
-from registration where dessert like '%' || #{param1} || '%'
+from registration where dessert like '%' || #{param1} || '%'  order by storename
 </select>
 
 </mapper>
