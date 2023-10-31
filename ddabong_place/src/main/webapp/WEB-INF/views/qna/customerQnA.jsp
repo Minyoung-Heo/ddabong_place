@@ -148,10 +148,17 @@
                 <c:forEach items="${list}" var="dto">
                     <tr>
                         <td>${dto.question_num}</td><td>${dto.questionType}</td>
+                        <c:choose>
+                        <c:when test="${fn:contains(dto.title, '[공지사항]')}">
+                        <td><a href="qnadetail?question_num=${dto.question_num}">${dto.title}</a></td>
+                        </c:when>
+                        <c:otherwise>
                         <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">
                         <c:forEach begin="1" end="${dto.indent}" step="1">
 						<img src="/dda/image/re.png" width="15px"></c:forEach>
                         ${dto.title}</a></td>
+                        </c:otherwise>
+                        </c:choose>
                         <td>${dto.writer}</td><td>${fn:substring(dto.question_date,0,16)}</td>
                     </tr>
                 </c:forEach>
