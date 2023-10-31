@@ -62,7 +62,29 @@
 - GitHub
 - Oracle SQL Developer
 - 
-# ⚡️ 프로젝트 주요 기능
+# ⚡️ 기능 소개
+**메인화면**
+![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
+
+
+- 디저트별 카페 가기
+
+![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
+
+**로그인**
+- 손님 측 로그인
+
+  
+![손님로그인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d1fafdf7-6010-4299-af64-0e3d23c89f0e)
+
+
+**매장 상세페이지**
+
+
+![매장상세페이지](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d83a6407-20f2-47cc-8479-a982276fc4bc)
+
+
+
 **예약**
 
 
@@ -79,4 +101,19 @@
 
 
 **리뷰**
+
+**Q&A**
+- 검색
+
+  
+![Q A검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b733aca8-52b0-4102-bf68-8152e1231e13)
+- 손님 측 Q&A 1:1 문의하기
+
+![손님Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c889e080-606b-4879-89a6-d19aa23ea921)
+
+
+- 관리자 측 Q&A 답변
+
+  ![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
+
 
