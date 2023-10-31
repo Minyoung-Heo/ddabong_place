@@ -64,6 +64,8 @@
 - 
 # ⚡️ 기능 소개
 **메인화면**
+
+
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
 
 
@@ -72,10 +74,37 @@
 ![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
 
 **로그인**
+
+
 - 손님 측 로그인
 
-  
+
 ![손님로그인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d1fafdf7-6010-4299-af64-0e3d23c89f0e)
+
+
+**회원 가입**
+
+
+- 손님 측 탈퇴
+
+
+![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
+
+**회원 정보 수정**
+
+
+- 손님 측 회원 정보 수정
+
+  
+![손님회원정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/bd7c3b1c-dab4-4aef-a73f-ce98d7df2b8b)
+
+
+**회원 탈퇴**
+
+- 손님 측 탈퇴
+
+![손님회원탈퇴](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/802bf79d-b419-43d4-9442-6cb3d3442bc8)
+  
 
 
 **매장 상세페이지**
@@ -87,8 +116,22 @@
 
 **예약**
 
+- 예약하기 및 취소
+
+![예약및취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/713e4133-4f87-4d06-b7c7-7ca1b8fb64e9)
+
+  
 
 **웨이팅**
+
+- 웨이팅
+
+![웨이팅](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3aa80f73-e19d-414a-8ab5-cedc0f116680)
+
+- 웨이팅 취소
+
+![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7bf133a3-5f67-4ff0-9a94-936db1934a14)
+
 
 
 **이달의 따봉왕**
@@ -102,18 +145,39 @@
 
 **리뷰**
 
+**즐겨찾기**
+
+![즐겨찾기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/973b2f7f-481a-44f4-b832-6562be3fd2dd)
+
+
 **Q&A**
+
+- 자주하는 질문
+
+![자주하는질문](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/8cbd6128-e66a-4b9c-b755-009104baba53)
+
+
+
 - 검색
 
   
 ![Q A검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b733aca8-52b0-4102-bf68-8152e1231e13)
+
+
 - 손님 측 Q&A 1:1 문의하기
+  
 
 ![손님Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c889e080-606b-4879-89a6-d19aa23ea921)
 
 
-- 관리자 측 Q&A 답변
+- 업체 측 Q&A 1:1 문의하기
+  
+![업체Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/869bb9eb-56aa-4611-96a8-4dedfac8b6e2)
 
-  ![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
+
+- 관리자 측 Q&A 답변
+  
+
+![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
 
 
