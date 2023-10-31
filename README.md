@@ -69,9 +69,22 @@
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
 
 
+- 전체 카페 보기
+
+
+![카페리스트](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/bb586c83-f9fd-4ed0-aead-72842a64617f)
+
+
+- 지역별 카페 가기
+
+
+![지역별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3f31c847-a30e-477d-98a6-4de276354f11)
+
+
 - 디저트별 카페 가기
 
 ![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
+
 
 **로그인**
 
@@ -179,5 +192,9 @@
   
 
 ![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
+
+**맞춤형 카페 추천**
+
+![퀴즈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/28f6391f-eb29-470d-86ca-463d254b51c7)
 
 
