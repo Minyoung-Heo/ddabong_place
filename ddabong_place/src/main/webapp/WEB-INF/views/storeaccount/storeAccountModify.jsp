@@ -156,8 +156,9 @@
 						var nameErrorMessage = $("#nameErrorMessage");
 
 						if (/^[가-힣]+$/.test(name)) {
-							nameErrorMessage.text("").removeClass(
-									"success-message");
+							nameErrorMessage.text("사용 가능한 이름입니다.").removeClass(
+									"success-message").css(
+											"color", "#00e600");
 						} else {
 							nameErrorMessage.text("✘ 이름은 한글로만 입력 가능합니다.")
 									.removeClass("success-message").css(
@@ -174,9 +175,10 @@
 						var phone = $("#personalphone").val();
 						var phoneErrorMessage = $("#phoneErrorMessage");
 
-						if (/^\d{11}$/.test(phone)) {
-							phoneErrorMessage.text("").removeClass(
-									"success-message");
+						if (/^[\d-]+$/.test(phone)) {
+							phoneErrorMessage.text("사용 가능한 전화번호 입니다.").removeClass(
+									"success-message").css(
+											"color", "#00e600");
 						} else {
 							phoneErrorMessage.text("✘ 전화번호 형식이 올바르지 않습니다.")
 									.removeClass("success-message").css(
@@ -197,9 +199,10 @@
 
 										if (/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z]+$/
 												.test(name)) {
-											emailErrorMessage.text("")
+											emailErrorMessage.text("사용 가능한 이메일 입니다.")
 													.removeClass(
-															"success-message");
+															"success-message").css(
+																	"color", "#00e600");
 										} else {
 											emailErrorMessage
 													.text(
