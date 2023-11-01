@@ -83,6 +83,16 @@
 
 ![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
 
+
+**이달의 따봉왕**
+
+
+**따봉 어워드**
+
+
+**예약 HOT 랭킹**
+
+
 **회원 가입**
 
 
@@ -90,6 +100,9 @@
 
 
 ![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
+
+- 업체 측 회원가입
+
 
 
 **로그인**
@@ -99,6 +112,9 @@
 
 
 ![손님로그인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d1fafdf7-6010-4299-af64-0e3d23c89f0e)
+
+- 업체 측 로그인
+
 
 
 
@@ -115,24 +131,38 @@
 
 ![회원정보수정결과](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/47040ed2-1d32-4ba4-98c1-61046c37a83e)
 
+- 업체체 측 회원 정보 수정
+
+  
+
+- 수정 결과
+
+
 
 **회원 탈퇴**
 
-- 손님 측 탈퇴
+- 손님 측 회원 탈퇴
 
 ![손님회원탈퇴](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/802bf79d-b419-43d4-9442-6cb3d3442bc8)
   
+- 업체 측 회원 탈퇴
+
 
 
 **매장 상세페이지**
+
+- 매장 정보
 
 
 ![매장상세페이지](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d83a6407-20f2-47cc-8479-a982276fc4bc)
 
 
-**매장 등록**
+- 매장 등록
 
-![매장등록](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7d27b9b5-478f-4057-8b7e-22506b2b6a8e)
+![매장등록](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/86e93efd-5e7d-4b98-857f-090571e67a53)
+
+
+- 매장 정보 수정
 
 
 
@@ -161,13 +191,6 @@
 
 
 
-**이달의 따봉왕**
-
-
-**따봉 어워드**
-
-
-**예약 HOT 랭킹**
 
 
 **리뷰**
@@ -222,6 +245,7 @@
   
 
 ![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
+
 
 **맞춤형 카페 추천**
 
