@@ -85,7 +85,7 @@
 
 - 매장 검색
 
-![매장검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/2899f895-ebeb-426c-a513-2019659aa86d)
+![매장검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7025f8ba-20ed-49be-b4a3-b36c2924634c)
 
 
 **이달의 따봉왕**
@@ -133,7 +133,7 @@
 - 수정 결과
 
 
-![회원정보수정결과](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/47040ed2-1d32-4ba4-98c1-61046c37a83e)
+![회원정보수정결과](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/732f1127-0ae9-487d-b3b0-e4a6119d93ae)
 
 - 업체체 측 회원 정보 수정
 
@@ -172,7 +172,7 @@
 
 - 매장 삭제
 
-![매장삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/aebad9cd-1602-41dc-9ffa-8353e1b93851)
+![매장삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fa355b2d-4219-46ca-933c-50048c47a221)
 
 
 **예약**
