@@ -17,38 +17,43 @@
       });
    }
    $(function() {
-      $(".reviewsubmit").click(function(event) {
-         var f = document.reviewform;
-         var content = f.reviewcontent.value;
-         var id = "${personal.id}";
-         if (content === null || content === "") {
-            alert("리뷰 내용을 입력하세요.");
-            event.preventDefault(); // submit 막음
-         } else if (id === null || id.trim() === "") {
-            alert("로그인이 필요합니다.");
-            event.preventDefault(); // submit 막음
-         } else {
-            // AJAX로 reviewcheck 메소드 호출
-            $.ajax({
-               type : "POST",
-               async : true,
-               url : "reviewcheck",
-               data : {
-                  storeid : "${storeid}",
-                  customerid : "${customerid}"
-               },
-               success : function(result) {
-                  if (result === "ok") {
-                  } else {
-                     alert("예약 이력이 없습니다.");
-                     event.preventDefault(); // submit 막음
-                  }
-               }
-            });
-         }
-      });
-   });
-   
+	   $(".reviewsubmit").click(function(event) {
+		   event.preventDefault();
+	     var f = document.reviewform;
+	     var content = f.reviewcontent.value;
+	     var id = "${personal.id}";
+
+	     if (content === null || content === "") {
+	       alert("리뷰 내용을 입력하세요.");
+	     } else if (id === null || id.trim() === "") {
+	       alert("로그인이 필요합니다.");
+	       window.location.href = "selectLogin";
+	     } else {
+	       // AJAX로 reviewcheck 메소드 호출
+	       $.ajax({
+	         type: "POST",
+	         async: true,
+	         url: "reviewcheck",
+	         data: {
+	           storeid: "${storeid}",
+	           customerid: "${customerid}"
+	         },
+	         success: function(result) {
+	           if (result === "ok") {
+	             alert("예약 이력이 없습니다.");
+	             return false;
+	           } else {
+	             // 폼을 제출
+	             f.submit(); // 폼 제출
+	           }
+	         }
+	       });
+	     }
+	   });
+	 });
+
+
+
    //별점 출력 고정
    document.addEventListener("DOMContentLoaded", function() {
       var starInputs = document.querySelectorAll("input.outstar");
@@ -737,7 +742,7 @@ $(document).ready(function() {
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8fc3585ad5a21392e7cb628332db3e4c&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 
@@ -834,7 +839,8 @@ $(document).ready(function() {
                   </div> <textarea class="reviewcontent" rows="3" cols="80"
                      name="reviewcontent"></textarea>
                </td>
-               <td><input class="reviewsubmit" type="submit" value="작성하기"></td>
+               <td><button type="submit" class="reviewsubmit">작성하기</button>
+</td>
             </tr>
          </table>
       </form>

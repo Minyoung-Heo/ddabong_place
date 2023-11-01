@@ -132,8 +132,8 @@ function replySubmit(){
      	   <input type="hidden" name="groups" value="${dto.groups}">
      	   <input type="hidden" name="step" value="${dto.step}">
      	   <input type="hidden" name="indent" value="${dto.indent}">
-        <tr><td>제목</td><td><input type="text" name="title"></td></tr>
-        <tr><td>답변</td><td><textarea cols="60" rows="10" name="content"></textarea></td></tr>
+        <tr><td>제목</td><td><input type="text" name="title" value="re : ${dto.title}"></td></tr>
+        <tr><td>답변</td><td><textarea cols="60" rows="10" name="content">안녕하세요? 따봉플레이스입니다.</textarea></td></tr>
         <tr><td colspan="2" style="text-align: center;"><input class="btn" type="button" value="등록" onclick="replySubmit()">
         <input style="margin-right:100px;" class="btn" type="button" value="목록" onclick="window.history.back()"></td></tr>
     </table>

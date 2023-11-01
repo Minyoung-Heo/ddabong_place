@@ -239,7 +239,7 @@ margin:25px;
 								<h5>상세 주소 : ${dto.address }</h5>
 							</div>
 							<script type="text/javascript"
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4fe6b44c87f95f4fa3f8970e5cc96c7&libraries=services"></script>
 
 							<script>
 								var mapVisible = false;

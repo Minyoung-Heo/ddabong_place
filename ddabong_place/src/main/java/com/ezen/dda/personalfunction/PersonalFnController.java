@@ -199,6 +199,7 @@ public class PersonalFnController {
 	public String reviewcheck(String storeid, String customerid) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		int cnt = ss.reviewcheck(customerid, storeid);
+		
 		String bb = null;
 		if (cnt == 0) {
 			bb = "ok";
