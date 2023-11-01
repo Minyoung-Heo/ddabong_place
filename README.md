@@ -67,26 +67,6 @@
 
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
 
-- 전체 카페 보기
-
-
-![카페리스트](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/bb586c83-f9fd-4ed0-aead-72842a64617f)
-
-
-- 지역별 카페 가기
-
-
-![지역별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3f31c847-a30e-477d-98a6-4de276354f11)
-
-
-- 디저트별 카페 가기
-
-![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
-
-- 매장 검색
-
-![매장검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7025f8ba-20ed-49be-b4a3-b36c2924634c)
-
 
 **이달의 따봉왕**
 
@@ -96,62 +76,6 @@
 
 **예약 HOT 랭킹**
 
-
-**회원 가입**
-
-
-- 손님 측 회원가입
-
-
-![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
-
-- 업체 측 회원가입
-
-
-
-
-
-**로그인**
-
-
-- 손님 측 로그인
-
-
-![손님로그인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d1fafdf7-6010-4299-af64-0e3d23c89f0e)
-
-- 업체 측 로그인
-
-
-
-
-**회원 정보 수정**
-
-
-- 손님 측 회원 정보 수정
-
-  
-![회원정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5260cead-c0e8-4cad-b8d3-a7bfbecb8436)
-
-- 수정 결과
-
-
-![회원정보수정결과](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/732f1127-0ae9-487d-b3b0-e4a6119d93ae)
-
-- 업체체 측 회원 정보 수정
-
-  
-
-- 수정 결과
-
-
-
-**회원 탈퇴**
-
-- 손님 측 회원 탈퇴
-
-![손님회원탈퇴](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/802bf79d-b419-43d4-9442-6cb3d3442bc8)
-  
-- 업체 측 회원 탈퇴
 
 
 
@@ -219,47 +143,4 @@
 - 리뷰 삭제
 
 ![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/0719281b-2cdd-4390-802d-cac6c58182d6)
-
-
-
-**즐겨찾기**
-
-![즐겨찾기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/973b2f7f-481a-44f4-b832-6562be3fd2dd)
-
-
-**Q&A**
-
-- 자주하는 질문
-
-![자주하는질문](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/8cbd6128-e66a-4b9c-b755-009104baba53)
-
-
-
-- 검색
-
-  
-![Q A검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b733aca8-52b0-4102-bf68-8152e1231e13)
-
-
-- 손님 측 Q&A 1:1 문의하기
-  
-
-![손님측Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/57d91fa7-88f7-4593-ae7d-48b19d6465c4)
-
-
-- 업체 측 Q&A 1:1 문의하기
-  
-![업체Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/869bb9eb-56aa-4611-96a8-4dedfac8b6e2)
-
-
-- 관리자 측 Q&A 답변
-  
-
-![관리자Q A답변](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/54c26df6-5a92-40b6-8446-347be1254bd1)
-
-
-**맞춤형 카페 추천**
-
-![퀴즈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/28f6391f-eb29-470d-86ca-463d254b51c7)
-
 
