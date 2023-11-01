@@ -144,3 +144,5 @@
 
 ![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/0719281b-2cdd-4390-802d-cac6c58182d6)
 
+
+*** [다른 기능 더 보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
