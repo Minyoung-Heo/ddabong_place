@@ -130,6 +130,11 @@
 ![매장상세페이지](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d83a6407-20f2-47cc-8479-a982276fc4bc)
 
 
+**매장 등록**
+
+![매장등록](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7d27b9b5-478f-4057-8b7e-22506b2b6a8e)
+
+
 
 **예약**
 
