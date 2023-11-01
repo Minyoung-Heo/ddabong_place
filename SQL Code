@@ -1,4 +1,4 @@
-기본 테이블 생성
+## 기본 테이블 생성
 
 ```sql
 CREATE TABLE "CUSTOMER" (
