@@ -100,6 +100,14 @@
 
 ![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7bf133a3-5f67-4ff0-9a94-936db1934a14)
 
+- 업체 측 웨이팅 호출
+
+![웨이팅호출](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/edf5fdd4-5739-48a5-86e7-6e8b0f5b3433)
+
+
+- 손님 측 웨이팅 입장하기
+
+![손님입장하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/76db8bb9-80d7-4795-b158-bc1be4df4f00)
 
 
 **리뷰**
