@@ -13,9 +13,10 @@
 			value="/WEB-INF/views/footer.jsp" />
 	</definition>
 
-
+	<!-- 메인 -->
 	<definition name="main" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 커피 한잔의 여유를 느껴보세요 !" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 커피 한잔의 여유를 느껴보세요 !" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/main.jsp" />
 	</definition>
@@ -46,6 +47,12 @@
 		<put-attribute name="title" value="따봉플레이스 | 검색결과" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/search/searchList.jsp" />
+	</definition>
+	<!-- 이벤트 -->
+	<definition name="event" extends="baseLayout">
+		<put-attribute name="title" value="따봉플레이스 | 수능 이벤트" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/personal/event.jsp" />
 	</definition>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 헤더 관련 종료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
@@ -119,7 +126,8 @@
 
 	<!-- 유저 회원 아이디비밀번호찾기 -->
 	<definition name="personalFind" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 회원 아이디 및 비밀번호 찾기" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 회원 아이디 및 비밀번호 찾기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalFind.jsp" />
 	</definition>
@@ -133,19 +141,22 @@
 	</definition>
 	<!-- 유저 회원 마이페이지 비밀번호 확인 -->
 	<definition name="personalpwcheck" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 마이페이지 비밀번호 확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 마이페이지 비밀번호 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalpwcheck.jsp" />
 	</definition>
 	<!-- 유저 회원 탈퇴하기전 비밀번호 확인 -->
 	<definition name="personalleave" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 회원탈퇴 비밀번호 확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 회원탈퇴 비밀번호 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalleave.jsp" />
 	</definition>
 	<!-- 유저 회원 탈퇴하기전 마지막 비밀번호 확인 -->
 	<definition name="confirmLeave" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 회원탈퇴 비밀번호 재확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 회원탈퇴 비밀번호 재확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/confirmLeave.jsp" />
 	</definition>
@@ -157,7 +168,8 @@
 	</definition>
 	<!-- 유저 회원 아이디찾기 결과 -->
 	<definition name="personalidResult" extends="popupLayout">
-		<put-attribute name="title" value="따봉플레이스 | 회원 아이디 찾기 결과" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 회원 아이디 찾기 결과" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalidResult.jsp" />
 	</definition>
@@ -170,11 +182,12 @@
 	</definition>
 	<!-- 유저 회원 비밀번호찾기 결과 -->
 	<definition name="personalpwResult" extends="popupLayout">
-		<put-attribute name="title" value="따봉플레이스 | 회원 비밀번호찾기 결과" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 회원 비밀번호찾기 결과" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/personal/personalpwResult.jsp" />
 	</definition>
-	
+
 	<!-- 유저 회원 즐겨찾기 결과 -->
 	<definition name="starlist" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 즐겨찾기 목록" />
@@ -198,17 +211,18 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr.jsp" />
 	</definition>
-	
+
 	<!-- 업체 회원 로그인 에러2 -->
 	<definition name="storeloginerr2" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 업체회원 로그인 오류" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeloginerr2.jsp" />
 	</definition>
-	
+
 	<!-- 업체 회원 아이디비밀번호찾기 -->
 	<definition name="storeFind" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 업체회원 아이디 및 비밀번호 찾기" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 업체회원 아이디 및 비밀번호 찾기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeFind.jsp" />
 	</definition>
@@ -229,7 +243,8 @@
 	</definition>
 	<!-- 업체 회원 아이디찾기 결과 -->
 	<definition name="storeidResult" extends="popupLayout">
-		<put-attribute name="title" value="따봉플레이스 | 업체 아이디 찾기 결과" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 업체 아이디 찾기 결과" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeidResult.jsp" />
 	</definition>
@@ -242,7 +257,8 @@
 	</definition>
 	<!-- 업체 회원 비밀번호찾기 결과 -->
 	<definition name="storepwResult" extends="popupLayout">
-		<put-attribute name="title" value="따봉플레이스 | 업체 비밀번호 찾기 결과" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 업체 비밀번호 찾기 결과" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storepwResult.jsp" />
 	</definition>
@@ -255,7 +271,8 @@
 
 	<!-- 업체 회원 마이페이지 비밀번호 확인 -->
 	<definition name="storepwcheck" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 마이페이지 비밀번호 확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 마이페이지 비밀번호 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storepwcheck.jsp" />
 	</definition>
@@ -280,17 +297,19 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storemodify.jsp" />
 	</definition>
-	
+
 	<!-- 업체 회원 탈퇴하기전 비밀번호 확인 -->
 	<definition name="storeleave" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 업체탈퇴 비밀번호 확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 업체탈퇴 비밀번호 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeleave.jsp" />
 	</definition>
-		
+
 	<!-- 업체 회원 탈퇴하기전 마지막 비밀번호 확인 -->
 	<definition name="storeconfirmLeave" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 업체탈퇴 비밀번호 재확인" />
+		<put-attribute name="title"
+			value="따봉플레이스 | 업체탈퇴 비밀번호 재확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeconfirmLeave.jsp" />
 	</definition>
@@ -410,21 +429,21 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/calendar.jsp" />
 	</definition>
-	
+
 	<!-- 매장 계정 정보 보기 -->
 	<definition name="storeAccountInfo" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 나의 회원 정보" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/storeaccount/storeAccountInfo.jsp" />
 	</definition>
-	
-		<!-- 매장 계정 정보 수정 -->
+
+	<!-- 매장 계정 정보 수정 -->
 	<definition name="storeAccountModify" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 회원 정보 수정" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/storeaccount/storeAccountModify.jsp" />
 	</definition>
-	
+
 	<!-- 매장 계정 삭제 -->
 	<definition name="storeAccountLeave" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 회원 정보 삭제" />
@@ -432,18 +451,18 @@
 			value="/WEB-INF/views/storeaccount/storeAccountLeave.jsp" />
 	</definition>
 
-	<!-- 매장 계정 삭제 확인-->
+	<!-- 매장 계정 삭제 확인 -->
 	<definition name="confirmLeaveacc" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 회원 정보 삭제 확인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/storeaccount/confirmLeaveacc.jsp" />
 	</definition>
-	
+
 	<!-- 매장 계정 삭제 확인 오류메시지 -->
 	<definition name="storeaccloginerr" extends="baseLayout">
 		<put-attribute name="title" value="따봉플레이스 | 업체회원 로그인 오류" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/storeaccount/storeaccloginerr.jsp" />
 	</definition>
-	
+
 </tiles-definitions>

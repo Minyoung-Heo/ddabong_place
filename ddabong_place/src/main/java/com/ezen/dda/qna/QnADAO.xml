@@ -85,13 +85,15 @@
 	
 	<!-- 답글용 Q&A 페이징처리 시작-->
 	<select id="cnt_reply" resultType="int">
-		select count(*) from question
+		select count(*) from question where title not like
+		'%공지사항%'
 	</select>
 	
 	<select id="select_reply" resultType="com.ezen.dda.qna.QnADTO">
 		select * from (
 		select rownum rn, A.* from
-		(select * from question order by groups DESC,step asc) A)
+		(select * from question where title not like
+		'%공지사항%' order by groups DESC,step asc) A)
 		where rn between #{start} AND #{end}
 	</select>
 	<!-- 답글용 Q&A 페이징처리 끝-->
