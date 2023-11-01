@@ -83,6 +83,10 @@
 
 ![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
 
+- 매장 검색
+
+![매장검색](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/2899f895-ebeb-426c-a513-2019659aa86d)
+
 
 **이달의 따봉왕**
 
@@ -164,6 +168,11 @@
 
 - 매장 정보 수정
 
+![매장정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1bd3c14e-318c-4b63-bc67-64ffe5a83aea)
+
+- 매장 삭제
+
+![매장삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/aebad9cd-1602-41dc-9ffa-8353e1b93851)
 
 
 **예약**
