@@ -1,6 +1,5 @@
-## 기본 테이블 생성
+<-------------------기본 테이블 생성--------------------->
 
-```sql
 CREATE TABLE "CUSTOMER" (
 	"ID"	VARCHAR2(200)		NOT NULL,
 	"PW"	VARCHAR2(200)		NOT NULL,
@@ -159,33 +158,35 @@ ALTER TABLE "WAITING" ADD CONSTRAINT "FK_STORE_TO_WAITING_1" FOREIGN KEY (
 REFERENCES "STORE" (
 	"ID"
 );
-```
+<-------------------기본 테이블 생성 끝--------------------->
 
----
-예약번호 seq 자동 증가
 
-```sql
+
+
+<-------------------예약 번호 생성 seq 자동증가 --------------------->
 create sequence reservation_seq 
 INCREMENT by 1
 start with 1;
-```
-문의사항 번호 seq 자동 증가
+<-------------------예약 번호 생성 seq 자동증가  끝--------------------->
 
-```sql
+
+
+<-------------------문의사항 번호 seq 자동 증가--------------------->
 create sequence question_seq
 INCREMENT by 1
 start with 1;
-```
-리뷰 번호 seq 자동 증가
+<-------------------문의사항 번호 seq 자동 증가 끝--------------------->
 
-```sql
+
+
+<-------------------리뷰 번호 seq 자동 증가--------------------->
 CREATE SEQUENCE review_num_seq
 INCREMENT BY 1
 START WITH 1;
-```
-웨이팅 트리거 등록
+<-------------------리뷰 번호 seq 자동 증가 끝--------------------->
 
-```sql
+
+<-------------------웨이팅 트리거 생성--------------------->
 CREATE OR REPLACE TRIGGER before_insert_waiting
 BEFORE INSERT ON waiting
 FOR EACH ROW
@@ -205,12 +206,13 @@ BEGIN
         :NEW.waiting_num := max_waiting_num + 1;
     END IF;
 END;
-```
-이벤트 테이블
+<-------------------웨이팅 트리거 생성 끝--------------------->
 
-```jsx
+
+
+<-------------------이벤트 테이블 생--------------------->
 CREATE TABLE "EVENT" 
    (	"NICKNAME" VARCHAR2(200 BYTE), 
 	"CONTENT" VARCHAR2(3000 BYTE)
    )
-```
+<-------------------이벤트 테이블 생성 끝--------------------->
