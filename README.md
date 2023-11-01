@@ -62,7 +62,7 @@
 - GitHub
 - Oracle SQL Developer
 - 
-# ⚡️ 기능 소개
+# 📌 기능 소개
 **메인화면**
 
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
@@ -75,30 +75,6 @@
 
 
 **예약 HOT 랭킹**
-
-
-
-
-**매장 상세페이지**
-
-- 매장 정보
-
-
-![매장상세페이지](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d83a6407-20f2-47cc-8479-a982276fc4bc)
-
-
-- 매장 등록
-
-![매장등록](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/86e93efd-5e7d-4b98-857f-090571e67a53)
-
-
-- 매장 정보 수정
-
-![매장정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1bd3c14e-318c-4b63-bc67-64ffe5a83aea)
-
-- 매장 삭제
-
-![매장삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fa355b2d-4219-46ca-933c-50048c47a221)
 
 
 **예약**
@@ -126,8 +102,6 @@
 
 
 
-
-
 **리뷰**
 
 - 로그인 전
@@ -145,4 +119,4 @@
 ![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/0719281b-2cdd-4390-802d-cac6c58182d6)
 
 
-*** [다른 기능 더 보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
+## 📌 [다른 기능 더 보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
