@@ -98,7 +98,7 @@
 **회원 가입**
 
 
-- 손님 측 탈퇴
+- 손님 측 가입입
 
 
 ![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
@@ -157,6 +157,22 @@
 
 
 **리뷰**
+
+- 로그인 전
+
+![로그인전리뷰](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3af75653-71c4-4442-9140-774a1dc8a52b)
+
+- 로그인 후 리뷰 달기
+
+
+![리뷰달기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e5a32e49-f09c-47d0-a7a8-68e5381455fb)
+
+
+- 리뷰 삭제
+
+![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/0719281b-2cdd-4390-802d-cac6c58182d6)
+
+
 
 **즐겨찾기**
 
