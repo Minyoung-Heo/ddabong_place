@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ezen.dda.personalfunction.PersonalFnService;
+
 @Controller
 public class PersonalController {
 	@Autowired
@@ -37,9 +39,18 @@ public class PersonalController {
 			String nickname = request.getParameter("nickname");
 			String content = request.getParameter("content");
 
-			PersonalService es = sqlSession.getMapper(PersonalService.class);
-			es.eventsave(nickname, content);
-			return "event";
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.eventsave(nickname, content);
+			return "redirect:/event?nickname=" + nickname;
+		}
+		// 예약 삭제
+		@RequestMapping(value = "/deletecontent", method = RequestMethod.GET)
+		public String deletecontent(HttpServletRequest request) {
+			String nickname = request.getParameter("nickname");
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.deletecontent(nickname);
+
+			return "redirect:/event?nickname=" + nickname;
 		}
 	// 카카오 로그인 api
 	@RequestMapping(value = "kakao_login.ajax")

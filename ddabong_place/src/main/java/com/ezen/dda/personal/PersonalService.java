@@ -7,6 +7,8 @@ public interface PersonalService {
 	public ArrayList<EventDTO> event(String nickname);
 	
 	public void eventsave(String nickname, String content);
+	
+	public void deletecontent(String nickname);
 
 //	회원 가입
 	public void personaljoin(String id, String pw, String name, String nickname, String phone, String address,
