@@ -1,8 +1,6 @@
 package com.ezen.dda.personal;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,16 +11,47 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ezen.dda.personalfunction.PersonalFnService;
 
 @Controller
 public class PersonalController {
 	@Autowired
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
+	
+	// 이벤트
+		@RequestMapping(value = "/event")
+		public String event(HttpServletRequest request, Model mo) {
+			String nickname = request.getParameter("nickname");
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			
+			ArrayList<EventDTO> Eventlist  = ps.event(nickname);
+			mo.addAttribute("Eventlist", Eventlist);
+			
+			return "event";
+		}
 
+		@RequestMapping(value = "/eventsave", method = RequestMethod.POST)
+		public String eventsave(HttpServletRequest request, Model mo) {
+			String nickname = request.getParameter("nickname");
+			String content = request.getParameter("content");
+
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.eventsave(nickname, content);
+			return "redirect:/event?nickname=" + nickname;
+		}
+		// 예약 삭제
+		@RequestMapping(value = "/deletecontent", method = RequestMethod.GET)
+		public String deletecontent(HttpServletRequest request) {
+			String nickname = request.getParameter("nickname");
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.deletecontent(nickname);
+
+			return "redirect:/event?nickname=" + nickname;
+		}
 	// 카카오 로그인 api
 	@RequestMapping(value = "kakao_login.ajax")
 	public String kakaoLogin() {
@@ -286,4 +315,6 @@ public class PersonalController {
 		return bb;
 	}
 
+	
+	
 }

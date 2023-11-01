@@ -99,14 +99,16 @@
 																		.text(
 																				"✔ 사용 가능한 아이디입니다.")
 																		.addClass(
-																				"success-message");
+																				"success-message").css(
+																						"color", "green");
 															} else {
 																// 사용 중인 아이디
 																idErrorMessage
 																		.text(
 																				"✘ 사용 중인 아이디입니다.")
 																		.removeClass(
-																				"success-message");
+																				"success-message").css(
+																						"color", "red");
 															}
 														},
 														error : function(result) {
@@ -115,7 +117,8 @@
 																	.text(
 																			"✘ 관리자에게 문의해주세요.")
 																	.removeClass(
-																			"success-message");
+																			"success-message").css(
+																					"color", "red");
 														}
 													});
 										} else {
@@ -169,7 +172,7 @@
 							} else {
 								passwordErrorMessage.text("✔ 비밀번호가 일치합니다.")
 										.addClass("success-message").css(
-												"color", "blue");
+												"color", "green");
 							}
 						} else {
 							passwordErrorMessage.text(
@@ -207,7 +210,7 @@
 						var phone = $("#storephone").val();
 						var phoneErrorMessage = $("#phoneErrorMessage");
 
-						if (/^\d+$/.test(phone)) {
+						if (/^[\d-]+$/.test(phone)) {
 							phoneErrorMessage.text("").removeClass(
 									"success-message");
 						} else {
@@ -269,7 +272,7 @@
 				<div class="error-message" id="nameErrorMessage"></div>
 
 				전화번호<input type="text" id="storephone" name="storephone"
-					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
+					class="textbox" placeholder="전화번호를 입력해주세요. ">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 
