@@ -92,7 +92,6 @@
 <body>
 	<img alt="mainLogo3" src="/dda/image/mainLogo3.png">
 	<h1>수험생들에게 응원이 되는 메세지를 남겨주세요 !</h1>
-	<h5>( 응원의 메세지 이벤트는 로그인하셔야 참여 가능한 이벤트입니다. )</h5>
 	<c:choose>
 		<c:when test="${personalloginstate == true}">
 			<form action="eventsave" method="post" accept-charset="UTF-8">
@@ -107,7 +106,7 @@
 			</form>
 		</c:when>
 			<c:otherwise>
-			
+			<h5>( 응원의 메세지 이벤트는 로그인하셔야 참여 가능한 이벤트입니다. )</h5>
 					</c:otherwise>
 	</c:choose>
 	<div class="horizontal-line"></div>

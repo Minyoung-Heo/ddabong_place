@@ -104,14 +104,14 @@
 																		.text(
 																				"✔ 사용 가능한 아이디입니다.")
 																		.addClass(
-																				"success-message");
+																				"success-message").css("color", "green");;
 															} else {
 																// 사용 중인 아이디
 																idErrorMessage
 																		.text(
 																				"✘ 사용 중인 아이디입니다.")
 																		.removeClass(
-																				"success-message");
+																				"success-message").css("color", "red");;
 															}
 														},
 														error : function(result) {
@@ -120,7 +120,7 @@
 																	.text(
 																			"✘ 다시 입력해주세요.")
 																	.removeClass(
-																			"success-message");
+																			"success-message").css("color", "red");;
 														}
 													});
 										} else {
@@ -155,7 +155,34 @@
 						}
 					}, 1000);
 				});
+		// 비밀번호 확인 체크 및 유효성
+		$("#personalpw_confirm").on(
+				'input',
+				function() {
+					clearTimeout(passwordTimer);
+					passwordTimer = setTimeout(function() {
+						var password = $("#personalpw").val();
+						var confirmPassword = $("#personalpw_confirm").val();
+						var passwordErrorMessage = $("#passwordErrorMessage");
 
+						if (/^[A-Za-z0-9]{5,16}$/.test(password)) {
+							if (password !== confirmPassword) {
+								passwordErrorMessage.text("✘ 비밀번호를 다시 확인해주세요.")
+										.removeClass("success-message").css(
+												"color", "red");
+							} else {
+								passwordErrorMessage.text("✔ 비밀번호가 일치합니다.")
+										.addClass("success-message").css(
+												"color", "green");
+							}
+						} else {
+							passwordErrorMessage.text(
+									"✘ 비밀번호는 영어와 숫자로 5~16글자만 입력 가능합니다.")
+									.removeClass("success-message").css(
+											"color", "red");
+						}
+					}, 1000);
+				});
 		// 이름 유효성 검사
 		$("#personalname").on(
 				'input',
@@ -206,7 +233,7 @@
 						var phone = $("#personalphone").val();
 						var phoneErrorMessage = $("#phoneErrorMessage");
 
-						if (/^\d{11}$/.test(phone)) {
+						if (/^[\d-]+$/.test(phone)) {
 							phoneErrorMessage.text("").removeClass(
 									"success-message");
 						} else {
@@ -311,7 +338,7 @@
 				<div class="error-message" id="nicknameErrorMessage"></div>
 
 				전화번호<input type="text" id="personalphone" name="personalphone"
-					class="textbox" placeholder="전화번호 -를 제외한 번호 입력. ex)010xxxxxxxx ">
+					class="textbox" placeholder="전화번호를 입력해주세요. ">
 				<div class="error-message" id="phoneErrorMessage"></div>
 
 				주소<br> <input class="textbox"
