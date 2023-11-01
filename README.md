@@ -30,7 +30,7 @@
 
 ### 📌  Database ERD (Entity Relation Diagram)
 
-![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/a729fc07-061a-4697-b11c-ea97c8793a51)
+![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/104006894/d1edd029-dad6-4a90-8149-80493df91f02)
 
 
 
