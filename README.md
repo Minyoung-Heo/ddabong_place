@@ -26,7 +26,7 @@
 
 ### 📌  유스케이스 다이어그램 (Use Case Diagram)
 
-![다이어그램 drawio](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/ad64f151-b7cc-46e4-a454-ceeb92305c8e)
+![1101최신화 drawio](https://github.com/Minyoung-Heo/ddabong_place/assets/104006894/b95f0d02-8f88-48a7-87fa-afa5cffc1e8a)
 
 ### 📌  Database ERD (Entity Relation Diagram)
 
