@@ -109,6 +109,8 @@
 
 
 
+
+
 **로그인**
 
 
@@ -242,7 +244,7 @@
 - 손님 측 Q&A 1:1 문의하기
   
 
-![손님Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c889e080-606b-4879-89a6-d19aa23ea921)
+![손님측Q A](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/57d91fa7-88f7-4593-ae7d-48b19d6465c4)
 
 
 - 업체 측 Q&A 1:1 문의하기
