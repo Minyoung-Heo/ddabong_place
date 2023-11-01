@@ -65,9 +65,7 @@
 # ⚡️ 기능 소개
 **메인화면**
 
-
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
-
 
 - 전체 카페 보기
 
@@ -85,6 +83,14 @@
 
 ![디저트별카페가기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d5979a3a-84f4-4096-93c9-2f8099a51bad)
 
+**회원 가입**
+
+
+- 손님 측 회원가입
+
+
+![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
+
 
 **로그인**
 
@@ -95,13 +101,6 @@
 ![손님로그인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d1fafdf7-6010-4299-af64-0e3d23c89f0e)
 
 
-**회원 가입**
-
-
-- 손님 측 가입입
-
-
-![손님회원가입](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e11e6f37-13dc-40d7-b757-d61aa6f9313d)
 
 **회원 정보 수정**
 
@@ -109,7 +108,12 @@
 - 손님 측 회원 정보 수정
 
   
-![손님회원정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/bd7c3b1c-dab4-4aef-a73f-ce98d7df2b8b)
+![회원정보수정](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5260cead-c0e8-4cad-b8d3-a7bfbecb8436)
+
+- 수정 결과
+
+
+![회원정보수정결과](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/47040ed2-1d32-4ba4-98c1-61046c37a83e)
 
 
 **회원 탈퇴**
@@ -129,11 +133,16 @@
 
 **예약**
 
-- 예약하기 및 취소
+- 카페 예약
 
-![예약및취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/713e4133-4f87-4d06-b7c7-7ca1b8fb64e9)
+![카페예약](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/a2a67b4f-c1f9-47c1-a312-46ffbf886f0d)
 
-  
+
+- 예약 취소
+
+
+![카페예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/2bcaf458-7c4d-48f3-af69-26c0202b7da8)
+
 
 **웨이팅**
 
