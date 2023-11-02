@@ -12,27 +12,33 @@
 
 
 
-## 👨‍👩‍👧‍👦 프로젝트 팀 구성
-**팀장**
-
-허민영 - ERD 작성, 이달의 따봉왕, 따봉어워드, 예약HOT랭킹, 메인화면 기능 및 CSS, Q&A, 웨이팅, 카페 리스트, 전반적인 CSS 및 코드 관리, 업체측 회원 정보 관리, 리뷰 CSS 및 삭제 담당
-
-
-**팀원**
-
-박정빈 - 유저용 주 기능 전반 (통합 검색 및 검색 결과창, 퀴즈를 통한 카페추천, 매장 상세 페이지, 매장 예약 , 매장 리뷰 작성 및 출력) 및 CSS   
-
-안형진 - 회원 and 업체 (로그인 기능 및 CSS, 회원 가입 기능 및 CSS, 아이디 / 비밀번호 찾기 기능 및 CSS, 회원 마이페이지 기능 및 CSS, 예약 현황 기능 및 CSS), 메인화면 팝업창 구현, 메인화면 배너 제작, 응원메세지 이벤트 기능 및 CSS
-
-표가은 - 업체 측 매장 입력, 출력, 수정, 삭제, CSS / 즐겨찾기 목록 출력, CSS/ 퀴즈 결과 CSS / 따봉 어워드 CSS / PPT 작성
-
+## 👨‍👩‍👧‍👦 프로젝트 팀 소개
 
 |   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
 | :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/860b73a8-aa20-4489-b5f5-c37a03aa7b67)           | ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/00a35cc4-3426-4274-bab0-b01ab3e16188) | ![KakaoTalk_20231102_115227020_02](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/485fb9b5-36cd-4879-b103-cb51ba842294) |![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7963876b-c39f-4332-88d9-274717058040)  | 
-| Position | 프로젝트 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                                     |
+| Position | 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
 
+### 역할 
+**허민영**
+
+DB설계 / ERD / 이달의 따봉왕/ 따봉어워드/ 예약HOT랭킹 / 메인화면 / Q&A / 웨이팅/ 카페 리스트 / 전반적인 CSS 및 코드 관리 / 업체 측 회원 정보 관리 / 리뷰 CSS 및 삭제 담당
+
+
+**박정빈**
+
+유저용 주 기능 전반 (통합 검색 / 맞춤형 카페 추천 / 매장 상세 페이지 / 예약 / 리뷰) 및 CSS 담당  
+
+
+**안형진**
+
+회원 관련 기능 전반 (로그인 / 회원 가입 / 아이디,비밀번호 찾기 / 손님 측 회원정보관리 / 예약 현황), 메인화면 팝업창, 메인화면 배너 제작, 이벤트 기능 및 CSS 담당
+
+
+**표가은**
+
+업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결과 / 따봉 어워드 및 CSS / PPT
 
 
 # 📝 프로젝트 구성 및 설계
