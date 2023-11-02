@@ -29,6 +29,7 @@ public class PersonalFnController {
 
 	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 
+	
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")
 	public String detailview(HttpServletRequest request, Model mo) {
@@ -201,7 +202,7 @@ public class PersonalFnController {
 		int cnt = ss.reviewcheck(customerid, storeid);
 		
 		String bb = null;
-		if (cnt == 0) {
+		if (cnt != 0) {
 			bb = "ok";
 		} else {
 			bb = "";

@@ -35,16 +35,14 @@
 	         async: true,
 	         url: "reviewcheck",
 	         data: {
-	           storeid: "${storeid}",
-	           customerid: "${customerid}"
+	           storeid : ${storeid},
+	           customerid : ${customerid}
 	         },
 	         success: function(result) {
 	           if (result === "ok") {
-	             alert("예약 이력이 없습니다.");
-	             return false;
-	           } else {
-	             // 폼을 제출
 	             f.submit(); // 폼 제출
+	           } else {
+	             alert("예약 이력이 없습니다.");
 	           }
 	         }
 	       });
@@ -348,6 +346,7 @@ input[type=file]::file-selector-button:hover {
 }
 
 .contentout {
+   width:90%;
    position: relative;
    text-align: left;
    font-size: 25px;
@@ -742,7 +741,7 @@ $(document).ready(function() {
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4fe6b44c87f95f4fa3f8970e5cc96c7&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 

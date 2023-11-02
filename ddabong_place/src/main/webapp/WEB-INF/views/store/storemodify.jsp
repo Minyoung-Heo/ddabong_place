@@ -247,22 +247,9 @@ margin-left: 30px;
 				$("[name=addr1]").val(data.zonecode);
 				$("[name=addr2]").val(fullRoadAddr);
 
-				/* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
-				document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
-				document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
 			}
 		}).open();
 	}
-
-	/* // 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
-	$("#addr2, #addr3").on('input', function() {
-		var addr2 = $("#addr2").val();
-		var addr3 = $("#addr3").val();
-		var address = addr2 + " " + addr3;
-
-		// address 값을 hidden 필드에 할당
-		$("#personaladdress").val(address);
-	}); */
 </script>
 
 <script>
