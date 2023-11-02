@@ -6,16 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <script type="text/javascript">
-   function goToScroll() {
-      var location = document.querySelector(".scroll").offsetTop;
-      window.scrollTo({
-         top : location,
-         behavior : 'smooth'
-      });
-   }
    $(function() {
 	   $(".reviewsubmit").click(function(event) {
 		   event.preventDefault();
@@ -741,7 +733,7 @@ $(document).ready(function() {
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4fe6b44c87f95f4fa3f8970e5cc96c7&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 
@@ -968,5 +960,14 @@ $(document).ready(function() {
          </table>
       </div>
    </c:forEach>
+   <script type="text/javascript">
+   function goToScroll() {
+	      var location = document.querySelector(".scroll").offsetTop;
+	      window.scrollTo({
+	         top : location,
+	         behavior : 'smooth'
+	      });
+	   }
+   </script>
 </body>
 </html>
