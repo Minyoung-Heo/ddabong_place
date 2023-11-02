@@ -75,14 +75,17 @@
 	font-size: small;
 	float: right;
 	margin-top: 10px;
+	
 }
 
 .modifyc:hover {
 	color: blue;
+	 cursor:pointer;
 }
 
 .deletec:hover {
 	color: red;
+	 cursor:pointer;
 }
 </style>
 
@@ -114,7 +117,7 @@
 		<table align="center" class="eventcontent">
 
 			<caption>
-				<span style="color: #FF8C00">${qq.nickname}님</span>
+				<span style="color: #FF8C00;">${qq.nickname}님</span>
 				<c:choose>
 					<c:when test="${qq.nickname == personal.nickname}">
 						<span class="modifyc">↺ 수정</span>
