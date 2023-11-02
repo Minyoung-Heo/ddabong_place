@@ -46,8 +46,8 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 <details>
 <summary><b> 백엔드</b></summary>
 <ul>
-  <li>Java 11</li>
-  <li>Spring MVC</li>
+  <li><img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"></li>
+  <li><img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/></li>
   <li>JSP</li>
   <li>MyBatis</li>
   <li>AJAX</li>
@@ -57,18 +57,19 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
  <details>
 <summary><b> 프론트엔드</b></summary>
 <ul>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>JavaScript</li>
-  <li>JQuery</li>
+  <li><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/></li>
+  <li><img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
+</li>
+  <li><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/></li>
+  <li><img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQuery&logoColor=white"/></li>
 </ul>
 </details>
 
 <details>
 <summary><b> DB & WAS</b></summary>
 <ul>
-  <li>Oracle(Oracle Database 11g Express Edition Release 11.2.0.2.0)</li>
-  <li>Tomcat 9(9.0.64)</li>
+  <li><img src="https://img.shields.io/badge/ORACLE-F80000?style=flat-square&logo=oracle&logoColor=white"/></li>
+  <li><img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black"/></li>
 </ul>
 </details>
 
