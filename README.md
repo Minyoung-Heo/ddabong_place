@@ -80,6 +80,7 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 - Windows 11
 - Eclipse(2022-12)
 - GitHub
+- Fork
 - Oracle SQL Developer
 
   
