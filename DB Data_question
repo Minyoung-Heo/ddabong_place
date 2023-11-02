@@ -1,0 +1,804 @@
+REM INSERTING into EZEN.QUESTION
+SET DEFINE OFF;
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (19,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),19,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (20,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),20,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (21,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),21,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (22,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),22,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (23,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),23,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (24,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),24,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (25,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),25,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (26,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),26,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (27,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),27,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (28,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),28,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (29,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),29,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (30,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),30,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (31,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),31,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (32,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),32,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (33,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),33,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (34,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),34,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (35,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),35,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (36,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),36,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (1,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),1,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (2,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),2,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (3,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),3,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (4,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),4,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (5,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),5,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (6,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),6,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (7,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),7,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (8,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),8,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (9,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),9,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (10,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),10,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (11,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),11,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (12,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),12,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (13,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),13,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (14,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),14,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (15,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),15,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (16,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),16,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (17,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),17,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (18,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),18,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (37,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),37,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (38,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),38,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (39,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),39,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (40,'손님','이용 불편사항','따봉플레이스 이용 문의 드립니다.','허민영','hmy1','안녕하세요? 따봉플레이스 이용자 허민영입니다.
+<br>따봉플레이스를 이용하는 도중 몇 가지 오류 사항이 있어
+<br>문의 사항 남깁니다.
+<br>
+<br>빠른 시간 내에 수정해주시면 감사하겠습니다.
+<br>좋은 하루 되세요!',1111,to_date('23/10/31','RR/MM/DD'),40,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (41,'손님','예약 관련','예약 관련해서 문의사항 드립니다.','안형진','ahj3','안녕하세요? 안형진입니다.
+<br>카페를 예약하려고 하는데 몇 가지 궁금한 사항이 있어
+<br>문의 남깁니다.
+<br>
+<br>1. 예약하려고 하는데, 시간이 분 단위로 나와있어요. 10분 단위로 예약하면 되는 건가요?
+<br>
+<br>2. 가끔씩 오류가 뜨는데 이거 고치면 좋겠어요.
+<br>
+<br>빨리 답변 부탁드립니다.',1111,to_date('23/10/31','RR/MM/DD'),41,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (42,'손님','기타','건의 사항 있어서 글 남겨요..','박정빈','pge1','안녕하세요~
+<br>몇 가지 궁금한 게 있어요~
+<br>서울 지역만 말고 다른 지역 카페도 보고 싶어요.
+<br>추가해주실 수 없나요?',1111,to_date('23/10/31','RR/MM/DD'),42,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (43,'손님','답변','re : 따봉플레이스 이용 문의 드립니다.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>먼저 따봉플레이스를 이용하면서 불편사항에 대해
+<br>심심한 사과 드립니다.
+<br>
+<br>해당 오류 건은 빠른 시일 내에 수정하여 개선하겠습니다.
+<br>앞으로도 따봉플레이스에 많은 관심 부탁드립니다.
+<br>
+<br>감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),40,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (44,'손님','답변','re : 예약 관련해서 문의사항 드립니다.','따봉플레이스','admin','안녕하세요. 따봉플레이스입니다.
+<br>
+<br>1. 예약하려고 하는데, 시간이 분 단위로 나와있어요. 10분 단위로 예약하면 되는 건가요?
+<br>
+<br>예약 시간 관련해서는 현재 개선 사항에 있으며, 원하시는 시간대에 자유롭게 예약해주시면 됩니다.
+<br>
+<br>2. 가끔씩 오류가 뜨는데 이거 고치면 좋겠어요.
+<br>
+<br>불편사항을 끼쳐드려 정말 죄송합니다.
+<br>빠른 시일 내에 개선하도록 하겠습니다.
+<br>
+<br>감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),41,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (46,'손님','회원 정보','회원 정보 대해서 문의 드려요.','남예현','pjb5','안녕하세요? 회원 정보 대해 문의사항 있어 남깁니다.
+<br>
+<br>회원 탈퇴 시 제 개인정보가 다 삭제되나요?',1111,to_date('23/10/31','RR/MM/DD'),46,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (47,'손님','기타','안녕하세요? 건의할 게 있습니다.','박형석','pjb2','안녕하세요?',1111,to_date('23/10/31','RR/MM/DD'),47,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (48,'손님','답변','re : 회원 정보 대해서 문의 드려요.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>회원 정보 관련해서 답변드립니다.
+<br>
+<br>회원 탈퇴 시 모든 개인 정보는 사라지며,
+<br>걱정하실 필요 없습니다.
+<br>
+<br>감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),46,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (49,'손님','답변','re : 안녕하세요? 건의할 게 있습니다.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>건의사항 감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),47,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (1000,'손님','기타','[공지사항] Q&A 관련 공지','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>Q&A 관련해서 공지사항이 있어 안내말씀 드립니다.
+<br>
+<br>1. 회원 유형을 올바르게 선택해주세요.
+<br>
+<br>2. 문의 유형을 알맞게 선택해주세요.
+<br>
+<br>3. 비밀번호는 숫자 4자리로 입력해주세요.
+<br>
+<br>궁금한 사항이 있으시다면 1:1 문의하기로 남겨주세요.
+<br>빠른 시일 내에 답변드리겠습니다.
+<br>감사합니다 :-)',0,to_date('23/10/31','RR/MM/DD'),1000,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (1001,'손님','기타','[공지사항] 1:1 문의하기 안내사항','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>1:1 문의하기 관련해서 안내사항 드립니다.
+<br>
+<br>1. 회원 유형을 올바르게 선택해주세요.
+<br>
+<br>2. 문의 유형을 알맞게 선택해주세요.
+<br>
+<br>3. 비밀번호는 숫자 4자리로 입력해주세요.
+<br>
+<br>궁금한 사항이 있으시다면 1:1 문의하기로 남겨주세요.
+<br>빠른 시일 내에 답변드리겠습니다.
+<br>감사합니다 :-)',0,to_date('23/10/31','RR/MM/DD'),1001,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (52,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),52,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (53,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),53,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (54,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),54,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (55,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),55,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (56,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),56,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (57,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),57,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (58,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),58,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (59,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),59,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (60,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),60,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (61,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),61,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (62,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),62,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (63,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),63,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (64,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),64,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (65,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),65,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (66,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),66,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (67,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),67,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (68,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),68,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (69,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),69,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (70,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),70,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (71,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),71,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (72,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),72,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (73,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),73,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (74,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),74,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (75,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),75,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (76,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),76,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (77,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),77,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (78,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),78,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (79,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),79,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (80,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),80,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (81,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),81,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (82,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),82,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (83,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),83,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (84,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),84,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (85,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),85,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (86,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),86,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (87,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),87,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (88,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),88,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (89,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),89,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (90,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),90,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (91,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),91,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (92,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),92,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (93,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),93,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (94,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),94,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (95,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),95,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (96,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),96,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (97,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),97,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (98,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),98,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (99,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),99,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (100,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),100,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (101,'업체','매장 정보','안녕하세요. 코코로카라 대표 김민지입니다.','김민지','1111111111','안녕하세요? 따봉테이블에 입점되어 있는 코코로카라 대표
+<br>김민지입니다.
+<br>매장 정보 수정이 안 돼서 1:1 문의하기에 글을 남깁니다.
+<br>
+<br>매장 위치 정보를 수정하고 싶은데 저희 가게 위치가 제대로
+<br>안 나오고 있어요.
+<br>
+<br>수정 부탁드려요~',1111,to_date('23/10/31','RR/MM/DD'),101,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (102,'업체','이용 불편사항','매장 등록 건 관하여 문의드립니다.','김민수','1111111112','안녕하세요? 조앤도슨 대표 김민수입니다.
+<br>매장 등록 건 관해 문의 남깁니다.
+<br>
+<br>매장 등록 시 디저트 종류를 입력해야 하는데,
+<br>저희 가게 대표 디저트인 프렌치토스트는 어느 디저트에도
+<br>해당하지 않아 불편합니다.
+<br>
+<br>다른 디저트 종류도 추가해주시면 감사하겠습니다.',1111,to_date('23/10/31','RR/MM/DD'),102,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (103,'업체','회원 정보','회원 정보 수정하고 싶어요.','박지훈','1111111113','안녕하세요?
+<br>회원 정보 수정하고 싶은데요!!
+<br>저희집 주소가 안 나와요..',1111,to_date('23/10/31','RR/MM/DD'),103,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (104,'업체','입점 문의','입점 문의 드려요!!!','이설현','1111111115','안녕하세요? 콘티뉴이티 대표 이설현입니다.
+<br>
+<br>제가 콘티뉴이티 2호점을 새로 오픈하는데,
+<br>2호점도 입점하고 싶어요.
+<br>
+<br>그런데 가게 등록을 두 개 이상 못 하더라구요?
+<br>콘티뉴이티 2호점도 등록하고 싶은데 어떻게 해야 하나요?',1111,to_date('23/10/31','RR/MM/DD'),104,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (105,'업체','기타','문의사항 있어서 문의 드립니다.','서울앵무새','4111111112','안녕하세요~ 서울앵무새 대표 박앵무입니다.
+<br>건의사항이 있어서 문의 드렸는데요!!
+<br>
+<br>혹시 매장 사진을 최대 5개 말고 더 추가할 수는 없는 건가요?
+<br>사진 여러 장을 넣고 싶어요..',1111,to_date('23/10/31','RR/MM/DD'),105,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (106,'업체','답변','re : 문의사항 있어서 문의 드립니다.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>먼저 이용에 불편을 끼쳐드려 사과의 말씀 전합니다.
+<br>
+<br>따봉플레이스의 모든 가게는 최대 5개의 사진이 들어갑니다.
+<br>고객님의 건의사항 접수하여 사진을 여러 장 넣을 수 있도록
+<br>빠른 시일 내에 변경하겠습니다.
+<br>
+<br>불편을 끼쳐드려 죄송합니다.
+<br>감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),105,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (107,'업체','답변','re : 입점 문의 드려요!!!','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>
+<br>저희 따봉플레이스는 계정 당 하나의 가게만을 등록할 수 있습니다.
+<br>보안 상의 이유로 같은 계정으로 두 개 이상의 가게를 등록할 수는 없습니다.
+<br>따라서, 2호점을 입점하고 싶으시다면 업체용 계정을 더
+<br>생성하여 가게 등록 부탁드립니다.
+<br>
+<br>이용에 불편을 끼쳐드려 죄송합니다.
+<br>감사합니다 :)',1111,to_date('23/10/31','RR/MM/DD'),104,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (108,'업체','답변','re : 회원 정보 수정하고 싶어요.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>
+<br>회원 정보 정상적으로 수정되었습니다.
+<br>감사합니다.',1111,to_date('23/10/31','RR/MM/DD'),103,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (109,'업체','답변','re : 매장 등록 건 관하여 문의드립니다.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>
+<br>먼저 이용에 불편을 끼쳐드려 죄송합니다.
+<br>현재 더 많은 디저트를 등록하기 위해 개발 중에 있습니다.
+<br>빠른 시일 내에 변경될 수 있도록 노력하겠습니다.
+<br>
+<br>감사합니다 :)',1111,to_date('23/10/31','RR/MM/DD'),102,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (110,'업체','답변','re : 안녕하세요. 코코로카라 대표 김민지입니다.','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>
+<br>먼저 이용에 불편을 끼쳐드려 죄송합니다.
+<br>해당 가게의 위치 정보 수정이 완료되었습니다.
+<br>
+<br>감사합니다 :)',1111,to_date('23/10/31','RR/MM/DD'),101,1,1);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (1002,'업체','기타','[공지사항] Q&A 관련 공지','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>Q&A 관련해서 공지사항이 있어 안내말씀 드립니다.
+<br>
+<br>1. 회원 유형을 올바르게 선택해주세요.
+<br>
+<br>2. 문의 유형을 알맞게 선택해주세요.
+<br>
+<br>3. 비밀번호는 숫자 4자리로 입력해주세요.
+<br>
+<br>궁금한 사항이 있으시다면 1:1 문의하기로 남겨주세요.
+<br>빠른 시일 내에 답변드리겠습니다.
+<br>
+<br>감사합니다 :-)',0,to_date('23/10/31','RR/MM/DD'),1002,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (1003,'업체','기타','[공지사항] 1:1 문의하기 안내사항','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>1:1 문의하기 관련해서 안내사항 드립니다.
+<br>
+<br>1. 회원 유형을 올바르게 선택해주세요.
+<br>
+<br>2. 문의 유형을 알맞게 선택해주세요.
+<br>
+<br>3. 비밀번호는 숫자 4자리로 입력해주세요.
+<br>
+<br>궁금한 사항이 있으시다면 1:1 문의하기로 남겨주세요.
+<br>빠른 시일 내에 답변드리겠습니다.
+<br>감사합니다 :-)',0,to_date('23/10/31','RR/MM/DD'),1003,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (119,'업체','입점 문의','입점 문의합니다.','김민지','1111111111','입점 문의합니다.
+<br>어떻게 해야 입점할 수 있을까요?
+<br>답변 주시면 감사하겠습니다 ~~',2222,to_date('23/11/01','RR/MM/DD'),119,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (118,'손님','이용 불편사항','안녕하세요.','김따봉','qwer1111','문의사항 남깁니다.
+<br>홈페이지 이용 중 몇 가지 불편한 점 발생하여 문의 드립니다.
+<br>빠른 시일 내에 고쳐주세요~',1111,to_date('23/11/01','RR/MM/DD'),118,0,0);
+Insert into EZEN.QUESTION (QUESTION_NUM,USERTYPE,QUESTIONTYPE,TITLE,WRITER,IDD,CONTENT,PW,QUESTION_DATE,GROUPS,STEP,INDENT) values (116,'손님','답변','re : 건의 사항 있어서 글 남겨요..','따봉플레이스','admin','안녕하세요? 따봉플레이스입니다.
+<br>네. 수정하겠습니다.
+<br>감사합니다. :)',1111,to_date('23/10/31','RR/MM/DD'),42,1,1);
