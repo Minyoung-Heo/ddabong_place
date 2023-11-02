@@ -86,7 +86,7 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 # 📌 주 기능 소개
 **메인화면**  
 
-![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/935cdeb2-2d1c-47cd-a8bb-8b335c28312e)
+![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7b614b6b-ec60-41aa-b2ce-59e2bd74d7d1)
 
 
 **예약**  
