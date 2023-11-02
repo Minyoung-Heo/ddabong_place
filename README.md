@@ -43,7 +43,7 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 ![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/8f275ee0-89b9-458b-a5cb-d5b90a931c46)  
 
 ### 📌 사용 기술
-<div align=center> 
+<div align=left> 
 <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
