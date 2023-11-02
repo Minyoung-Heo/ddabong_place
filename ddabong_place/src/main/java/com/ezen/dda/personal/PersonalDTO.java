@@ -2,6 +2,7 @@ package com.ezen.dda.personal;
 
 public class PersonalDTO {
 	String id, pw, name, nickname, phone, address, email;
+	 
 
 	public PersonalDTO() {
 	}

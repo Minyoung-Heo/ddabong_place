@@ -14,16 +14,68 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ezen.dda.personalfunction.PersonalFnService;
+
 @Controller
 public class PersonalController {
 	@Autowired
 	SqlSession sqlSession;
 	ArrayList<PersonalDTO> list = new ArrayList<PersonalDTO>();
+	
+	// 이벤트
+		@RequestMapping(value = "/event")
+		public String event(HttpServletRequest request, Model mo) {
+			String nickname = request.getParameter("nickname");
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			
+			ArrayList<EventDTO> Eventlist  = ps.event(nickname);
+			mo.addAttribute("Eventlist", Eventlist);
+			
+			return "event";
+		}
+
+		@RequestMapping(value = "/eventsave", method = RequestMethod.POST)
+		public String eventsave(HttpServletRequest request, Model mo) {
+			String nickname = request.getParameter("nickname");
+			String content = request.getParameter("content");
+
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.eventsave(nickname, content);
+			return "redirect:/event?nickname=" + nickname;
+		}
+		// 예약 삭제
+		@RequestMapping(value = "/deletecontent", method = RequestMethod.GET)
+		public String deletecontent(HttpServletRequest request) {
+			String nickname = request.getParameter("nickname");
+			PersonalService ps = sqlSession.getMapper(PersonalService.class);
+			ps.deletecontent(nickname);
+
+			return "redirect:/event?nickname=" + nickname;
+		}
+	// 카카오 로그인 api
+	@RequestMapping(value = "kakao_login.ajax")
+	public String kakaoLogin() {
+		StringBuffer loginUrl = new StringBuffer();
+		loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
+		loginUrl.append("8074824403228e71f7f7b5fa9bd0a519");
+		loginUrl.append("&redirect_uri=");
+		loginUrl.append("http://localhost:8421/dda/main");
+		loginUrl.append("&response_type=code");
+
+		return "redirect:" + loginUrl.toString();
+	}
+
 
 	// 로그인 선택 화면
 	@RequestMapping(value = "/selectLogin")
 	public String selectLogin() {
 		return "selectLogin";
+	}
+
+	// 회원가입후 축하인사
+	@RequestMapping(value = "/joinmessage")
+	public String joinmessage() {
+		return "joinmessage";
 	}
 
 	// 마이페이지
@@ -61,7 +113,6 @@ public class PersonalController {
 	public String personalidFind() {
 		return "personalidFind";
 	}
-
 
 	// 회원용 아이디찾기 검색결과
 	@RequestMapping(value = "/personalidResult", method = RequestMethod.POST)
@@ -108,7 +159,7 @@ public class PersonalController {
 
 			return "redirect:/main";
 		} else {
-			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요";
+			String alertMessage = "아이디 또는 비밀번호를 다시 확인해주세요.";
 			request.setAttribute("alertMessage", alertMessage);
 
 			return "personalloginerr";
@@ -225,7 +276,7 @@ public class PersonalController {
 		PersonalService ss = sqlSession.getMapper(PersonalService.class);
 		ss.personaljoin(id, pw, name, nickname, phone, address, email);
 
-		return "main";
+		return "joinmessage";
 	}
 
 //  회원정보 수정
@@ -264,4 +315,6 @@ public class PersonalController {
 		return bb;
 	}
 
+	
+	
 }

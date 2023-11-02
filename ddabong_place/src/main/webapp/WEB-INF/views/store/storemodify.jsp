@@ -161,6 +161,16 @@ option {
 	border-radius: 40px;
 	outline: none;
 }
+
+.flexbox {
+display: flex;
+}
+
+.feature_box1,.feature_box2,.feature_box3 {
+text-align: left;
+margin-left: 30px;
+}
+
 .div-container {
 	margin-top: 30px;
 	display: flex;
@@ -237,22 +247,9 @@ option {
 				$("[name=addr1]").val(data.zonecode);
 				$("[name=addr2]").val(fullRoadAddr);
 
-				/* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
-				document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
-				document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
 			}
 		}).open();
 	}
-
-	/* // 도로명주소랑 상세주소를 하나로 합쳐서 데이터 전송하기 위해서 만든거
-	$("#addr2, #addr3").on('input', function() {
-		var addr2 = $("#addr2").val();
-		var addr3 = $("#addr3").val();
-		var address = addr2 + " " + addr3;
-
-		// address 값을 hidden 필드에 할당
-		$("#personaladdress").val(address);
-	}); */
 </script>
 
 <script>
@@ -374,7 +371,7 @@ function check(){
 					style="width: 45%; height: 51px; background-color: #d9d9d9; display: inline;"
 					placeholder="우편번호" name="addr1" id="addr1" type="text"
 					readonly="readonly">
-				<button type="button" class="btn btn-default" onclick="execPostCode();">
+				<button type="button" class="btn btn-default" onclick="execPostCode();" style="margin-left:15px; margin-right: 10px;">
 					<i class="fa fa-search"></i> 우편번호 찾기
 				</button><br>
 				<input class="textbox" style="background-color: #d9d9d9"
@@ -421,24 +418,34 @@ function check(){
           
           	<div class="feature">
             <h4>특징</h4>
-            	<input type="checkbox" name="feature" value="노키즈존" id="feature1"
-            		<c:if test="${store.feature.contains('노키즈존')}">checked</c:if>><label for="feature1">노키즈존</label>
-	        	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"
-	        		<c:if test="${store.feature.contains('반려견 동반 입장 O')}">checked</c:if>><label for="feature2">반려견 동반 입장 O</label>
+            <div class="flexbox">
+            <div class="feature_box1">
+            	<input type="checkbox" name="feature" value="주차장 O" id="feature4"
+	        		<c:if test="${store.feature.contains('주차장 O')}">checked</c:if>><label for="feature4">주차장 O</label><br>
+            	<input type="checkbox" name="feature" value="반려견 동반 입장 O" id="feature2"
+	        		<c:if test="${store.feature.contains('반려견 동반 입장 O')}">checked</c:if>><label for="feature2">반려견 동반 입장 O</label><br>
+            	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"
+	        		<c:if test="${store.feature.contains('노트북 사용 O')}">checked</c:if>><label for="feature8">노트북 사용 O</label>
+            </div>
+	        
+	        <div class="feature_box2">
+	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"
+	        		<c:if test="${store.feature.contains('주차장 X')}">checked</c:if>><label for="feature5">주차장 X</label><br>
 	        	<input type="checkbox" name="feature" value="반려견 동반 입장 X" id="feature3"
 	        		<c:if test="${store.feature.contains('반려견 동반 입장 X')}">checked</c:if>><label for="feature3">반려견 동반 입장 X</label><br>
-	        	<input type="checkbox" name="feature" value="주차장 O" id="feature4"
-	        		<c:if test="${store.feature.contains('주차장 O')}">checked</c:if>><label for="feature4">주차장 O</label>
-	        	<input type="checkbox" name="feature" value="주차장 X" id="feature5"
-	        		<c:if test="${store.feature.contains('주차장 X')}">checked</c:if>><label for="feature5">주차장 X</label>
+	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"
+	        		<c:if test="${store.feature.contains('노트북 사용 X')}">checked</c:if>><label for="feature9">노트북 사용 X</label>
+	    	</div>
+	        
+	        <div class="feature_box3">
+	        	<input type="checkbox" name="feature" value="노키즈존" id="feature1"
+            		<c:if test="${store.feature.contains('노키즈존')}">checked</c:if>><label for="feature1">노키즈존</label><br>
 	        	<input type="checkbox" name="feature" value="루프탑" id="feature6"
 	        		<c:if test="${store.feature.contains('루프탑')}">checked</c:if>><label for="feature6">루프탑</label><br>
 	        	<input type="checkbox" name="feature" value="테라스" id="feature7"
 	        		<c:if test="${store.feature.contains('테라스')}">checked</c:if>><label for="feature7">테라스</label>
-	        	<input type="checkbox" name="feature" value="노트북 사용 O" id="feature8"
-	        		<c:if test="${store.feature.contains('노트북 사용 O')}">checked</c:if>><label for="feature8">노트북 사용 O</label>
-	        	<input type="checkbox" name="feature" value="노트북 사용 X" id="feature9"
-	        		<c:if test="${store.feature.contains('노트북 사용 X')}">checked</c:if>><label for="feature9">노트북 사용 X</label>
+	       	</div>
+          	</div>
           	</div>
           
           	<div class="dessert">
@@ -454,11 +461,11 @@ function check(){
             	<input type="checkbox" name="dessert" value="크로플" id="dessert5"
             		<c:if test="${store.dessert.contains('크로플')}">checked</c:if>><label for="dessert5">크로플</label>
             	<input type="checkbox" name="dessert" value="휘낭시에" id="dessert6"
-            		<c:if test="${store.dessert.contains('푸딩')}">checked</c:if>><label for="dessert6">푸딩</label>
+            		<c:if test="${store.dessert.contains('푸딩')}">checked</c:if>><label for="dessert6">푸딩&emsp;</label>
             	<input type="checkbox" name="dessert" value="쿠키" id="dessert7"
             		<c:if test="${store.dessert.contains('쿠키')}">checked</c:if>><label for="dessert7">쿠키</label>
             	<input type="checkbox" name="dessert" value="빙수" id="dessert8"
-            		<c:if test="${store.dessert.contains('빙수')}">checked</c:if>><label for="dessert8">빙수</label>
+            		<c:if test="${store.dessert.contains('빙수')}">checked</c:if>><label for="dessert8">빙수&emsp;</label>
            	</div>
            	</c:forEach>
           

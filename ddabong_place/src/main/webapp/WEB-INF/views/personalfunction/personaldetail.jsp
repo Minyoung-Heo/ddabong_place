@@ -17,56 +17,58 @@
       });
    }
    $(function() {
+	   $(".reviewsubmit").click(function(event) {
+		   event.preventDefault();
+	     var f = document.reviewform;
+	     var content = f.reviewcontent.value;
+	     var id = "${personal.id}";
 
-      $(".reviewsubmit").click(function(event) {
-         var f = document.reviewform;
-         var content = f.reviewcontent.value;
-         var id = "${personal.id}";
+	     if (content === null || content === "") {
+	       alert("리뷰 내용을 입력하세요.");
+	     } else if (id === null || id.trim() === "") {
+	       alert("로그인이 필요합니다.");
+	       window.location.href = "selectLogin";
+	     } else {
+	       // AJAX로 reviewcheck 메소드 호출
+	       $.ajax({
+	         type: "POST",
+	         async: true,
+	         url: "reviewcheck",
+	         data: {
+	           storeid : ${storeid},
+	           customerid : ${customerid}
+	         },
+	         success: function(result) {
+	           if (result === "ok") {
+	             f.submit(); // 폼 제출
+	           } else {
+	             alert("예약 이력이 없습니다.");
+	           }
+	         }
+	       });
+	     }
+	   });
+	 });
 
-         if (content === null || content === "") {
-            alert("리뷰 내용을 입력하세요.");
-            event.preventDefault(); // submit 막음
-         } else if (id === null || id.trim() === "") {
-            alert("로그인이 필요합니다.");
-            event.preventDefault(); // submit 막음
-         } else {
-            // AJAX로 reviewcheck 메소드 호출
-            $.ajax({
-               type : "POST",
-               async : true,
-               url : "reviewcheck",
-               data : {
-                  storeid : "${storeid}",
-                  customerid : "${customerid}"
-               },
-               success : function(result) {
-                  if (result === "ok") {
 
-                  } else {
-                     alert("예약 이력이 없습니다.");
-                     event.preventDefault(); // submit 막음
-                  }
-               }
-            });
-         }
-      });
-   });
 
+   //별점 출력 고정
    document.addEventListener("DOMContentLoaded", function() {
       var starInputs = document.querySelectorAll("input.outstar");
       starInputs.forEach(function(input) {
          input.disabled = true; // 모든 별점 input 요소를 비활성화
       });
    });
+   //별점 고정 끝
+   
    
    function changeImage() {
-       var image = document.getElementById('ddaImage');
-       image.src = '/dda/image/ddabonghover.png';
+      var image = document.getElementById('ddaImage');
+      image.src = '/dda/image/ddabonghover.png';
    }
-
    function restoreImage() {
-       var image = document.getElementById('ddaImage');
-       image.src = '/dda/image/dddabong.png';
+      var image = document.getElementById('ddaImage');
+      image.src = '/dda/image/dddabong.png';
    }
 </script>
 <style type="text/css">
@@ -91,7 +93,7 @@
 .reviewsubmit {
    position: relative;
    right: 100px;
-   top: 74px;
+   top: 84px;
    width: 100px;
    height: 100px;
    text-align: center;
@@ -99,15 +101,16 @@
    border: none;
    border-radius: 15px;
 }
+
 .reviewsubmit:hover {
-background-color: #ffba66;
+   background-color: #ffba66;
 }
 
 .reviewcontent {
-float:left;
+   float: left;
    position: relative;
    bottom: 20px;
-   margin-left:30px;
+   margin-left: 30px;
    border-radius: 20px;
    border-color: #e6e6e6;
    padding: 20px;
@@ -115,11 +118,38 @@ float:left;
 }
 
 .reviewattach {
-text-align:right;
+   text-align: right;
    position: relative;
-   left: 20px;
-   bottom: 50px;
-   color:gray;
+   bottom: 75px;
+   color: gray;
+   border: none;
+   outline: none;
+   left: 30px;
+   width: 100%;
+}
+
+.reviewfile {
+   position: relative;
+   left: 77%;
+   margin-top: 10px;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+input[type=file]::file-selector-button {
+   width: 90px;
+   height: 30px;
+   background: #fff;
+   border: 1px solid #ff8c00;
+   border-radius: 10px;
+   cursor: pointer;
+   position: relative;
+   left: -5px;
+}
+
+input[type=file]::file-selector-button:hover {
+   background: rgb(254, 163, 72);
+   color: #fff;
 }
 
 .flex_image {
@@ -140,14 +170,15 @@ text-align:right;
 .center_image img {
    border-radius: 10px;
    position: absolute;
-   top: 0;
+   top: -25px;
    left: 0;
    transform: translate(50, 50);
    width: 100%;
    height: 100%;
    object-fit: cover;
 }
-.review_image{
+
+.review_image {
    width: 200px;
    height: 200px;
    position: relative;
@@ -155,6 +186,7 @@ text-align:right;
    vertical-align: top;
    margin: 10px;
 }
+
 .review_image img {
    border-radius: 10px;
    position: absolute;
@@ -185,7 +217,10 @@ text-align:right;
    height: 100%;
    object-fit: cover;
 }
-
+.mainmenu_image {
+   border-radius: 10px;
+   max-width: 550px;
+}
 .table-bottom {
    padding-bottom: 14px;
 }
@@ -203,30 +238,21 @@ text-align:right;
    background-color: #ffe8cc;
    outline: none;
    margin-left: 10px;
-   margin-top: 10px;
+   margin-top: 80px;
 }
 
 .reservbtn:hover {
    background-color: #ffba66;
 }
-
-.reviewfile {
-   position: relative;
-   text-align:right;
-   left: 78%;
-   margin-top:10px;
-}
-
 /* 리뷰출력 */
 .rev-img {
-margin-left:12px;
+   margin-left: 12px;
    margin-right: 48px;
    margin-top: 10px;
-   margin-bottom:30px;
+   margin-bottom: 30px;
    position: relative;
-      float:left;
+   float: left;
 }
-
 /* 끝 */
 .blind {
    position: absolute;
@@ -244,7 +270,7 @@ margin-left:12px;
    overflow: hidden;
    height: 40px;
    position: relative;
-   right:310px;
+   right: 310px;
 }
 
 .startRadio:after {
@@ -298,6 +324,8 @@ margin-left:12px;
 
 .reviewstar {
    font-size: 15px;
+   position: relative;
+   top: -15px;
 }
 
 .review {
@@ -312,58 +340,69 @@ margin-left:12px;
 }
 
 .dateCreated {
-margin-right:120px;
-   float:right;
+   margin-right: 120px;
+   float: right;
    color: #8c8c8c;
 }
 
 .contentout {
+   width:90%;
    position: relative;
    text-align: left;
    font-size: 25px;
-   margin:30px;
+   margin: 30px;
+}
+
+.regionmark {
+   position: relative;
+   top: 80px;
 }
 
 .storetitle {
+   position: relative;
    float: left;
    font-size: 40px;
-   margin-top: 2px;
+   margin-top: 8.5px;
+   padding-top: 55px;
    margin-bottom: 10px;
    margin-left: 21px;
-}
-
-.subscribestar img {
-	width: 37px;
-	height: 37px;
-	margin-left : 21px;
-	margin-right: 2px;
-	margin-bottom: 5px;
+   margin-bottom: 10px;
 }
 
 .subscribe-div {
-	position: relative;
-	top: 130px;
-	right: 93px;
+   position: relative;
+   top: 80px;
+   right: 45px;
 }
 
-.subscribebtn {
-	text-decoration: none;
-	color: black;
-	font-size: 20px;
-	width: 200px;
-	height:60px;
-	padding: 15px;
-	text-align: left;
-	vertical-align:top;
-	float: right;
-	border-radius: 10px;
-	border: 0px;
-	background-color: #ffe8cc;
-	outline: none;
-	margin-left: 10px;
-	margin-top: -20px;
+.prevsubscribebtn {
+   width: 40px;
+   height: 40px;
+   padding: 15px;
+   text-align: left;
+   float: right;
+   border: none;
+   background-image: url("/dda/image/emptybookmark.png");
+   background-size: cover;
+   background-color: white;
+   margin-left: 10px;
+   margin-top: -47px;
 }
 
+.aftersubscribebtn {
+   width: 40px;
+   height: 40px;
+   padding: 15px;
+   text-align: left;
+   float: right;
+   border: none;
+   background-image: url("/dda/image/fullbookmark.png");
+   background-size: cover;
+   background-color: white;
+   margin-left: 10px;
+   margin-top: -47px;
+   height: 40px;
+}
 
 .monthdda {
    float: left;
@@ -373,23 +412,24 @@ margin-right:120px;
 }
 
 .ddabtn {
-border-style:solid;
-border-width:2.8px;
-padding:10px;
-border-radius:30px;
-   border-color:#ff8c00;
+   border-style: solid;
+   border-width: 2.8px;
+   padding: 10px;
+   border-radius: 30px;
+   border-color: #ff8c00;
    background-size: cover;
    background-color: white;
    width: 100px;
    height: 100px;
 }
+
 .ddabtn:hover {
-background-color: #fff4e6;
+   background-color: #fff4e6;
 }
-.dda-container
-{
-position: relative;
-padding-left: 415px;
+
+.dda-container {
+   position: relative;
+   padding-left: 415px;
 }
 
 .btn {
@@ -454,8 +494,44 @@ padding-left: 415px;
    margin-right: 20px;
 }
 
+.waiting-num {
+   position: relative;
+   top: 73px;
+}
+
 .flex-btn {
    margin-right: 20px;
+}
+
+.reviewmenu {
+   font-size: 30px;
+   margin-top: 10px;
+   margin-left: 30px;
+   color: black;
+   cursor: pointer;
+}
+
+.menudiv {
+   display: none;
+   width: 100px;
+   z-index: 200;
+   border: 1px solid #e6e6e6;
+   float: right;
+   background-color: white;
+   padding: 15px;
+   position: absolute;
+   margin-left: 810px;
+   text-align: center;
+   margin-top: 40px;
+}
+
+.menudiv a {
+   text-decoration: none;
+   color: gray;
+}
+
+.menudiv a:hover {
+   color: #ff8c00;
 }
 </style>
 <title>Insert title here</title>
@@ -463,7 +539,9 @@ padding-left: 415px;
 <body>
    <br>
    <br>
-   <br><br><br>
+   <br>
+   <br>
+   <br>
    <c:set var="storeid" value="" scope="page" />
    <c:forEach items="${registrationlist}" var="regi" varStatus="loop">
       <c:forEach items="${ddabonglist}" var="dda">
@@ -472,17 +550,21 @@ padding-left: 415px;
          <div class="detailtable">
             <table class="storeshow">
                <tr>
-                  <td style="text-align: left;"><img src="/dda/image/pin.png"
-                     width="21px" style="margin-bottom: 5px; margin-left: 21px;">
-                     ${regi.region_name} <c:forEach items="${waitingList}" var="w">
+                  <td style="text-align: left;"><span class="regionmark"><img
+                        src="/dda/image/pin.png" width="21px"
+                        style="margin-bottom: 5px; margin-left: 21px;">
+                        ${regi.region_name}</span> <c:forEach items="${waitingList}" var="w">
                         <c:if test="${regi.store_id == w.store_id}">
-                           <span class="wait"> <img src="/dda/image/user.png">
-                              현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
-                           </span>명
-                           </span>
+                           <div class="waiting-num">
+                              <span class="wait"> <img src="/dda/image/user.png">
+                                 현재 대기 인원: <span style="color: #ff8c00;">${w.waiting_num}
+                              </span>명
+                              </span>
+                           </div>
                            <br>
                         </c:if>
                      </c:forEach></td>
+
                </tr>
 
                <tr>
@@ -498,25 +580,66 @@ padding-left: 415px;
                         </form>
                      </div></td>
                </tr>
-<tr>
-						<div class="subscribe-div">
-							<button class="subscribebtn"
-								onclick="location.href='addsubscribe?store_id=${storeid}&customer_id=${personal.id }'">
-								<span class="subscribestar"> <img
-									src="/dda/image/star.png"></span>&emsp;즐겨찾기
-							</button>
-						</div>
-					</tr>
+
+               <tr>
+                  <div class="subscribe-div">
+                     <script>
+$(document).ready(function() {
+    // 바로 페이지가 열릴 때 Ajax 요청을 실행
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "subscribecheck",
+        data: {
+            storeid: "${storeid}",
+            customerid: "${personal.id}"
+        },
+        success: function(result) {
+            if (result === "idnull") {
+               
+               var subscribeButton = '<button class="prevsubscribebtn"></button>';
+                $('.subscribe-container').html(subscribeButton);
+               
+                 //즐겨찾기 로그인 검사
+                $('.prevsubscribebtn').on('click', function(event) {
+                    if ("${personal.id}" === null || "${personal.id}".trim() === "") {
+                        alert("로그인이 필요합니다.");
+                        event.preventDefault(); // 버튼 클릭 기본 동작 막음
+                        window.location.href = "selectLogin";
+                    }
+                });
+               //즐찾로그인검사 끝
+            }
+        else if (result === "ok") {
+                var subscribeButton = '<button class="prevsubscribebtn" onclick="location.href=\'addsubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+            } 
+            else {
+                var subscribeButton = '<button class="aftersubscribebtn" onclick="location.href=\'canclesubscribe?store_id=${storeid}&customer_id=${personal.id}\'"></button>';
+                $('.subscribe-container').html(subscribeButton);
+            }
+        }
+    });
+});
+</script>
+                     <div class="subscribe-container">
+                        <!-- 버튼이 여기에 동적으로 추가됩니다. -->
+                     </div>
+
+
+
+                  </div>
+               </tr>
                <tr>
                   <td><span class="review"> <c:forEach
                            items="${reviewstarList}" var="re">
                            <c:if test="${regi.store_id == re.store_id}">
                               <span class="reviewstar"> <img
-                                 src="/dda/image/star.png"> ${re.star_score}
-                                 (${re.review_count})
+                                 src="/dda/image/star.png"> ${re.star_score} <b
+                                 style="color: #999999;">(${re.review_count})</b>
                               </span>
                            </c:if>
-                        </c:forEach></td>
+                        </c:forEach></span></td>
                </tr>
                <tr>
                   <td>
@@ -526,7 +649,6 @@ padding-left: 415px;
                   </td>
                </tr>
                <tr>
-
                   <td style="text-align: center; padding: 50px, 50px, 50px, 50px;">
                      <div class="flex_image">
                         <c:forEach items="${regi.imageList}" var="img" varStatus="loop">
@@ -557,35 +679,35 @@ padding-left: 415px;
                               document
                                     .getElementById('modalBackground').style.display = 'block';
                            }
-
                            // 모달 닫기
                            function closeModal() {
                               document.getElementById('myModal').style.display = 'none';
                               document
                                     .getElementById('modalBackground').style.display = 'none';
                            }
-
                            // 전화걸기 버튼에 이벤트 리스너 추가
                            document.getElementById('openModalBtn')
                                  .addEventListener('click',
                                        openModal);
                         </script>
-
                   </td>
                </tr>
                <tr>
                   <td><hr></td>
                </tr>
-                  <tr>
+               <tr>
                   <td
                      style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
-                     <h1 style="margin-top: 30px;">따봉지수</h1> <br><div class="dda-container">
-                     <button class="ddabtn" onmouseover="changeImage()" onmouseout="restoreImage()"
+                     <h1 style="margin-top: 30px;">따봉지수</h1> <br>
+                     <div class="dda-container">
+                        <button class="ddabtn" onmouseover="changeImage()"
+                           onmouseout="restoreImage()"
                            onclick="location.href='ddainput?store_id=${regi.store_id}'">
                            <img id="ddaImage" src="/dda/image/dddabong.png" width="55px"><br>
                            ${dda.totaldda}
-                           </button></div>
-                           <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span> </td>
+                        </button>
+                     </div> <span class="monthdda">이달의 따봉 : ${dda.thismonth}</span>
+                  </td>
                </tr>
                <tr>
                   <td><hr></td>
@@ -594,21 +716,18 @@ padding-left: 415px;
                   <td
                      style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
                      <h1 style="margin-top: 30px;">매장 소개</h1> <br>
-                     <h4>${regi.intro}</h4> <br>
+                     <h4 style="line-height: 30px;">${regi.intro}</h4> <br>
                   </td>
                </tr>
                <tr>
                   <td><hr></td>
                </tr>
-
                <tr>
                   <td
                      style="text-align: left; padding-left: 30px; padding-bottom: 30px;">
                      <h1 style="margin-top: 30px;">대표메뉴</h1>
-                     <div class="mini_image"
-                        style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px; width: 550px; height: 300px;">
-                        <img src="image/${regi.main_image}">
-                     </div>
+                        <img src="image/${regi.main_image}" class="mainmenu_image"
+                        style="margin-top: 40px; margin-bottom: 20px; margin-left: 0px;">
                      <h4>${regi.main_menu}</h4>
                   </td>
                </tr>
@@ -622,7 +741,7 @@ padding-left: 415px;
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4fe6b44c87f95f4fa3f8970e5cc96c7&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 
@@ -632,34 +751,27 @@ padding-left: 415px;
                            level : 3
                         // 지도의 확대 레벨
                         };
-
                         //지도를 생성합니다    
                         var map = new kakao.maps.Map(mapContainer,
                               mapOption);
-
                         //주소-좌표 변환 객체를 생성합니다
                         var geocoder = new kakao.maps.services.Geocoder();
-
                         //주소로 좌표를 검색합니다
                         geocoder
                               .addressSearch(
                                     '${regi.address}',
                                     function(result, status) {
-
                                        // 정상적으로 검색이 완료됐으면 
                                        if (status === kakao.maps.services.Status.OK) {
-
                                           var coords = new kakao.maps.LatLng(
                                                 result[0].y,
                                                 result[0].x);
-
                                           // 결과값으로 받은 위치를 마커로 표시합니다
                                           var marker = new kakao.maps.Marker(
                                                 {
                                                    map : map,
                                                    position : coords
                                                 });
-
                                           // 인포윈도우로 장소에 대한 설명을 표시합니다
                                           var infowindow = new kakao.maps.InfoWindow(
                                                 {
@@ -667,7 +779,6 @@ padding-left: 415px;
                                                 });
                                           infowindow.open(map,
                                                 marker);
-
                                           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                                           map.setCenter(coords);
                                        }
@@ -684,7 +795,7 @@ padding-left: 415px;
          enctype="multipart/form-data">
          <input type="hidden" name="storeid" value="${storeid }"> <input
             type="hidden" name="customerid" value="${personal.id }">
-         <table width="100%" height="100%" style="margin:35px;">
+         <table width="100%" height="100%" style="margin: 35px;">
             <tr>
                <td>
                   <h2 style="text-align: left;">&emsp;리뷰 작성하기</h2> <br>
@@ -722,12 +833,13 @@ padding-left: 415px;
                      </label>
                   </div>
                   <div class="reviewattach">
-                     리뷰할 사진을 모두 선택해 주세요. <input class="reviewfile" name="reviewfile"
-                        type="file" multiple="multiple"></div> 
-                        <textarea class="reviewcontent" rows="3" cols="80"
+                     리뷰할 사진을 모두 선택해 주세요.<input class="reviewfile" name="reviewfile"
+                        type="file" multiple="multiple">
+                  </div> <textarea class="reviewcontent" rows="3" cols="80"
                      name="reviewcontent"></textarea>
                </td>
-               <td><input class="reviewsubmit" type="submit" value="작성하기"></td>
+               <td><button type="submit" class="reviewsubmit">작성하기</button>
+</td>
             </tr>
          </table>
       </form>
@@ -739,14 +851,64 @@ padding-left: 415px;
       <c:set var="id"
          value="${fn:substring(uid, 0, 3)}${replaceid.replaceAll('.', '*')}" />
       <div class="reviewtable">
-         <table width="100%" height="100%" align="center" style="margin:40px;">
+         <table width="100%" height="100%" align="center"
+            style="margin: 40px;">
             <tr style="text-align: left;">
-               <td style="padding-left:23px; font-size: 17px;">${rev.nickname}(${id})
-               <div class="dateCreated">${fn:substring((rev.review_date),0,10) }</div></td>
+               <td style="padding-left: 23px; font-size: 17px;">${rev.nickname}(${id})
+                  <div class="dateCreated">
+                     ${fn:substring((rev.review_date),0,10) } <b class="reviewmenu"
+                        onclick="toggleMenu(${loop.index})">⋯</b>
+                  </div> <c:choose>
+                     <c:when test="${rev.id == personal.id}">
+                        <div id="menu${loop.index}" class="menudiv">
+                           <a href="">수정</a>
+                           <hr>
+                           <a href="javascript:void(0);"
+                              onclick="confirmDelete(${rev.review_num}, ${storeid})">삭제</a>
+                        </div>
+                        <script>
+    function confirmDelete(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
+                     </c:when>
+                     <c:when test="${store.id == storeid}">
+                        <div id="menu${loop.index}" class="menudiv">
+                           <a href="javascript:void(0);"
+                              onclick="confirmDeletestore(${rev.review_num}, ${storeid})">삭제</a>
+                        </div>
+                        <script>
+    function confirmDeletestore(reviewNum, storeId) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = "reviewdelete?review_num="+reviewNum+"&store_id="+storeId;
+        }
+    }
+</script>
+                     </c:when>
+                     <c:otherwise>
+                        <div id="menu${loop.index}" class="menudiv">
+                           <a href="">신고</a>
+                        </div>
+                     </c:otherwise>
+                  </c:choose> <script>
+    function toggleMenu(index) {
+        var menu = document.getElementById("menu" + index);
+        menu.style.display = (menu.style.display === "none") ? "block" : "none";
+    }
+    function editReview(index) {
+    }
+    function deleteReview(index) {
+    }
+</script>
+               </td>
             </tr>
             <tr>
                <td class="starout">
-                  <div class="startRadio" style="margin-left:200px;">
+                  <div class="startRadio" style="margin-left: 200px;">
                      <label class="startRadio__box"> <input type="radio"
                         name="star-${loop.index}" value="0.5"
                         ${rev.star == 0.5 ? 'checked' : ''} class="outstar"> <span
@@ -789,21 +951,18 @@ padding-left: 415px;
                         class="startRadio__img"><span class="blind">별 5개</span></span>
                      </label>
                   </div>
-                  
                </td>
             </tr>
             <tr>
-               <td><div class="rev-img">
-                     <div class="flex_image">
-<%--                         <c:forEach items="${regi.imageList}" var="img" varStatus="loop"> --%>
-<%--                            <c:if test="${loop.index >= 1 && loop.index < 5}"> --%>
-                              <div class="review_image">
-                                 <img src="image/${rev.imageList[0]}">
-                              </div>
-<%--                            </c:if> --%>
-<%--                         </c:forEach> --%>
+               <td><c:if test="${rev.imageList[0]!=null}">
+                     <div class="rev-img">
+                        <div class="flex_image">
+                           <div class="review_image">
+                              <img src="image/${rev.imageList[0]}">
+                           </div>
+                        </div>
                      </div>
-                  </div>
+                  </c:if>
                   <div class="contentout">${rev.content }</div></td>
             </tr>
          </table>

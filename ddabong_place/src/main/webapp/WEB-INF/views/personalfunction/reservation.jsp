@@ -5,18 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-	integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-	integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/dda/images/jquery-ui.css">
+  <script src="/dda/images/jquery-ui.min.js"></script>
 <script>
 $(function() {
 	var num = 1;
@@ -59,7 +58,8 @@ $(function() {
 					url : "duplicatecheck",
 					data : {
 						customer_id : "${personal.id}",
-						reservation_date : reservation_date
+						reservation_date : reservation_date,
+						storeidid : "${storeID}"
 					},
 					success : function(result) {
 						if (result === "ok") {
@@ -90,7 +90,8 @@ $(function() {
 		dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
 		dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
 		showMonthAfterYear : true,
-		yearSuffix : '년'
+		yearSuffix : '년',
+		minDate: 0
 	});
 	$(function() {
 		$('.datepicker').datepicker();

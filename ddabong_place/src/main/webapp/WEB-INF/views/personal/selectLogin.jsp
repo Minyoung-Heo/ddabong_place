@@ -45,7 +45,7 @@ p {
 		<!-- 		사용자 유형 설정 -->
 		<div class="box" onclick="location.href='personalLogin'">
 			<img class="imga" alt="사용자" src="/dda/image/user.png"><br>
-			<p1>회원용 로그인</p1>
+			<p1>손님용 로그인</p1>
 			<br> <br> <br>
 			<p>일반 회원으로 로그인을 합니다.</p>
 		</div>

@@ -68,7 +68,6 @@ font-size:25px;
 .btn:hover {
 	background-color: #ffba66;
 }
-
 .div-container {
     margin-top: 30px;
     display: flex;
@@ -244,12 +243,12 @@ font-size: 15px;
 						<span style="color:#ff8c00;">${w.waiting_num} </span>명</span> 
 						</c:if>
 						</c:forEach>
-						<br><br>
+						<br><br><br>
 						<c:forEach items="${reviewList}" var="re">
 						<c:if test="${dto.store_id == re.store_id}">
 						<span class="review">
 						<img src="/dda/image/star.png">
-						${re.star_score} (${re.review_count})</span> 
+						${re.star_score} <b style="color: #999999;">(${re.review_count})</b></span> 
 						</c:if>
 						</c:forEach>
 					</div>

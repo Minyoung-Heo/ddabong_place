@@ -52,8 +52,6 @@
 }
 
 .question th {
-    border-top: 2px solid #ff8c00;
-    border-bottom: 2px solid #ff8c00;
     padding:15px;
     text-align: center;
 }
@@ -76,6 +74,23 @@
 }
 
 .btn:hover {
+    background-color:#ffba66;
+}
+.searchbtn {
+    background-color: #ffe8cc;
+   	border:0;
+   	padding-right:10px;
+   	padding-left:10px;
+   	padding-top:7px;
+   	padding-bottom:7px;
+   	border-radius: 5px;
+   	font-size: 16px;
+   	color:black;
+   	margin:3px;
+   	
+}
+
+.searchbtn:hover {
     background-color:#ffba66;
 }
 .question .paging:hover {
@@ -117,25 +132,32 @@
             <table class="question" align="center">
             <caption>
             <form action="storeSearch">
-            <select name="searchType">
+            <select name="searchType" style="margin-right:3px;">
             <option value="groups">문의번호</option>
             <option value="title">제목</option>
             <option value="writer">작성자</option>
             </select>
             <input type="text" name="searchContent">
-            <input type="submit" value="검색">
+            <input type="submit" value="검색" class="searchbtn">
             </form>
             </caption>
             
-                <tr style="background-color: #ffd199;"><th>문의 번호</th><th>문의 유형</th><th>제목</th><th>작성자</th><th>작성일자</th></tr>
+                <tr style="background-color: #ffd199;"><th>문의 번호</th><th>문의 유형</th>
+                <th width="38%">제목</th><th>작성자</th><th>작성일자</th></tr>
                 <c:forEach items="${list}" var="dto">
                     <tr>
                         <td>${dto.question_num}</td><td>${dto.questionType}</td>
+                        <c:choose>
+                        <c:when test="${fn:contains(dto.title, '[공지사항]')}">
+                        <td><a href="qnadetail?question_num=${dto.question_num}">${dto.title}</a></td>
+                        </c:when>
+                        <c:otherwise>
                         <td><a href="javascript:void(0);" onclick="insertPw(${dto.pw},${dto.question_num})">
                         <c:forEach begin="1" end="${dto.indent}" step="1">
-                        <img src="/dda/image/re.png" width="15px">
-                        </c:forEach>
+						<img src="/dda/image/re.png" width="15px"></c:forEach>
                         ${dto.title}</a></td>
+                        </c:otherwise>
+                        </c:choose>
                         <td>${dto.writer}</td><td>${fn:substring(dto.question_date,0,16)}</td>
                     </tr>
                 </c:forEach>

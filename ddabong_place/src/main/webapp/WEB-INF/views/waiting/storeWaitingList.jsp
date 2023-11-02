@@ -51,8 +51,6 @@
 }
 
 .question th {
-	border-top: 2px solid #ff8c00;
-	border-bottom: 2px solid #ff8c00;
 	padding: 15px;
 	text-align: center;
 }
@@ -94,14 +92,13 @@
 	<div class="div-container">
 		<div class="category">
 			<h1>예약 / 웨이팅 관리</h1>
-			<a href="storeStatus?store_id=${store.id}">예약 현황</a><br> <a
+			<a href="storeStatus?store_id=${store.id}">예약 리스트</a><br> <a
 				href="waitinglist?store_id=${store.id}" style="color: #ff8c00;">웨이팅
 				리스트</a><br>
 
 		</div>
 
 		<div class="qna">
-			<c:forEach items="${waitingList}" var="dto">
 				<h1 style="text-align: left;">웨이팅 리스트</h1>
 				<br>
 				<table class="question" align="center">
@@ -112,6 +109,7 @@
 						<th>대기번호</th>
 						<th>대기자 호출</th>
 					</tr>
+			<c:forEach items="${waitingList}" var="dto">
 					<tr>
 						<td>${dto.name}</td>
 						<td>${dto.phone}</td>
@@ -130,9 +128,8 @@
 									onclick="location.href='call?store_id=${store.id}&waiting_num=${dto.waiting_num}'">
 							</c:if></td>
 					</tr>
-				</table>
 			</c:forEach>
-
+				</table>
 		</div>
 	</div>
 </body>

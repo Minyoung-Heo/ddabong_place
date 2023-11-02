@@ -27,16 +27,16 @@ public class PersonalFnController {
 	@Autowired
 	SqlSession sqlSession;
 
-	static String imagepath = "C:\\Users\\Brother_zin\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
+	static String imagepath = "C:\\Users\\wjdql\\ddabong_place\\ddabong_place\\src\\main\\webapp\\image";
 
+	
 	// 매장 상세 정보,해당 매장 리뷰 등을 출력.
 	@RequestMapping(value = "/detailview")
 	public String detailview(HttpServletRequest request, Model mo) {
 		String storeID = request.getParameter("store_id");
-	if(storeID == null)
-	{
-		storeID=request.getParameter("storeID");
-	}
+		if (storeID == null) {
+			storeID = request.getParameter("storeID");
+		}
 		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
 		String month; // 문자 월
 		switch (mon) { // 숫자 월을 문자 월로 변환
@@ -133,6 +133,17 @@ public class PersonalFnController {
 		return "reservation";
 	}
 
+	// 리뷰 삭제
+	@RequestMapping(value = "/reviewdelete")
+	public String reviewdelete(HttpServletRequest request, Model mo) {
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
+		String store_id = request.getParameter("store_id");
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.reviewDelete(review_num);
+
+		return "redirect:/detailview?store_id=" + store_id;
+	}
+
 	// 예약내역을 저장.
 	@RequestMapping(value = "/reservsave")
 	public String reservsave(HttpServletRequest request, Model mo) {
@@ -152,7 +163,7 @@ public class PersonalFnController {
 
 	// 리뷰 데이터를 저장.
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public String reviewsave(MultipartHttpServletRequest mul,Model mo,HttpServletRequest request) {
+	public String reviewsave(MultipartHttpServletRequest mul, Model mo, HttpServletRequest request) {
 		List<MultipartFile> filelist = mul.getFiles("reviewfile");
 		String content = mul.getParameter("reviewcontent").replace("\n", "<br>");
 		double star = Double.parseDouble(mul.getParameter("star"));
@@ -180,16 +191,31 @@ public class PersonalFnController {
 		Double reservnum = (double) reservnumlist.get(0).getReservation_num();
 		ss.reviewsave(reservnum, content, imagesname, star, dateString);
 
-		
 		return "redirect:/detailview?storeID=" + storeid;
 	}
-	
+
 	// 리뷰 작성전 예약이력 체크
 	@ResponseBody
 	@RequestMapping(value = "/reviewcheck")
 	public String reviewcheck(String storeid, String customerid) {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		int cnt = ss.reviewcheck(customerid, storeid);
+		
+		String bb = null;
+		if (cnt != 0) {
+			bb = "ok";
+		} else {
+			bb = "";
+		}
+		return bb;
+	}
+
+	// 예약 중복 확인
+	@ResponseBody
+	@RequestMapping(value = "/duplicatecheck")
+	public String duplicatecheck(String customer_id, String reservation_date, String storeidid) {
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		int cnt = ss.duplicatecheck(customer_id , reservation_date , storeidid);
 		String bb = null;
 		if (cnt == 0) {
 			bb = "ok";
@@ -198,22 +224,6 @@ public class PersonalFnController {
 		}
 		return bb;
 	}
-	
-	// 예약 중복 확인
-	@ResponseBody
-	@RequestMapping(value = "/duplicatecheck")
-	public String duplicatecheck(String customer_id,String reservation_date) {
-		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		int cnt=ss.duplicatecheck(customer_id,reservation_date);
-		String bb = null;
-		if (cnt == 0) {
-			bb = "ok"; 
-		} else {
-			bb = "";
-		}
-		return bb;
-	}
-	
 
 	// 예약현황
 	@RequestMapping(value = "/myStatus", method = RequestMethod.GET)
@@ -234,15 +244,15 @@ public class PersonalFnController {
 		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
 		ss.reservationDelete(reservation_num);
 
-		return "redirect:/myStatus?customer_id="+customer_id;
+		return "redirect:/myStatus?customer_id=" + customer_id;
 	}
-	
-	//따봉 클릭
+
+	// 따봉 클릭
 	@RequestMapping(value = "/ddainput", method = RequestMethod.GET)
 	public String ddainput(HttpServletRequest request) {
-		
+
 		String store_id = request.getParameter("store_id");
-		
+
 		int mon = LocalDate.now().getMonthValue(); // 현재 월을 숫자 1~12 로 받아옴
 		String month; // 문자 월
 		switch (mon) { // 숫자 월을 문자 월로 변환
@@ -283,9 +293,79 @@ public class PersonalFnController {
 			month = "dcb";
 		}
 
-		PersonalFnService ss=sqlSession.getMapper(PersonalFnService.class);
-		ss.ddaplus(month,store_id);
-		
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.ddaplus(month, store_id);
+
 		return "redirect:/detailview?storeID=" + store_id;
 	}
+
+	// 즐겨찾기 등록
+	@RequestMapping(value = "/addsubscribe", method = RequestMethod.GET)
+	public String addsubscribe(HttpServletRequest request) {
+		String store_id = request.getParameter("store_id");
+		String customer_id = request.getParameter("customer_id");
+		
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.addsubscribe(customer_id, store_id);
+
+		return "redirect:/detailview?storeID=" + store_id;
+	}
+
+	// 즐겨찾기 여부 확인
+	@ResponseBody
+	@RequestMapping(value = "/subscribecheck")
+	public String subscribecheck(String storeid, String customerid) {
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		int cnt = ss.subscribecheck(customerid, storeid);
+
+		String bb = null;
+		if(customerid == null || customerid.equals(""))
+		{
+			bb= "idnull";
+		}
+		
+		else if (cnt == 0) { // 즐겨찾기 미등록.
+			bb = "ok";
+		} 
+		
+		else{
+			bb = "";
+		}
+		return bb;
+	}
+
+	// 즐겨찾기 삭제
+	@RequestMapping(value = "/canclesubscribe", method = RequestMethod.GET)
+	public String canclesubscribe(HttpServletRequest request) {
+		String store_id = request.getParameter("store_id");
+		String customer_id = request.getParameter("customer_id");
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ss.canclesubscribe(customer_id, store_id);
+
+		return "redirect:/detailview?storeID=" + store_id;
+	}
+	
+	// 즐겨찾기 출력
+	@RequestMapping(value = "/starlist")
+	public String starlist(HttpServletRequest request, Model md) {
+		String customer_id = request.getParameter("customer_id");
+
+		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
+		ArrayList<SubscribeDTO> list = ss.starlist(customer_id);
+		
+		for (SubscribeDTO image1 : list) {
+			String image = image1.getImage();
+
+			if (image != null && !image.isEmpty()) {
+				String[] imageFileNames = image.split("[,\\s]+");
+
+				List<String> imageList = new ArrayList<>(Arrays.asList(imageFileNames));
+				image1.setImageList(imageList);
+			}
+		}
+		md.addAttribute("list", list);
+
+		return "starlist";
+		}
 }

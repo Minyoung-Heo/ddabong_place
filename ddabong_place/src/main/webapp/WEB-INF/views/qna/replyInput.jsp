@@ -30,11 +30,14 @@
 .category a:hover {
 	color:#ff8c00;
 }
-.question {
+.question, .questionRe {
 margin-top: 20px;
 width: 90%;
 text-align: left;
 font-size: 20px;
+}
+.questionRe {
+margin-top: 50px;
 }
 .qna {
 margin-top: 20px;
@@ -42,7 +45,7 @@ text-align: center;
 font-size: 25px;
 width: 85%;
 }
-.question input[type='text'] {
+.questionRe input[type='text'] {
 width: 70%;
   height: 50px;
   border-radius: 30px;
@@ -52,9 +55,9 @@ width: 70%;
   border: 1px solid #ff8c00;
   outline: none;
 }
-.question textarea {
+.questionRe textarea {
 	  border-radius: 30px;
-  margin-top: 10px;
+  margin-top: 30px;
   padding: 20px;
   border: 1px solid #ff8c00;
   outline: none;
@@ -69,6 +72,20 @@ width: 70%;
 
 .btn:hover {
     background-color:#ffba66;
+}
+.question {
+line-height:50px;
+margin-bottom: 50px;
+}
+.question th, .question td {
+border-top: 2px solid #ffba66;
+border-bottom:2px solid #ffba66;
+padding: 15px;
+}
+.question  th {
+background-color: #ffd199;
+font-weight: normal;
+border-right: 2px solid #ffba66;
 }
 </style>
 <script type="text/javascript">
@@ -96,17 +113,17 @@ function replySubmit(){
 		<h1 style="text-align: left;">Q&A 답변하기</h1><br>
     <table class="question" align="center">
         <tr>
-            <td>문의 유형</td>
+            <th>문의 유형</th>
             <td>${dto.questionType}</td>
         </tr>
-        <tr><td>제목</td><td>${dto.title}</td></tr>
-        <tr><td>작성자</td><td>${dto.writer}</td></tr>
-        <tr><td>작성일자</td><td>${fn:substring(dto.question_date,0,16)}</td></tr>
-        <tr><td>문의내용</td><td>${dto.content}</textarea></td></tr>
+        <tr><th>제목</th><td>${dto.title}</td></tr>
+        <tr><th>작성자</th><td>${dto.writer}</td></tr>
+        <tr><th>작성일자</th><td>${fn:substring(dto.question_date,0,16)}</td></tr>
+        <tr><th>문의내용</th><td>${dto.content}</textarea></td></tr>
     </table>
     <hr>
      <form action="replyInputSave" method="post" name="reply">
-    <table class="question" align="center">
+    <table class="questionRe" align="center">
     		<input type="hidden" name="userType" value="${dto.userType}">
     		<input type="hidden" name="questionType" value="답변">
 	        <input type="hidden" name="id" value="${personal.id}">
@@ -115,8 +132,8 @@ function replySubmit(){
      	   <input type="hidden" name="groups" value="${dto.groups}">
      	   <input type="hidden" name="step" value="${dto.step}">
      	   <input type="hidden" name="indent" value="${dto.indent}">
-        <tr><td>제목</td><td><input type="text" name="title"></td></tr>
-        <tr><td>답변</td><td><textarea cols="60" rows="10" name="content"></textarea></td></tr>
+        <tr><td>제목</td><td><input type="text" name="title" value="re : ${dto.title}"></td></tr>
+        <tr><td>답변</td><td><textarea cols="60" rows="10" name="content">안녕하세요? 따봉플레이스입니다.</textarea></td></tr>
         <tr><td colspan="2" style="text-align: center;"><input class="btn" type="button" value="등록" onclick="replySubmit()">
         <input style="margin-right:100px;" class="btn" type="button" value="목록" onclick="window.history.back()"></td></tr>
     </table>
