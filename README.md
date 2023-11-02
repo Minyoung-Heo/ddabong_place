@@ -16,7 +16,7 @@
 
 |   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
 | :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/860b73a8-aa20-4489-b5f5-c37a03aa7b67)           | ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/00a35cc4-3426-4274-bab0-b01ab3e16188) | ![KakaoTalk_20231102_115227020_02](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/485fb9b5-36cd-4879-b103-cb51ba842294) |![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7963876b-c39f-4332-88d9-274717058040)  | 
+| Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/860b73a8-aa20-4489-b5f5-c37a03aa7b67)           | ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/00a35cc4-3426-4274-bab0-b01ab3e16188) | ![형진](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/32a11d48-a8a6-445c-8308-1197ab508c49)|![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7963876b-c39f-4332-88d9-274717058040)  | 
 | Position | 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
 
