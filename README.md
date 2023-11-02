@@ -16,7 +16,7 @@
 
 |   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
 | :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/860b73a8-aa20-4489-b5f5-c37a03aa7b67)           | ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/00a35cc4-3426-4274-bab0-b01ab3e16188) | ![형진](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/32a11d48-a8a6-445c-8308-1197ab508c49)|![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7963876b-c39f-4332-88d9-274717058040)  | 
+| Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5f054793-0368-4fc1-83c0-4ef9b8f10415)| ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b1f7c261-8a21-4002-aa5f-7361ad23f2d5) | ![형진](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/ac9a7fa6-b0a8-486f-ad3d-bb92f5fd3d75)|![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/75f72e50-e2dd-46f8-820d-7c6358a61c87) | 
 | Position | 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
 
@@ -46,11 +46,13 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 ### 📌  유스케이스 다이어그램 (Use Case Diagram)
 
-![1101최신화 drawio](https://github.com/Minyoung-Heo/ddabong_place/assets/104006894/b95f0d02-8f88-48a7-87fa-afa5cffc1e8a)
+
+
 
 ### 📌  Database ERD (Entity Relation Diagram)
 
-![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/104006894/d1edd029-dad6-4a90-8149-80493df91f02)
+
+![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/8f275ee0-89b9-458b-a5cb-d5b90a931c46)
 
 
 
@@ -84,77 +86,71 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 - Oracle SQL Developer
 
   
-# 📌 기능 소개
+# 📌 주 기능 소개
 **메인화면**
 
 ![메인화면](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/11c809e4-4457-4b8d-bacd-aa6563f70b9a)
-
-
-**이달의 따봉왕**
-
-
-**따봉 어워드**
-
-
-**예약 HOT 랭킹**
 
 
 **예약**
 
 - 카페 예약
 
-![카페예약](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/a2a67b4f-c1f9-47c1-a312-46ffbf886f0d)
+![카페예약](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/9323067a-1957-4493-ade0-b75cdd047c77)
 
 
 - 예약 취소
 
+![카페예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/592cf959-b226-4d54-b049-e58d5770706f)
 
-![카페예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/2bcaf458-7c4d-48f3-af69-26c0202b7da8)
 
 - 업체 측 예약 확인
 
-![업체예약현황](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/484f741c-21aa-4a63-af5c-adb0ad32512e)
+![업체예약현황](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3b677a0a-16f9-4a4f-b3a0-7562b51be5ea)
 
 
 - 업체 측 예약 취소하기
 
- ![업체측예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1ed404bc-39ed-4f67-b6bc-6c433f2330ea)
+![업체측예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/defcb77b-19ea-4af0-9c80-35630d8b9e8f)
+
   
 **웨이팅**
 
 - 웨이팅
 
-![웨이팅](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3aa80f73-e19d-414a-8ab5-cedc0f116680)
+![웨이팅](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1f27ba1e-d3a3-4609-9981-7e5b47c296b4)
 
 - 웨이팅 취소
 
-![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7bf133a3-5f67-4ff0-9a94-936db1934a14)
+![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fbf30495-e160-4ee6-b544-262551e98087)
 
 - 업체 측 웨이팅 호출
 
-![웨이팅호출](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/edf5fdd4-5739-48a5-86e7-6e8b0f5b3433)
+![웨이팅호출](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fc51b875-53a5-44ab-a16c-801475ca1814)
 
 
 - 손님 측 웨이팅 입장하기
 
-![손님입장하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/76db8bb9-80d7-4795-b158-bc1be4df4f00)
+![손님입장하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/08b6dd14-2326-4682-a97b-a03002168f50)
 
 
 **리뷰**
 
 - 로그인 전
 
-![로그인전리뷰](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/3af75653-71c4-4442-9140-774a1dc8a52b)
+![로그인전리뷰](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/49980a44-ca2c-4b0e-b692-090cc3ac775e)
+
 
 - 로그인 후 리뷰 달기
 
 
-![리뷰달기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e5a32e49-f09c-47d0-a7a8-68e5381455fb)
+![리뷰달기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b61e2803-af7d-429d-97c1-fb44d31f97c6)
 
 
 - 리뷰 삭제
 
-![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/0719281b-2cdd-4390-802d-cac6c58182d6)
+![Uploading 리뷰삭제.gif…]()
+
 
 
 ## 📌 [다른 기능 더 보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
