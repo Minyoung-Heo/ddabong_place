@@ -111,7 +111,15 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 ![카페예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/2bcaf458-7c4d-48f3-af69-26c0202b7da8)
 
+- 업체 측 예약 확인
 
+![업체예약현황](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/484f741c-21aa-4a63-af5c-adb0ad32512e)
+
+
+- 업체 측 예약 취소하기
+
+ ![업체측예약취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1ed404bc-39ed-4f67-b6bc-6c433f2330ea)
+  
 **웨이팅**
 
 - 웨이팅
