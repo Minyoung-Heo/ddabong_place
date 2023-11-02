@@ -1,8 +1,15 @@
+![전체로고](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/969d33e3-478c-440b-9483-4963b95073fe)
+
 # ☕ 카페 예약 / 웨이팅 플랫폼 따봉플레이스(DDABONG_PLACE)
 따봉플레이스는 JAVA 와 Sping MVC 를 기반으로 제작한 프로젝트입니다.
 
 
 이용자는 손님 측 / 업체 측으로 나뉘며, Q&A를 관리하는 관리자 계정(admin)을 갖습니다.
+
+
+## 🗓️ 프로젝트 제작 기간
+기간 : 2023/10/02 ~ 2023/11/03 (약 1개월)
+
 
 
 ## 👨‍👩‍👧‍👦 프로젝트 팀 구성
@@ -19,8 +26,14 @@
 
 표가은 - 업체 측 매장 입력, 출력, 수정, 삭제, CSS / 즐겨찾기 목록 출력, CSS/ 퀴즈 결과 CSS / 따봉 어워드 CSS / PPT 작성
 
-## 🗓️ 프로젝트 제작 기간
-기간 : 2023/10/02 ~ 2023/11/03 (약 1개월)
+
+|   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
+| :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
+| Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/860b73a8-aa20-4489-b5f5-c37a03aa7b67)           | ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/00a35cc4-3426-4274-bab0-b01ab3e16188) | ![KakaoTalk_20231102_115227020_02](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/485fb9b5-36cd-4879-b103-cb51ba842294) |![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/7963876b-c39f-4332-88d9-274717058040)  | 
+| Position | 프로젝트 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                                     |
+|   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
+
+
 
 # 📝 프로젝트 구성 및 설계
 
