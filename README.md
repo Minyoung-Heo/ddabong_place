@@ -47,7 +47,7 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 ### 📌  유스케이스 다이어그램 (Use Case Diagram)
 
-
+![다이어그램](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/50d1e0b3-89b0-4849-aca8-18443bb178a3)
 
 
 ### 📌  Database ERD (Entity Relation Diagram)
