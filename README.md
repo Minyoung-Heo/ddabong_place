@@ -150,7 +150,8 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 - 리뷰 삭제
 
-![Uploading 리뷰삭제.gif…]()
+![리뷰삭제](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/e7299acc-5367-49b7-a6ce-d3681348c3f3)
+
 
 
 
