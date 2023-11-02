@@ -43,33 +43,45 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 ![ERD](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/8f275ee0-89b9-458b-a5cb-d5b90a931c46)  
 
 ### 📌 사용 기술
+<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQuery&logoColor=white"/>
+<img src="https://img.shields.io/badge/ORACLE-F80000?style=flat-square&logo=oracle&logoColor=white"/>
+<img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black"/>
+<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white"/>
+
 <details>
 <summary><b> 백엔드</b></summary>
 <ul>
-  <li><img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"></li>
-  <li><img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/></li>
+  <li>JAVA 11</li>
+  <li>Spring MVC</li>
   <li>JSP</li>
   <li>MyBatis</li>
   <li>AJAX</li>
+  <li>JSON</li>
 </ul>
 </details>
 
  <details>
 <summary><b> 프론트엔드</b></summary>
 <ul>
-  <li><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/></li>
-  <li><img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
-</li>
-  <li><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/></li>
-  <li><img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQuery&logoColor=white"/></li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>JQuery</li>
 </ul>
 </details>
 
 <details>
 <summary><b> DB & WAS</b></summary>
 <ul>
-  <li><img src="https://img.shields.io/badge/ORACLE-F80000?style=flat-square&logo=oracle&logoColor=white"/></li>
-  <li><img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black"/></li>
+  <li>Oracle(Oracle Database 11g Express Edition Release 11.2.0.2.0)</li>
+  <li>Tomcat 9(9.0.64)</li>
 </ul>
 </details>
 
@@ -78,6 +90,7 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 <ul>
   <li>Windows 11</li>
   <li>Eclipse(2022-12)</li>
+  <li>Git</li>
   <li>GitHub</li>
   <li>Fork</li>
   <li>Oracle SQL Developer</li>
