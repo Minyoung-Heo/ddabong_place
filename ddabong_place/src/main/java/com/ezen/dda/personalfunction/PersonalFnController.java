@@ -21,8 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.dda.cafe.CafeDTO;
 import com.ezen.dda.cafe.CafeService;
-import com.ezen.dda.calendar.CalendarDTO;
-import com.ezen.dda.calendar.CalendarService;
+
 
 @Controller
 public class PersonalFnController {
@@ -247,17 +246,6 @@ public class PersonalFnController {
 		ss.reservationDelete(reservation_num);
 
 		return "redirect:/myStatus?customer_id=" + customer_id;
-	}
-	
-	// 캘린더로 예약 확인
-	@RequestMapping(value = "/storecalendar")
-	public String calendar(HttpServletRequest request, Model md) {
-		String store_id = request.getParameter("store_id");
-		PersonalFnService ss = sqlSession.getMapper(PersonalFnService.class);
-		ArrayList<ReservationDTO> list = ss.calendar(store_id);
-		md.addAttribute("list", list);
-
-		return "calendar";
 	}
 		
 	// 따봉 클릭

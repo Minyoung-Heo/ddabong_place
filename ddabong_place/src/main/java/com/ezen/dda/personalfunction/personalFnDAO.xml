@@ -83,11 +83,6 @@ WHERE a.store_id = #{param1}
 		delete RESERVATION where reservation_num=#{param1}
 	</delete>
 	
-	<!-- 캘린더로 예약 확인 -->
-	<select id="calendar" resultType="com.ezen.dda.personalfunction.ReservationDTO">
-		select * from reservation where store_id=#{param1}
-	</select>
-	
 <!-- 	따봉 수 추가 -->
 	<update id="ddaplus">
 	update ddabong set ${param1} = ${param1} + 1 where store_id = #{param2}
