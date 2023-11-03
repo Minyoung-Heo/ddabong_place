@@ -1,0 +1,28 @@
+REM INSERTING into EZEN.STORE
+SET DEFINE OFF;
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111113','12345','박지훈','01012345678','jihun@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111111','12345','김민지','01012312345','kim@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111112','12345','김민수','01055554444','minsu@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111114','12345','김수미','01045644564','qwer1234@daum.net');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111115','12345','이설현','01099999999','surl@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111116','12345','우영일','01088887777','woo8888@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111117','12345','최미현','01067674747','michoi@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111111','c12345','체다앤올리','024681003','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111112','c12345','서울앵무새','07088462025','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111113','c12345','파머스카페','050714714223','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111114','c12345','성수동대림창고갤러리','050713909669','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111115','c12345','학림','027422877','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('4111111116','c12345','삼원샏','050714280233','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('2111111111','123qwe','김정월','01012341234','jeongwol@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('2111111112','123qwe','홍길동','01045637283','bonbouquet@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('2111111113','123qwe','고길동','01023231421','dangok@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('2111111114','123qwe','박지구','01043645763','chunjang@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111111','123qwe','호랑이','01020616682','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111112','123qwe','여운','050713811546','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111113','123qwe','에이라운드','050714102029','ahj13k@gmail.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111114','123qwe','트레스드','050713241844','tressed@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111115','123qwe','앤티크커피','050713557017','antique__coffee@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111116','123qwe','콩당콩','050714151214','kongdangkongdang@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('3111111117','123qwe','하우스서','050713036683','hows@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('5555555555','12345','김따봉','김따봉','dda@naver.com');
+Insert into EZEN.STORE (IDD,PW,CEO,PHONE,EMAIL) values ('1111111118','12345','박따봉','01011111111','dda@naver.com');
