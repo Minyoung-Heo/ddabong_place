@@ -65,12 +65,6 @@
 		delete from store where id=#{param1}
 	</delete>
 
-	<!-- 매장 예약 현황 -->
-	<select id="storestatus"
-		resultType="com.ezen.dda.calendar.CalendarDTO">
-		select * from reservation
-	</select>
-
 	<!-- 업체 가입 -->
 	<insert id="storejoin">
 		insert into store values
