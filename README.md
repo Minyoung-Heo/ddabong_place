@@ -25,7 +25,7 @@
 | Profile  | ![민영](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5f054793-0368-4fc1-83c0-4ef9b8f10415)| ![정빈](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/b1f7c261-8a21-4002-aa5f-7361ad23f2d5) | ![형진](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/ac9a7fa6-b0a8-486f-ad3d-bb92f5fd3d75)|![가은](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/75f72e50-e2dd-46f8-820d-7c6358a61c87) | 
 | Position | 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
-|   E-mail    | heo8821@naver.com                | wjdqls1199@gmail.com           | ahj13k@naver.com                | pyo6659@naver.com                |
+|   E-mail    | heo8821@naver.com| wjdqls1199@naver.com| ahj13k@naver.com| pyo6659@naver.com|
 
 ### 🧑‍💻 역할 
 **허민영**  
