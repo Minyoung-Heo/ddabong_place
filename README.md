@@ -2,13 +2,15 @@
 
 
 # ☕ 카페 예약 / 웨이팅 플랫폼 따봉플레이스(DDABONG_PLACE)
+
+
 따봉플레이스는 JAVA 와 Sping MVC 를 기반으로 제작한 프로젝트입니다.  
 
 이용자는 손님 측 / 업체 측으로 나뉘며, Q&A를 관리하는 관리자 계정(admin)을 갖습니다. 
 
+## 🖼️ 따봉플레이스를 소개합니다 !
 
 ![소개글](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c9c8fb80-3d74-403f-9844-4356fe2cc4e6)
-
 
 
 ## 🗓️ 프로젝트 제작 기간  
