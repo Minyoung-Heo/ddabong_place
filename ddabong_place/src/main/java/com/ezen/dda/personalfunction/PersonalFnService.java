@@ -37,5 +37,7 @@ public interface PersonalFnService {
 	
 	public void reviewDelete(int review_num);
 
+	public ArrayList<ReservationDTO> calendar(String store_id); //캘린더 예약 확인
+
 
 }

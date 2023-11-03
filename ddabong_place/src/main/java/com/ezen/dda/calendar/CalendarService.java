@@ -1,19 +1,14 @@
 package com.ezen.dda.calendar;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-//@Service("calendarService")
-//public class CalendarServiceImpl implements CalendarService {
-//
-//	@Autowired
-//	private CalendarDAO calendardao;
-//
-//	@Override
-//	public List<CalendarDTO> getCalendar() throws Exception {
-//		return calendardao.getCalendar();
-//	}
-//}
- 
+import com.ezen.dda.personalfunction.ReservationDTO;
+
+public interface CalendarService {
+
+	/* ArrayList<CalendarDTO> calendar(String id); */
+
+}

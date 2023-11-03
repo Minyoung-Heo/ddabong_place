@@ -741,7 +741,7 @@ $(document).ready(function() {
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4fe6b44c87f95f4fa3f8970e5cc96c7&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a720d64ada1b8b6160cfec29db00d711&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 

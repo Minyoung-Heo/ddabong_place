@@ -1,15 +1,31 @@
 package com.ezen.dda.calendar;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CalendarController{
 	
-	@RequestMapping(value = "/calendar")
-	public String cal1(){
-		return "storestatus";
-	}
+//	@Autowired
+//	SqlSession sqlSession;
+//	
+//	// 캘린더
+//	@RequestMapping(value = "/storecalendar")
+//	public String store6(HttpServletRequest request, Model md) {
+//		String id = request.getParameter("store_id");
+//		CalendarService cs = sqlSession.getMapper(CalendarService.class);
+//		ArrayList<CalendarDTO> list = cs.calendar(id);
+//		md.addAttribute("list", list);
+//		
+//		return "calendar";
+//	}
 }
 //import java.util.HashMap;
 //import java.util.List;

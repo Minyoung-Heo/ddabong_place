@@ -5,8 +5,8 @@
 
 <mapper namespace="com.ezen.dda.calendar.CalendarService">
 
-<select id="calendarList" resultType="com.ezen.dda.calendar.CalendarDTO">
+<!-- <select id="calendar" resultType="com.ezen.dda.calendar.CalendarDTO">
 	select * from reservation
-</select>
+</select> -->
 
 </mapper>

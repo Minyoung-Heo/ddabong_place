@@ -26,14 +26,9 @@
             initialView: 'dayGridMonth',
             events: [
                 {
-                    title: 'hello',
-                    start: '2023-10-18 10:30:00',
-                    end: '2023-10-18 12:30:00'
-                },
-                {
-                    title: '반가와요',
-                    start: '2023-10-23 17:30:00',
-                    end: '2023-10-23 19:30:00'
+                	title: ${store.id},
+                    start: '2023-11-18 10:30:00',
+                    end: '2023-11-18 12:30:00'
                 }
             ],
             headerToolbar: {
@@ -43,12 +38,12 @@
             }
         });
 
-        // "ADD" 버튼 클릭 이벤트 핸들러 추가
+        /* // "ADD" 버튼 클릭 이벤트 핸들러 추가
         $(document).on("click", "#add", function () {
             $("#calendarModal").modal("show");
-        });
+        }); */
 
-        // Modal 내에서 추가 버튼 클릭 이벤트 핸들러
+       /*  // Modal 내에서 추가 버튼 클릭 이벤트 핸들러
         $("#btn.btn-primary").on("click", function () {
             var content = $("#calendar_content").val();
             var start_date = $("#reservation_start_date").val();
@@ -70,7 +65,7 @@
 
                 console.log(obj); // 서버로 해당 객체를 전달해서 DB 연동 가능
             }
-        });
+        }); */
         calendar.render();
     });
 
@@ -80,6 +75,7 @@
 #calendar{
 	width: 100%;
 	font-size: 15px;
+	margin-top: 3%;
 }
 .fc-day-sat {
     color: blue; /* 토요일과 일요일 텍스트 색상을 빨간색으로 설정 */
@@ -97,8 +93,8 @@
     <div id="calendarBox">
         <div id="calendar"></div>
     </div>
-<!-- <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script>
-    <!-- modal 추가 -->
+<!-- <!-- Cloudflare Pages Analytics<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script>
+    modal 추가
     <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -124,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>

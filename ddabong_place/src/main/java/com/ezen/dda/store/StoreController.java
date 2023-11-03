@@ -252,12 +252,12 @@ public class StoreController {
 		return "redirect:/storeStatus?store_id=" + store_id;
 	}
 
-	// 캘린더
-	@RequestMapping(value = "/storecalendar")
-	public String store6() {
-
-		return "calendar";
-	}
+//	// 캘린더
+//	@RequestMapping(value = "/storecalendar")
+//	public String store6() {
+//
+//		return "calendar";
+//	}
 
 	// 업체용 회원가입
 	@RequestMapping(value = "/storeJoin")
