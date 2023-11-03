@@ -275,9 +275,10 @@ span {
 	<div class="main-banner2">
 		<div class="slide_div_wrap">
 			<div class="slide_div">
-				<img alt="메인배너1" src="/dda/image/메인배너.png"> <img
-					alt="mainLogo2" src="/dda/image/mainLogo2.png"> <a href="event?nickname=${personal.nickname}"><img
+			<a href="event?nickname=${personal.nickname}"><img
 					alt="mainLogo3" src="/dda/image/mainLogo3.png"></a>
+				<img alt="메인배너1" src="/dda/image/메인배너.png"> <img
+					alt="mainLogo2" src="/dda/image/mainLogo2.png"> 
 			</div>
 		</div>
 	</div>

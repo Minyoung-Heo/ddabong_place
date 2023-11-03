@@ -169,4 +169,9 @@
 	<delete id="storeReviewDelete">
 		delete review where reservation_num=#{param1}
 	</delete>
+	
+<!-- 	캘린더 -->
+<select id="calendar" resultType="com.ezen.dda.personalfunction.ReservationDTO">
+select * from reservation where store_id = #{param1}
+</select>
 </mapper>
