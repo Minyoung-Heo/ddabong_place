@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@page import="com.ezen.dda.personalfunction.ReservationDTO"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <meta charset='UTF-8'>
@@ -24,12 +30,30 @@
             timeZone: 'Asia/Seoul',
             locale: 'ko',
             initialView: 'dayGridMonth',
-            events: [
-                {
-                	title: ${store.id},
-                    start: '2023-11-18 10:30:00',
-                    end: '2023-11-18 12:30:00'
+            editable: true, // 수정 가능?
+            selectable: true, // 달력 일자 드래그 설정가능,
+            select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+                var title = prompt('일정을 추가하세요 :');
+                if (title) {
+                  calendar.addEvent({
+                    title: title,
+                    start: arg.start,
+                    end: arg.end,
+                    allDay: arg.allDay
+                  })
                 }
+                calendar.unselect()
+              },
+            events: [
+            	 <%ArrayList<ReservationDTO> arr = (ArrayList<ReservationDTO>)request.getAttribute("arr"); %>
+            	    <%for(ReservationDTO dto : arr) {
+            	    %>
+            	    	{
+                            title: '<%= dto.getReservation_name()%>',
+                            start: '<%= dto.getReservation_date().substring(0,11)+ dto.getReservation_time()%>'
+                        },
+            	    <%}%>
+            	   
             ],
             headerToolbar: {
                 left: 'prev,next today',
@@ -37,6 +61,7 @@
                 right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             }
         });
+        
 
         /* // "ADD" 버튼 클릭 이벤트 핸들러 추가
         $(document).on("click", "#add", function () {

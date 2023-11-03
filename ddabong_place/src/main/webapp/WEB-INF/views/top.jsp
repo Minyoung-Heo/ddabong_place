@@ -173,6 +173,7 @@ width="44px" height="52px" style="margin-left:200px; margin-top:40px;">
 				<a href="storepwcheck">마이페이지</a><br>
 				<a href="storeinput?store_id=${store.id}">매장 등록</a><br>
       <a href="storemodifyview?store_id=${store.id}">매장 정보 수정</a><br>
+            <a href="storecalendar?store_id=${store.id}">일정 캘린더</a><br>
       <a href="storeStatus?store_id=${store.id}">예약 리스트</a><br>
       <a href="waitinglist?store_id=${store.id}">웨이팅 리스트</a><br>
             <a href="gocafe">카페 보러가기</a><br>

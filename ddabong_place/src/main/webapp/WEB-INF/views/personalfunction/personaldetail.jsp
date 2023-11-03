@@ -6,16 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <script type="text/javascript">
-   function goToScroll() {
-      var location = document.querySelector(".scroll").offsetTop;
-      window.scrollTo({
-         top : location,
-         behavior : 'smooth'
-      });
-   }
    $(function() {
 	   $(".reviewsubmit").click(function(event) {
 		   event.preventDefault();
@@ -968,5 +960,14 @@ $(document).ready(function() {
          </table>
       </div>
    </c:forEach>
+   <script type="text/javascript">
+   function goToScroll() {
+	      var location = document.querySelector(".scroll").offsetTop;
+	      window.scrollTo({
+	         top : location,
+	         behavior : 'smooth'
+	      });
+	   }
+   </script>
 </body>
 </html>
