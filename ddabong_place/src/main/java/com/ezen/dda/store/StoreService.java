@@ -1,9 +1,6 @@
 package com.ezen.dda.store;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.dda.personalfunction.ReservationDTO;
 
@@ -60,4 +57,7 @@ public interface StoreService {
 	// 예약 삭제
 	public void storeReservationDelete(String reservation_num); 
 	public void storeReviewDelete(String reservation_num); 
+	
+	// 캘린더
+	public ArrayList<ReservationDTO> calendar(String store_id);
 }
