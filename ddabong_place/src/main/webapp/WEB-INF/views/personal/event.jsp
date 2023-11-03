@@ -120,10 +120,9 @@
 				<span style="color: #FF8C00;">${qq.nickname}님</span>
 				<c:choose>
 					<c:when test="${qq.nickname == personal.nickname}">
-						<span class="modifyc">↺ 수정</span>
 						<span class="deletec"
 							onclick="location.href='deletecontent?nickname=${qq.nickname}'">✘
-							삭제</span>
+							삭제</span><span class="modifyc">↺ 수정</span>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
