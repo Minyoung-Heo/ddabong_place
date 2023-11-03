@@ -170,4 +170,4 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 
 
-## 📌 [다른 기능 더 보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
+## 📌 [다른 기능 상세보기](https://plant-decision-6e3.notion.site/DDABONG_PLACE-873f879a889944158439a8ec38fb319d?pvs=4)
