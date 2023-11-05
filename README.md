@@ -145,6 +145,11 @@ UI/UX 설계 / 업체 측 매장 CRUD / 즐겨찾기 목록 / 카페 추천 결�
 
 ![웨이팅](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1f27ba1e-d3a3-4609-9981-7e5b47c296b4)
 
+- 웨이팅 중복 확인  
+
+![웨이팅중복확인](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fa32e1af-d1d0-4283-b6a4-58dfe4bb39d9)
+
+  
 - 웨이팅 취소
 
 ![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fbf30495-e160-4ee6-b544-262551e98087)
