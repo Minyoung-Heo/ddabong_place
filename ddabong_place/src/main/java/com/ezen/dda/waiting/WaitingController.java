@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class WaitingController {
@@ -102,5 +103,18 @@ public class WaitingController {
 			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
 			waitingService.enter(store_id); // 대기자 호출
 			return "redirect:/main";
+		}
+		
+		// ajax 중복 웨이팅 검사
+		@ResponseBody
+		@RequestMapping(value="/waitingcheck")
+		public String waitcheck(String store_id, String customer_id) {
+			WaitingService waitingService = sqlSession.getMapper(WaitingService.class);
+			WaitingDTO dto = waitingService.waitingcheck(store_id, customer_id);
+			if(dto != null) {
+				return "no";
+			} else {
+				return "ok";
+			}
 		}
 }

@@ -354,7 +354,7 @@ input[type=file]::file-selector-button:hover {
    position: relative;
    float: left;
    font-size: 40px;
-   margin-top: 8.5px;
+/*    margin-top: 8.5px; */
    padding-top: 55px;
    margin-bottom: 10px;
    margin-left: 21px;
