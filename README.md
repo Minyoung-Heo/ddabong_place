@@ -25,14 +25,14 @@
 
   
 ## 👨‍👩‍👧‍👦 팀 소개
-
+<div align="center">
 |   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
 | :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | Profile  |<img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c2edf185-9e5a-4706-91f4-a6ffaa4cbed6" width="127px" height="160px">|<img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/250f59e9-d021-4719-9faf-cfd6779c6037" width="127px" height="160px">|<img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5d0ab7b5-8c8b-4e8b-8117-f655cfb8207f" width="127px" height="160px">|<img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/402bddbb-c316-4d8b-b7da-c814bd01317d" width="127px" height="160px">| 
 | Position | 팀장 & Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
 |   E-mail    | heo8821@naver.com| wjdqls1199@naver.com| ahj13k@naver.com| pyo6659@naver.com|
-
+</div>
 ### 🧑‍💻 역할 
 **허민영**  
 DB 설계 및 ERD 제작 / 메인화면 / 이달의 따봉왕 / 따봉 어워드 / 예약 HOT 랭킹 / Q & A / 웨이팅 / 카페 리스트 / 업체 측 회원 정보 관리 / 리뷰 삭제 /
