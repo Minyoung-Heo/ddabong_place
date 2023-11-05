@@ -26,10 +26,10 @@
   
 ## 👨‍👩‍👧‍👦 팀 소개
 
-|   Name   | 허민영                               | 박정빈                                            | 안형진                             | 표가은                                                       |
+|   Name   | 허민영 [Leader]                              | 박정빈                                            | 안형진                             | 표가은                                                       |
 | :------: | ------------------------------------ | ------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | Profile  |<p align="center"><img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/c2edf185-9e5a-4706-91f4-a6ffaa4cbed6" width="127px" height="160px"></p>|<p align="center"><img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/250f59e9-d021-4719-9faf-cfd6779c6037" width="127px" height="160px"></p>|<p align="center"><img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/5d0ab7b5-8c8b-4e8b-8117-f655cfb8207f" width="127px" height="160px" ></p>|<p align="center"><img src = "https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/402bddbb-c316-4d8b-b7da-c814bd01317d" width="127px" height="160px"></p>| 
-| Position | 팀장<br> Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
+| Position | Front/Backend Develop  | Backend Develop                                  | Front/Backend Develop                   | Front/Backend Develop                              |
 |   Git    | [@Minyoung-Heo](https://github.com/Minyoung-Heo) | [@JbPark1199](https://github.com/JbPark1199)            | [@BrotherZin](https://github.com/BrotherZin) | [@gaeunpyo](https://github.com/gaeunpyo)                 |
 |   E-mail    | heo8821@naver.com| wjdqls1199@naver.com| ahj13k@naver.com| pyo6659@naver.com|
 
