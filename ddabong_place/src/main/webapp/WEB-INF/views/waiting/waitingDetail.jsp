@@ -23,6 +23,18 @@ function cancel() {
 		location.href = "cancelwaiting?store_id=${waitingDTO.store_id}&waiting_num=${waitingDTO.waiting_num}";
 	}
 }
+
+$(function(){
+	if(${waitingDTO.waiting_num == 0}){
+		setTimeout(function() {
+			alert("5분 동안 입장하지 않아 자동으로 웨이팅이 취소됐습니다.");
+			location.href='enter?store_id=${waitingDTO.store_id}';
+		}, 5000);
+	}
+});
+
+
+
 </script>
 </head>
 <body>
@@ -34,9 +46,11 @@ function cancel() {
 <c:choose>
 <c:when test="${waitingDTO.waiting_num == 0}">
 지금 바로 입장해주세요!!<br>
-입장 시 가게 앞 직원에게 화면을 보여주세요 :)<br>
+입장 시 가게 앞 직원에게 화면을 보여주세요 :)<br><br>
+<span style="color:gray;">(5분 내에 입장하지 않으면 웨이팅이 자동으로 취소되며 다음 순서로 넘어가게 됩니다.)</span><br>
 <input class="btn" type="button" value="입장하기" 
-onclick="location.href='enter?store_id=${waitingDTO.store_id}'"><br>
+onclick="location.href='enter?store_id=${waitingDTO.store_id}'">
+<input class="btn" type="button" value="웨이팅 취소" onclick="cancel()">
 </c:when>
 <c:otherwise>
 순서가 다가오면 가게 앞에서 기다려주세요 :)<br>

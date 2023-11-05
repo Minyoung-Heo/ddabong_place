@@ -45,9 +45,53 @@
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#waitingcheck").click(function(event){
+		var f = document.gowait;
+		var cname = f.name.value;
+		var vname = /^[가-힣]{1,}$/;
+		if(!vname.test(cname)){
+			alert("이름을 한글로 입력해주세요.");
+			f.name.select();
+			return false;
+		}
+		
+		var cphone = f.phone.value;
+		var vphone = /^[\d-]{11,}$/;
+		if(!vphone.test(cphone)){
+			alert("전화번호를 입력해주세요.");
+			f.phone.select();
+			return false;
+		}
+		$.ajax({
+			type : "post",
+			url : "waitingcheck",
+			async : true,
+			data : {
+				store_id : "${store_id}", 
+				customer_id : "${personal.id}"
+				},
+			success : function(result) {
+				if(result == "no"){
+					alert("이미 대기 중인 가게입니다.");
+				} else {
+					if(confirm("웨이팅을 등록하시겠습니까?")) {
+						f.submit();
+					}
+				}
+			},
+			error : function() {
+				alert("error");
+			}
+		});
+	});
+});
+</script>
 <script type="text/javascript">
 $(function() {
 	var num = 1;
+	$("#person_num").val(num);
 	// 인원수 증가버튼
 	$("#plus").click(function() {
 				num = num + 1;
@@ -61,7 +105,7 @@ $(function() {
 		$("#person").html(num);
 		$("#person_num").val(num);
 		}
-});
+	});
 });
 </script>
 </head>
@@ -73,7 +117,7 @@ $(function() {
 	<br>
 	<br><br><br>
 	<h1>웨이팅 등록</h1>
-	<form action="waitingSave" method="post">
+	<form action="waitingSave" method="post" name="gowait">
 	<table class="wait">
 	<input type="hidden" name="store_id" value="${store_id}">
 	<input type="hidden" name="customer_id" value="${personal.id}">
@@ -89,7 +133,7 @@ $(function() {
 	</tr>
 	
 	<tr><td colspan="2" style="text-align: center;">
-	<input class="btn" type="submit" value="웨이팅 걸기"></td></tr>
+	<input class="btn" id="waitingcheck" type="button" value="웨이팅 걸기"></td></tr>
 	</table>
 	</form>
 </c:when>
