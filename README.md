@@ -150,7 +150,8 @@ UI/UX 설계 / 유스케이스 다이어그램 제작 / 업체 측 매장 CRUD /
 
 - 웨이팅
 
-![웨이팅](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/1f27ba1e-d3a3-4609-9981-7e5b47c296b4)
+![웨이팅등록](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/ae8e62f4-c40d-4f78-9bef-eda5387ac4ba)
+
 
 - 웨이팅 중복 확인  
 
@@ -159,16 +160,22 @@ UI/UX 설계 / 유스케이스 다이어그램 제작 / 업체 측 매장 CRUD /
   
 - 웨이팅 취소
 
-![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fbf30495-e160-4ee6-b544-262551e98087)
+![웨이팅취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/bb8b719b-26d0-4cf6-a271-ceed92786e96)
+
 
 - 업체 측 웨이팅 호출
 
-![웨이팅호출](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/fc51b875-53a5-44ab-a16c-801475ca1814)
+![호출하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/891056f5-b243-416c-af10-1a57366d3b4b)
 
 
 - 손님 측 웨이팅 입장하기
 
-![손님입장하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/08b6dd14-2326-4682-a97b-a03002168f50)
+![입장하기](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/d0174563-9209-4a87-beaa-5e40d697d2f7)
+
+
+- 5분 내에 입장하지 않으면 자동취소
+
+![자동취소](https://github.com/Minyoung-Heo/ddabong_place/assets/143155386/cbf50b12-fa00-4cce-8177-9c93797e708a)
 
 
 **리뷰**
