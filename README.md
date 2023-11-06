@@ -105,7 +105,7 @@ UI/UX 설계 / 유스케이스 다이어그램 제작 / 업체 측 매장 CRUD /
 <summary><b> Environment & Tool</b></summary>
 <ul>
   <li>Windows 11</li>
-  <li>Eclipse(2022-12)</li>
+  <li>STS(3.9.18)</li>
   <li>Git</li>
   <li>GitHub</li>
   <li>Fork</li>
