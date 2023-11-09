@@ -254,7 +254,7 @@ public class StoreController {
 		return "redirect:/storeStatus?store_id=" + store_id;
 	}
 
-	// 캘린더
+	// 캘린더로 예약 출력
 	@RequestMapping(value = "/storecalendar", method = RequestMethod.GET)
 	public String store6(HttpServletRequest request, Model mo) {
 		String store_id = request.getParameter("store_id");

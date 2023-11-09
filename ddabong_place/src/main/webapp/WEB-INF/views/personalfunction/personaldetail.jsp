@@ -354,7 +354,7 @@ input[type=file]::file-selector-button:hover {
    position: relative;
    float: left;
    font-size: 40px;
-   margin-top: 8.5px;
+/*    margin-top: 8.5px; */
    padding-top: 55px;
    margin-bottom: 10px;
    margin-left: 21px;
@@ -733,7 +733,7 @@ $(document).ready(function() {
                      <h4>${regi.address}</h4> <br>
                      <div id="map" style="width: 850px; height: 350px;"></div> <script
                         type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2b65117f32feec536060b1456570ed1&libraries=services"></script>
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a720d64ada1b8b6160cfec29db00d711&libraries=services"></script>
                      <script>
                         var mapContainer = document
                               .getElementById('map'), // 지도를 표시할 div 

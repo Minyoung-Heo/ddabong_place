@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.ezen.dda.cafe.CafeDTO;
 import com.ezen.dda.cafe.CafeService;
 
+
 @Controller
 public class PersonalFnController {
 	@Autowired
@@ -246,7 +247,7 @@ public class PersonalFnController {
 
 		return "redirect:/myStatus?customer_id=" + customer_id;
 	}
-
+		
 	// 따봉 클릭
 	@RequestMapping(value = "/ddainput", method = RequestMethod.GET)
 	public String ddainput(HttpServletRequest request) {

@@ -13,4 +13,5 @@ public interface WaitingService {
 	public void call(String store_id, int waiting_num); // 대기자 호출
 	public void enter(String store_id); // 입장 완료
 	public ArrayList<WaitingDTO> totalWaiting(); // 현재 대기 인원 구하기
+	public WaitingDTO waitingcheck(String store_id, String customer_id); // 웨이팅 중복 확인
 }

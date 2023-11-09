@@ -320,11 +320,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/store/storeStatus.jsp" />
 	</definition>
-	<!-- 매장 예약 캘린더 -->
-	<definition name="storecalendar" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 매장 예약 캘린더" />
+	<!-- 매장 예약 캘린더 출력 -->
+	<definition name="calendar" extends="baseLayout">
+		<put-attribute name="title" value="따봉플레이스 | 일정 보기" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/store/storecalendar.jsp" />
+			value="/WEB-INF/views/store/calendar.jsp" />
 	</definition>
 	<!-- 매장 예약하기 -->
 	<definition name="reservation" extends="baseLayout">
@@ -421,13 +421,6 @@
 		<put-attribute name="title" value="따봉플레이스 | 카페 리스트" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cafe/cafeOut.jsp" />
-	</definition>
-
-	<!-- 캘린더 예비용 -->
-	<definition name="calendar" extends="baseLayout">
-		<put-attribute name="title" value="따봉플레이스 | 일정 보기" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/store/calendar.jsp" />
 	</definition>
 
 	<!-- 매장 계정 정보 보기 -->

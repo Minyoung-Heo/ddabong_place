@@ -37,5 +37,4 @@ public interface PersonalFnService {
 	
 	public void reviewDelete(int review_num);
 
-
 }

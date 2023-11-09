@@ -42,4 +42,8 @@ delete from waiting where store_id = #{param1} and waiting_num = 0
 select store_id, count(*) as totalwaiting from waiting group by store_id
 </select>
 
+<select id="waitingcheck" resultType="com.ezen.dda.waiting.WaitingDTO">
+select * from waiting where store_id = #{param1} and customer_id = #{param2}
+</select>
+
 </mapper>
